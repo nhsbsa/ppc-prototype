@@ -1,0 +1,81 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Buy a prescription prepayment
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  
+  <div class="done-panel">
+    <h2 class="heading-large"><span id="done-tick"> </span>Your payment was sucessful</h2>
+    <h2 class="heading-large">You have prepaid for your prescriptions from <br>{{startdate}} to {{enddate}} </h2>
+    <h3 class="heading-medium">Your certificate number is 869 467 589</h3>
+  </div>
+  
+  <div class="grid-row">
+    <!--div class="column-two-thirds">
+
+    <div class="details">
+      <h2 class="heading-medium">Pre-paymentetails</h2>
+      <p class="valid">Valid dates</p>
+      <h2 class="heading-medium bignumbers"><span>from:</span> 20 June 2016</h2>
+      <h2 class="heading-medium bignumbers"><span>to:</span> 21 June 2017</h2> 
+    </div>
+    </div-->
+    
+    <div class="column-two-thirds">
+      <p>{{receipt}}</p>
+      
+      <h2 class="heading-medium">Collecting a prescription</h2>
+
+      <p>
+        Tell the pharmacy staff you have a prescription prepayment. You will need to tick box F on the back of the prescription.
+      </p>
+      
+      <h3 class="heading-small">Tell us if something changes</h3>
+      <p>
+        It is important to tell us if your name or address changes so that they match the details on your prescriptions. You can use this service to keep your details up to date. You can also change the way we contact you.
+      </p>
+
+      <hr>
+      <ul class="options-list">
+        <li><a class="icon print-icon" href="">Print this</a></li>
+        <li><a class="icon download-icon" href="">Download this (PDF 55k)</a></li>
+      </ul>
+      <hr>
+      
+      <p>We will email you again in {{reminder}} to remind you when your prescription cover will end.</p>
+      
+      
+      <!--
+      <ul>
+        <li>A copy of your certificate has been emailed to <a href="../5/exemption/hc3email">m.smith@inter.net</a></li>
+        <li><a href="exemption/hc3certificate">View my certificate</a></li>
+        <li><a href="/public/images/hc3.pdf" target="blank">Download my certificate</a></li>
+        
+        <li>      
+          <details>
+            <summary><span class="summary">I can't access my certificate</span></summary>
+            <div class="panel panel-border-narrow">
+              <p>
+                If you don't have access to a printer or this is not your own computer we can <a href=#>send a copy in the post</a>
+              </p>
+            </div>
+          </details>
+        </li>
+
+      </ul>
+      -->
+      
+    </div>
+    
+  </div>
+    <div class="form-group">
+      <input class="button" type="submit" value="Finish" href="feedback">
+    </div>
+  
+</main>
+
+{% endblock %}

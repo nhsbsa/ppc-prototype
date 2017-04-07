@@ -1,0 +1,70 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Buy a prescription prepayment
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+  <div class="text">
+
+    <h1 class="heading-large">
+      Confirm your payment
+    </h1>
+    <table>
+      <tr>
+        <td>Card number</td>
+        <td>{{cardnumber}}</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      <tr>
+        <td>Expiry date</td>
+        <td>{{exdate}}</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      <tr>
+        <td>Name on card</td>
+        <td>{{holdername}}</td>
+        <td><a href="">Change</a></td>
+      </tr>
+<!--
+      <tr>
+        <td>Billing address</td>
+        <td>{{holderaddress}}</td>
+        <td><a href="">Change</a></td>
+      </tr>
+-->
+      <tr>
+        <td>Payment of</td>
+        <td>{{cardpaymentinfo}}</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      <tr>
+        <td>Amount to pay</td>
+        <td>{{cost}}</td>
+        <td><a href="">Change</a></td>
+      </tr>
+    </table>
+    <p></p>
+    <form action="done-v3" method="get" class="form">
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input class="button" type="submit" value="Confirm and pay" >
+        </div>
+      </div>
+    </form>
+    
+    <p class="navigation"><a class="cancel" href="start">Cancel payment</a></p>
+
+  </div>
+  </div>
+  </div>
+  
+</main>
+
+{% endblock %}

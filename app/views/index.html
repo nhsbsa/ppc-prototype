@@ -1,62 +1,36 @@
-{% extends "layout.html" %}
+{% extends "layout_bsa.html" %}
 
 {% block page_title %}
-  GOV.UK prototype kit
+  Buy a prescription prepayment
 {% endblock %}
 
 {% block content %}
 
 <main id="content" role="main">
-  <div class="grid-row">
-    <div class="column-two-thirds">
+  <h1 class="heading-xlarge">NHS Business Services Authority <br>Prescription prepayment prototypes</h1>
 
-      <h1 class="heading-xlarge">
-        The GOV.UK prototype kit
-        <span class="heading-secondary">{{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
-      <p>
-        This kit lets you rapidly create HTML prototypes of GOV.UK services.
-      </p>
+  <h3 class="heading-large">Latest version</h3>
+   
+  <p>
+    <a href="ppc/index">Version 3 - Created April 2017</a>
+  </p>
+  
+  <h3 class="heading-large">Previous versions</h3>
+  
+  <h3 class="heading-small">Version 2 - March 2017</h3>
 
-      <p>
-        It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
-      </p>
+  <ul class="list list-bullet">
+    <li><a href="/public/images/bsa/versions/s1-dd-payment.pdf">Single payment (PDF)</a></li>
+    <li><a href="/public/images/bsa/versions/s1-one-off-payment.pdf">Direct debit (PDF)</a></li>
+  </ul>
+  
+  <h3 class="heading-small">Version 1 - January 2017</h3>
 
-      <h2 class="heading-medium">About this page</h2>
+  <ul class="list list-bullet">
+    <li><a href="/public/images/bsa/versions/s1-dd-payment.pdf">Single payment (PDF)</a></li>
+    <li><a href="/public/images/bsa/versions/s1-one-off-payment.pdf">Direct debit (PDF)</a></li>
+  </ul>
 
-      <p>We recommend you add links to your prototype to this page, rather than delete it.
-        You'll find this page in the kit at '/app/views/index.html'.</p>
-      <p>You can change the service name by editing the file '/app/config.js'.</p>
-
-			<h2 class="heading-medium">Examples and documentation</h2>
-
-			<ul class="list list-bullet">
-				<li><a href="/docs/tutorials-and-examples">Example pages and documentation</a></li>
-				<li><a href="https://github.com/alphagov/govuk_prototype_kit">GitHub</a></li>
-			</ul>
-
-      <h2 class="heading-medium">Other resources</h2>
-
-			<ul class="list list-bullet">
-				<li>
-					<a href="https://govuk-elements.herokuapp.com/snippets/">
-						Guide to GOV.UK Elements
-					</a>
-				</li>
-				<li>
-					<a href="https://www.gov.uk/service-manual">
-						Service design manual
-					</a>
-				</li>
-				<li>
-					<a href="https://www.gov.uk/design-principles">
-						Government Digital Service Design Principles
-					</a>
-				</li>
-			</ul>
-
-    </div>
-  </div>
 </main>
 
 {% endblock %}

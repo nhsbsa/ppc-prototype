@@ -1,0 +1,104 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Buy a prescription prepayment
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  
+  <div class="grid-row">
+    
+    <div class="column-third right-floater">
+
+      <div class="payment-summary-small">
+        
+        <h2>Payment summary</h2>
+        
+        <p class="payment-info">12 month prescription prepayment</p>
+        
+        <h3>Amount to pay:</h3>
+        
+        <p class="payment-info">10 payments of £10.40</p>
+        
+      </div>
+
+    </div>
+    
+      <div class="column-two-thirds left-floater">
+      
+      <h1 class="heading-large">Enter bank details</h1>
+      
+      <form class="form" method="get" action="dd-handler">
+        
+        <div class="form-group">
+          
+          <label class="form-label-bold" for="cardnumber">
+            Account number
+          </label>
+          
+          <input class="form-control medium-width" id="cardnumber" name="cardnumber" type="number">          
+          
+        </div>
+
+        <div class="form-group">
+          
+          <fieldset>
+            
+            <div class="form-date">
+              
+              <legend class="form-label-bold">
+                Sort code	
+              </legend>
+              
+                <div class="form-group form-group-month">
+                  
+                  <input class="form-control" id="exmonth" name="exmonth" type="number">
+                  
+                </div>
+              
+                <div class="form-group form-group-month">
+                  
+                  <input class="form-control" id="exyear" name="exyear" type="number">
+                  
+              </div>
+              
+                <div class="form-group form-group-month">
+                  
+                  <input class="form-control" id="exyear" name="exyear" type="number">
+                  
+              </div>
+          </div>
+          </fieldset>
+          
+        </div>
+
+        <div class="form-group">
+          
+          <label class="form-label-bold" for="holdername">
+            Account holder's full name
+          </label>
+          
+          <input class="form-control max-width" id="holdername" name="holdername" type="text">
+          
+        </div>
+        
+        <div class="form-item-wrapper">
+          <div class="form-group">
+            <input class="button" type="submit" value="Next">
+          </div>
+        </div>
+        <div class="form-item-wrapper">
+          <a href="#">Cancel</a>
+        </div>
+      
+      </form>
+    
+    </div>
+    
+  </div>
+	
+</main>
+
+{% endblock %}
