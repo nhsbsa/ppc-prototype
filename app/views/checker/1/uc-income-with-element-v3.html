@@ -1,0 +1,210 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .column-half {
+            border-style: solid;
+    border-width: 2px;
+    border-color: lightgray;
+    padding: 1em;
+    margin: 1em 0em 1em 1em;
+    width: 47%;
+        height:550px;
+    }
+    @media (max-width: 641px) {
+  .column-half {
+    width: 92%;
+    margin: 1em 1em 0em 1em;
+      padding:15px;
+      height:auto;
+  }
+}
+    .uc-statement{
+        width:90%;
+            display: block;
+    margin-left: auto;
+    margin-right: auto }
+    }
+
+    @media (max-width: 641px) {
+  .uc-statement {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+  }
+}
+</style>
+<main id="content" role="main">
+<a href="javascript:history.go(-1)" class="link-back">Back</a>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+       <!--3- Are you named on a Tax Credits Exemption certificate-->
+
+         <form action="uc-element-income-handler" method="get" class="form">
+
+<!--    <h1 class="heading-large">In your last Universal Credit period was {{combinedOrText}} take-home pay £935 or less?</h1>-->
+<!--    single-->
+                        <h1 class="heading-large">{{singleJointUC}}</h1>
+<!--   joint-->
+
+
+<p>Take-home pay is what you are paid from work after tax, National Insurance and any pension contributions have been taken out.</p>
+             </div>
+      </div>
+
+<details>
+
+  <summary><span class="summary">Where do I find my take-home pay?</span></summary>
+  <div class="grid-row">
+   <div class="column-half">
+  <h2 class="heading-medium">
+    If you have a Universal Credit account online
+  </h2>
+       <p>Your take-home pay is shown on your online Statement.</p>
+       <p>It's under the heading <strong>'Other support you may be able to get'</strong>.</p>
+        <img class="uc-statement" src="/public/images/uc-online.png" alt="an image showing that your take-home pay is towards the bottom of your statement, under the heading 'Other Support you may be able to get" >
+             </div>
+              <div class="column-half">
+  <h2 class="heading-medium">
+    If you get a monthly Universal Credit payment letter
+  </h2>
+                  <p>Your take-home pay is shown on your Universal Credit monthly payment letter.</p>
+                  <p>It's usually on page 2 under the heading <strong>'3. We then take account of your take-home pay'</strong>.</p>
+        <img class="uc-statement" src="/public/images/uc-statement-letter.png" style="" alt="an image showing that your take-home pay is on page 2 of your Universal Credit monthly payment letter, under the heading'3. We then take account of your take-home pay'">
+
+            </details>
+             </div>
+            <br>
+
+
+      <div class="form-item-wrapper">
+        <fieldset>
+          <div class="inline-form-groups">
+            <div class="form-group">
+              <input type="radio" id="yes" name="ucelementIncome" value="yes">
+              <label class="form-control-radio" for="yes">
+                Yes
+              </label>
+            </div>
+            <div class="form-group">
+              <input type="radio" id="no" name="ucelementIncome" value="no">
+              <label class="form-control-radio" for="no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+<!--submit button-->
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+
+  </form>
+      </div>
+<!--  <div class="column-third " id="lists">
+
+      <div class="right-col-details">
+
+
+
+          <h3 class="heading-medium">What you get free </h3>
+
+<ul class="form-hint-list">
+    <li class="form-hint-list-item  form-hint-list-item--valid">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+        Prescriptions
+    </li>
+
+    <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+         NHS Sight test
+    </li>
+
+    <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+        Glasses or contact lenses
+    </li>
+
+            <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all1">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+        NHS wigs
+    </li>
+
+    <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all2">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+        Travel for treatment
+    </li>
+
+    <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all3" >
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+        NHS dental exam
+    </li>
+
+    <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all4">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+         NHS dental treatment
+    </li>
+</ul>
+
+
+
+      </div> -->
+
+    </div>
+    </div>
+
+</main>
+
+<!--<script>
+$("#yes").click(function(){
+    $("#all").removeClass("hidden");
+    $("#all1").removeClass("hidden");
+    $("#all2").removeClass("hidden");
+    $("#all3").removeClass("hidden");
+    $("#all4").removeClass("hidden");
+}); </script>
+<script>
+$("#no").click(function(){
+    $("#all").addClass("hidden");
+    $("#all1").addClass("hidden");
+    $("#all2").addClass("hidden");
+    $("#all3").addClass("hidden");
+    $("#all4").addClass("hidden");
+}); </script>
+<script>-->
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

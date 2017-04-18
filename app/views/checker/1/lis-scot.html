@@ -1,0 +1,213 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+    .panel__column{
+        background-color: #F8F8F8;
+border-left-width: 3px;
+box-sizing: border-box;
+clear: both;
+border-left-style: solid;
+border-color: #bfc1c3;
+padding: 0.7894736842em;
+margin-bottom: 0.7894736842em;
+
+    }
+    .left{
+        padding-left:0px;
+    }
+    .dodont{
+background-color: #F8F8F8;
+width: 48%;
+float: left;
+margin-right: 2%;
+border: 10px solid #dee0e2;
+    }
+
+    .panel--binary{
+        padding: 1.2em 0 1.2em 0;
+     }
+    @media (max-width: 641px) {
+  .panel--binary {
+       padding: 0; }
+    }
+
+.column-half {
+  padding: 0 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@media (max-width: 641px) {
+  .column-half {
+    float: left;
+    width: 100%;
+    margin-top:1em;
+      border: 3px solid #bfc1c3;
+  }
+}
+
+.content-block ol.steps,article ol.steps {
+	padding-left:0;
+	margin-left:0;
+    margin-bottom:0;
+	overflow:hidden;
+}
+    .content-block ol.steps2{
+	padding-left:0;
+	margin-left:0;
+     margin-bottom:0;
+	overflow:hidden;
+}
+.content-block ol.steps>li,article ol.steps>li {
+	background-position:0 0.87em;
+	background-repeat:no-repeat;
+	list-style-type:decimal;
+	margin-left:0;
+	padding:0.75em 0 0 2.2em
+}
+    .content-block ol.steps2>li{
+	background-position:0 0.87em;
+	background-repeat:no-repeat;
+	list-style-type:decimal;
+	margin-left:0;
+	padding:0.75em 0 0 2.2em
+}
+.content-block ol.steps>li:nth-child(1),article ol.steps>li:nth-child(1) {
+	background-image:url(https://assets.publishing.service.gov.uk/static/icon-steps/icon-step-1-4d6351dedaee517e9fc84bc030fe7a9f04f876a30dc95ec28bbd0cabd1d94210.png)
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+	.content-block ol.steps>li:nth-child(1),article ol.steps>li:nth-child(1) {
+		background-image:url(https://assets.publishing.service.gov.uk/static/icon-steps/icon-step-1-2x-1e99d30f52eef13744bcce8fe79d7057b79e56134c2456ffc1dd2c02203abed8.png);
+		background-size:24px 24px
+	}
+}
+.content-block ol.steps2>li:nth-child(1),article ol.steps2>li:nth-child(1) {
+	background-image:url(https://assets.publishing.service.gov.uk/static/icon-steps/icon-step-2-fe28a816d0187a23b9c4164f92ef7f7d494ea9d5d92fbcdb43b441981083c342.png)
+
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+	.content-block ol.steps2>li:nth-child(1),article ol.steps2>li:nth-child(1) {
+		background-image:url(https://assets.publishing.service.gov.uk/static/icon-steps/icon-step-2-2x-a7267f61d550c519691b6df11d6d87c52784f7e2050933c6306fb75fc07106f7.png);
+		background-size:24px 24px
+	}
+}
+
+    .circle-step {
+    min-width: 24px;
+    min-height: 24px;
+    line-height: 24px;
+}
+.circle {
+    display: inline-block;
+    border-radius: 50%;
+    background: #0b0c0c;
+    color: #fff;
+    font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+    .box-heading{
+        padding-top:0;
+    }
+    .big-bottompadding{
+        padding-bottom:2em;
+            height: 7.4em;
+    }
+    @media (max-width: 641px) {
+  .big-bottompadding {
+    padding-bottom:0;
+      height:auto;
+  }
+}
+    .heading-half{
+        font-size:1.9rem;
+        line-height: 1.3em;
+    }
+
+    .hidden-content
+{position:absolute;
+left:-10000px;
+top:auto;
+width:1px;
+height:1px;
+    overflow:hidden;
+    }
+
+    .box-height{
+        height:4.65em;
+    }
+      @media (max-width: 641px) {
+  .box-height {
+      height:auto;
+  }
+}
+</style>
+
+
+<main id="content" role="main">
+<a href="javascript:history.go(-1)" class="link-back">Back</a>
+
+  <div class="grid-row content-block">
+    <div class="column-two-thirds">
+
+  <h1 class="heading-large">
+            <span class="heading-secondary">Based on what you've told us:</span>
+      <br>
+There are two ways you could get help with your health costs</h1>
+
+  <article class="panel panel--binary" role="alert">
+
+  <div class="column-half dodont" id="get">
+    <div class="panel__content">
+
+<h2 class="heading-medium heading-half">Apply for help to pay for NHS costs</h2>
+
+            <p>If you find it hard to pay your NHS costs, you could get help if your left with less than £128 after you pay your council tax and housing costs.</p>
+        <p>How much help you get depends on your household income and outgoings.</p>
+        <p>You don't have to be claiming benefits to apply.</p>
+
+<p class="box-height">Any help you're entitled to is also available to your partner.</p>
+            <p><a class="button button-get-started" href="http://www.nhsbsa.nhs.uk/1125.aspx" id="next">Find out more</a></p>
+    </div>
+  </div>
+
+
+  <div class="column-half dodont" id="not">
+    <div class="panel__content">
+
+        <h2 class="heading-medium heading-half">Buy a prescription prepayment certificate</h2>
+        <p>A prescription prepayment certificate (PPC) could save you money if you regularly get prescriptions.</p>
+
+<p>You can buy a PPC to cover the cost of all your prescriptions for 3 or 12 months.</p>
+<p>One prescription costs £8.40 but a PPC costs:</p>
+<ul class="list-bullet">
+    <li>£29.10 for 3 month
+</li>
+    <li>£104 for 12 months</li>
+</ul>
+
+
+        <p><a class="button button-get-started" href="http://www.nhsbsa.nhs.uk/1127.aspx" id="next">Find out more</a></p>
+    </div>
+  </div>
+</article>
+     </div>
+    </div>
+
+
+</div>
+
+
+		</main>
+
+{% endblock %}

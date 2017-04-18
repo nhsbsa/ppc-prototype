@@ -1,0 +1,75 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+
+<main id="content" role="main">
+<a href="javascript:history.go(-1)" class="link-back">Back</a>
+
+  <div class="grid-row content-block">
+    <div class="column-two-thirds">
+
+
+  <h1 class="heading-large">
+      <span class="heading-secondary">Based on what you've told us:</span>
+      <br>
+      You can't get free help but could still save money on your precriptions</h1>
+
+        <p>If you often get more than one prescription a month, for 3 months or more, you could save money with a Prescription Prepayment Certificate.</p>
+
+       <ul class="list-bullet">
+           <li>A three month certificate is £29.10<br>
+           <span class="hint-text">It could save you money if you need more than 3 prescribed items in 3 months.</span></li>
+           <li>A yearly certificate is £104.00<br>
+           <span class="hint-text">It could save you money if you need more than 12 prescribed items in a year.</span></li>
+
+           <p class="panel-indent-body">To spread the cost, yearly Prescription Prepayment Certificates can be paid for by 10 monthly direct debit instalments of £10.40.</p>
+        </ul>
+
+        <h2 class="heading-medium">How much you could save</h2>
+         <table>
+         <thread>
+          <tr>
+            <th>Number of prescriptions per month</th>
+            <th>Savings with a 12 month certificate</th>
+            <th>Savings with a 3 month certificate</th>
+          </tr>
+          </thread>
+          <tbody>
+          <tr>
+            <td class="td">2</td>
+            <td>over £95 a year</td>
+            <td>over £20 in 3 months</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>over £195 a year</td>
+            <td>over £45 in 3 months</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>over £295 a year</td>
+            <td>over £70 in 3 months</td>
+          </tr>
+          </tbody>
+        </table>
+
+<br>
+        <p><a class="button button-get-started" href="https://apps.nhsbsa.nhs.uk/ppcwebsales/patient.do" id="next">Buy a certificate</a></p>
+
+
+
+
+    </div>
+
+
+  </div>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+ {% extends 'templates/nhs_transaction_layout.html' %}
+ 
+
+<!--
+{% block afterHeader %}
+  {% include "includes/service-headers/health-costs-checker.html" %}
+{% endblock %}
+-->
+
+{% block content %}
+<style>span.hint {
+    color: #6f777b;
+}</style>
+
+<main id="content" role="main">
+<a href="javascript:history.go(-1)" class="link-back">Back</a>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+             <form action="uc-type-handler" method="get" class="form">
+               <h2 class="heading-large">Do {{partnerortext}} get any of these additional elements of Universal Credit? </h2>
+
+      <ul class="list-bullet">
+          <li><strong>Child element</strong>- because you're resonsible for a child or young person who normally lives with you.</li>
+          <li><strong>Limited capability for work</strong>- because you have a disability or health condition that makes it hard for you to work.</li>
+      </ul>
+
+      <div class="form-item-wrapper">
+        <fieldset>
+          <div class="inline-form-groups">
+            <div class="form-group">
+              <input id="yes" name="ucElement" type="radio" value="yes">
+              <label class="form-control-radio" for="yes">
+                Yes
+              </label>
+            </div>
+            <div class="form-group">
+              <input id="no" name="ucElement" type="radio" value="no">
+              <label class="form-control-radio" for="no">
+                No
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+<!--submit button-->
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+
+  </form>
+      </div>
+
+    </div>
+
+
+</main>
+
+
+{% endblock %}
+
+
+
+
+
+

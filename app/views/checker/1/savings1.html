@@ -1,0 +1,53 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+<a href="javascript:history.go(-1)" class="link-back">Back</a>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+  <h1 class="heading-large">
+    Do {{partnerortext}} have more than £16,000 in savings, investments or properties?
+  </h1>
+  <p>The property you live in doesn't count.</p>
+
+  <form action="saving-handler" method="get" class="form">
+      <div class="form-item-wrapper">
+        <fieldset>
+          <div class="inline-form-groups">
+            <div class="form-group">
+              <input type="radio" id="yes" name="savings" value="yes">
+              <label class="form-control-radio" for="yes">
+                Yes
+              </label>
+            </div>
+            <div class="form-group">
+              <input type="radio" id="no" name="savings" value="no">
+              <label class="form-control-radio" for="no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+<!--submit button-->
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+
+  </form>
+    </div>
+
+    </div>
+    </div>
+
+</main>
+

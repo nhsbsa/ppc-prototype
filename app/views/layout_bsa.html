@@ -1,0 +1,19 @@
+{% extends "govuk_template_unbranded.html" %}
+
+{% block head %}
+  <link href="/public/stylesheets/bsa.css" media="screen" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block header_content %}
+  {% include "bsa_head.html" %}
+{% endblock %}
+   
+{% block footer_support_links %}
+  {% if useAutoStoreData %}
+   
+  {% endif %}
+{% endblock %}
+    
+{% block body_end %}
+  {% include "includes/scripts.html" %}
+{% endblock %}

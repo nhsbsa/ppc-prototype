@@ -1,0 +1,110 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+
+<main id="content" role="main">
+  <a href="javascript:history.go(-1)" class="link-back">Back</a>
+  
+  <div class="grid-row">
+    <div class="column-two-thirds">
+     
+      <form action="country-b4-handler" method="get" class="form">
+       
+        <h1 class="heading-large">
+          What country do you live in? 
+        </h1>
+        
+        <div class="form-group">
+          <fieldset>
+            <legend class="visuallyhidden">
+              What country do you live in?
+            </legend>
+<!--England-->
+            <div class="multiple-choice" data-target="gp-england">
+              <input id="englandBeta" type="radio" name="countryBeta" value="englandBeta">
+              <label for="englandBeta">England</label>
+            </div>
+            
+<!--toggle-Eng-->          
+            <div class="panel panel-border-narrow js-hidden panel-hidden" id="gp-england">
+              <h2 class="heading-medium">
+                Is your GP practice in Scotland or Wales?
+              </h2>
+              
+              <fieldset class="inline">
+                <legend class="visually-hidden">Is your GP practice in Scotland or Wales?</legend>
+                <div class="multiple-choice">
+                  <input id="yes" type="radio" name="gp" value="Yes">
+                  <label for="yes">Yes</label>
+                </div>
+                <div class="multiple-choice">
+                  <input id="no" type="radio" name="gp" value="No">
+                  <label for="no">No</label>
+                </div>
+              </fieldset>
+              
+            </div>
+            
+<!--Scotland-->
+            <div class="multiple-choice" data-target="highlands">
+              <input id="scotlandBeta" type="radio" name="countryBeta" value="scotlandBeta">
+              <label for="scotlandBeta">Scotland</label>
+            </div>
+            
+<!--toggle-Eng--> 
+            <div class="panel panel-border-narrow js-hidden panel-hidden" id="highlands">
+              <h2 class="heading-medium">
+                Do you live in the Highlands and Islands?
+              </h2>
+              
+              <fieldset class="inline">
+                <legend class="visually-hidden">Do you live in the Highlands and Islands?</legend>
+                <div class="multiple-choice">
+                  <input id="highlandyes" type="radio" name="highisland" value="Yes">
+                  <label for="highlandyes">Yes</label>
+                </div>
+                <div class="multiple-choice">
+                  <input id="highlandno" type="radio" name="highisland" value="No">
+                  <label for="highlandno">No</label>
+                </div>
+              </fieldset>
+              
+            </div>                      
+<!--Wales-->
+            <div class="multiple-choice">
+              <input id="walesBeta" type="radio" name="countryBeta" value="walesBeta">
+              <label for="walesBeta">Wales</label>
+            </div>
+            
+<!--Northern Ireland-->
+            <div class="multiple-choice">
+              <input id="northernIrelandBeta" type="radio" name="countryBeta" value="northernIrelandBeta">
+              <label for="northernIrelandBeta">Northern Ireland</label>
+            </div>
+            
+          </fieldset>
+        </div>
+        
+<!--submit button-->
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+
+
+
+
+
+

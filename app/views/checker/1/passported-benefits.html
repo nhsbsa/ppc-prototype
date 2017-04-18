@@ -1,0 +1,89 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+<a href="javascript:history.go(-1)" class="link-back">Back</a>
+
+
+ <div class="grid-row">
+    <div class="column-two-thirds">
+
+  <h1 class="heading-large">
+      Do {{partnerortext}} get any of these benefits?
+  </h1>
+
+  <form action="passportedBen-handler" method="get" class="form">
+    <div class="form-item-wrapper">
+      <div class="form-group">
+        <input type="radio" id="incomeSupport" name="benefits" value="incomeSupport">
+        <label class="form-control-radio" for="incomeSupport">
+          Income Support
+        </label>
+      </div>
+      <div class="form-group">
+        <input type="radio" id="uniCredit" name="benefits" value="uniCredit">
+        <label class="form-control-radio" for="uniCredit">
+          Universal Credit
+        </label>
+      </div>
+      <div class="form-group">
+        <input type="radio" id="jsa" name="benefits" value="jsa">
+        <label class="form-control-radio" for="jsa">
+          Income-based Job Seeker's Allowance (JSA)
+        </label>
+      </div>
+      <div class="form-group">
+        <input type="radio" id="esa" name="benefits" value="esa">
+        <label class="form-control-radio" for="esa">
+          Income-related Employment &amp; Support Allowance (ESA)
+        </label>
+      </div>
+    <div class="form-group">
+        <input type="radio" id="penCredit" name="benefits" value="penCredit">
+        <label class="form-control-radio" for="penCredit">
+          Pension Credit (Guarantee Credit)
+        </label>
+      </div>
+      <p class="form-block">or</p>
+      <div class="form-group">
+        <input type="radio" id="continue" name="benefits" value="continue">
+        <label class="form-control-radio" for="continue">
+          No, {{iWe}} don't get any of these
+        </label>
+      </div>
+
+         <details>
+  <summary><span class="summary">Benefits with similar names</span></summary>
+<p>There are some benefits with similar names.  Select 'No' if you get one of these benefits:</p>
+           <ul class="list-bullet">
+           <li><span>Contribution-based Job Seekers Allowance</span><span class="hint">&nbsp;(JSA)</span></li>
+           <li><span>Contribution-based Employment Support Allowance</span><span class="hint">&nbsp;(ESA)</span></li>
+           <li><span>Pension Credit and Savings Credit</span></li>
+           </ul>
+           <p>If you're not sure what benefit you get contact <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus</a></p>
+           </div>
+           </p>
+            </details>
+
+<!--submit button-->
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+          </div>
+
+  </form>
+    </div>
+
+
+    </div>
+    </div>
+
+</main>
+{% endblock %}

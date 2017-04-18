@@ -1,0 +1,72 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+<style>
+    .form-hint-list-item--valid {
+	color:#231f20
+}
+    .secondary-text{
+    color:#667078
+}
+</style>
+
+<main id="content" role="main">
+    <a href="javascript:history.go(-1)" class="link-back">Back</a>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+  <h1 class="heading-large">
+      <span class="heading-secondary">Based on what you've told us:</span>
+      <br>You can get full help with health costs</h1>
+
+        <p class="intro-to-list">Because you get help from your local council to pay for your carehome, you can get help towards: </p>
+
+    <ul class="form-hint-list">
+    <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__indicator"></span>
+        NHS Prescriptions
+    </li>
+    <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__indicator"></span>
+        NHS Dental treatment
+    </li>
+    <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__indicator"></span>
+        Sight tests, glasses and contact lenses
+    </li>
+    <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__indicator"></span>
+        NHS wigs and fabric supports
+    </li>
+
+    <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+         Travel to receive NHS treatment <!--<br><span class="secondary-text">When referred by a GP or hospital doctor, dentist or optician-->
+        </span>
+        </li>
+     </ul>
+
+      {{
+        form_macros.button({
+          classes: 'button-get-started',
+          href: '#',
+          label: 'Next'
+        })
+      }}
+
+    </div>
+
+    </div>
+    </div>
+
+</main>
+
+
+{% endblock %}

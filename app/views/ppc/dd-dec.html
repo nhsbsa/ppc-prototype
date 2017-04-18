@@ -1,0 +1,47 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Buy a prescription prepayment
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+  <div class="grid-row">
+    
+    <div class="column-two-thirds">
+
+      <!-- <p class="navigation"><a class="back-to-previous">Back</a></p> -->
+
+      <h1 class="heading-large">
+        Confirm and submit
+      </h1>
+      
+      <p>By submitting you are agreeing to pay 10 installments of £10.40.</p>
+       	 
+      <p>If instalments are not kept up and an alternative method of payment is not provided, you are not entitled to use the certificate.</p>
+      
+      <p>If you use the certificate after failing to pay an instalment, you may have to pay a penalty charge.</p>
+      
+      <p>If you do not pay all of the Direct Debit instalments for your certificate you will not be able to pay by this method in the future.</p>
+ 	 
+      
+      <form class="form" method="get" action="done-v3">
+        <div class="form-item-wrapper">
+          <div class="form-group">
+            <input class="button" type="submit" value="Confirm and submit">
+          </div>
+        </div>
+        <div class="form-item-wrapper">
+          <a href="#">Cancel</a>
+        </div>
+      </form>
+      
+    </div>
+    
+  </div>
+  
+</main>
+
+{% endblock %}

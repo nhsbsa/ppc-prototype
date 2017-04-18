@@ -1,0 +1,51 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+<a href="javascript:history.go(-1)" class="link-back">Back</a>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+         <form action="taxcredits-under20" method="get" class="form">
+
+    <h2 class="heading-large">Do {{partnerortext}} claim tax credits?</h2>
+
+      <div class="form-item-wrapper">
+        <fieldset>
+          <div class="inline-form-groups">
+            <div class="form-group">
+              <input type="radio" id="yes" name="taxcredits" value="yes">
+              <label class="form-control-radio" for="yes">
+                Yes
+              </label>
+            </div>
+            <div class="form-group">
+              <input type="radio" id="no" name="taxcredits" value="no">
+              <label class="form-control-radio" for="no">
+                No
+              </label>
+              </div>
+          </div>
+        </fieldset>
+      </div>
+
+<!--submit button-->
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+
+  </form>
+      </div>
+
+    </div>
+    </div>
+
+</main>
+

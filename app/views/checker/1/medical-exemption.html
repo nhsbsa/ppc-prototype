@@ -1,0 +1,146 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+<style>
+.callout--attention {
+    border: 8px solid #0072ce;
+}
+.callout {
+    padding: 32px;
+}</style>
+
+<main id="content" role="main">
+  <a href="javascript:history.go(-1)" class="link-back">Back</a>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+    <h2 class="heading-large">Do you have any of these long-term illnesses?</h2>
+
+                   <ul class="list-bullet">
+
+                 <li><strong>Cancer and are undergoing treatment</strong>
+                     <br>Including treatment for the effects of cancer or the effects of cancer treatment.</li>
+
+
+
+                <li><strong>Diabetes - type 1 or type 2</strong>
+                    <br>Which needs medication to keep your blood sugar levels stable
+                 </li>
+
+              <li><strong>Epilepsy</strong> <br>Which needs continuous anticonvulsive therapy</li>
+
+                 <li><strong>A continuing physical disability</strong>
+                     <br>Which means you can't go out without the help of another person</li>
+
+                     <li><strong>A permanent fistula which needs continuous surgical dressing or an appliance</strong>
+                     <br>For example, caecostomy, colostomy, laryngos-tomy or ileostomy.</li>
+
+<!--
+                 <li><strong>You need a continuous surgical dressing or an appliance</strong>
+                     <br>Like a tracheotomy or need to use a stoma</li>
+-->
+
+                 <li><strong>Diabetes insipidus and other forms of hypopituitarism</strong>
+
+
+
+<!--
+                    <li><strong>Myxoedema</strong>
+                     <br>For example, an underactive thyroid gland (Hypothyroidism) which needs thyroid hormone replacement</li>
+-->
+
+
+                 <li><strong>Myxoedema</strong>
+                    <br>For example, hypothyroidism which needs thyroid hormone replacement</li>
+
+                  <li><strong>Hypoparathyroidism</strong>
+                 <br>Which means your parathyroid glands produce too little parathyroid hormone</li>
+
+                <li><strong>Hypoadrenalism, where specific substitution therapy is essential</strong>
+                     <br>For example, Addison’s Disease</li>
+
+
+                <li><strong>Myasthenia gravis</strong>
+                <br>Where an autoimmune condition affects the nerves and muscles</li>
+
+
+
+               </ul>
+<!--
+               <section class="callout callout--attention">
+
+
+
+<div class="reading-width">
+
+    <h2 id="see-your-gp-if">See your GP if:</h2>
+<ul>
+<li>your symptoms don’t improve after 7 days</li>
+<li>you’re worried about your child’s symptoms</li>
+<li>you’re 65 or over</li>
+<li>you’re pregnant</li>
+<li>you have a long-term medical condition – for example, diabetes or a heart, lung, kidney or neurological disease</li>
+<li>you have a weakened immune system – for example, because of chemotherapy or HIV</li>
+</ul>
+
+
+</div>
+
+
+</section>
+-->
+
+        <div class="additional-info" style="padding-bottom:1.5rem; padding-top:1.5rem">If you're unsure about the name of your condition or treatment, check with your doctor. </div>
+        <br>
+
+       <form action="illness-b4" method="get" class="form">
+      <div class="form-item-wrapper">
+        <fieldset>
+          <div class="inline-form-groups">
+            <div class="form-group">
+              <input id="yes" name="illness" type="radio" value="yes">
+              <label class="form-control-radio" for="yes">
+                Yes
+              </label>
+            </div>
+            <div class="form-group">
+              <input id="no" name="illness" type="radio" value="no">
+              <label class="form-control-radio" for="no">
+                No
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+    {{
+      form_macros.button({
+        label: 'Next',
+      })
+    }}
+  </form>
+      </div>
+    </div>
+
+
+</main>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

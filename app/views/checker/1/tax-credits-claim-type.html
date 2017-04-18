@@ -1,0 +1,174 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+<a href="javascript:history.go(-1)" class="link-back">Back</a>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+       <!--3- Are you named on a Tax Credits Exemption certificate-->
+         <form action="taxcredit-type-handler" method="get" class="form">
+
+    <h2 class="heading-large">What type of tax credits do you {{parenttext}} get?</h2>
+
+      <div class="form-item-wrapper">
+        <fieldset>
+          <div class="form-group">
+
+            <div class="form-group">
+              <input type="radio" id="wtcctc" name="taxcreditsType" value="wtcctc">
+              <label class="form-control-radio" for="wtcctc">
+                Working Tax Credit and Child Tax Credit together
+              </label>
+            </div>
+
+            <div class="form-group">
+              <input type="radio" id="ctcdis" name="taxcreditsType" value="ctcdis">
+              <label class="form-control-radio" for="ctcdis">
+                Working Tax credit on its own, including a disability element
+              </label>
+            </div>
+
+            <div class="form-group">
+              <input type="radio" id="ctc" name="taxcreditsType" value="ctc">
+              <label class="form-control-radio" for="ctc">
+                Child Tax Credit on its own
+              </label>
+            </div>
+
+            <p class="form-block">or</p>
+            <div class="form-group">
+              <input type="radio" id="wtc" name="taxcreditsType" value="wtc">
+              <label class="form-control-radio" for="wtc">
+                  Working Tax Credits on its own
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+<!--submit button-->
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+
+  </form>
+      </div>
+<!--  <div class="column-third " id="lists">
+
+      <div class="right-col-details">
+
+
+
+          <h3 class="heading-medium">What you get free </h3>
+
+<ul class="form-hint-list">
+    <li class="form-hint-list-item  form-hint-list-item--valid">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+        Prescriptions
+    </li>
+
+    <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+         NHS Sight test
+    </li>
+
+    <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+        Glasses or contact lenses
+    </li>
+
+            <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all1">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+        NHS wigs
+    </li>
+
+    <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all2">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+        Travel for treatment
+    </li>
+
+    <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all3" >
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+        NHS dental exam
+    </li>
+
+    <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all4">
+        <span class="form-hint-list-item__primary">
+            <span class="form-hint-list-item__indicator"></span>
+        </span>
+         NHS dental treatment
+    </li>
+</ul>
+
+
+
+      </div> -->
+
+    </div>
+    </div>
+
+</main>
+<!--
+<script>
+$("#wtcctc").click(function(){
+    $("#all").removeClass("hidden");
+    $("#all1").removeClass("hidden");
+    $("#all2").removeClass("hidden");
+    $("#all3").removeClass("hidden");
+    $("#all4").removeClass("hidden");
+}); </script>
+<script>
+$("#ctcdis").click(function(){
+    $("#all").removeClass("hidden");
+    $("#all1").removeClass("hidden");
+    $("#all2").removeClass("hidden");
+    $("#all3").removeClass("hidden");
+    $("#all4").removeClass("hidden");
+}); </script>
+<script>
+$("#ctc").click(function(){
+    $("#all").removeClass("hidden");
+    $("#all1").removeClass("hidden");
+    $("#all2").removeClass("hidden");
+    $("#all3").removeClass("hidden");
+    $("#all4").removeClass("hidden");
+}); </script>
+<script>
+$("#wtc").click(function(){
+    $("#all").addClass("hidden");
+    $("#all1").addClass("hidden");
+    $("#all2").addClass("hidden");
+    $("#all3").addClass("hidden");
+    $("#all4").addClass("hidden");
+}); </script>
+<script>-->
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,99 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+<style>
+.import-panel {
+    font-weight: bold;
+    padding: 20px 0px 10px 40px;
+    background: url("/public/images/icon-information.png") no-repeat scroll 0px center;
+    }
+    .form-hint-list-item--valid{
+    color:black;
+    }
+</style>
+
+
+
+<main id="content" role="main">
+<a href="javascript:history.go(-1)" class="link-back">Back</a>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+<h1 class="heading-large">
+      <span class="heading-secondary">Based on what you've told us:</span>
+      <br>You get full help with health costs</h1>
+
+        <p class="intro-to-list">Anyone who gets {{bentype}} or is named on the claim, gets free:</p>
+
+       <ul class="form-hint-list">
+    <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__indicator"></span>
+        NHS prescriptions
+    </li>
+    <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__indicator"></span>
+        NHS dental treatment
+    </li>
+    <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__indicator"></span>
+        NHS Sight tests
+    </li>
+    <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__indicator"></span>
+        NHS wigs and fabric supports
+    </li>
+        </ul>
+
+         <p class="intro-to-list">
+           They'll also get help towards the cost of:
+        <ul>
+                <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__indicator"></span>
+       new glasses or contact lenses
+    </li>
+        </ul>
+            <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__indicator"></span>
+        repairing or replacing their glasses or contact lenses
+    </li>
+        </ul>
+
+    <li class="form-hint-list-item form-hint-list-item--valid">
+        <span class="form-hint-list-item__indicator"></span>
+        Travel to receive NHS treatment
+    </li>
+        </ul>
+
+<br>
+
+<h2 class="heading-medium">What you should do next</h2>
+
+                     <p>You may have to show proof you or your parents get {{bentype}}.</p>
+
+    <p>You can use your Statement of Benefits as proof. Get a copy of yours by contacting the <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus Helpline</a>.
+                    </p>
+          <br>
+
+
+      </div>
+
+      </div>
+
+
+
+
+    </div>
+
+</main>
+
+
+{% endblock %}
+
+
+

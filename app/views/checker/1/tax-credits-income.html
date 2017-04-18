@@ -1,0 +1,84 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+<a href="javascript:history.go(-1)" class="link-back">Back</a>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+       <!--3- Are you named on a Tax Credits Exemption certificate-->
+
+         <form action="taxcredit-income-handler" method="get" class="form">
+
+    <h2 class="heading-large">{{partnerandtextdo}} {{parenttext}} have a household income of £15,276 or less?</h2>
+
+
+<details>
+  <summary role="button" aria-controls="details-content-0" tabindex="0" aria-expanded="true"><span class="summary">What is a household income?</span></summary>
+
+  <div class="panel-indent" id="details-content-0" aria-hidden="false" style="display: block;">
+
+      <p>This is the income that HMRC used to work out your Tax Credit payments for the last tax year.</p>
+<!--
+      <p>It is made up of either:</p>
+    <ul class="list-bullet">
+        <li>you and your partner's income, or</li>
+        <li>your parent or guardian's income</li>
+      </ul>
+-->
+
+    <p>You can find your household income on your current tax credit award notice or contact the <a href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/tax-credits-enquiries">Tax Credit Helpline</a>.</p>
+    <img>
+  </div>
+</details>
+
+      <div class="form-item-wrapper">
+        <fieldset>
+          <div class="inline-form-groups">
+            <div class="form-group">
+              <input type="radio" id="yes" name="taxcreditsIncome" value="yes">
+              <label class="form-control-radio" for="yes">
+                Yes
+              </label>
+            </div>
+            <div class="form-group">
+              <input type="radio" id="no" name="taxcreditsIncome" value="no">
+              <label class="form-control-radio" for="no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+<!--submit button-->
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+
+  </form>
+      </div>
+
+
+    </div>
+    </div>
+
+</main>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

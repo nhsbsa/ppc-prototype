@@ -1,0 +1,97 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Buy a prescription prepayment
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+  <div class="text">
+
+    <h1 class="heading-large">
+      Confirm your direct debit details
+    </h1>
+    
+    <h3 class="heading-small table-head">Your account details</h3>
+    
+    <table id="review-table-two">
+      <tr>
+        <td>Account number</td>
+        <td>**** **** **** 7470</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      <tr>
+        <td>Sort code</td>
+        <td>** ** 01</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      <tr>
+        <td>Account holder's full name</td>
+        <td>{{holdername}}</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      <tr>
+        <td>Account holder's address</td>
+        <td>{{holderaddress}}</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      
+      <tr>
+        <td class="strong">Your payments</td>
+      </tr>
+
+      <tr>
+        <td>Number of payments</td>
+        <td>10</td>
+        <td><a href=""> </a></td>
+      </tr>
+      <tr>
+        <td>Payment amount</td>
+        <td>£10.40</td>
+        <td><a href=""> </a></td>
+      </tr>
+      <tr id="fp">
+        <td>First payment</td>
+        <td>{{startdate}}</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      <tr id="lp">
+        <td>Last payment</td>
+        <td>10 November 2017</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      <tr id="renew">
+        <td>Renew every year</td>
+        <td id="renew-answer">{{autorenew}}</td>
+        <td><a href="education">Change</a></td>
+      </tr>
+      <tr id="renew-start">
+        <td>Renewal payments start</td>
+        <td>01 January 2018</td>
+        <td><a href="education">Change</a></td>
+      </tr>
+
+    </table>
+    <br>
+    <form action="dd-dec" method="get" class="form">
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+    </div>
+    </form>
+    
+    <p class="navigation"><a class="cancel" href="start">Cancel payment</a></p>
+
+  </div>
+  </div>
+  </div>
+  
+</main>
+
+{% endblock %}
