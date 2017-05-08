@@ -325,3 +325,37 @@ table {
 .panel-hidden{
     margin-bottom:2em;
 }
+
+.form-hint-list-item {
+  margin: 0 0 0.6em 0;
+  display: table;
+}
+
+.form-hint-list-item__indicator {
+  vertical-align: middle;
+  margin-right: .26316em;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url("../images/bullet-icon.svg");
+}
+
+
+.form-hint-list-item--valid .form-hint-list-item__indicator {
+  background-image: url("/public/images/bsa/tick-green.svg");
+}
+
+.form-hint-list-item--false {
+  color: black;
+}
+
+.form-hint-list-item--false .form-hint-list-item__indicator {
+  background-image: url("/public/images/bsa/cross-red.svg");
+}
+
+.form-hint-list-item__primary {
+  display: table-cell;
+  padding-right: 0.25em;
+}

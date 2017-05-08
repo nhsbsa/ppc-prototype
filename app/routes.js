@@ -18,6 +18,8 @@ var applicant = person.createPerson(
   this.age = undefined,
   this.need = undefined,
   this.country = "england",
+  this.gp = undefined,
+  this.highlands = undefined,
   this.education = undefined,
   this.namedOnTaxCredits = undefined,
   this.claimsTaxCredits = false,
@@ -96,7 +98,7 @@ var querystring = require('querystring');
     });
 
 
-          // partner handler v2
+     // partner handler v2
     router.get(/p2-handler/, function (req, res) {
       sprint = req.url.charAt(5);
       if (req.query.partner === 'yes') {
@@ -110,21 +112,54 @@ var querystring = require('querystring');
       }
       setPartnerText(applicant.partner);
         if(applicant.age >= 20) {
-          res.render('sprints/b4/tax-credits-over20', {
+          res.render('checker/1/tax-credits-over20', {
             'partnerortext' : partnerOrText,
               'iwe' : iWe
             });
         } else {
-            res.render('sprints/b4/tax-credits-under20', {
+            res.render('checker/1/tax-credits-under20', {
                 'partnerortext' : partnerOrText,
                 'iwe' : iWe
             });
         }
     });
-    
 
 
-    // dob-2-handler
+ 	// country-handler with scotland and wales added
+      router.get(/country-b4-handler/, function (req, res) {
+      if (req.query.countryBeta  === 'englandBeta'){
+        res.redirect('gp-country');
+      } else if (req.query.countryBeta  === 'scotlandBeta') {
+        applicant.country = "scotland";
+    	res.redirect('highlands-islands');
+      } else if (req.query.countryBeta  === 'walesBeta') {
+        res.redirect('date-of-birth');
+      } else {
+        res.redirect('results/country-kickout-ni');
+      }
+    });
+
+	// GP in Scotland or Wales
+      router.get(/gp-handler/, function (req, res) {
+      if (req.query.gpScot === 'yes') {
+      	applicant.gp = "scotWales";
+	  	res.redirect('date-of-birth');
+      } else {
+        res.redirect('date-of-birth');
+      }
+    });
+
+   	// highlands or islands
+      router.get(/higlands-handler/, function (req, res) {
+      if (req.query.highIslands === 'yes') {
+      	applicant.highlands = "highlands";
+	  	res.redirect('date-of-birth');
+      } else {
+        res.redirect('date-of-birth');
+      }
+    });
+
+    // dob-handler
     router.get(/dateofbirth-handler/, function (req, res) {
       applicant.age = (thisYear - req.query.dobyearBeta);
       console.log(applicant.age);
@@ -142,42 +177,11 @@ var querystring = require('querystring');
       }
     });
 
- // country-handler with scotland and wales added
-      router.get(/country-b4-handler/, function (req, res) {
-      if (req.query.countryBeta  === 'englandBeta'&& req.query.gp === 'No'){
-        res.redirect('date-of-birth');
-      } else if (req.query.countryBeta  === 'englandBeta'&& req.query.gp === 'Yes'){
-        res.redirect('date-of-birth');
-      } else if (req.query.countryBeta  === 'scotlandBeta') {
-        applicant.country = "scotland";
-        res.render('checker/1/date-of-birth', {
-            sightText : variText.sightText
-        });
-      } else if (req.query.countryBeta  === 'walesBeta') {
-        res.redirect('date-of-birth');
-      } else {
-        res.redirect('results/country-kickout-ni');
-      }
-    });
-//      router.get(/country-b4-handler/, function (req, res) {
-//      if (req.query.countryBeta  === 'englandBeta'&& req.query.gp === 'no'){
-//        res.redirect('../date-of-birth');
-//      } else if (req.query.countryBeta  === 'englandBeta'&& req.query.gp === 'yes'){
-//        res.redirect('../results/prescription-eng');
-//      } else if (req.query.countryBeta  === 'scotlandBeta') {
-//        res.render('sprints/b4/results/country-kickout-scot', {
-//            sightText : variText.sightText
-//        });
-//      } else if (req.query.countryBeta  === 'walesBeta') {
-//        res.redirect('../results/country-kickout-wales');
-//      } else {
-//        res.redirect('../results/country-kickout-ni');
-//      }
-//    });
-
+     
 
     // full time higher education handler
       router.get(/fte-higher-handler/, function (req, res) {
+
       if (req.query.ftehigher  === 'yes'){
       res.redirect('results/full-exemption-fte');
       } else {
@@ -185,45 +189,21 @@ var querystring = require('querystring');
       }
     });
 
-    // tax credits exemption card 19yo
-      router.get(/tc-card-19yo-handler/, function (req, res) {
-      if (req.query.tc19Card  === 'yes'){
-        res.redirect('../taxcredit-info-shortcut');
-      } else if (req.query.tc19Card  === 'nk') {
-        res.redirect('../tax-credits-19yo');
-      } else {
-        res.redirect('../passported-benefits');
-      }
-    });
-
-            // tax credits exemption card
-      router.get(/tc-card-handler/, function (req, res) {
-      if (req.query.tcCard  === 'yes'){
-        res.redirect('../taxcredit-info-shortcut');
-      } else if (req.query.tcCard  === 'nk') {
-        res.redirect('../tax-credits');
-      } else {
-        res.redirect('../passported-benefits');
-      }
-    });
+	     // tax credits claim yes or no under 20
+	  router.get(/taxcredits-under20/, function (req, res) {
+	  applicant.namedOnTaxCredits = req.query.taxcredits;
+	  if (applicant.namedOnTaxCredits === 'yes' || applicant.namedOnTaxCredits === 'nk' ) {
+	    setPartnerText(applicant.partner);
+	    res.render('checker/1/tax-credits-income', {
+	    'partnerandtextdo' : partnerAndTextDo
+	  });
+	  } else {
+	    res.redirect('tax-credits-under20-parents');
+	  }
+	}); 
 
 
-
-    // tax credits claim yes or no under 20
-      router.get(/taxcredits-under20/, function (req, res) {
-      applicant.namedOnTaxCredits = req.query.taxcredits;
-      if (applicant.namedOnTaxCredits === 'yes' || applicant.namedOnTaxCredits === 'nk' ) {
-        setPartnerText(applicant.partner);
-        res.render('sprints/b4/tax-credits-income', {
-        'partnerandtextdo' : partnerAndTextDo
-      });
-      } else {
-        res.redirect('../tax-credits-under20-parents');
-      }
-    });
-
-
-          // tax credits claim yes or no under 20
+          // tax credits claim under 20 parents
       router.get(/taxcredits-parents/, function (req, res) {
       if (req.query.taxcreditsParents  === 'yes'){
         parentTc = true;
@@ -233,7 +213,7 @@ var querystring = require('querystring');
       });
       } else {
         parentTc = false;
-        res.redirect('../passported-benefits-under20');
+        res.redirect('passported-benefits-under20');
       }
     });
 
@@ -241,9 +221,9 @@ var querystring = require('querystring');
       router.get(/taxcredits-over20/, function (req, res) {
       applicant.namedOnTaxCredits = req.query.taxcredits;
       if (applicant.namedOnTaxCredits === 'yes' || applicant.namedOnTaxCredits === 'nk' ) {
-        res.redirect('../tax-credits-income');
+        res.redirect('tax-credits-income');
       } else {
-        res.redirect('../passported-benefits');
+        res.redirect('passported-benefits');
       }
     });
 
@@ -252,65 +232,29 @@ var querystring = require('querystring');
     router.get(/taxcredit-income-handler/, function (req, res) {
         if (applicant.age < 20 ) {
             if (req.query.taxcreditsIncome === 'no') {
-                res.redirect('../passported-benefits-under20');
+                res.redirect('passported-benefits-under20');
             } else { //yes
                 if (parentTc === true) {
-                    res.render('sprints/b4/taxcredit-info', {
+                    res.render('checker/1/results/full-exemption-tc', {
                     'tctype' : tcType
             });
                 } else {
                     setPartnerText(applicant.partner);
-                    res.render('sprints/b4/tax-credits-claim-type', {
+                    res.render('checker/1/tax-credits-claim-type', {
                         'partnerortext' : partnerOrText
                     });
                 }
             }
         } else { //over 20
             if (req.query.taxcreditsIncome === 'no') {
-                res.redirect('../passported-benefits');
+                res.redirect('passported-benefits');
             } else {
-                    res.render('sprints/b4/taxcredit-info', {
+                    res.render('checker/1/results/full-exemption-tc', {
                     'tctype' : tcType
             });
             }
           }
     });
-
-
-//    // tax credits type handler
-//      router.get(/taxcredit-type-handler/, function (req, res) {
-//        if (applicant.age >= 20) {
-//            if (req.query.taxcreditsType ==="wtcctc") {
-//              var tcType = 'Working Tax Credit and Child Tax Credit together';
-//            } else if (req.query.taxcreditsType ==="ctcdis") {
-//              var tcType = 'Working Tax Credit including a disability element';
-//            } else if (req.query.taxcreditsType ==="ctc") {
-//              var tcType = 'Child Tax Credit';
-//            } else if (req.query.taxcreditsType === 'wtc' || req.query.taxcreditsType === 'no') {
-//                setPartnerText(applicant.partner);
-//                res.render('sprints/b4/passported-benefits', {
-//                    'partnerandtext' : partnerAndText
-//                });
-//            }
-//            res.render('sprints/b4/tax-credits-income');
-//        } else { //under 20
-//            if (req.query.taxcreditsType ==="wtcctc") {
-//              var tcType = 'Working Tax Credit and Child Tax Credit together';
-//            } else if (req.query.taxcreditsType ==="ctcdis") {
-//              var tcType = 'Working Tax Credit including a disability element';
-//            } else if (req.query.taxcreditsType ==="ctc") {
-//              var tcType = 'Child Tax Credit';
-//            } else if (req.query.taxcreditsType === 'wtc' || req.query.taxcreditsType === 'no') {
-//                setPartnerText(applicant.partner);
-//                res.render('sprints/b4/passported-benefits-under20', {
-//                    'partnercommatext' : partnerCommaText
-//                });
-//            }
-//            res.render('sprints/b3/taxcredit-info', {
-//                'tctype' : tcType
-//            });
-//        }
-//        });
 
       //new tax credits type handler
     var tcType;
@@ -327,23 +271,23 @@ var querystring = require('querystring');
         }
         if (applicant.age >= 20) {
           if (tcType === 'none') {
-            res.render('sprints/b4/passported-benefits', {
+            res.render('checker/1/passported-benefits', {
               'partnerortext' : partnerOrText,
                 'iwe' : iWe
             });
           } else {
-            res.render('sprints/b4/tax-credits-income', {
-                'partnerandtext' : partnerAndText
+            res.render('checker/1/tax-credits-income', {
+                'partnerandtextdo' : partnerAndTextDo
             });
           }
         } else {
           if (tcType === 'none') {
             setPartnerText(applicant.partner);
-            res.render('sprints/b4/passported-benefits-under20', {
+            res.render('checker/1/passported-benefits-under20', {
               'partnercommatext' : partnerCommaText
             });
           } else {
-            res.render('sprints/b4/taxcredit-info', {
+            res.render('checker/1/results/full-exemption-tc', {
               'tctype' : tcType
             });
           }
@@ -355,29 +299,29 @@ var benType;
       router.get(/passportedBen-u20/, function (req, res) {
         if (req.query.benefits ==="incomeSupport") {
           benType = 'Income Support';
-          res.render('sprints/b3/results/full-exemption-benefits', {
+          res.render('checker/1/results/full-exemption-benefits', {
             'bentype' : benType
           });
         } else if (req.query.benefits ==="uniCredit") {
           benType = 'Universal Credit';
           setPartnerText(applicant.partner);
-          res.render('sprints/b4/uc-claim-type-v2', {
+          res.render('checker/1/uc-claim-type-v2', {
             'bentype' : benType,
             'parenttext' : parentText
       });
         } else if (req.query.benefits ==="jsa") {
           benType = 'income based Job Seekers Allowance (JSA)';
-          res.render('sprints/b3/results/full-exemption-benefits', {
+          res.render('checker/1/results/full-exemption-benefits', {
             'bentype' : benType
           });
         } else if (req.query.benefits ==="esa") {
           benType = 'income related Employment and Support Allowance (ESA)';
-          res.render('sprints/b3/results/full-exemption-benefits', {
+          res.render('checker/1/results/full-exemption-benefits', {
             'bentype' : benType
           });
         } else if (req.query.benefits ==="penCredit") {
           benType = 'Pension Credit (Guarantee Credit)';
-          res.render('sprints/b3/results/full-exemption-benefits', {
+          res.render('checker/1/results/full-exemption-benefits', {
             'bentype' : benType
           });
         } else if (req.query.benefits === 'continue') {

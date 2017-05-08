@@ -5,7 +5,7 @@
   Help paying for NHS Costs prototype
 {% endblock %}
 
-{% block content %}s
+{% block content %}
 
 <main id="content" role="main">
 
@@ -17,35 +17,35 @@
     Do you live with a partner?
   </h1>
 
-<!--  <p>We use the term partner to mean a person you live with as part of a couple, whether or not you are married or in a civil partnership.</p>  -->
-
   <p>This means you live together as a couple, you don't have to be married or in a civil partnership.</p>
 
   <form action="p2-handler" method="get" class="form">
-      <div class="form-item-wrapper">
-        <fieldset>
-          <div class="inline-form-groups">
-            <div class="form-group">
-              <input type="radio" id="yes" name="partner" value="yes">
-              <label class="form-control-radio" for="yes">
-                Yes
-              </label>
+
+       <div class="form-group">
+          
+          <fieldset class="inline">
+            <legend class="visually-hidden">
+              Do you live with a partner?
+            </legend>
+
+            <div class="multiple-choice">
+              <input id="yes" type="radio" name="partner" value="yes">
+              <label for="yes">Yes</label>
             </div>
-            <div class="form-group">
-              <input type="radio" id="no" name="partner" value="no">
-              <label class="form-control-radio" for="no">
-                No
-              </label>
+
+            <div class="multiple-choice">
+              <input id="no" type="radio" name="partner" value="no">
+              <label for="no">No</label>
             </div>
-          </div>
-        </fieldset>
-      </div>
-      <div class="form-item-wrapper">
-<!--submit button-->
-        <div class="form-group">
-          <input class="button" type="submit" value="Next">
+            
+          </fieldset>  
+          
         </div>
-    </div>
+        
+          <div class="form-group">
+            <input class="button" type="submit"  value="Next">
+          </div>
+
       </form>
     </div>
     </div>
