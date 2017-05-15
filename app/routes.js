@@ -63,7 +63,9 @@ var variText = {
       partnerPlustext = 'your';
       singleJointUC = 'Was your take-home pay for your last Universal Credit period £935 or less?';
       singleJointUCElement = 'Was your take-home pay for your last Universal Credit period £435 or less?';
-      ucResults = 'Because you get Universal Credit and have a net income of £935 or less; you and any children under 20 included on your claim,'
+      ucResults = 'Because you get Universal Credit and have a net income of £935 or less; you,';
+      ucResultsElement = 'Because you get Universal Credit and have a net income of £435 or less; you and any children under 20 included on your claim,'
+
     } else {
       partnerBothText = 'you, your partner or both of you';
       partnerCommaText = 'you, your partner';
@@ -80,7 +82,9 @@ var variText = {
       partnerPlustext = "yours plus your partner's";
       singleJointUC = 'Did you and your partner have a combined take-home pay of £935 or less in your last Universal Credit period?'
       singleJointUCElement = 'Did you and your partner have a combined take-home pay of £435 or less in your last Universal Credit period?'
-      ucResults = 'Because you and your partner get Universal Credit and have a combined net income of £935 or less; you, your partner and any children under 20 included on your claim,';
+      ucResults = 'Because you and your partner get Universal Credit and have a combined net income of £935 or less; you and your partner,';
+      ucResultsElement = 'Because you and your partner get Universal Credit and have a combined net income of £435 or less; you, your partner and any children under 20 included on your claim,'
+  
   }
   };
 
@@ -317,7 +321,7 @@ var benType;
           benType = 'Universal Credit';
           setPartnerText(applicant.partner);
           res.render('checker/1/uc-claim-type-v2', {
-            'bentype' : benType,
+            'jointortext' : jointOrText,
             'parenttext' : parentText
       });
         } else if (req.query.benefits ==="jsa") {
@@ -360,7 +364,7 @@ var benType;
           benType = 'Universal Credit';
           setPartnerText(applicant.partner);
           res.render('checker/1/uc-claim-type-v2', {
-            'bentype' : benType,
+            'jointortext' : jointOrText,
             'partnerortext' : partnerOrText
       });
         } else if (req.query.benefits ==="jsa") {
@@ -418,7 +422,7 @@ var benType;
             router.get(/uc-without-elements-handler/, function (req, res) {
       if (req.query.ucIncome === 'yes') {
         res.render('checker/1/results/full-exemption-uc', {
-        'ucresults' : ucResults
+        'ucresultselement' : ucResultsElement
       });
       } else {
         res.redirect('pregnancy');

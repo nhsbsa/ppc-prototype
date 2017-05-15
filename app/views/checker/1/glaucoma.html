@@ -38,100 +38,12 @@
       </div>
 
 
-    {{
-      form_macros.button({
-        label: 'Next',
-        href:"carehome"
-      })
-    }}
-
-  </form>
-      </div>
- <div class="column-third " id="lists">
-
-      <div class="right-col-details">
-
-
-
-          <h3 class="heading-medium">What you get free </h3>
-
-<ul class="form-hint-list">
-    <li class="form-hint-list-item  form-hint-list-item--valid">
-        <span class="form-hint-list-item__primary">
-            <span class="form-hint-list-item__indicator"></span>
-        </span>
-        Prescriptions
-    </li>
-
-    <li class="form-hint-list-item form-hint-list-item--valid">
-        <span class="form-hint-list-item__primary">
-            <span class="form-hint-list-item__indicator"></span>
-        </span>
-         NHS Sight test
-    </li>
-
-    <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all">
-        <span class="form-hint-list-item__primary">
-            <span class="form-hint-list-item__indicator"></span>
-        </span>
-        Glasses or contact lenses
-    </li>
-
-            <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all1">
-        <span class="form-hint-list-item__primary">
-            <span class="form-hint-list-item__indicator"></span>
-        </span>
-        NHS wigs
-    </li>
-
-    <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all2">
-        <span class="form-hint-list-item__primary">
-            <span class="form-hint-list-item__indicator"></span>
-        </span>
-        Travel for treatment
-    </li>
-
-    <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all3" >
-        <span class="form-hint-list-item__primary">
-            <span class="form-hint-list-item__indicator"></span>
-        </span>
-        NHS dental exam
-    </li>
-
-    <li class="form-hint-list-item form-hint-list-item--valid hidden" id="all4">
-        <span class="form-hint-list-item__primary">
-            <span class="form-hint-list-item__indicator"></span>
-        </span>
-         NHS dental treatment
-    </li>
-</ul>
-
-
-
-      </div>
 
     </div>
     </div>
 
 </main>
 
-<script>
-$("#medexYes").click(function(){
-    $("#all").removeClass("hidden");
-    $("#all1").removeClass("hidden");
-    $("#all2").removeClass("hidden");
-    $("#all3").removeClass("hidden");
-    $("#all4").removeClass("hidden");
-}); </script>
-<script>
-$("#medexNo").click(function(){
-    $("#all").addClass("hidden");
-    $("#all1").addClass("hidden");
-    $("#all2").addClass("hidden");
-    $("#all3").addClass("hidden");
-    $("#all4").addClass("hidden");
-}); </script>
-<script>
 
 {% endblock %}
 
