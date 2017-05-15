@@ -7,90 +7,61 @@
 
 {% block content %}
 
-<style>
-.import-panel {
-    font-weight: bold;
-    padding: 20px 0px 10px 40px;
-    background: url("/public/images/icon-information.png") no-repeat scroll 0px center;
-    }
-    .form-hint-list-item--valid{
-    color:black;
-    }
-</style>
-
-
-
 <main id="content" role="main">
-<a href="javascript:history.go(-1)" class="link-back">Back</a>
+    <a href="javascript:history.go(-1)" class="link-back">Back</a>
 
-  <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="grid-row">
+        <div class="column-two-thirds">
 
-       <h1 class="heading-large">
-      <span class="heading-secondary">Based on what you've told us:</span><br>
-You get full help with health costs</h1>
+            <h1 class="heading-large">
+        <span class="heading-secondary">Based on what you've told us</span>
+        You get full help with health costs
+      </h1>
+            <p class="intro-to-list">
+                {{ucresults}}</p>
+            <h2 class="heading-small">Get free:</h2>
 
-        <p class="intro-to-list">Because you get Universal Credit and had a combined net income of £435 or less; you, your partner and any young people under 20 included on your claim get free:</p>
 
-       <ul class="form-hint-list">
-    <li class="form-hint-list-item form-hint-list-item--valid">
-        <span class="form-hint-list-item__indicator"></span>
-        NHS Prescriptions,
-    </li>
-    <li class="form-hint-list-item form-hint-list-item--valid">
-        <span class="form-hint-list-item__indicator"></span>
-        NHS Dental treatment,
-    </li>
-    <li class="form-hint-list-item form-hint-list-item--valid">
-        <span class="form-hint-list-item__indicator"></span>
-        Sight tests,
-    </li>
-    <li class="form-hint-list-item form-hint-list-item--valid">
-        <span class="form-hint-list-item__indicator"></span>
-        NHS wigs and fabric supports.
-    </li>
-        </ul>
-
-         <p class="intro-to-list">
-           They'll also get help towards the cost of:
-        <ul>
+            <ul class="form-hint-list">
                 <li class="form-hint-list-item form-hint-list-item--valid">
-        <span class="form-hint-list-item__indicator"></span>
-       new glasses or contact lenses
-    </li>
-        </ul>
-            <li class="form-hint-list-item form-hint-list-item--valid">
-        <span class="form-hint-list-item__indicator"></span>
-        repairing or replacing their glasses or contact lenses
-    </li>
-        </ul>
+                    <span class="form-hint-list-item__indicator"></span> NHS prescriptions
+                </li>
+                <li class="form-hint-list-item form-hint-list-item--valid">
+                    <span class="form-hint-list-item__indicator"></span> NHS dental treatment
+                </li>
+                <li class="form-hint-list-item form-hint-list-item--valid">
+                    <span class="form-hint-list-item__indicator"></span> NHS sight tests
+                </li>
+                <li class="form-hint-list-item form-hint-list-item--valid">
+                    <span class="form-hint-list-item__indicator"></span> NHS wigs and fabric supports
+                </li>
+            </ul>
+            <h2 class="heading-small heading-margin">Get some money off the cost of:</h2>
 
-    <li class="form-hint-list-item form-hint-list-item--valid">
-        <span class="form-hint-list-item__indicator"></span>
-        travel to receive NHS treatment
-    </li>
-        </ul>
+            <ul>
+                <li class="form-hint-list-item form-hint-list-item--valid">
+                    <span class="form-hint-list-item__indicator"></span> new glasses or contact lenses
+                </li>
 
-<br>
+                <li class="form-hint-list-item form-hint-list-item--valid">
+                    <span class="form-hint-list-item__indicator"></span> repairing or replacing your glasses or contact lenses
+                </li>
+                <li class="form-hint-list-item form-hint-list-item--valid">
+                    <span class="form-hint-list-item__indicator"></span> travelling for NHS treatment
+                </li>
+            </ul>
 
-<h2 class="heading-medium">What you should do next</h2>
-                     <p>You may have to show proof you get that you get Universal Credit.</p>
+            <h2 class="heading-medium">What you should do next</h2>
+            <p>You may have to show proof you get that you get Universal Credit.</p>
 
-                    <p>You can use your Universal Credit award notice as proof. Get a copy of yours by contacting the <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus Helpline</a>.
-                    </p>
+            <p>You can use your Universal Credit award notice as proof. Get a copy of yours by contacting the <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus Helpline</a>.
+            </p>
 
-
-
-      </div>
-
-
-      </div>
-
+        </div>
 
     </div>
 
 </main>
-
 
 {% endblock %}
 

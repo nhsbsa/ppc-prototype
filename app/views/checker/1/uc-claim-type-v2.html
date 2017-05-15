@@ -24,35 +24,36 @@ s{% extends "layout_bsa.html" %}
           <li>a child or young person who lives with you</li>
           <li>a disability or health condition that makes it hard for {{partnerOrText}} to work  - this is called limited capability for work</li>
       </ul>
+<br>
 
-      <div class="form-item-wrapper">
-        <fieldset>
-          <div class="inline-form-groups">
-            <div class="form-group">
-              <input id="yes" name="ucElement" type="radio" value="yes">
-              <label class="form-control-radio" for="yes">
-                Yes
-              </label>
+  <div class="form-group">
+  
+          <fieldset class="inline">
+            <legend class="visually-hidden">
+              Does {{jointOrText}} Universal Credit include either of these payments?
+            </legend>
+
+            <div class="multiple-choice">
+              <input id="yes" type="radio" name="ucElement" value="yes">
+              <label for="yes">Yes</label>
             </div>
-            <div class="form-group">
-              <input id="no" name="ucElement" type="radio" value="no">
-              <label class="form-control-radio" for="no">
-                No
-              </label>
+
+            <div class="multiple-choice">
+              <input id="no" type="radio" name="ucElement" value="no">
+              <label for="no">No</label>
             </div>
+            
+          </fieldset>  
+          
+        </div>
+        
+          <div class="form-group">
+            <input class="button" type="submit"  value="Next">
           </div>
 
-        </fieldset>
+      </form>
+
       </div>
-
-<!--submit button-->
-        <div class="form-group">
-          <input class="button" type="submit" value="Next">
-        </div>
-
-  </form>
-      </div>
-
     </div>
 
 

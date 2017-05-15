@@ -4,7 +4,6 @@
 {% block page_title %}
   Help paying for NHS Costs prototype
 {% endblock %}
-
 {% block content %}
 
 <style>
@@ -12,8 +11,30 @@
     border: 8px solid #0072ce;
 }
 .callout {
-    padding: 32px;
-}</style>
+ padding:1em 1em 0.1em 1em;
+ margin-bottom: 1.5em;
+ background-color:#fff
+}
+@media (min-width: 925px) {
+ .callout {
+  padding:1em 1em 0.1em 1em;
+  margin-bottom: 1.5em
+ }
+}
+
+.callout--info {
+ background-color:#f0f4f5;
+ border:solid #768692;
+ border-width:0 0 0 4px
+}
+.strong{
+font-weight: 700;
+}
+
+.list li{
+margin-bottom:0.8em;
+}
+</style>
 
 <main id="content" role="main">
   <a href="javascript:history.go(-1)" class="link-back">Back</a>
@@ -23,110 +44,76 @@
 
     <h2 class="heading-large">Do you have any of these long-term illnesses?</h2>
 
-                   <ul class="list-bullet">
+    <div class="callout callout--info">
+  <p>If you're unsure about the name of your condition or treatment, check with your doctor. </p>
+</div>
+      
 
-                 <li><strong>Cancer and are undergoing treatment</strong>
+                   <ul class="list list-bullet">
+
+                 <li><span class="strong">Cancer and are undergoing treatment</span>
                      <br>Including treatment for the effects of cancer or the effects of cancer treatment.</li>
 
-
-
-                <li><strong>Diabetes - type 1 or type 2</strong>
+                <li><span class="strong">Diabetes - type 1 or type 2</span>
                     <br>Which needs medication to keep your blood sugar levels stable
                  </li>
 
-              <li><strong>Epilepsy</strong> <br>Which needs continuous anticonvulsive therapy</li>
+              <li><span class="strong">Epilepsy</span> <br>Which needs continuous anticonvulsive therapy</li>
 
-                 <li><strong>A continuing physical disability</strong>
+                 <li><span class="strong">A continuing physical disability</span>
                      <br>Which means you can't go out without the help of another person</li>
 
-                     <li><strong>A permanent fistula which needs continuous surgical dressing or an appliance</strong>
+                     <li><span class="strong">A permanent fistula which needs continuous surgical dressing or an appliance
+                     </span>
                      <br>For example, caecostomy, colostomy, laryngos-tomy or ileostomy.</li>
 
-<!--
-                 <li><strong>You need a continuous surgical dressing or an appliance</strong>
-                     <br>Like a tracheotomy or need to use a stoma</li>
--->
+                 <li><span class="strong">Diabetes insipidus and other forms of hypopituitarism</span>
 
-                 <li><strong>Diabetes insipidus and other forms of hypopituitarism</strong>
-
-
-
-<!--
-                    <li><strong>Myxoedema</strong>
-                     <br>For example, an underactive thyroid gland (Hypothyroidism) which needs thyroid hormone replacement</li>
--->
-
-
-                 <li><strong>Myxoedema</strong>
+                 <li><span class="strong">Myxoedema</span>
                     <br>For example, hypothyroidism which needs thyroid hormone replacement</li>
 
-                  <li><strong>Hypoparathyroidism</strong>
+                  <li><span class="strong">Hypoparathyroidism</span>
                  <br>Which means your parathyroid glands produce too little parathyroid hormone</li>
 
-                <li><strong>Hypoadrenalism, where specific substitution therapy is essential</strong>
+                <li><span class="strong">Hypoadrenalism, where specific substitution therapy is essential</span>
                      <br>For example, Addison’s Disease</li>
 
 
-                <li><strong>Myasthenia gravis</strong>
+                <li><span class="strong">Myasthenia gravis</span>
                 <br>Where an autoimmune condition affects the nerves and muscles</li>
 
-
-
                </ul>
-<!--
-               <section class="callout callout--attention">
 
 
-
-<div class="reading-width">
-
-    <h2 id="see-your-gp-if">See your GP if:</h2>
-<ul>
-<li>your symptoms don’t improve after 7 days</li>
-<li>you’re worried about your child’s symptoms</li>
-<li>you’re 65 or over</li>
-<li>you’re pregnant</li>
-<li>you have a long-term medical condition – for example, diabetes or a heart, lung, kidney or neurological disease</li>
-<li>you have a weakened immune system – for example, because of chemotherapy or HIV</li>
-</ul>
-
-
-</div>
-
-
-</section>
--->
-
-        <div class="additional-info" style="padding-bottom:1.5rem; padding-top:1.5rem">If you're unsure about the name of your condition or treatment, check with your doctor. </div>
-        <br>
 
        <form action="illness-b4" method="get" class="form">
-      <div class="form-item-wrapper">
-        <fieldset>
-          <div class="inline-form-groups">
-            <div class="form-group">
-              <input id="yes" name="illness" type="radio" value="yes">
-              <label class="form-control-radio" for="yes">
-                Yes
-              </label>
+        <div class="form-group">
+          
+          <fieldset class="inline">
+            <legend class="visually-hidden">
+              Is your GP practice in Scotland or Wales?
+            </legend>
+
+            <div class="multiple-choice">
+              <input id="yes" type="radio" name="illness" value="yes">
+              <label for="yes">Yes</label>
             </div>
-            <div class="form-group">
-              <input id="no" name="illness" type="radio" value="no">
-              <label class="form-control-radio" for="no">
-                No
-              </label>
+
+            <div class="multiple-choice">
+              <input id="no" type="radio" name="illness" value="no">
+              <label for="no">No</label>
             </div>
+            
+          </fieldset>  
+          
+        </div>
+        <br>
+          <div class="form-group">
+            <input class="button" type="submit"  value="Next">
           </div>
 
-        </fieldset>
-      </div>
+      </form>
 
-    {{
-      form_macros.button({
-        label: 'Next',
-      })
-    }}
-  </form>
       </div>
     </div>
 

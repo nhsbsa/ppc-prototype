@@ -53,7 +53,7 @@ var variText = {
       partnerCommaText = 'you';
       partnerOrText = 'you';
       partnerAndText = 'you';
-      partnerAndTextDo = 'Do you';
+      partnerAndTextDo = 'Is your';
       partnersText = 'your';
       partnersAndText = "your";
       parentText = "Does your parent or guardian";
@@ -62,12 +62,14 @@ var variText = {
       combinedOrText = 'your';
       partnerPlustext = 'your';
       singleJointUC = 'Was your take-home pay for your last Universal Credit period £935 or less?';
+      singleJointUCElement = 'Was your take-home pay for your last Universal Credit period £435 or less?';
+      ucResults = 'Because you get Universal Credit and have a net income of £935 or less; you and any children under 20 included on your claim,'
     } else {
       partnerBothText = 'you, your partner or both of you';
       partnerCommaText = 'you, your partner';
       partnerOrText = 'you or your partner';
       partnerAndText = 'you and your partner';
-      partnerAndTextDo = 'Do you and your partner';
+      partnerAndTextDo = 'Is your';
       partnersText = "your or your partner's";
       partnersAndText = "your and your partner's";
       parentText = "Does your parent or guardian";
@@ -77,7 +79,9 @@ var variText = {
       combinedOrText = "your and your partner's combined";
       partnerPlustext = "yours plus your partner's";
       singleJointUC = 'Did you and your partner have a combined take-home pay of £935 or less in your last Universal Credit period?'
-    }
+      singleJointUCElement = 'Did you and your partner have a combined take-home pay of £435 or less in your last Universal Credit period?'
+      ucResults = 'Because you and your partner get Universal Credit and have a combined net income of £935 or less; you, your partner and any children under 20 included on your claim,';
+  }
   };
 
 var querystring = require('querystring');
@@ -150,7 +154,7 @@ var querystring = require('querystring');
     });
 
    	// highlands or islands
-      router.get(/higlands-handler/, function (req, res) {
+      router.get(/highlands-handler/, function (req, res) {
       if (req.query.highIslands === 'yes') {
       	applicant.highlands = "highlands";
 	  	res.redirect('date-of-birth');
@@ -208,7 +212,7 @@ var querystring = require('querystring');
       if (req.query.taxcreditsParents  === 'yes'){
         parentTc = true;
         setPartnerText(applicant.partner);
-        res.render('sprints/b4/tax-credits-income', {
+        res.render('checker/1/tax-credits-income', {
         'parenttext' : parentText
       });
       } else {
@@ -232,7 +236,10 @@ var querystring = require('querystring');
     router.get(/taxcredit-income-handler/, function (req, res) {
         if (applicant.age < 20 ) {
             if (req.query.taxcreditsIncome === 'no') {
-                res.redirect('passported-benefits-under20');
+            res.render('checker/1/passported-benefits-under20', {
+            'partnerortext' : partnerOrText,
+              'iwe' : iWe
+            });
             } else { //yes
                 if (parentTc === true) {
                     res.render('checker/1/results/full-exemption-tc', {
@@ -247,7 +254,10 @@ var querystring = require('querystring');
             }
         } else { //over 20
             if (req.query.taxcreditsIncome === 'no') {
-                res.redirect('passported-benefits');
+                res.render('checker/1/passported-benefits', {
+                'partnerortext' : partnerOrText,
+                'iwe' : iWe
+             	});
             } else {
                     res.render('checker/1/results/full-exemption-tc', {
                     'tctype' : tcType
@@ -338,36 +348,36 @@ var benType;
       router.get(/passportedBen-handler/, function (req, res) {
         if (req.query.benefits ==="incomeSupport") {
           benType = 'Income Support';
-          res.render('sprints/b3/results/full-exemption-benefits', {
+          res.render('checker/1/results/full-exemption-benefits', {
             'bentype' : benType
           });
         } else if (req.query.benefits ==="uniCredit") {
           benType = 'Universal Credit';
           setPartnerText(applicant.partner);
-          res.render('sprints/b4/uc-claim-type-v2', {
+          res.render('checker/1/uc-claim-type-v2', {
             'bentype' : benType,
             'partnerortext' : partnerOrText
       });
         } else if (req.query.benefits ==="jsa") {
           benType = 'income based Job Seekers Allowance (JSA)';
-          res.render('sprints/b3/results/full-exemption-benefits', {
+          res.render('checker/1/results/full-exemption-benefits', {
             'bentype' : benType
           });
         } else if (req.query.benefits ==="esa") {
           benType = 'income related Employment and Support Allowance (ESA)';
-          res.render('sprints/b3/results/full-exemption-benefits', {
+          res.render('checker/1/results/full-exemption-benefits', {
             'bentype' : benType
           });
         } else if (req.query.benefits ==="penCredit") {
           benType = 'Pension Credit (Guarantee Credit)';
-          res.render('sprints/b3/results/full-exemption-benefits', {
+          res.render('checker/1/results/full-exemption-benefits', {
             'bentype' : benType
           });
         } else if (req.query.benefits === 'continue') {
             if (applicant.age > 60) {
-                res.redirect('../war-pension');
+                res.redirect('war-pension');
             } else {
-                res.redirect('../pregnancy');
+                res.redirect('pregnancy');
             }
       }
     });
@@ -375,91 +385,75 @@ var benType;
           // universal credits income handler
       router.get(/uc-type-handler/, function (req, res) {
       if (req.query.ucElement === 'yes') {
-        res.redirect('../uc-income-with-element-v3');
-      } else {
-        res.redirect('../uc-income-without-element-v2');
+      	res.render('checker/1/uc-income-with-element-v3', {
+        'singlejointuc' : singleJointUC
+      });
+      } else{
+        res.render('checker/1/uc-income-without-element-v2', {
+        'singlejointucelement' : singleJointUCElement
+      });
       }
     });
-                // universal credits without element handler (£435)
-      router.get(/uc-element-income-handle/, function (req, res) {
+
+      // universal credits without element handler (£435)
+      router.get(/uc-element-income-handler/, function (req, res) {
       if (req.query.ucelementIncome === 'yes') {
-        res.redirect('../results/full-exemption-uc');
+        res.render('checker/1/results/full-exemption-uc', {
+        'ucresults' : ucResults
+      });
             } else {
-                res.redirect('../pregnancy');
+                res.redirect('pregnancy');
       }
     });
 
                       // universal credits with element handler(£935)
             router.get(/uc-without-elements-handler/, function (req, res) {
       if (req.query.ucIncome === 'yes') {
-        res.redirect('../results/full-exemption-uc');
+        res.render('checker/1/results/full-exemption-uc', {
+        'ucresults' : ucResults
+      });
       } else {
-        res.redirect('../pregnancy');
+        res.redirect('pregnancy');
       }
     });
 
 
-
-      router.get(/guarantee-credit-handler/, function (req, res) {
-        if (req.query.gcredit ==="yes") {
-          var benType = 'Pension Credit Guarantee Credit';
-          res.render('sprints/8/full-exemption-benefits', {
-            'bentype' : benType
-          });
-        } else {
-        res.redirect('../care-home');
-      }
-    });
 
                 // pregnancy b4 router
       router.get(/preg-b4handler/, function (req, res) {
       if (req.query.pregnancy === 'yes') {
           pregnancy = true;
-      res.redirect('../war-pension');
+      res.redirect('war-pension');
       } else {
           pregnancy = false;
-        res.redirect('../war-pension');
+        res.redirect('war-pension');
       }
     });
 
-          // pregnancy b2 router
-      router.get(/preg-all-handler/, function (req, res) {
-      if (req.query.pregnancy === 'yes') {
-      res.redirect('../results/all-preg');
-      } else {
-        res.redirect('../war-pension');
-      }
-    });
 
           // war pensioner handler
       router.get(/war-b4handler/, function (req, res) {
       if (req.query.warPension === 'yes') {
         warPension = true;
-        res.redirect('../medical-exemption');
+        res.redirect('medical-question');
       } else {
         warPension = false;
-        res.redirect('../medical-exemption');
+        res.redirect('medical-question');
       }
     });
 
-    // war pensioner handler
-      router.get(/war-pension-handler/, function (req, res) {
-      if (req.query.warPension === 'yes') {
-        res.redirect('../results/prescription-war-pension');
-      } else {
-        res.redirect('../do-you-have-a-medical-exemption');
-      }
+// long term illness yes or no
+router.get(/medicalYes/, function (req, res) {
+  if (req.query.medcondition === 'yes') {
+    medicalEx = true;
+    res.redirect('medical-exemption');
+  } else {
+    medicalEx = false;
+    res.render('checker/1/care-home', {
+      'partnerortext' : partnerOrText
     });
-
-    // medex card yes or no router
-      router.get(/medex-handler/, function (req, res) {
-      if (req.query.medex === 'yes') {
-      applicant.hasMedexCard = true;
-      res.redirect('../care-home');
-      } else {
-        res.redirect('../medical-exemption');
-      }
-    });
+  }
+});
 
 
 // long term illness
@@ -467,45 +461,27 @@ router.get(/illness-b4/, function (req, res) {
   if (req.query.illness === 'yes') {
     medicalEx = true;
     setPartnerText(applicant.partner);
-    res.render('sprints/b4/care-home', {
+    res.render('checker/1/care-home', {
       'partnerortext' : partnerOrText
     });
   } else {
     medicalEx = false;
-    res.render('sprints/b4/care-home', {
+    res.render('checker/1/care-home', {
       'partnerortext' : partnerOrText
     });
   }
 });
 
-    // long term illness
-//      router.get(/illness-handler/, function (req, res) {
-//      if (req.query.illness === 'yes') {
-//        res.redirect('../results/medex-apply');
-//      } else {
-//        res.redirect('../care-home');
-//      }
-//    });
-
-
-//    // long term condition
-//      router.get(/longterm-illness-handler/, function (req, res) {
-//      if (req.query.longtermIllness === 'yes') {
-//      res.redirect('../results/prescription-medex');
-//      } else {
-//        res.redirect('../care-home');
-//      }
-//    });
 
     // carehome router
       router.get(/care-home-handler/, function (req, res) {
       if (req.query.carehome === 'yes') {
            setPartnerText(applicant.partner);
-          res.render('sprints/b4/sc/authority-assessed', {
+          res.render('checker/1/sc/authority-assessed', {
             'partnerortext' : partnerOrText
       });
   } else {
-    res.render('sprints/b4/savings1', {
+    res.render('checker/1/savings1', {
       'partnerortext' : partnerOrText
     });
   }
@@ -609,7 +585,7 @@ router.get(/illness-b4/, function (req, res) {
                 res.redirect ('../answers-medex-lis-v3');
             } else {
                 setPartnerText(applicant.partner);
-          res.render('sprints/b4/lis-v3', {
+          res.render('checker/1/lis-v4', {
             'partnerortext' : partnerOrText,
             });
         }
@@ -619,10 +595,10 @@ router.get(/illness-b4/, function (req, res) {
     // authority assessment handler
     router.get(/authority-assessed-handler/, function (req, res) {
       if (req.query.authority === 'yes') {
-        res.redirect('../sc/lis-application');
+        res.redirect('sc/lis-application');
       } else {
            setPartnerText(applicant.partner);
-          res.render('sprints/b4/sc/savings', {
+          res.render('checker/1/sc/savings', {
             'partnerortext' : partnerAndText,
       });
       }

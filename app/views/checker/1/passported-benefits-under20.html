@@ -5,7 +5,7 @@
   Help paying for NHS Costs prototype
 {% endblock %}
 
-{% block content %}s
+{% block content %}
 
 <main id="content" role="main">
 
@@ -20,66 +20,71 @@
   </h1>
 
   <form action="passportedBen-u20" method="get" class="form">
-    <div class="form-item-wrapper">
-      <div class="form-group">
-        <input type="radio" id="incomeSupport" name="benefits" value="incomeSupport">
-        <label class="form-control-radio" for="incomeSupport">
-          Income Support
-        </label>
-      </div>
-      <div class="form-group">
-        <input type="radio" id="uniCredit" name="benefits" value="uniCredit">
-        <label class="form-control-radio" for="uniCredit">
-          Universal Credit
-        </label>
-      </div>
-      <div class="form-group">
-        <input type="radio" id="jsa" name="benefits" value="jsa">
-        <label class="form-control-radio" for="jsa">
-          Income-based Job Seeker's Allowance (JSA)
-        </label>
-      </div>
-      <div class="form-group">
-        <input type="radio" id="esa" name="benefits" value="esa">
-        <label class="form-control-radio" for="esa">
-          Income-related Employment &amp; Support Allowance (ESA)
-        </label>
-      </div>
-    <div class="form-group">
-        <input type="radio" id="penCredit" name="benefits" value="penCredit">
-        <label class="form-control-radio" for="penCredit">
-          Pension Credit (Guarantee Credit)
-        </label>
-      </div>
-      <p class="form-block">or</p>
-      <div class="form-group">
-        <input type="radio" id="continue" name="benefits" value="continue">
-        <label class="form-control-radio" for="continue">
-          No {{iWe}} don't get any of these
-        </label>
-      </div>
+    
+          <div class="form-group">
+          <fieldset>
+            <legend class="visuallyhidden">
+              Do {{partnerortext}} get any of these benefits?
+            </legend>
 
-         <details>
-  <summary><span class="summary">Benefits with similar names</span></summary>
-<p>There are some benefits with similar names.  Select 'No' if you get one of these benefits:</p>
+            <div class="multiple-choice">
+              <input id="incomeSupport" type="radio" name="benefits" value="incomeSupport">
+              <label for="incomeSupport">Income Support</label>
+            </div>
+            
+            <div class="multiple-choice">
+              <input id="uniCredit" type="radio" name="benefits" value="uniCredit">
+              <label for="uniCredit">Universal Credit</label>
+            </div>
+                 
+            <div class="multiple-choice">
+              <input id="jsa" type="radio" name="benefits" value="jsa">
+              <label for="jsa">Income-based Job Seeker's Allowance (JSA)</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="esa" type="radio" name="benefits" value="esa">
+              <label for="esa">Income-related Employment &amp; Support Allowance (ESA)</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="penCredit" type="radio" name="benefits" value="penCredit">
+              <label for="penCredit">Pension Credit (Guarantee Credit)</label>
+            </div>
+
+            <p class="form-block">or</p>
+            <div class="multiple-choice">
+              <input id="continue" type="radio" name="benefits" value="continue">
+              <label for="continue">No, {{iwe}} don't get any of these</label>
+            </div>
+            
+          </fieldset>
+        </div>
+
+                <details style="margin-bottom: 1em;">
+        <summary role="button" aria-controls="details-content-0" tabindex="0" aria-expanded="true">
+        <span class="summary">Benefits with similar names</span>
+        </summary>
+
+        <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="false">
+
+          <p>There are some benefits with similar names.  Select 'No' if you get one of these benefits:</p>
            <ul class="list-bullet">
            <li><span>Contribution-based Job Seekers Allowance</span><span class="hint">&nbsp;(JSA)</span></li>
            <li><span>Contribution-based Employment Support Allowance</span><span class="hint">&nbsp;(ESA)</span></li>
            <li><span>Pension Credit and Savings Credit</span></li>
            </ul>
-           <p>If you're not sure what benefit you get contact <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus</a></p>
-           </div>
-           </p>
-            </details>
-
+           <p>If you're not sure what benefit you get contact
+           <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus</a></p>
+        </div>
+      </details>
+        
 <!--submit button-->
         <div class="form-group">
           <input class="button" type="submit" value="Next">
         </div>
-          </div>
-
-  </form>
-    </div>
+        
+      </form>
 
 
     </div>

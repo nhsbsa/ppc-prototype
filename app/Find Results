@@ -1,0 +1,10 @@
+Searching 16979 files for "<a id="bsa-logo" href="/ppc/index">"
+
+/Users/Helen/Work/govuk_prototype_kit-6.0.0/app/views/bsa_head.html:
+    1  <div id="header-logo">
+    2    <div class="header-wrapper">
+    3:     <a id="bsa-logo" href="index">
+    4        <img src="/public/images/bsa/bsa_logo.svg">
+    5      </a>
+
+1 match in 1 file

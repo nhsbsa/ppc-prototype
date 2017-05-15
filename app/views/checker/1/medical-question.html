@@ -4,34 +4,60 @@
 {% block page_title %}
   Help paying for NHS Costs prototype
 {% endblock %}
-
 {% block content %}
+
+<style>
+.callout--attention {
+    border: 8px solid #0072ce;
+}
+.callout {
+ padding:1em 1em 0.1em 1em;
+ margin-bottom: 1.5em;
+ background-color:#fff
+}
+@media (min-width: 925px) {
+ .callout {
+  padding:1em 1em 0.1em 1em;
+  margin-bottom: 1.5em
+ }
+}
+
+.callout--info {
+ background-color:#f0f4f5;
+ border:solid #768692;
+ border-width:0 0 0 4px
+}
+.strong{
+font-weight: 700;
+}
+</style>
 
 <main id="content" role="main">
   <a href="javascript:history.go(-1)" class="link-back">Back</a>
+
   <div class="grid-row">
     <div class="column-two-thirds">
 
   <h1 class="heading-large">
-    Is your GP practice in Scotland or Wales?
+    Do you have a long-term illness?
   </h1>
 
-      <form action="gp-handler" method="get" class="form">
+      <form action="medicalYes" method="get" class="form">
         
         <div class="form-group">
           
           <fieldset class="inline">
             <legend class="visually-hidden">
-              Is your GP practice in Scotland or Wales?
+              Do you have a long-term illness?
             </legend>
 
             <div class="multiple-choice">
-              <input id="yes" type="radio" name="gpScot" value="yes">
+              <input id="yes" type="radio" name="medcondition" value="yes">
               <label for="yes">Yes</label>
             </div>
 
             <div class="multiple-choice">
-              <input id="no" type="radio" name="gpScot" value="no">
+              <input id="no" type="radio" name="medcondition" value="no">
               <label for="no">No</label>
             </div>
             
@@ -49,4 +75,14 @@
     </div>
 </main>
 
+
 {% endblock %}
+
+
+
+
+
+
+
+
+
