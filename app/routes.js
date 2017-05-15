@@ -310,7 +310,8 @@ var benType;
         if (req.query.benefits ==="incomeSupport") {
           benType = 'Income Support';
           res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType
+            'bentype' : benType,
+            'partnercommatext' : partnerCommaText
           });
         } else if (req.query.benefits ==="uniCredit") {
           benType = 'Universal Credit';
@@ -322,17 +323,20 @@ var benType;
         } else if (req.query.benefits ==="jsa") {
           benType = 'income based Job Seekers Allowance (JSA)';
           res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType
+            'bentype' : benType,
+            'partnercommatext' : partnerCommaText
           });
         } else if (req.query.benefits ==="esa") {
           benType = 'income related Employment and Support Allowance (ESA)';
           res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType
+            'bentype' : benType,
+            'partnercommatext' : partnerCommaText
           });
         } else if (req.query.benefits ==="penCredit") {
           benType = 'Pension Credit (Guarantee Credit)';
           res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType
+            'bentype' : benType,
+            'partnercommatext' : partnerCommaText
           });
         } else if (req.query.benefits === 'continue') {
             if (applicant.age > 60) {
@@ -349,7 +353,8 @@ var benType;
         if (req.query.benefits ==="incomeSupport") {
           benType = 'Income Support';
           res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType
+            'bentype' : benType,
+            'partnercommatext' : partnerCommaText
           });
         } else if (req.query.benefits ==="uniCredit") {
           benType = 'Universal Credit';
@@ -361,17 +366,20 @@ var benType;
         } else if (req.query.benefits ==="jsa") {
           benType = 'income based Job Seekers Allowance (JSA)';
           res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType
+            'bentype' : benType,
+            'partnercommatext' : partnerCommaText
           });
         } else if (req.query.benefits ==="esa") {
           benType = 'income related Employment and Support Allowance (ESA)';
           res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType
+            'bentype' : benType,
+            'partnercommatext' : partnerCommaText
           });
         } else if (req.query.benefits ==="penCredit") {
           benType = 'Pension Credit (Guarantee Credit)';
           res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType
+            'bentype' : benType,
+            'partnercommatext' : partnerCommaText
           });
         } else if (req.query.benefits === 'continue') {
             if (applicant.age > 60) {
