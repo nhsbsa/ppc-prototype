@@ -459,13 +459,23 @@ router.get(/medicalYes/, function (req, res) {
   if (req.query.medcondition === 'yes') {
     medicalEx = true;
     res.redirect('medical-exemption');
-  } else {
+      } else if (req.query.medcondition === 'dk') {
+    medicalEx = true;
+    res.redirect('medical-exemption');
+      } else {
     medicalEx = false;
     res.render('checker/1/care-home', {
-      'partnerortext' : partnerOrText
+      'partnerortext' : partnerOrText 
     });
-  }
-});
+      }
+    });
+//   } else {
+//     medicalEx = false;
+//     res.render('checker/1/care-home', {
+//       'partnerortext' : partnerOrText 
+//     });
+//   }
+// });
 
 
 // long term illness
