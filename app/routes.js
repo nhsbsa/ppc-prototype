@@ -596,7 +596,7 @@ router.get(/illness-b4/, function (req, res) {
            } else if (medicalEx === true) {
               res.redirect ('../answers-medex-nolis');
            } else {
-              res.redirect ('../savings-kickout');
+              res.redirect ('savings-kickout');
            }
         } else if (req.query.savings === 'no') {
             if (pregnancy === true) {
