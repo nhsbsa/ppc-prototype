@@ -1,0 +1,99 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+  <a href="javascript:history.go(-1)" class="link-back">Back</a>
+
+  <div class="grid-row">
+    <div class="column-two-thirds column-minimum">
+
+      <h1 class="heading-large">
+        Apply for help to pay NHS costs
+      </h1>
+
+      <ol class="task-list" >
+        <li>
+          <h2 class="task-list-section" 
+            <span class="task-list-section-number">1. </span> Check before you start
+          </h2>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+              <a class="task-name" href="#" aria-describedby="eligibility-completed">
+                Check eligibility
+              </a>
+              <strong class="task-completed" id="eligibility-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="task-list-section">
+            <span class="task-list-section-number">2. </span> Get supporting documents
+          </h2>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+              <a class="task-name" href="#">
+                Information you will need
+              </a>
+              <!-- <strong class="task-completed" id="company-information-completed">Completed</strong> -->
+            </li>
+          </ul>
+        </li>
+        <li>
+                  <h2 class="task-list-section">
+            <span class="task-list-section-number">3. </span> Prepare application
+          </h2>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+              <a class="task-name" href="#">
+                Your details
+              </a>
+              <!-- <strong class="task-completed" id="company-information-completed">Completed</strong> -->
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="#" aria-describedby="contact-details-completed">
+                About where you live
+              </a>
+              <!-- <strong class="task-completed" id="contact-details-completed">Completed</strong> -->
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="#">
+                About who lives with you
+              </a>
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="#" aria-describedby="medical-information-completed">
+                Income
+              </a>
+              <!-- <strong class="task-completed" id="medical-information-completed">Completed</strong> -->
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="task-list-section">
+            <span class="task-list-section-number">4. </span> Apply
+          </h2>
+          <ul class="task-list-items">
+          <li class="task-list-item">
+              <a class="task-name" href="#">
+                Read declaration and submit
+              </a>
+          </li>
+          <!-- <li class="task-list-item">
+              <a class="task-name" href="#">
+                Submit
+              </a>
+          </li> -->
+          </ul>
+        </li>
+      </ol>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

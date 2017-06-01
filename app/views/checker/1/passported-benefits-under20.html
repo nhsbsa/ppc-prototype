@@ -19,7 +19,7 @@
     padding: 1em;
     margin: 1em 0em 1em 1em;
     width: 47%;
-        height:500px;
+        height:570px;
     }
     @media (max-width: 641px) {
   .column-half {
@@ -60,6 +60,26 @@ strong{
 .list-discription{
   margin-bottom:0.3em;
 }
+.callout--attention {
+    border: 8px solid #0072ce;
+}
+.callout {
+ padding:1em 1em 0.1em 1em;
+ margin-bottom: 1.5em;
+ background-color:#fff
+}
+@media (min-width: 925px) {
+ .callout {
+  padding:1em 1em 0.1em 1em;
+  margin-bottom: 1.5em
+ }
+}
+
+.callout--info {
+ background-color:#f0f4f5;
+ border:solid #768692;
+ border-width:0 0 0 4px
+}
 
 
 </style>
@@ -84,6 +104,8 @@ strong{
               Do {{partnerortext}} get any of these benefits?
             </legend>
 
+
+
             <div class="multiple-choice">
               <input id="incomeSupport" type="radio" name="benefits" value="incomeSupport">
               <label for="incomeSupport">Income Support</label>
@@ -101,9 +123,9 @@ strong{
               <label for="esa" id="esa" class=" block-label">
               <p class="list-discription">Income-related Employment &amp; Support Allowance (ESA) </p>
 <span class="bullets-child font-xsmall" >
-    <span>There are 2 types of ESA, income-related and contribution-based
+<!--     <span>There are 2 types of ESA, income-related and contribution-based -->
 <!--     <br>Income-related ESA is paid when you've not paid enough Class 1 National Insurance contributions, were self-employed or if you've been getting JSA longer than 6 months </span> -->
-    </span>
+<!--     </span> -->
               
               </label>
             </div>
@@ -119,9 +141,9 @@ strong{
 
     <p class="list-discription">Income-based Jobseeker's Allowance (JSA)</p>
 <span class="bullets-child font-xsmall" >
-    <span>There are 2 types of JSA, income-based and contributions-based
+<!--     <span>There are 2 types of JSA, income-based and contributions-based -->
 <!--     <br>Income-based JSA is paid when you've not paid enough Class 1 National Insurance contributions, were self-employed or if you've been getting JSA longer than 6 months </span> -->
-    </span>
+<!--     </span> -->
 </label>
 </div>
 
@@ -132,11 +154,11 @@ strong{
 
     <p class="list-discription">Pension Credit (Guarantee Credit)</p>
 <span class="bullets-child font-xsmall" >
-    <span>There are 2 types of Pension Credit, Guarantee Credit and Savings Credit<!-- <br>
+<!--     <span>There are 2 types of Pension Credit, Guarantee Credit and Savings Credit --><!-- <br>
     Guarantee Credit tops up your weekly income up to: 
     <span class="list-child-bullet" id="">£159.35 (for single people)</span> 
     <span class="list-child-bullet" id="">£243.25 (for couples)</span> -->
-</span>
+<!-- </span> -->
 </label>
 </div>
 
@@ -169,10 +191,11 @@ strong{
 <details>
 
   <summary><span class="summary">Where to find out what benefit type you're getting</span></summary>
-<!--   <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="false">
+  <div class="panel panel-border-narrow column-two-thirds" id="details-content-0" aria-hidden="false">
 
-          <p>There are some benefits with similar names.  <BR>
-          Select 'No' if you get one of these benefits:</p>
+          <p>There are some benefits with similar names. <br>
+          Check the payment letter you got from the Department for Work &amp; Pensions (DWP).</p>
+          <p>Select 'No' if you get one of these benefits:</p>
            <ul class="list-bullet">
            <li><span>Contribution-based Job Seekers Allowance</span><span class="hint">&nbsp;(JSA)</span></li>
            <li><span>Contribution-based Employment Support Allowance</span><span class="hint">&nbsp;(ESA)</span></li>
@@ -181,27 +204,28 @@ strong{
            <BR>
            <p>If you're still unsure what benefit you get contact
            <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus</a></p>
-        </div> -->
+        </div>
+<!-- 
           <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="false">
 
-          <p class="column-two-thirds" style="margin-top: 0em"><!-- There are some benefits with similar names. -->  <!-- <BR>
-          Select 'No' if you get one of these benefits: -->
-           <!-- <ul class="list-bullet">
-           <li><span>Contribution-based Job Seekers Allowance</span><span class="hint">&nbsp;(JSA)</span></li>
-           <li><span>Contribution-based Employment Support Allowance</span><span class="hint">&nbsp;(ESA)</span></li>
-           <li><span>Pension Credit and Savings Credit</span></li>
+          <p class="column-two-thirds" style="margin-top: 0em">
+          There are some benefits with similar names.<br>
+          Select 'No' if you get one of these benefits:<p>
+           <ul class="list-bullet">
+           <li><span style="">Contribution-based Job Seekers Allowance</span><span class="hint">&nbsp;(JSA)</span></li>
+           <li><span style="">Contribution-based Employment Support Allowance</span><span class="hint">&nbsp;(ESA)</span></li>
+           <li><span style="">Pension Credit and Savings Credit</span></li>
            </ul>
-           <BR> -->
-           Check the payment letter you got from the Department
+           <p class="column-two-thirds">Check the payment letter you got from the Department
 for Work &amp; Pensions (DWP).<br>If you're still unsure what benefit you get contact
            <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus</a></p>
-        </div>
+        </div> -->
   <div class="grid-row">
    <div class="column-half">
   <h2 class="heading-medium heading-no-margin">
     Employment and Support Allowance
   </h2>
-       <!-- <p>There are 2 types of ESA, income related and contribution based.</p> -->
+       <p>There are 2 types of ESA, income related and contribution based.</p>
        <p>The type of ESA you get is usually shown on page 3, under the heading <strong>‘Income and Benefits’</strong>. It will say either:</p>
        <ul class="list-bullet">
        <li>'your <strong>income-related</strong> entitlement is' </li>
@@ -213,7 +237,7 @@ for Work &amp; Pensions (DWP).<br>If you're still unsure what benefit you get co
   <h2 class="heading-medium heading-no-margin">
     Job Seekers Allowance
   </h2>
-                  <!-- <p>There are 2 types of JSA, income based and contribution based.</p> -->
+                  <p>There are 2 types of JSA, income based and contribution based.</p>
                    <p>The type of JSA you get is shown on page 3 or 4, under the heading <strong>‘How your Jobseeker's Allowance was worked out’</strong>. It will say either:</p>
        <ul class="list-bullet">
        <li>'We call this <strong>Income-based</strong> Jobseeker's Allowance, or</li>
@@ -221,8 +245,18 @@ for Work &amp; Pensions (DWP).<br>If you're still unsure what benefit you get co
         <img class="uc-statement" src="/public/images/bsa/jsa-contribution-letter2.png" style="" alt="an image showing that your type of JSA is shown towards the bottom of your letter.">
         </ul>
         </div>
-            </details>
 
+            </details>
+<!--             <div class="callout callout--info">
+            <p>There are some benefits with similar names.  <BR>
+          Select 'No' if you get one of these benefits:</p>
+           <ul class="list-bullet">
+           <li><span>Contribution-based Job Seekers Allowance</span><span class="hint">&nbsp;(JSA)</span></li>
+           <li><span>Contribution-based Employment Support Allowance</span><span class="hint">&nbsp;(ESA)</span></li>
+           <li><span>Pension Credit and Savings Credit</span></li>
+           </ul>
+           <BR>
+           </div> -->
              </div>
             <br>
 

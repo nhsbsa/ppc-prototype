@@ -344,9 +344,9 @@ var benType;
           });
         } else if (req.query.benefits === 'continue') {
             if (applicant.age > 60) {
-                res.redirect('../war-pension');
+                res.redirect('war-pension');
             } else {
-                res.redirect('../pregnancy');
+                res.redirect('pregnancy');
             }
       }
     });
@@ -364,8 +364,8 @@ var benType;
           benType = 'Universal Credit';
           setPartnerText(applicant.partner);
           res.render('checker/1/uc-claim-type-v2', {
-            'jointortext' : jointOrText,
-            'partnerortext' : partnerOrText
+            'jointortext' : jointOrText
+            // 'partnerortext' : partnerOrText
       });
         } else if (req.query.benefits ==="jsa") {
           benType = 'income based Job Seekers Allowance (JSA)';
@@ -590,24 +590,24 @@ router.get(/illness-b4/, function (req, res) {
         //england
                 if (req.query.savings === 'yes') {
            if (pregnancy === true) {
-                res.redirect('../answers-preg-nolis');
+                res.redirect('/results/answers-preg-nolis');
            } else if (warPension === true) {
-              res.redirect ('../answers-warpension-nolis');
+              res.redirect ('/results/answers-warpension-nolis');
            } else if (medicalEx === true) {
-              res.redirect ('../answers-medex-nolis');
+              res.redirect ('/results/answers-medex-nolis');
            } else {
               res.redirect ('savings-kickout');
            }
         } else if (req.query.savings === 'no') {
             if (pregnancy === true) {
-                res.redirect('../answers-preg-lis-v2');
+                res.redirect('/results/answers-preg-lis-v2');
             } else if (warPension === true) {
-                res.redirect ('../answers-warpension-lis-v2');
+                res.redirect ('/results/answers-warpension-lis-v2');
             } else if (medicalEx === true) {
-                res.redirect ('../answers-medex-lis-v3');
+                res.redirect ('/results/answers-medex-lis-v3');
             } else {
                 setPartnerText(applicant.partner);
-          res.render('checker/1/lis-v4', {
+          res.render('checker/1/lis-full-width', {
             'partnerortext' : partnerOrText,
             });
         }
@@ -638,9 +638,9 @@ router.get(/illness-b4/, function (req, res) {
     // carehome savings kickout handler
     router.get(/carehome-savings-handler/, function (req, res) {
       if (req.query.savings === 'no') {
-        res.redirect('../lis-v2');
+        res.redirect('lis-v4');
       } else {
-        res.redirect('../savings-kickout');
+        res.redirect('savings-kickout');
       }
     });
       
