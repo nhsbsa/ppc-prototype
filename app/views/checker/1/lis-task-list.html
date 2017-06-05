@@ -1,5 +1,9 @@
 {% extends "layout_bsa.html" %}
- 
+ <style>
+ol.steps .instruction-list-item-extra-information {
+  margin-left: 1.57895em;
+}
+</style>
 
 {% block page_title %}
   Help paying for NHS Costs prototype
@@ -21,6 +25,8 @@
           <h2 class="task-list-section" 
             <span class="task-list-section-number">1. </span> Check before you start
           </h2>
+          <p class="instruction-list-item-extra-information">Before applying, check if you are already exempt from paying NHS costs so to avoid wasting time:
+            </p>
           <ul class="task-list-items">
             <li class="task-list-item">
               <a class="task-name" href="#" aria-describedby="eligibility-completed">
@@ -34,6 +40,8 @@
           <h2 class="task-list-section">
             <span class="task-list-section-number">2. </span> Get supporting documents
           </h2>
+           <p class="instruction-list-item-extra-information">To work out your correct amount of help, it might be helpful to have information about your income and housing costs to hand before applying.
+            </p>
           <ul class="task-list-items">
             <li class="task-list-item">
               <a class="task-name" href="#">
@@ -45,7 +53,7 @@
         </li>
         <li>
                   <h2 class="task-list-section">
-            <span class="task-list-section-number">3. </span> Prepare application
+            <span class="task-list-section-number">3. </span> Complete application
           </h2>
           <ul class="task-list-items">
             <li class="task-list-item">
