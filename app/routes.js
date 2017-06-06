@@ -638,7 +638,7 @@ router.get(/illness-b4/, function (req, res) {
     // carehome savings kickout handler
     router.get(/carehome-savings-handler/, function (req, res) {
       if (req.query.savings === 'no') {
-        res.redirect('lis-v4');
+        res.redirect('lis-full-width');
       } else {
         res.redirect('savings-kickout');
       }
