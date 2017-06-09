@@ -63,8 +63,8 @@ var variText = {
       partnerPlustext = 'your';
       singleJointUC = 'Was your take-home pay for your last Universal Credit period £935 or less?';
       singleJointUCElement = 'Was your take-home pay for your last Universal Credit period £435 or less?';
-      ucResults = 'Because you get Universal Credit and have a net income of £935 or less; you,';
-      ucResultsElement = 'Because you get Universal Credit and have a net income of £435 or less; you and any children under 20 included on your claim,'
+      ucResults = 'Because you get Universal Credit and have a net income of £935 or less; you and any children under 20 included on your claim,';
+      ucResultsElement = 'Because you get Universal Credit and have a take-home pay of £435 or less; you,'
 
     } else {
       partnerBothText = 'you, your partner or both of you';
@@ -82,8 +82,8 @@ var variText = {
       partnerPlustext = "yours plus your partner's";
       singleJointUC = 'Did you and your partner have a combined take-home pay of £935 or less in your last Universal Credit period?'
       singleJointUCElement = 'Did you and your partner have a combined take-home pay of £435 or less in your last Universal Credit period?'
-      ucResults = 'Because you and your partner get Universal Credit and have a combined net income of £935 or less; you and your partner,';
-      ucResultsElement = 'Because you and your partner get Universal Credit and have a combined net income of £435 or less; you, your partner and any children under 20 included on your claim,'
+      ucResults = 'Because you and your partner get Universal Credit and have a combined take-home pay of £935 or less; you, your partner and any children under 20 included on your claim,';
+      ucResultsElement = 'Because you and your partner get Universal Credit and have a combined take-home pay of £435 or less; you, your partner,'
   
   }
   };
