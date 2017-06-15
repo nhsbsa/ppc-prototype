@@ -162,7 +162,7 @@ height:1px;
 }
 
 
-/*.print-icon {
+.print-icon {
   background-image: url("/public/images/print-2x.svg");
   padding-left: 40px;
 }
@@ -171,7 +171,7 @@ height:1px;
   background-image: url("/public/images/download-2x.svg");
   padding-left: 37px;
   margin-left: 3px;
-}*/
+}
 
 .example {
   position: relative;
@@ -204,7 +204,7 @@ border: 10px solid #dee0e2;
     line-height: 1.25;
     background: #6F777B;
     color: white; }
-    @media (max-width: 641px) {
+    @media (min-width: 641px) {
       .example:before {
         font-size: 14px;
         line-height: 1.42857; } }
@@ -240,12 +240,10 @@ border: 10px solid #dee0e2;
     line-height: 1.25;
     background: #6F777B;
     color: white; }
-    @media (max-width: 641px) {
+    @media (min-width: 641px) {
       .example2:before {
         font-size: 14px;
         line-height: 1.42857; } }
-
-
 
 </style>
 
@@ -267,29 +265,27 @@ border: 10px solid #dee0e2;
       <h2 class="bold-medium">Apply for help</h2> 
 
                <p class="lede">
-            You could be entitled to help depending on your circumstances</p>
+            You could be eligible for help depending on your circumstances</p>
             </div>
             </div>
 
 <div class="grid-row">
     <div class="column-one-third">
-    <p>You can apply for help to pay for your NHS costs.</p>
-        <!--  <p style="margin-top:0px">If you have less than £128 left at the end of the month, after you have paid your housing costs and council tax then you are likely to get help.</p> -->
-        <p>Your household income will be taken into account as well as your council tax and housing costs.</p>
+         <p style="margin-top:0px">If you have less than £128 left at the end of the month, after you have paid your housing costs and council tax then you are likely to get help.</p>
                 <p>You don't have to be claiming benefits to apply.</p>
-                <p>Any help you get also covers your partner and children under 19.</p>
+                <p style="padding-top:1.8em"><a class="button button-get-started" href="lis-next-steps" id="next">Find out more</a></p>
+      </p>
     </div>
-
     <div class="column-one-half">
-      <h3 class="heading-small" style="margin-top:0.3em">You could get help with:</h3>
-                     <ul class="form-hint-list" style="margin-bottom:1em">
+      <h3 class="heading-small" style="margin-top:0px">You could get help with:</h3>
+                     <ul class="form-hint-list">
             <li class="form-hint-list-item form-hint-list-item--valid">
                 <span class="form-hint-list-item__indicator"></span>
                 NHS prescriptions
             </li>
             <li class="form-hint-list-item form-hint-list-item--valid">
                 <span class="form-hint-list-item__indicator"></span>
-                NHS dental check-ups and treatment
+                NHS dental treatment
             </li>
             <li class="form-hint-list-item form-hint-list-item--valid">
                 <span class="form-hint-list-item__indicator"></span>
@@ -302,11 +298,12 @@ border: 10px solid #dee0e2;
           
                         <li class="form-hint-list-item form-hint-list-item--valid">
                 <span class="form-hint-list-item__indicator"></span>
-               new glasses and contact lenses
+               new glasses or contact lenses
             </li>
+                </ul>
                     <li class="form-hint-list-item form-hint-list-item--valid">
                 <span class="form-hint-list-item__indicator"></span>
-                repairing or replacing your glasses and contact lenses
+                repairing or replacing your glasses or contact lenses
             </li>
                     <li class="form-hint-list-item form-hint-list-item--valid">
                 <span class="form-hint-list-item__indicator"></span>
@@ -314,15 +311,8 @@ border: 10px solid #dee0e2;
             </li>
               </ul>
     </div>
-
   </div>
-  <div class="grid-row">
-   <div class="column-one-third">
-   <br>
-                  <p><a class="button button-get-started" href="lis-next-steps" id="next">Find out more</a></p>
-                  </div>
-                  </div>
-                  </div>
+  </div>
 
       <div class="example2">      
 <div class="grid-row">
@@ -336,7 +326,7 @@ border: 10px solid #dee0e2;
 
 <div class="grid-row">
     <div class="column-one-third">
-         <p>You can pay a set price for prescriptions for 3 or 12 months, no matter how many you need. </p>
+         <p style="margin-top:0px">You can pay a set price for prescriptions for 3 or 12 months, no matter how many you need. </p>
 <p>A prescription costs £8.60 per item, but prepayment costs:</p>
 
 <ul class="list-bullet">
@@ -344,10 +334,12 @@ border: 10px solid #dee0e2;
 </li>
     <li>£104 for 12 months<br>(or 10 payments of £10.40)</li>
 </ul>
-  
+<BR>
+                <p><a class="button button-get-started" href="http://www.nhsbsa.nhs.uk/1125.aspx" id="next">Find out more</a></p>
+      </p>
     </div>
     <div class="column-one-half">
-<h3 class="heading-small" style="margin-top:0.3em">You will only get help with:</h3>
+<h3 class="heading-small" style="margin-top:0px">You will only get help with:</h3>
              <ul class="form-hint-list">
     <li class="form-hint-list-item form-hint-list-item--valid">
         <span class="form-hint-list-item__indicator"></span>
@@ -355,24 +347,8 @@ border: 10px solid #dee0e2;
     </li>
       </ul>
     </div>
-
-  </div>
-  <div class="grid-row">
-        <div class="column-one-third">  
-        <br>        
-  <p><a class="button button-get-started" href="http://www.nhsbsa.nhs.uk/1125.aspx" id="next">Find out more</a></p>
   </div>
   </div>
-  </div>
-
-   <div class="column-one-third">
-<br>
-        <ul class="options-list">
-        <li><a class="icon print-icon" href="">Print this</a></li>
-        <li><a class="icon download-icon" href="">Download this (PDF 55k)</a></li>
-      </ul>
-
-      </div>
   
 
 

@@ -590,19 +590,19 @@ router.get(/illness-b4/, function (req, res) {
         //england
                 if (req.query.savings === 'yes') {
            if (pregnancy === true) {
-                res.redirect('/results/answers-preg-nolis');
+                res.redirect('/checker/1/results/answers-preg-nolis');
            } else if (warPension === true) {
-              res.redirect ('/results/answers-warpension-nolis');
+              res.redirect ('/checker/1/results/answers-warpension-nolis');
            } else if (medicalEx === true) {
-              res.redirect ('/results/answers-medex-nolis');
+              res.redirect ('/checker/1/results/answers-medex-nolis');
            } else {
               res.redirect ('savings-kickout');
            }
         } else if (req.query.savings === 'no') {
             if (pregnancy === true) {
-                res.redirect('/results/answers-preg-lis-v2');
+                res.redirect('/checker/1/results/answers-preg-lis-v2');
             } else if (warPension === true) {
-                res.redirect ('/results/answers-warpension-lis-v2');
+                res.redirect ('/checker/1/results/answers-warpension-lis-v2');
             } else if (medicalEx === true) {
                 res.redirect ('/results/answers-medex-lis-v3');
             } else {

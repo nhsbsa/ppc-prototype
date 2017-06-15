@@ -128,6 +128,26 @@ font-size:19px;
             border-top: 2px solid #b9d2dc;
     }
 
+.example {
+  position: relative;
+  overflow: hidden;
+background-color: #F8F8F8;
+float: left;
+margin-right: 2%;
+border: 10px solid #dee0e2;
+        margin-bottom: 0.78947em;
+  margin-top: 15px;
+  padding-top: 30px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px; }
+  @media (min-width: 641px) {
+    .example {
+      padding-top: 15px;
+      padding-right: 30px;
+      padding-bottom: 30px;
+      padding-left: 30px; } }
+
 
 </style>
 
@@ -135,57 +155,37 @@ font-size:19px;
 <main id="content" role="main">
 <a href="javascript:history.go(-1)" class="link-back">Back</a>
 
-  <div class="grid-row content-block">
+  <div class="grid-row">
     <div class="column-two-thirds">
 
+      <h1 class="heading-large">
+        <span class="heading-secondary">Based on what you've told us</span>
+        You get help with NHS costs
+      </h1>
+</div>
+</div>
 
-  <h1 class="heading-large">
-      <span class="heading-secondary">Based on what you've told us:</span>
-      <br>
-You get free prescriptions and dental care</h1>
+<div class="grid-row">
+<div class="column-two-thirds">
 
-         <p class="intro-to-list">
-          Because you're pregnant or have had a baby in the last 12 months, you get free:
-        </p>
+        <h2 class="heading-medium">You get free:</h2>
         <ul class="form-hint-list">
     <li class="form-hint-list-item form-hint-list-item--valid">
         <span class="form-hint-list-item__indicator"></span>
-        NHS prescriptions (with a valid maternity exemption certificate) <br>
-<!--        <p>To get free prescriptions you need to have a valid maternity exemption certificate.</p>-->
-    </li>
+        <strong>NHS prescriptions</strong><br><span class="form-hint" style="padding-left:30px">If you have a valid maternity exemption certficate.</span>
     <li class="form-hint-list-item form-hint-list-item--valid">
         <span class="form-hint-list-item__indicator"></span>
-        NHS dental treatment
+        NHS dental check-ups and treatment
     </li>
+                      
     </ul>
+    <hr>
 
- <h2 class="heading-small">You don't get help towards the cost of:</h2>
-        <ul>
-            <li class="form-hint-list-item form-hint-list-item--false">
-        <span class="form-hint-list-item__indicator"></span>
-        NHS sight tests
-    </li>
-    <li class="form-hint-list-item form-hint-list-item--false">
-        <span class="form-hint-list-item__indicator"></span>
-       New or replacement glasses or contact lenses
-    </li>
-    <li class="form-hint-list-item form-hint-list-item--false">
-        <span class="form-hint-list-item__indicator"></span>
-        NHS wigs and fabric supports
-    </li>
+    <h2 class="heading-medium">How to get your help</h2>
 
-    <li class="form-hint-list-item form-hint-list-item--false">
-        <span class="form-hint-list-item__indicator"></span>
-        Travel to receive NHS treatment
-    </li>
-        </ul>
+          <h3 class="heading-small">To get free prescriptions</h3>
 
-
-  <h2 class="heading-medium">What you should do next</h2>
-
-          <h3 class="heading-small">Prescriptions</h3>
-
-          <p>To get free prescriptions you need to have a valid maternity exemption certificate. Get an application form from your midwife, doctor or health visitor.</p>
+          <p>You need a valid maternity exemption certificate. Get an application form from your midwife, doctor or health visitor.</p>
           <p>You can apply while you're pregnant and up to a year after your baby was born.</p>
 
                 <details>
@@ -198,10 +198,8 @@ You get free prescriptions and dental care</h1>
 
 </details>
 
-          <br>
-
-          <h3 class="heading-small">Dental check ups and treatment </h3>
-          <p>To get free dental care you may need to show proof of your pregnancy, or that you have had a baby in the past 12 months. You can show things like:</p>
+          <h3 class="heading-small">To get free dental care</h3>
+          <p>You may need to show proof of your pregnancy, or that you've had a baby in the past 12 months. You can show things like:</p>
 
         <ul class="list-bullet">
         <li>a valid maternity exemption certificate</li>
@@ -211,14 +209,66 @@ You get free prescriptions and dental care</h1>
         <li>a stillbirth certificate- issued by your local registrar of births, marriages and deaths</li>
 
         </ul>
+    <br>
 
+</div>
+    <div class="column-one-third">
+        <ul class="options-list" style="margin-top: 3em">
+        <li><a class="icon print-icon" href="">Print this</a></li>
+        <li><a class="icon download-icon" href="">Download this (PDF 55k)</a></li>
+      </ul>
 
+      </div>
+</div>
 
-    <h3 class="heading-small">If you find it hard to pay for the other things you don't get free, you might get help through the Low Income Scheme.</h3>
+<div class="example">      
+<div class="grid-row">
+    <div class="column-two-thirds">
+      <h2 class="bold-medium" style="">Apply for further help</h2> 
 
+               <p class="lede">
+            You could be entitled for further help depending on your circumstances</p>
+            </div>
+            </div>
+
+<div class="grid-row">
+    <div class="column-one-third">
+        <p>Your household income will be taken into account as well as your council tax and housing costs.</p>
+                <p>You don't have to be claiming benefits to apply.</p>
+                <p>Any help you get also covers your partner and children under 19.</p>
 
     </div>
+    <div class="column-one-half">
+      <h3 class="heading-small" style="margin-top:3px">You may also get help paying for:</h3>
+            <ul class="list-bullet">
+            <li>
+                NHS sight tests
+            </li>
+           <li>
+               new glasses and contact lenses
+            </li>
+            <li>
+                repairing or replacing your glasses and contact lenses
+            </li>
+            <li>
+                NHS wigs and fabric supports
+            </li>
+            <li>
+                travel for NHS treatment
+            </li>
+              </ul>
     </div>
+  </div>
+    <div class="grid-row">
+   <div class="column-one-third">
+   <br>
+                  <p><a class="button button-get-started" href="https://www.nhsbsa.nhs.uk/nhs-low-income-scheme" id="next">Find out more</a></p>
+                  </div>
+                  </div>
+  </div>
+
+
+
 
 
 		</main>
