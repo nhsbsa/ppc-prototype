@@ -6,18 +6,24 @@
 {% endblock %}
 
 {% block content %}
-
 <main id="content" role="main">
 <a href="javascript:history.go(-1)" class="link-back">Back</a>
 
-  <div class="grid-row">
+
+ <div class="grid-row">
     <div class="column-two-thirds">
 
-<form action="" method="get" class="form">
- 
+
         <h1 class="heading-large">
           Save and return later
         </h1>
+         <form action="save-email-and-phone" method="post" class="form">
+
+          <p>You'll get a link emailed to you that allows you to continue your application.</p>
+        
+        <div class="form-group">
+ 
+
 
         <fieldset>
           <legend class="visuallyhidden">
@@ -26,17 +32,18 @@
 
           <div class="form-group">
             <label class="form-label" for="user_email">Email address</label>
-            <input class="form-control form-control-3-4" id="user_email" name="user_email" type="text">
+            <input class="form-control form-control-3-4" id="user-email-save-and-return" name="user-email" type="text" value="{{data['user-email']}}">
           </div>
+          
 
           <details role="group">
 
-          <summary role="button" aria-controls="details-content-0" aria-expanded="false"><span class="summary">I don't have a email address</span></summary>
+          <summary role="button" aria-controls="details-content-0" aria-expanded="false"><span class="summary">I don't have an email address</span></summary>
 
           <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
 
             <p>
-              If you’re don't have an email, you can save and return with a text message.
+              If you don't have an email, you can save and return with a text message.
             </p>
 
             <legend class="visuallyhidden">
@@ -52,10 +59,10 @@
 
           </details>
 
-          <br>
+ 
 
         </fieldset>
-
+         <br>
         <div class="form-group">
           <input class="button" value="Continue" type="submit">
         </div>
@@ -69,6 +76,9 @@
     </div>
 
 </main>
+
+
+
 
 
 {% endblock %}

@@ -8,35 +8,34 @@
 {% block content %}
 
 <main id="content" role="main">
-<a href="javascript:history.go(-1)" class="link-back">Back</a>
 
   <div class="grid-row">
     <div class="column-two-thirds">
+    <a href="javascript:history.go(-1)" class="link-back">Back</a>
 
-    <h2 class="heading-large"> Do you want to save your information to return to it later at any time? </h2>
-    <p>We can send you an email that allows you to save your progress and return your information at any time.</p>
-    
 
-      <form action="" method="get" class="form">
+       <!--3- Are you named on a Tax Credits Exemption certificate-->
+    <h1 class="heading-large">Do you want to save your application so that you can come back to finish it?</h1>
+         <form action="saveReturn-handler" method="get" class="form">
+
+          <p>You'll get a link emailed to you that allows you to continue your application.</p>
         
         <div class="form-group">
           
-          <fieldset class="">
+          <fieldset class="inline">
             <legend class="visually-hidden">
-              Do you want to save your information to return to it later at any time? 
+              Are you pregnant or have you given birth in the last 12 months?
             </legend>
 
             <div class="multiple-choice">
-              <input id="yes" type="radio" name="diabetes" value="yes">
+              <input id="yes" type="radio" name="save" value="yes">
               <label for="yes">Yes</label>
             </div>
 
             <div class="multiple-choice">
-              <input id="no" type="radio" name="diabetes" value="no">
+              <input id="no" type="radio" name="save" value="no">
               <label for="no">No</label>
             </div>
- 
-
             
           </fieldset>  
           
@@ -47,17 +46,15 @@
           </div>
 
       </form>
-
-
-
-
-    </div>
-    </div>
+      </div>
+        </div>
 
 </main>
 
 
 {% endblock %}
+
+
 
 
 

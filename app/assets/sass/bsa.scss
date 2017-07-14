@@ -369,7 +369,7 @@ table {
 }
 
 // Spacing to the left of the task list
-$task-list-indent: 35px;
+$task-list-indent: 30px;
 
 .task-list {
   margin-top: $gutter;
@@ -437,3 +437,249 @@ $task-list-indent: 35px;
 .instruction-list-item-extra-information {
   margin-left: 1.57895em;
   }
+
+
+  
+.multiple-radio label {
+    margin-top: 0px;
+    margin-left: 52px;
+}
+
+.multiple-radio {
+  [type=checkbox] + label::before {
+    background: white;
+    top: 9px;
+    left: 9px;
+    width: 28px;
+    height: 28px;
+  }
+  [type=checkbox] + label::after {
+    top: 19px;
+    left: 17px;
+    width: 13px;
+    height: 5px;
+    border-width: 0 0 4px 4px;
+  }
+  label {
+    margin-top: 0px;
+    margin-left: 52px;
+  }
+}
+
+.inline {
+  .multiple-choice {
+    label {
+      line-height: 195%;
+    }
+  }
+}
+
+.single-line {
+   line-height: 175%;
+ }
+
+
+.multiple-choice {
+  background-color: #DEE0E2;
+  border :1px solid white;
+  padding-left :0;
+  margin-bottom: 15px;
+      line-height: 195%;
+  &:first-child {
+    margin-top: 10px;
+  }
+  &:hover {
+    border :1px solid black;
+  }
+  [type=radio] + label::before {
+    background-color: white;
+    position: inherit;
+    float: left;
+    margin-left: -38px;
+    margin-top :3px;
+    width: 24px;
+    height: 24px;
+  }
+  [type=radio] + label::after {
+    left: 17px;
+    top: 17px;
+    border: 7px solid;
+  }
+  label {
+    float: left;
+    margin-left: 48px;
+    padding-right: 5px;
+  }
+}
+
+.inline {
+  .multiple-choice {
+    label {
+      line-height: 195%;
+    }
+  }
+}
+
+.form-break {
+  margin-bottom: 0;
+  p {
+    margin: 0px 0px 6px 0px;
+  }
+}
+
+.button {
+  padding-bottom: 10px;
+}
+
+.form-date .form-group-year {
+    width: 70px;
+}
+
+.panel-hidden{
+    margin-bottom:2em;
+}
+
+.form-hint-list-item {
+  margin: 0 0 0.6em 0;
+  display: table;
+}
+
+.form-hint-list-item__indicator {
+  vertical-align: middle;
+  margin-right: .26316em;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url("../images/bullet-icon.svg");
+}
+
+
+.form-hint-list-item--valid .form-hint-list-item__indicator {
+  background-image: url("/public/images/bsa/tick-green.svg");
+}
+
+.form-hint-list-item--false {
+  color: black;
+}
+
+.form-hint-list-item--false .form-hint-list-item__indicator {
+  background-image: url("/public/images/bsa/cross-red.svg");
+}
+
+.form-hint-list-item__primary {
+  display: table-cell;
+  padding-right: 0.25em;
+}
+// Task list pattern
+
+// Override column width for tablet and up
+.column-minimum {
+  @include media(tablet) {
+    min-width: 600px;
+  }
+}
+
+// Spacing to the left of the task list
+$task-list-indent: 35px;
+
+.task-list {
+  margin-top: $gutter;
+  @include media(tablet) {
+    margin-top: ($gutter * 2);
+  }
+}
+
+
+.task-list-section {
+  display: table;
+
+  @include bold-24;
+  padding-bottom: ($gutter / 6);
+}
+
+.task-list-section-number {
+  display: table-cell;
+  padding-right: ($gutter / 6);
+
+  @include media(tablet) {
+    min-width: $task-list-indent;
+    padding-right: 0;
+  }
+}
+
+
+.task-list-items {
+  margin-bottom: $gutter;
+  @include media(tablet) {
+    margin-bottom: ($gutter * 2);
+  }
+
+  @include media(tablet) {
+    padding-left: $task-list-indent;
+  }
+}
+
+.task-list-item {
+  border-bottom: 1px solid $border-colour;
+  padding-top: $gutter-one-third;
+  padding-bottom: $gutter-one-third;
+  @extend %contain-floats;
+}
+
+.task-list-item:first-child {
+  border-top: 1px solid $border-colour;
+}
+
+
+.task-name {
+  width: $two-thirds;
+  float: left;
+}
+
+.task-completed {
+  @include phase-tag;
+
+  float: right;
+  margin-right: 0;
+  padding:1px 5px 4px;
+  padding-top: 3px;
+}
+
+
+.multiple-radio {
+  [type=checkbox] + label::before {
+    background: white;
+    top: 9px;
+    left: 9px;
+    width: 28px;
+    height: 28px;
+  }
+  [type=checkbox] + label::after {
+    top: 19px;
+    left: 17px;
+    width: 13px;
+    height: 5px;
+    border-width: 0 0 4px 4px;
+  }
+  label {
+    margin-top: 0px;
+    margin-left: 52px;
+  }
+}
+
+.heading-group {
+  p {
+    margin: 0;
+    padding: 0;
+    color: gray;
+    font-size: 110%;
+  }
+  .heading-xlarge, .heading-large {
+    margin: 0;
+    padding: 0;
+  }
+  margin: 40px 0 23px 0;
+}
+

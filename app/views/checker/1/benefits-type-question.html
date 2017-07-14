@@ -1,0 +1,148 @@
+{% extends "layout_bsa.html" %}
+ 
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+<style>
+.report-a-problem-toggle {
+     margin-top: 2em;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+.report-a-problem-toggle a {
+
+    color: #6f777b !important;
+    text-decoration: underline !important;
+  }
+    </style>
+
+  <main id="content" role="main">
+    <a class="link-back" href="javascript:history.go(-1)">Back</a>
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+
+        <h1 class="heading-large">What benefits or tax credits do {{partnerortext}} get?</h1>
+        <div class="panel panel-border-narrow">
+        <p>There are some benefits with similar names.<br>
+        You need to be sure of the benefit you are getting as some benefits, although similar in name, <span class= "strong">do not</span> give you the same entitlements.</p>
+        <p>Check your benefits payment letter or contact the <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus Helpline</a>.</p>
+        </div>
+
+        <h2 class="body-text">Select all that apply</h2><br>
+
+
+
+        <form action="passportedBen2-handler" class="form" method="get">
+
+          <div class="form-group">
+            <fieldset>
+
+              <legend class="visuallyhidden">What benefits or tax credits do {{partnerortext}} get?</legend>
+
+              <div class="multiple-choice multiple-radio">
+                <input id="taxcredits" name="benefits" type="checkbox" value="taxcredits">
+                <label for="taxcredits">Tax credits</label>
+              </div>
+
+              <div class="multiple-choice multiple-radio">
+                <input id="incomeSupport" name="benefits" type="checkbox" value="incomeSupport">
+                <label for="incomeSupport">Income Support</label>
+              </div>
+
+              <div class="multiple-choice multiple-radio">
+                <input id="uniCredit" name="benefits" type="checkbox" value="uniCredit">
+                <label for="uniCredit">Universal Credit</label>
+              </div>
+
+              <div class="multiple-choice multiple-radio">
+                <input id="esa" name="benefits" type="checkbox" value="esa">
+                <label class=" block-label" for="esa" id="esa">Employment and Support Allowance (ESA)</label>
+              </div>
+
+              <div class="multiple-choice multiple-radio">
+                <input id="jsa" name="benefits" type="checkbox" value="jsa"> 
+                <label class=" block-label" for="jsa" id="jsa">Jobseeker's Allowance (JSA)</label>
+              </div>
+
+              <div class="multiple-choice multiple-radio">
+                <input id="penCredit" name="benefits" type="checkbox" value="penCredit">
+                <label class="block-label" for="penCredit" id="penCredit">Pension Credit</label>
+              </div>
+
+              <p class="form-block">or</p>
+
+              <div class="multiple-choice multiple-radio">
+                <input id="continue" name="benefits" type="checkbox" value="continue">
+                <label for="continue">No, {{iwe}} don't get any of these</label>
+              </div>
+
+            </fieldset>
+
+          </div>
+
+          <div class="form-group">
+            <input class="button" type="submit" value="Next">
+          </div>
+
+        </form>
+      </div>
+      </div>
+
+
+<div class="grid-row">
+<div class="column-two-thirds">
+
+<div class="report-a-problem-container" style="display:none">
+  <div class="report-a-problem-inner">
+    <div class="report-a-problem-content">
+      <h2 class="heading-medium">Help us improve this service</h2>
+      <form accept-charset="UTF-8" action="/contact/govuk/problem_reports" method="post">
+        <div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"></div>
+        <input id="url" name="url" value="https://www.gov.uk/access-to-work/apply" type="hidden">
+
+        
+          <input id="page_owner" name="page_owner" value="" type="hidden">
+        
+
+        <p>Don’t include personal or financial information like your National Insurance number or credit card details.</p>
+<div class="form-group">
+  <label class="form-label-bold" for="first-name-2">What were you doing</label>
+  <input class="form-control" id="first-name-2" name="first-name-2" type="text">
+</div>
+<div class="form-group">
+  <label class="form-label-bold" for="last-name-2">What went wrong?</label>
+  <input class="form-control" id="last-name-2" name="last-name-2" type="text">
+</div>
+
+        <div class="button-wrapper">
+          <button name="commit" type="submit" class="button">Send</button>
+        </div>
+      <input name="javascript_enabled" value="true" type="hidden"><input name="referrer" value="https://www.gov.uk/access-to-work" type="hidden"></form>
+    </div>
+  </div>
+</div>
+    </div>
+
+
+
+
+
+
+  </main>
+   <script src="https://assets.publishing.service.gov.uk/static/govuk-template-c4f303154d2a238bdda4d5cf1ebd8d4487822e4cbc3e4c83e743da869443ce72.js"></script>
+
+      <script src="https://assets.publishing.service.gov.uk/static/libs/jquery/jquery-1.12.4-cb0decd18b4b0abbece3cfc180d9adc8e11dfa693cf34c2ff1ffcda86e725301.js"></script>
+<script src="https://assets.publishing.service.gov.uk/static/header-footer-only-e2a4a7b36f2d4193fe2cfd83a558c259a5795f378a995c058fe62db49d7d54e8.js"></script>
+<script src="https://assets.publishing.service.gov.uk/static/surveys-2ae28d3d9c6bbb7e07dc14eb51113d5fd2d920dcb2c9eb34e73aef62bc73899d.js"></script>
+
+
+    <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
+
+
+
+  {% endblock %}
+

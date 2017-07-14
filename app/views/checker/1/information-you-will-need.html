@@ -1,0 +1,32 @@
+{% extends "layout_bsa.html" %}
+ <style>
+ol.steps .instruction-list-item-extra-information {
+  margin-left: 1.57895em;
+}
+</style>
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+  <a href="javascript:history.go(-1)" class="link-back">Back</a>
+
+  <div class="grid-row">
+    <div class="column-two-thirds column-minimum">
+
+      <h1 class="heading-large">
+        Documents you may need
+      </h1>
+
+        <h2 class="heading-medium">{{partnerscapandtext}} income</h2>
+        <p>We need to know about any money that {{partnerortext}} get for any work.</p>
+        <ul></ul>
+        
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

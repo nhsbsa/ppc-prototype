@@ -1,0 +1,59 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+    <a href="javascript:history.go(-1)" class="link-back">Back</a>
+
+ 
+        <h1 class="heading-large">
+          Make sure this email is right
+        </h1>
+
+        
+
+          <fieldset>
+            <legend class="visuallyhidden">
+              Email
+            </legend>
+
+            <div class="form-group">
+              <input class="form-control form-control-3-4" id="send_email_here" name="send_email_here" type="text" value="{{data['user-email']}}">
+            </div>
+
+            <br>
+            <br>
+
+          </fieldset>
+
+          <div class="form-group">
+            <input type="submit" class="button" value="Yes - this is my email" />
+          </div>
+
+          <p>If your email address is wrong, just change it above.</p>
+
+        
+
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+
+
+
+
+
+
+{% endblock %}
+

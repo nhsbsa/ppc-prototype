@@ -56,6 +56,7 @@ var variText = {
       partnerAndTextDo = 'Is your';
       partnersText = 'your';
       partnersAndText = "your";
+      partnersCapAndText = "Your";
       parentText = "Is your parent or guardian's";
       iWe = 'I';
       jointOrText = 'your';
@@ -74,6 +75,7 @@ var variText = {
       partnerAndTextDo = 'Is your';
       partnersText = "your or your partner's";
       partnersAndText = "your and your partner's";
+      partnersCapAndText = "Your and your partner's";
       parentText = "Is your parent or guardian's";
       parentOrText = "your or your parents";
       iWe = 'we';
@@ -643,6 +645,29 @@ router.get(/illness-b4/, function (req, res) {
         res.redirect('savings-kickout');
       }
     });
+
+    // save and return handler
+        router.get(/saveReturn-handler/, function (req, res) {
+      if (req.query.save === 'yes') {
+        res.redirect('save-and-return-email');
+      } else {
+        res.redirect('task-list-page');
+      }
+    });
+
+    // authority assessment handler
+    router.get(/information-you-will-need/, function (req, res) {
+          setPartnerText(applicant.partner);
+          res.render('checker/1/information-you-will-need', {
+            'partnerscapandtext' : partnersCapAndText,
+            'partnerortext' : partnerOrText,
+      })
+    });
+
+
+
+        
+          
       
 
 
