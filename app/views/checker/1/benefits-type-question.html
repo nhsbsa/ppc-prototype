@@ -26,17 +26,17 @@
       <div class="column-two-thirds">
 
         <h1 class="heading-large">What benefits or tax credits do {{partnerortext}} get?</h1>
-        <div class="panel panel-border-narrow">
+<!--         <div class="panel panel-border-narrow">
         <p>There are some benefits with similar names.<br>
         You need to be sure of the benefit you are getting as some benefits, although similar in name, <span class= "strong">do not</span> give you the same entitlements.</p>
         <p>Check your benefits payment letter or contact the <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus Helpline</a>.</p>
-        </div>
+        </div> -->
 
         <h2 class="body-text">Select all that apply</h2><br>
 
 
 
-        <form action="passportedBen2-handler" class="form" method="get">
+        <form action="ben-check" class="form" method="get">
 
           <div class="form-group">
             <fieldset>
@@ -44,39 +44,39 @@
               <legend class="visuallyhidden">What benefits or tax credits do {{partnerortext}} get?</legend>
 
               <div class="multiple-choice multiple-radio">
-                <input id="taxcredits" name="benefits" type="checkbox" value="taxcredits">
+                <input id="taxcredits" name="taxcredits" type="checkbox" value="true">
                 <label for="taxcredits">Tax credits</label>
               </div>
 
               <div class="multiple-choice multiple-radio">
-                <input id="incomeSupport" name="benefits" type="checkbox" value="incomeSupport">
+                <input id="incomesupport" name="incomesupport" type="checkbox" value="true">
                 <label for="incomeSupport">Income Support</label>
               </div>
 
               <div class="multiple-choice multiple-radio">
-                <input id="uniCredit" name="benefits" type="checkbox" value="uniCredit">
+                <input id="uniCredit" name="uc" type="checkbox" value="true">
                 <label for="uniCredit">Universal Credit</label>
               </div>
 
               <div class="multiple-choice multiple-radio">
-                <input id="esa" name="benefits" type="checkbox" value="esa">
+                <input id="esa" name="esa" type="checkbox" value="true">
                 <label class=" block-label" for="esa" id="esa">Employment and Support Allowance (ESA)</label>
               </div>
 
               <div class="multiple-choice multiple-radio">
-                <input id="jsa" name="benefits" type="checkbox" value="jsa"> 
+                <input id="jsa" name="jsa" type="checkbox" value="true"> 
                 <label class=" block-label" for="jsa" id="jsa">Jobseeker's Allowance (JSA)</label>
               </div>
 
               <div class="multiple-choice multiple-radio">
-                <input id="penCredit" name="benefits" type="checkbox" value="penCredit">
+                <input id="penCredit" name="pencredit" type="checkbox" value="true">
                 <label class="block-label" for="penCredit" id="penCredit">Pension Credit</label>
               </div>
 
               <p class="form-block">or</p>
 
               <div class="multiple-choice multiple-radio">
-                <input id="continue" name="benefits" type="checkbox" value="continue">
+                <input id="continue" name="none" type="checkbox" value="true">
                 <label for="continue">No, {{iwe}} don't get any of these</label>
               </div>
 
