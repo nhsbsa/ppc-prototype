@@ -7,25 +7,74 @@
 
 {% block content %}
 
+<style>
+.intro-text{
+  font-size: 
+}
+
+.done-panel {
+  background-color: $nhs-blue;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  margin: 30px 0;}
+  h1 {
+    padding-top: 0;
+    margin: 0;
+  }
+  h2 {
+    line-height: 145%;
+    font-size: 135%;
+    padding-top: 0;
+    margin: 10px 0 5px 0;
+  }
+}
+
+#done-tick {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  padding: 4px 20px 4px 4px;;
+  background-color: $nhs-blue;
+  background-image: url('/public/images/bsa/done-tick.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+</style>
 
 <main id="content" role="main">
-<a href="javascript:history.go(-1)" class="link-back">Back</a>
+<!-- <a href="javascript:history.go(-1)" class="link-back">Back</a> -->
 
   <div class="grid-row">
     <div class="column-two-thirds">
+    <div class="done-panel">
+        
+        <h1 class="heading-xlarge" style="margin-top:0"><span id="done-tick"> </span>You're done</h1>
+              <h2 class="heading-large" style="margin-top: 0.5em">
+        <span class="heading-secondary" style="color:white">Based on what you've told us</span>
+        You get help with NHS costs
+      </h2>
+        
+      </div>
 
+<!--     <div class="done-panel">
+        
+        <h1 class="heading-large" style="margin-top:0"><span id="done-tick"> </span>You're done</h1>
+              <h2 class="heading-large">
+        <span class="heading-secondary" style="color:white">Based on what you've told us</span>
+        You get help with NHS costs
+      </h2>
+        
+      </div> -->
+<!-- 
       <h1 class="heading-large">
         <span class="heading-secondary">Based on what you've told us</span>
-        You get full help with NHS costs
+        You get help with NHS costs
       </h1>
-      </div>
-      </div>
-  <p class="intro-to-list">
-          Because you get {{bentype}}; {{partnercommatext}} and any children under 20 included on your claim,
-        </p>
-          <div class="grid-row">
-    <div class="column-two-thirds">
-<h2 class="heading-medium">You get free:</h2>
+  <p> -->
+       <!--    Because you get {{bentype}}, --> <!-- {{partnercommatext}} and any children under 20 included on your claim, -->
+<!-- <p style="margin-bottom: 0">Because you get {{bentype}},</p> -->
+<h2 class="heading-medium" style="margin-top:0">You get free:</h2>
 
 
   <ul class="form-hint-list">
@@ -46,7 +95,7 @@
         NHS wigs and fabric supports
     </li>
   </ul>
-<h2 class="heading-medium">Get some money off the cost of:</h2>
+<h2 class="heading-medium">You get money off:</h2>
 <!--          <p class="after-list">
            You also get some money off the cost of:</p> -->
     <ul>
@@ -66,7 +115,7 @@
   </ul>
   <br>
               <div class="panel panel-border-narrow" style="padding:0.5rem 2rem 1rem 1rem; margin-bottom:2rem">
-          <p>Your partner and any children under 20 included on your {{bentype}} claim are also entitled to full help with NHS costs. </p>
+          <p>{{partnerbenefits}} children under 20 included on your {{bentype}} claim are also entitled to full help with NHS costs. </p>
         </div>
 
 <hr>
@@ -74,18 +123,18 @@
       <h2 class="heading-medium">How to get your help</h2>
     <p>You may have to show proof you or your parents get {{bentype}}.</p>
 
-    <p>You can use your Statement of Benefits as proof. Get a copy of yours by contacting the <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus Helpline</a>.
+    <p>You can use your benefit award notice as proof. Get a copy of yours by contacting the <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus Helpline</a>.
 
   </div>
 
-   <div class="column-one-third">
+<!--    <div class="column-one-third">
 
         <ul class="options-list" style="margin-top: 3em">
         <li><a class="icon print-icon" href="">Print this</a></li>
         <li><a class="icon download-icon" href="">Download this (PDF 55k)</a></li>
       </ul>
 
-      </div>
+      </div> -->
 
   </div>
 

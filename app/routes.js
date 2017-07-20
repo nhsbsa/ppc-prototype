@@ -58,6 +58,7 @@ var variText = {
       partnersAndText = "your";
       partnersCapAndText = "Your";
       parentText = "Is your parent or guardian's";
+      partnerBenefits = "Any";
       iWe = 'I';
       jointOrText = 'your';
       combinedOrText = 'your';
@@ -78,6 +79,7 @@ var variText = {
       partnersCapAndText = "Your and your partner's";
       parentText = "Is your parent or guardian's";
       parentOrText = "your or your parents";
+      partnerBenefits = "Your partner and any";
       iWe = 'we';
       jointOrText = 'your joint';
       combinedOrText = "your and your partner's combined";
@@ -347,21 +349,31 @@ var benType;
         // pen cred
 
         if (req.query.incomesupport == "true") {
-                  console.log(req.query);
-
-          res.render('checker/1/results/full-exemption-benefits', {
+          console.log(req.query);
+            res.render('checker/1/results/full-exemption-benefits', {
             'bentype' : benType,
             'partnercommatext' : partnerCommaText
           });
         } else if (req.query.taxcredits == "true") {
           if (req.query.esa == "true") {
-            res.render('ESA');
+            res.render('checker/1/tax-credits-over20-new',{
+            'partnerortext' : partnerOrText,
+              'iwe' : iWe
+            });
           } else if (req.query.jsa == "true") {
-            res.render('JSA');
+            res.render('checker/1/tax-credits-over20-new',{
+              'partnerortext' : partnerOrText,
+              'iwe' : iWe
+            });
           } else if (req.query.uc == "true") {
-            res.render('UC');
+            res.render('checker/1/benefits-uc-tc',{
+              'partnercommatext' : partnerCommaText,
+          });
           } else {
-            res.render('SOMETHING...');
+            res.render('checker/1/tax-credits-over20-new',{
+'partnerortext' : partnerOrText,
+              'iwe' : iWe
+            });
           }
         } else if (req.query.uc == "true") {
           setPartnerText(applicant.partner);
@@ -395,6 +407,20 @@ var benType;
           }
         }
       });
+
+
+          // ESA type handler
+        router.get(/esa-handler/, function (req, res) {
+      if (req.query.benefits=== 'incomeesa') {
+        benType = 'income-related ESA';
+        res.render('checker/1/results/full-exemption-benefits', {
+        'bentype' : benType,
+        'partnerbenefits' : partnerBenefits
+          });
+      } else {
+        res.redirect('pregnancy');
+      }
+    });
       
 
 var benType;
@@ -482,6 +508,25 @@ var benType;
             }
       }
     });
+
+
+    // authority assessment handler
+    router.get(/information-you-will-need/, function (req, res) {
+          setPartnerText(applicant.partner);
+          res.render('checker/1/information-you-will-need', {
+            'partnerscapandtext' : partnersCapAndText,
+            'partnerortext' : partnerOrText,
+      })
+    });
+
+      router.get(/universalCredits-handler/, function (req, res) {
+          setPartnerText(applicant.partner);
+          res.render('checker/1/uc-claim-type-v2', {
+            'jointortext' : jointOrText,
+            'partnerortext' : partnerOrText,
+      })
+    });
+
 
           // universal credits income handler
       router.get(/uc-type-handler/, function (req, res) {

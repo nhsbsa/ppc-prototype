@@ -140,6 +140,51 @@ details{
  }
 }
 
+.import-panel {
+    font-weight: bold;
+    padding: 20px 0px 10px 40px;
+    background: url("/public/images/icon-information.png") no-repeat scroll 0px center;
+    }
+    .form-hint-list-item--valid{
+    color:black;
+    }
+    .tax-cred-img{
+    float: left;
+    margin-right: 5px;
+     background: url("/public/images/bsa/tax-cert.png") -71px 0;
+    width: 21px;
+    height: 21px;
+}
+    .container {
+    width: 200px;
+    height: 120px;
+}
+
+/* resize images */
+.container img {
+    width: 150%;
+    height: auto;
+}
+.heading-margin{
+  margin-top: 0em;
+}
+.print-link {
+ margin-top:2em;
+ margin-bottom:2em;
+ font-size: 16px;
+}
+.print-link a {
+ background:url(https://assets.publishing.service.gov.uk/government-frontend/icon-print-b04bc2c6b31f73054f79768fd91f76df0b164b247c0905d8ca07b45cfb4f9a3b.png) no-repeat 0 50%;
+ padding:0.5em 0 0.5em 28px
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+ .print-link a {
+  background-image:url(https://assets.publishing.service.gov.uk/government-frontend/icon-print-2x-685277484e948f6a848f303d3614e422e652a6a6536980501b893d9f4bbd9f4f.png);
+  background-size:16px 18px
+ }
+}
+
+
 </style>
 
 <main id="content" role="main">
@@ -150,74 +195,44 @@ details{
     <div class="grid-row">
       <div class="column-two-thirds">
 
-        <h1 class="heading-large">What type of Jobseeker's Allowance (JSA) do you get?</h1>
- <p>There are 2 types of JSA, income-based and contributions-based.</p>
-<details>
-              <summary><span class="summary">Where to find out your JSA type</span></summary>
-                <div class="" id="details-content-0" aria-hidden="false">
-                <h3 class="heading-small">
-                Your Jobseeker's Allowance letter
-                </h3>
+        <h1 class="heading-xlarge">Moving from tax credits to Universal Credits</h1>
 
-                  <p>The type of JSA you get is shown on page 3 or 4, under the heading <strong>‘How your Jobseeker's Allowance was worked out’</strong>. It will say either:</p>
+<p class="lede">Universal Credit (UC) is a new benefit that will gradually replace tax credits. You cannot claim tax credits and UC at the same time. </p>
+<p>
 
-                    <ul class="list-bullet">  
-                     <li>'We call this <strong>Income-based</strong> Jobseeker's Allowance, or</li>
-                     <li>'We call this <strong>contribution-based'</strong>Jobseeker's Allowance.</li>
-                    </ul>
 
-                  <br>
+        <form action="universalCredits-handler" method="get" class="form">
 
-                  <p>Select 'No' if it says 'you are entitled to contribution based'.</p>
+        <h2 class="heading-medium">If you have a tax credit exemption card</h2>
 
-                <img class="uc-statement" src="/public/images/bsa/jsa-contribution-letter2.png" alt="an image showing that your type of JSA is shown towards the bottom of your letter.">
-              </div>
-            </details>
+      <p>If you have a tax credit exemption certificate, {{partnercommatext}} and any children under 20 included on your last tax credit claim, can continue to use it until the expiry date shown.</p>
+        
+<h3 class="heading-small">What the certificate looks like</h2>
 
-        <form action="esa-handler" method="get" class="form">
+<div class="container">
+
+<img src="/public/images/bsa/tc-excard.svg" alt="what the tax credit exemption certificate looks like" />
 
         <div class="form-group">
           <fieldset>
             <legend class="visuallyhidden">
-            What type of Jobseeker's Allowance (JSA) do you get?
+            
             </legend>
           <br>
 
-          <div class="multiple-choice" style="line-height: 1.25; padding-bottom: 0.6em">
-            <input id="esa" type="radio" name="benefits" value="esa">
-            <label for="esa" id="esa" class=" block-label">
 
-              <p class="list-discription">Income-based</span> JSA</p>
-              <span class="font-xsmall">Usually you get this if you've not paid enough Class 1 National Insurance contributions, were self-employed or if you've been getting JSA longer than 6 months</span>
-          </label>
-        </div>
-
-          <div class="multiple-choice" style="line-height: 1.25; padding-bottom: 0.6em">
-            <input id="esa" type="radio" name="benefits" value="esa">
-            <label for="esa" id="esa" class=" block-label">
-
-              <p class="list-discription">Contribution-based JSA</p>
-            </label>
-          </div>
           </fieldset>
         </div>
-
-
-
-            <br>
       
         <!-- submit button -->
         <div class="form-group">
-          <input class="button" type="submit" value="Next">
+          <input class="button" type="submit" value="Next" >
         </div>
 
         </form>
 
       </div>
-
     </div>
 
 </main>
 {% endblock %} 
-
-
