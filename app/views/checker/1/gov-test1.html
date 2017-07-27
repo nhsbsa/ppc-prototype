@@ -1,0 +1,52 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <a href="javascript:history.go(-1)" class="link-back">Back</a>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+  <h1 class="heading-large">
+    Is your GP practice in Scotland or Wales?
+  </h1>
+
+      <form action="gp-handler" method="get" class="form">
+        
+        <div class="form-group">
+          
+          <fieldset class="inline">
+            <legend class="visually-hidden">
+              Is your GP practice in Scotland or Wales?
+            </legend>
+
+            <div class="multiple-choice">
+              <input id="yes" type="radio" name="gpScot" value="yes">
+              <label for="yes">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="no" type="radio" name="gpScot" value="no">
+              <label for="no">No</label>
+            </div>
+            
+          </fieldset>  
+          
+        </div>
+        
+          <div class="form-group">
+            <input class="button" type="submit"  value="Next">
+          </div>
+
+      </form>
+
+    </div>
+    </div>
+</main>
+
+{% endblock %}

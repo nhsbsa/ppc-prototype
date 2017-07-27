@@ -1,0 +1,91 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+<style>.print-link{
+  font-size: 16px;
+  }
+</style>
+
+
+<link href="https://assets.publishing.service.gov.uk/static/fonts-5ff8c53913434afd0072a480d7cfca67cace4c8d03f6ef96b78a4455728ce745.css" media="all" rel="stylesheet">
+
+
+<link rel="stylesheet" media="screen" href="https://assets.publishing.service.gov.uk/static/core-layout-0584457bce1046a6c7924dc2da53cef6b504a9ac27d7a36525e8162686823c88.css">
+
+<link rel="stylesheet" media="print" href="https://assets.publishing.service.gov.uk/static/core-layout-print-63130f3b3fe879797c3ec86076d758bc14d0ea75658f6852aa7c990623a07174.css">
+
+
+<link rel="stylesheet" media="screen" href="https://assets.publishing.service.gov.uk/collections/application-48d9bc40a665e1fcb0bc913e372d890b5f53e299f3d6888dc76cef28e0f6f505.css">
+<!--<![endif]-->
+
+
+    <main id="content" role="main" class="content browse">
+      
+
+<div class="browse-panes section" data-state="section" data-module="track-click">
+  <div id="section" class="section-pane pane with-sort" style="">
+    <div class="pane-inner curated">
+    <h2 class="heading-large">How to get your help</h2>
+
+<div class="" style="padding-left: 15px">
+          <h3 class="heading-medium">To get free prescriptions</h3>
+          <p>You need a valid exemption certificate.
+      
+          <h3 class="heading-small">Maternity exemption certificate</h3>
+          <p>You can apply for a maternity exemption certificate while you're pregnant and up to 12 months after the birth of your baby.</p>
+          <p>Get an application form from your midwife, GP or health visitor.</p>
+        
+<details>
+  <summary><span class="summary">Loss of a baby- Prescriptions</span></summary>
+
+  <div class="panel panel-border-narrow">
+      <p>If you lost your baby after the 24th week of your pregnancy, you can still apply for a maternity exemption certificate.</p>
+      <p>If you have a miscarriage, abortion or stillborn birth you can use your maternity exemption certificate until it expires.</p>
+    </div>
+</details>
+
+<h3 class="heading-small">Medical exemption certificate</h3>
+<p>Speak to your GP about your medical condition, who can apply for you.</p>
+</div>
+
+  </div>
+  </div>
+
+  <div id="root" class="pane root-pane">
+  <h1 class="visuallyhidden" tabindex="-1">All categories</h1>
+  <ul>
+      <li class="">
+        <a class="" href="/browse/benefits">Prescriptions</a>
+      </li>
+      <li class="">
+        <a class="" href="/browse/births-deaths-marriages">Dental check-ups</a>
+      </li>
+      <li class="active">
+        <a class="" href="/browse/business">Sight test</a>
+      </li>
+      
+  </ul>
+</div>
+
+</div>
+
+
+
+
+</main>
+
+<script>
+var selector = '.nav li';
+
+$(selector).on('click', function(){
+    $(selector).removeClass('active');
+    $(this).addClass('active');
+});
+</script>
+
+
+{% endblock %}

@@ -195,34 +195,48 @@ details{
     <div class="grid-row">
       <div class="column-two-thirds">
 
-        <h1 class="heading-xlarge">Moving from tax credits to Universal Credits</h1>
+        <h1 class="heading-large">Do you still get tax credits?</h1>
 
-<p class="lede">Universal Credit (UC) is a new benefit that will gradually replace tax credits. You cannot claim tax credits and UC at the same time. </p>
-<p>
+<!-- <h2 class="heading-small">Moving from tax credits to Universal Credit</h2> -->
+<p>Universal Credit is a new benefit that will gradually replace tax credits. <br>You cannot claim tax credits and Universal Credit at the same time. </p>
+ <details>
+              <summary><span class="summary">If you have a tax credit exemption card</span></summary>
+                <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="false">
 
-
-        <form action="universalCredits-handler" method="get" class="form">
-
-        <h2 class="heading-medium">If you have a tax credit exemption card</h2>
-
-      <p>If you have a tax credit exemption certificate, {{partnercommatext}} and any children under 20 included on your last tax credit claim, can continue to use it until the expiry date shown.</p>
+      <p>If you have a tax credit exemption certificate you can continue to use it until the expiry date shown.</p>
+       <p>{{partnerbenefits}} children under 20 included on your {{bentype}} claim are also entitled to the same help. </p>
         
 <h3 class="heading-small">What the certificate looks like</h2>
 
-<div class="container">
 
-<img src="/public/images/bsa/tc-excard.svg" alt="what the tax credit exemption certificate looks like" />
+<img src="/public/images/bsa/tc-excard.svg" alt="what the tax credit exemption certificate looks like" style="width:50%" />
 
+</details>
+<br>
+
+
+        <form action="universalCredits-handler" method="get" class="form">
         <div class="form-group">
-          <fieldset>
-            <legend class="visuallyhidden">
-            
+          
+          <fieldset class="">
+            <legend class="visually-hidden">
+              Do {{partnerortext}} claim any benefits or tax credits?
             </legend>
-          <br>
 
+            <div class="multiple-choice">
+              <input id="yes" type="radio" name="benefittc" value="yes">
+              <label for="yes">Yes, I still get tax credits</label>
+            </div>
 
-          </fieldset>
+            <div class="multiple-choice">
+              <input id="no" type="radio" name="benefittc" value="no">
+              <label for="no">No, I get Universal Credit now</label>
+            </div>
+            
+          </fieldset>  
+          
         </div>
+
       
         <!-- submit button -->
         <div class="form-group">

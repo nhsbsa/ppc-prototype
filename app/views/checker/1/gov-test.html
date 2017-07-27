@@ -1,0 +1,43 @@
+{% extends "layout_bsa.html" %}
+ 
+
+{% block page_title %}
+  Help paying for NHS Costs prototype
+{% endblock %}
+
+{% block content %}
+
+<style>
+ #ben-cont {display: none; }
+/*  .show:focus + .hide {display: inline; }  */
+.show:focus + .hide + #ben-cont {display: block;}  
+#bir-cont {display: none; }
+/* .show1:focus + .hide1 {display: inline; }  */
+.show1:focus + .hide1 + #bir-cont {display: block;}
+</style>
+
+<main id="content" role="main">
+
+  <a href="javascript:history.go(-1)" class="link-back">Back</a>
+
+
+<div>
+<a href="#show" class="show">Benefits</a>
+<a href="#hide" class="hide"></a>
+<div id="ben-cont">I am from Benefits Div</div>
+</div>
+<div>
+<a href="#show1" class="show1">Births, deaths</a>
+<a href="#hide1" class="hide1"></a>
+<div id="bir-cont">I am from Births, deaths Div</div>
+</div>
+
+       
+</div>
+    </div>
+
+</main>
+
+{% endblock %} 
+
+ 

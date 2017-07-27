@@ -51,6 +51,16 @@
   background-size:16px 18px
  }
 }
+
+.card{
+  width:50%;
+}
+ @media (max-width: 641px) {
+ .card {
+  width:100%;
+ }
+}
+
 </style>
 
 
@@ -60,19 +70,31 @@
 
   <div class="grid-row">
     <div class="column-two-thirds">
-
-      <h1 class="heading-large">
-        <span class="heading-secondary">Based on what you've told us</span>
-        You get full help with NHS costs
+        <div class="done-panel">
+        <h1 class="heading-xlarge" style="margin-top:0"><span id="done-tick"> </span>Done</h1>
+              <h1 class="heading-large" style="margin-top: 0.5em">
+        <span class="heading-secondary" style="color:white">Based on what you've told us</span>
+        You get help with NHS costs
       </h1>
       </div>
-      </div>
-<!--   <p class="intro-to-list">
-          Because you get {{tctype}} and have a household income of £15,276 or less,
+
+
+ <p class="lede">
+          Because you get {{tctype}} and have a household income of £15,276 or less:
+        </p>
+
+<!-- under 20 -->
+<!--          <p class="lede">
+          Because your parent or guardian gets Child Tax Credit for you and has a household income of £15,276 or less:
         </p> -->
+
+
+              </div>
+      </div>
           <div class="grid-row">
     <div class="column-two-thirds">
-<h2 class="heading-medium">You get free:</h2>
+<h2 class="heading-medium" style ="margin-top: 0">You get free:</h2>
+
 
 
   <ul class="form-hint-list">
@@ -86,23 +108,23 @@
     </li>
     <li class="form-hint-list-item form-hint-list-item--valid">
         <span class="form-hint-list-item__indicator"></span>
-        NHS sight tests
+       sight tests
     </li>
     <li class="form-hint-list-item form-hint-list-item--valid">
         <span class="form-hint-list-item__indicator"></span>
         NHS wigs and fabric supports
     </li>
   </ul>
-<h2 class="heading-medium ">You’ll also get some money off the cost of:</h2>
+<h2 class="heading-medium ">You get money off:</h2>
     <ul>
     <li class="form-hint-list-item form-hint-list-item--valid">
         <span class="form-hint-list-item__indicator"></span>
-       new glasses and contact lenses
+       new glasses or contact lenses
     </li>
 
     <li class="form-hint-list-item form-hint-list-item--valid">
         <span class="form-hint-list-item__indicator"></span>
-        repairing or replacing your glasses and contact lenses
+        repairing or replacing your glasses or contact lenses
     </li>
     <li class="form-hint-list-item form-hint-list-item--valid">
         <span class="form-hint-list-item__indicator"></span>
@@ -111,28 +133,25 @@
   </ul>
   <br>
           <div class="panel panel-border-narrow" style="padding:0.5rem 2rem 1rem 1rem; margin-bottom:2rem">
-          <p>Your partner and any children under 20 included on your tax credit claim are also entitled to full help with NHS costs. </p>
+          <p>Your partner and any children under 20 included on your tax credit claim are also entitled to the same help. </p>
         </div>
         <hr>
 
       <h2 class="heading-medium">How to get your help</h2>
-      <p>You should have been sent a tax credit exemption certificate. This is a small plastic card that you can use to prove you're entitled to help.</p>
-          <p>If you've lost it, you can use your latest tax credit award notice as proof.</p>
+      <p>You may have to show proof that you're entitled to help.</p>
+      <p>You can use your tax credit exemption certificate, this is a small plastic card that should have been sent to you.</p>
+          <p>If you have lost it, you can use your latest tax credit award notice as proof.</p>
 <h3 class="heading-small">What your certificate looks like</h2>
 
-<div class="container">
+<!-- <div class="container"> -->
 <br>
-<img src="/public/images/bsa/tc-excard.svg" alt="what the tax credit exemption certificate looks like" />
-</div>
-<!-- <br><br> -->
-<!--     <div class="print-link">
-          <a rel="alternate" href="/attendance-allowance/print" target="_blank">Print entire guide</a>
-        </div> -->
-
+<img class="card" src="/public/images/bsa/tc-excard.svg" alt="what the tax credit exemption certificate looks like" />
+<!-- </div> -->
   </div>
-   <div class="column-one-third">
 
-        <ul class="options-list" style="margin-top: 3em">
+       <div class="column-one-third">
+
+        <ul class="options-list" style="margin-top: 0.5em">
         <li><a class="icon print-icon" href="">Print this</a></li>
         <li><a class="icon download-icon" href="">Download this (PDF 55k)</a></li>
       </ul>

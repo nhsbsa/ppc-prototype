@@ -289,7 +289,7 @@ var querystring = require('querystring');
         }
         if (applicant.age >= 20) {
           if (tcType === 'none') {
-            res.render('checker/1/passported-benefits', {
+            res.render('checker/1/pregnancy', {
               'partnerortext' : partnerOrText,
                 'iwe' : iWe
             });
@@ -349,9 +349,11 @@ var benType;
         // pen cred
 
         if (req.query.incomesupport == "true") {
+          benType = 'Income Support';
           console.log(req.query);
             res.render('checker/1/results/full-exemption-benefits', {
             'bentype' : benType,
+            'partnerbenefits' : partnerBenefits,
             'partnercommatext' : partnerCommaText
           });
         } else if (req.query.taxcredits == "true") {
@@ -367,7 +369,9 @@ var benType;
             });
           } else if (req.query.uc == "true") {
             res.render('checker/1/benefits-uc-tc',{
-              'partnercommatext' : partnerCommaText,
+            'bentype' : benType,
+            'partnerbenefits' : partnerBenefits,
+            'partnercommatext' : partnerCommaText
           });
           } else {
             res.render('checker/1/tax-credits-over20-new',{
@@ -385,7 +389,8 @@ var benType;
           benType = 'income related Employment and Support Allowance (ESA)';
           res.render('checker/1/benefits-esa', {
             'bentype' : benType,
-            'partnercommatext' : partnerCommaText
+            'partnercommatext' : partnerCommaText,
+            'iwe' : iWe
           });
         } else if (req.query.jsa == "true") {
           benType = 'income based Job Seekers Allowance (JSA)';

@@ -69,6 +69,9 @@
   border-width: 0 0 0 4px
  }
 
+.panel-border-narrow { 
+  padding-top:0.2em
+}
 details{
   margin-top: 0.5em
 }
@@ -143,12 +146,11 @@ details{
 
   <a href="javascript:history.go(-1)" class="link-back">Back</a>
 
-
     <div class="grid-row">
       <div class="column-two-thirds">
 
-        <h1 class="heading-large">What type of Employment and Support Allowance (ESA) do you get?</h1>
- <p>There are 2 types of ESA, income-related and contributions-based.</p>
+        <h1 class="heading-large">What type of Pension Credit do you get?</h1>
+ <p>There are 2 types of Pension Credit, Guarantee Credit and Savings Credit.</p>
 <!--        <p>Although similar in name, contributions-based ESA doesn't automatically entitle you to help with NHS costs.</p> -->
     
       
@@ -156,18 +158,21 @@ details{
               <summary><span class="summary">I'm not sure what type I get</span></summary>
                 <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="false">
 
-                <h3 class="heading-medium">
+            <!--     <h3 class="heading-medium">
                 Check your benefit payment letter
                 </h3>
 
-                  <p>On page 3 of your benefit letter, look under the heading <strong>‘Income and Benefits’</strong>.</p><p> It will say either:</p>
+                  <p>On page 3 of your benefit letter, look under the heading <strong>‘Income and Benefits’</strong>.</p>
+                  <p> It will say either:</p>
 
                     <ul class="list-bullet">
                     <li>'your <strong>income-related</strong> entitlement is', or </li>
                     <li>'you are entitled to <strong>contribution based</strong>'</li>
                     </ul>
                     <br>
-                    <p>Find out more about the <a href="https://www.gov.uk/employment-support-allowance/types-of-esa" target="_blank">different types of ESA</a>.</p>
+                    <p>If you're still unsure contact the <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus Helpline</a>.</p> -->
+
+                     <p>Find out more about the <a href="https://www.gov.uk/employment-support-allowance/types-of-esa" target="_blank">different types of ESA</a>.</p>
                     <p>If you're still unsure contact the <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus Helpline</a>.</p>
 
                   <!-- <img class="uc-statement" src="/public/images/bsa/ESA-income-letter2.png" alt="an image showing that your type of ESA is shown towards the bottom of your letter.">
@@ -176,12 +181,12 @@ details{
               </div>
             </details>
 
-        <form action="esa-handler" method="get" class="form">
+        <form action="pencred-handler" method="get" class="form">
 
         <div class="form-group">
           <fieldset>
             <legend class="visuallyhidden">
-            What type of Employment and Support Allowance (ESA) do you get?
+            What type of Pension Credit do you get?
             </legend>
           <br>
 
@@ -189,7 +194,8 @@ details{
             <input id="incomeesa" type="radio" name="benefits" value="incomeesa">
             <label for="incomeesa" id="incomeesa" class=" block-label">
 
-              <p class="list-discription">Income-related ESA</p>
+              <p class="list-discription">Guarantee Credit</p>
+              <span class="font-xsmall"></span>
           </label>
         </div>
 
@@ -197,13 +203,12 @@ details{
             <input id="contesa" type="radio" name="benefits" value="contesa">
             <label for="contesa" id="contesa" class=" block-label">
 
-              <p class="list-discription">Contribution-based ESA</p>
- <!--              <span class="font-xsmall">Usually you get this if you’ve paid enough National Insurance contributions in the last 2 full tax years. </span> -->
+              <p class="list-discription">Savings Credit</p>
+<!--               <span class="font-xsmall">Usually you get this if you’ve paid enough National Insurance contributions in the last 2 full tax years. </span> -->
             </label>
           </div>
 
-
-          <div class="multiple-choice" style="line-height: 1.25; padding-bottom: 0.6em">
+                 <div class="multiple-choice" style="line-height: 1.25; padding-bottom: 0.6em">
 
             <input id="contesa" type="radio" name="benefits" value="contesa">
             <label for="contesa" id="contesa" class=" block-label">
@@ -211,6 +216,8 @@ details{
               <p class="list-discription">{{iwe}} get both</p>
             </label>
           </div>
+
+
 
           </fieldset>
         </div>
