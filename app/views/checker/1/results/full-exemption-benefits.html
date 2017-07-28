@@ -38,7 +38,7 @@
   background-color: $nhs-blue;
   background-image: url('/public/images/bsa/done-tick.png');
   background-repeat: no-repeat;
-  background-position: center;
+/*  background-position: center;*/
 }
 </style>
 
@@ -49,14 +49,21 @@
     <div class="column-two-thirds">
     <div class="done-panel">
         
-        <h1 class="heading-xlarge" style="margin-top:0"><span id="done-tick"> </span>done</h1>
+        <h1 class="heading-xlarge" style="margin-top:0"><span id="done-tick"> </span>Done</h1>
               <h1 class="heading-large" style="margin-top: 0.5em">
         <span class="heading-secondary" style="color:white">Based on what you've told us</span>
         You get help with NHS costs
       </h1>
         
       </div>
-
+</div>
+</div>
+        <p class="lede">
+           Because you get {{bentype}}:
+        </p>
+          <div class="grid-row">
+    <div class="column-two-thirds">
+<h2 class="heading-medium" style ="margin-top: 0">You get free:</h2>
 <!--     <div class="done-panel">
         
         <h1 class="heading-large" style="margin-top:0"><span id="done-tick"> </span>You're done</h1>
@@ -74,7 +81,7 @@
   <p> -->
        <!--    Because you get {{bentype}}, --> <!-- {{partnercommatext}} and any children under 20 included on your claim, -->
 <!-- <p style="margin-bottom: 0">Because you get {{bentype}},</p> -->
-<h2 class="heading-medium" style="margin-top:0">You get free:</h2>
+
 
 
   <ul class="form-hint-list">
@@ -88,7 +95,7 @@
     </li>
     <li class="form-hint-list-item form-hint-list-item--valid">
         <span class="form-hint-list-item__indicator"></span>
-        NHS sight tests
+        sight tests
     </li>
     <li class="form-hint-list-item form-hint-list-item--valid">
         <span class="form-hint-list-item__indicator"></span>
@@ -114,7 +121,7 @@
     </li>
   </ul>
   <br>
-              <div class="panel panel-border-narrow" style="padding:0.5rem 2rem 1rem 1rem; margin-bottom:2rem">
+          <div class="panel panel-border-narrow" style="padding:0.5rem 2rem 1rem 1rem; margin-bottom:2rem">
           <p>{{partnerbenefits}} children under 20 included on your {{bentype}} claim are also entitled to the same help. </p>
         </div>
 
@@ -123,7 +130,7 @@
       <h2 class="heading-medium">How to get your help</h2>
     <p>You don't have to do anything more, although you may have to show proof you get {{bentype}} to your pharmacist, optician or dentist.</p>
 
-    <p>You can use your benefit award notice as proof. <br>
+    <p>You can use your latest benefit letter or award notice as proof. <br>
    If you have lost yours contact the <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus Helpline</a>.
 
   </div>
