@@ -934,3 +934,12 @@ router.get(/bankaccount-handler/, function (req, res) {
    res.redirect('error');
  }
 });
+
+
+router.get(/return-view/, function (req, res) {
+  if (req.query.endDate == '') {
+    show.runout_content
+  } else {
+    res.render('return-view')
+  }
+});
