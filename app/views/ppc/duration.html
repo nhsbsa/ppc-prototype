@@ -1,7 +1,7 @@
 {% extends "layout_bsa.html" %}
 
 {% block page_title %}
-  Buy a prescription prepayment
+  Prepay for NHS prescriptions
 {% endblock %}
 
 {% block content %}
@@ -12,43 +12,58 @@
     
     <div class="column-two-thirds">
 
-      <h1 class="heading-large">
-         How long do you want to cover your prescriptions for?
-      </h1>
+      <div class="heading-group">
+        <p>Prepay for NHS prescriptions</p>
+        <h1 class="heading-large">
+          How long do you want your prepayment to last?
+        </h1>
+      </div>
 
-      <form action="duration-handler" method="get" class="form">
+      <form action="dur-handler" method="get" class="form">
+        
+        <div class="form-group form-break">
+          <h3 class="heading-medium">12 months</h3>
+        </div>
         
         <div class="form-item-wrapper">
-          
-          <div class="multiple-choice">
+                    
+          <div class="multiple-choice" data-target="pay-dd">
             <input type="radio" id="dd" value="dd" name="duration">
             <label class="form-control-radio" for="dd">
-              12 Months - £104<br>
-              10 payments of <span class="strong">£10.40 </span>by direct debit
+              Direct Debit<br>
+              10 instalments of <span class="strong">£10.40</span> (£104 total)
             </label>
+          </div>
+          
+          <div class="panel panel-border-narrow js-hidden" id="pay-dd">
+            <p>
+              Your first instalment will be taken on <span>{{dddate}}</span>. After that you can call us to change the payment date.
+            </p>
+            <p>Your prepayment will automatically renew in 12 months. <!-- You can not pay for someone else's prepayment using this option. --></p>
+            
           </div>
           
           <div class="multiple-choice">
             <input type="radio" id="twelve" value="twelve" name="duration">
             <label class="form-control-radio" for="twelve">
-              12 months <span class="strong">- £104 </span>
-              <br>in 1 card payment
+               Single payment
+              <br><span class="strong">£104 </span>
             </label>
           </div>
           
           <div class="form-group form-break">
-          <p>or</p>
+            <h3 class="heading-medium">3 months</h3>
           </div>
           
           <div class="form-group">
             <div class="multiple-choice">
               <input type="radio" id="three" value="three" name="duration">
               <label class="form-control-radio" for="three">
-                3 months - <span class="strong">£29.10</span> <br>
-                in 1 card payment
+                Single payment<br>
+                <span class="strong">£29.10</span>
               </label>
             </div>
-          </div>
+          </div>          
         </div>
 
         <div class="form-item-wrapper">

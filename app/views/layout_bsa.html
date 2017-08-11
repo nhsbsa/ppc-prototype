@@ -7,13 +7,12 @@
 {% block header_content %}
   {% include "bsa_head.html" %}
 {% endblock %}
-   
-{% block footer_support_links %}
-  {% if useAutoStoreData %}
-   
-  {% endif %}
+
+{% block foot %}
+  {% include "includes/footer.html" %}
 {% endblock %}
-    
+
 {% block body_end %}
   {% include "includes/scripts.html" %}
 {% endblock %}
+

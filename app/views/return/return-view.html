@@ -1,0 +1,65 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <div class="text">
+
+        <div class="heading-group">
+          <p>View an NHS prescription</p>
+          <h1 class="heading-xlarge">Prepayment details</h1>
+        </div>
+
+        <div class="info-table">
+          <p>Prepayment for: <span class="strong">{{name}}</span></p>
+          <!-- <p>Date of birth: <span class="strong">{{dob}}</span></p> -->
+          <p>Prepayment number: <span class="strong">869 467 589</span></p>
+          <p>Started on: <span class="strong"> {{startdate}}</span></p>
+          <p>Ends on: <span class="strong"> {{enddate}}</span></p>
+        </div>
+
+        <p>We will text and email you again in July to remind you when your prepayment will end.</p>
+
+        <hr>
+
+                <h2 class="heading-medium">Tell us something has changed</h2>
+
+                <p>
+                  You need to tell us if your name or address changes so that you don't get a fine. You can also change the way we contact you.
+                </p>
+                <p>You will need to answer two security questions about how you prepay for prescriptions before you can change your details.</p>
+
+                <p>
+                  <a href="../change/securityquestion/howdidyoubuy">Change your details</a>
+                </p>
+<hr>
+
+              </div>
+
+      </div>
+
+          <div class="column-one-third">
+            <h2 class="heading-medium">Save or print</h2>
+            <ul class="options-list">
+              <li><a class="icon print-icon" href="javascript:window.print();">Print this</a></li>
+              <li><a class="icon download-icon" href="../public/images/bsa/cert.pdf" target="_blank">Save this page (PDF 55k)</a></li>
+            </ul>
+            <hr>
+            <h2 class="heading-medium">Send text and email</h2>
+           <a href="../change/sendto" style="padding-top:10px">Send my prepayment details by text or email </a>
+
+
+          </div>
+  </div>
+
+</main>
+
+{% endblock %}

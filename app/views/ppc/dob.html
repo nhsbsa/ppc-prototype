@@ -1,7 +1,7 @@
 {% extends "layout_bsa.html" %}
 
 {% block page_title %}
-  Buy a prescription prepayment
+  Prepay for NHS prescriptions
 {% endblock %}
 
 {% block content %}
@@ -12,10 +12,12 @@
     <div class="column-two-thirds">
 
       <!-- <p class="navigation"><a class="back-to-previous">Back</a></p> -->
-
-      <h1 class="heading-large">
-        What is your date of birth?
-      </h1>
+        <div class="heading-group">
+          <p>Prepay for NHS prescriptions</p>
+          <h1 class="heading-large">What is your date of birth?</h1>
+        </div>
+      
+      <p>We collect this information to check if you qualify for free prescriptions.</p>
 
       <form class="form"  action="birth-handler" method="get">
         
@@ -25,7 +27,7 @@
 
           <div class="form-date">
             
-            <p class="form-hint">For example, 31 3 1980</p>
+            <p class="form-hint">For example, 31 03 1980</p>
             <div class="form-group form-group-day">
               <label for="day">Day</label>
               <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" min="0" max="31" required>

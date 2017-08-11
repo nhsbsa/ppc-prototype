@@ -14,7 +14,7 @@ $path: "/public/images/";
 $toolkit-font-stack: $helvetica-regular;
 
 .unbranded {
-  background: $white;
+  //background: $white;
 
   // Use the universal selector and !important to *ALWAYS OVERRIDE* GDS Transport
   * {
@@ -23,8 +23,8 @@ $toolkit-font-stack: $helvetica-regular;
   }
 
   // Remove GOV.UK footer styles
-//  #footer {
-//    border: 0;
-//    background: $white;
-//  }
+  #footer {
+    border: 0;
+    background: $white;
+  }
 }

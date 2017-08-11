@@ -1,0 +1,53 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+<a href="javascript:history.go(-1)" class="link-back">Back</a>
+        <div class="heading-group">
+          <p>View an NHS prescription prepayment</p>
+          <h1 class="heading-xlarge">How should we send your prepayment details? </h1>
+        </div>
+
+        <form class="form" action="cont-handler" id="contact-boxes">
+          <fieldset class="form-group">
+            <legend class="visually-hidden">
+            How should we send your prepayment details?
+            </legend>
+            <div class="multiple-choice multiple-radio">
+              <input id="text" name="text" type="checkbox" value="true">
+              <label for="text">Text message</label>
+            </div>
+            <div class="multiple-choice multiple-radio">
+              <input id="email" name="email" type="checkbox" value="true">
+              <label for="email">Email</label>
+            </div>
+          </fieldset>
+
+
+          <div class="form-group">
+            <!-- <a class="button" href="change-number" role="button">Next</a> -->
+              <input class="button" type="submit" value="Next">
+          </div>
+          <p class="navigation"><a class="cancel" href="../ppc/start">Cancel</a></p>
+        </form>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}

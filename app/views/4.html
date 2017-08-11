@@ -1,0 +1,79 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <p class="smalltext"> <a href="/">< Back to all versions</a> </p>
+
+  <h2 class="heading-large">Version 4 - April 2017</h2>
+
+  <h3 class="heading-medium">Journeys</h3>
+
+  <ul class="list list-bullet">
+      <li><a href="/public/images/bsa/versions/s4-ppc.pdf">Version 4 (PDF)</a></li>
+    <!-- <li><a href="/ppc/start">Journey for a person prepaying for their prescriptions.</a></li>
+    <li><a href="/google/index">Journey starting with a Google search</a><br>(enter 'buy a prescription prepayment')</li> -->
+<!--    <li><a href="../ppc/bsa/hwhc">Prescription prepayment content on NHS BSA website</a></li>-->
+<!--    <li><a href="/bsa/hwhc-v2">Prescription prepayment content on NHS BSA website</a></li>-->
+    <!--<li>Journey for a person who already has a PPC<br>
+    (Enter "Bill", "Smith", "NE1 234" for existing exemption check)</li>
+    <li>Journey for a person who is 59<br>
+    (Enter 1957 for date of birth))</li>
+    <li>Journey for a person who is under 16<br>
+    (Enter date of birth year less than 2000))</li>
+    <li>Journey for a person who is over 60<br>
+    (Enter date of birth year later than 1957))</li>-->
+    <!-- <li><a href="/ppc/done-v3">Done screen</a></li>
+    <li><a href="/ppc/return-view">Return View</a></li> -->
+  </ul>
+    <hr>
+<h3 class="heading-small">What we are testing</h3>
+  <ul class="list list-bullet">
+    <li>Moving from buying a physical thing to paying for a service.</li>
+    <li>Clearer content about getting a text or an email.</li>
+    <li>Clearer content about what happens if users don't have something to show pharmacy staff.</li>
+    <li>How do users feel about being asked for their NHS number?</li>
+    <li>A/B Test - "This service does not issue..." / "We do not send out..."</li>
+  </ul>
+    <hr>
+
+  <h3 class="heading-small">Email content:</h3>
+  <ul class="list list-bullet">
+    <li><a href="/email/purchased_2">Email version 2</a></li>
+  </ul>
+
+  <h3 class="heading-small">Text content:</h3>
+  <p>
+    You prepaid for NHS prescriptions.
+  </p>
+  <p>
+    Prepayment for: Jon Doe<br>
+    Prepayment number: 123 456 789<br>
+    Start date: 15 March 2017<br>
+    End date: 14 June 2017
+  </p>
+  <p>
+    You can show pharmacies this text if <br>
+    they ask for evidence of your prepayment.<br>
+    We do not send out plastic cards any more.<br>
+  </p>
+  <p>
+    Tell us if your name or address changes, so<br>
+    they match the details on your prescriptions.<br>
+    Go to www.nhs.uk/prescription-prepayments <br>
+    to keep your details up to date.
+  </p>
+
+  <!--
+  <h3 class="heading-medium">Digital certificate</h3>
+
+-->
+
+</main>
+
+{% endblock %}

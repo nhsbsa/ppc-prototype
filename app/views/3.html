@@ -1,0 +1,74 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  
+  <p class="smalltext"> <a href="/">< Back to all versions</a> </p>
+  
+  <h2 class="heading-large">Version 3 - March/April 2017</h2>
+  <h3 class="heading-small">Journeys</h3>
+  
+  <ul class="list list-bullet">
+    <li><a href="/public/images/bsa/versions/s3-dd-payment.pdf">Direct Debit (PDF)</a></li>
+    <li><a href="/public/images/bsa/versions/s3-one-off-payment.pdf">Card payment (PDF)</a></li>
+  </ul>
+  <hr>
+<h3 class="heading-small">What we tested</h3>
+  <ul class="list list-bullet">
+    <li>End to end journey with revised content and messages around what proof of prepayment is.</li>
+  </ul>
+  
+  <h3 class="heading-small">What we found</h3>
+  <ul class="list list-bullet">
+    <li>New users distracted by plastic card message.</li>
+    <li>Users unclear about how proof will be sent.</li>
+  </ul>
+  
+  <h3 class="heading-small">What we changed</h3>
+  <ul class="list list-bullet">
+    <li>Title of service changed to 'Prepay for NHS Prescriptions'.</li>
+    <li>Moving from buying a physical thing to paying for a service.</li>
+    <li>Improved Direct Debit capture pages.</li>
+    <li>Clearer content about collecting prescriptions.</li>
+    <li>Reassurance about use of personal details.</li>
+  </ul>    
+  <hr>
+  
+  <h3 class="heading-small">Email content:</h3>
+  <ul class="list list-bullet">
+    <li><a href="/email/purchased">Email version 1</a></li>
+  </ul>    
+
+  <h3 class="heading-small">Text content:</h3>
+  <p>
+    Details of your prescription prepayment.
+  </p>
+  <p>
+    Prepayment for: Jon Doe<br>
+    Certificate number: 123 456 789<br>
+    Start date: 15 March 2017<br>
+    End date: 14 June 2017<br>
+  </p>
+  <p>
+    It is important that you tell us if your name<br>
+    or address changes so they match the details<br>
+    on your prescriptions.
+  </p>
+  <p>
+    To make a change go to:<br>
+    <span style="text-decoration: underline">www.nhs.uk/prescription-prepayments</span>
+  </p>
+  
+  <!--
+  <h3 class="heading-medium">Digital certificate</h3>
+  
+-->
+
+</main>
+
+{% endblock %}

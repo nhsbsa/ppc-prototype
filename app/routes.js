@@ -1,810 +1,936 @@
-var express = require('express')
-var router = express.Router()
+var express = require('express');
+var router = express.Router();
+
+//create the date helper
+var dateHelperImport = require('./dateHelper.js');
+var dateHelper = dateHelperImport.createDateHelper();
+dateHelper.today = new Date();
+dateHelper.thisDay = dateHelper.today.getDate();
+dateHelper.thisMonth = dateHelper.today.getMonth();
+dateHelper.thisYear = dateHelper.today.getFullYear();
+dateHelper.firstPaymentDate = dateHelper.createDate(dateHelper.thisDay, dateHelper.thisMonth, dateHelper.thisYear, 12);
+dateHelper.lastPaymentDate = "28 January 2018";
+dateHelper.showDateHelper();
+
+//create a ppc
+var ppc_master = require('./ppc.js');
+var ppc = ppc_master.createPPC();
+ppc.duration = "test";
+ppc.startDay = null;
+ppc.startMonth = null;
+ppc.startYear = null;
+ppc.startDate = '05 May 2017';
+ppc.endDay = null;
+ppc.endYear = null;
+ppc.endDate = '04 September 2017';
+ppc.autoRenew = null;
+ppc.plusMonth = null;
+ppc.minusMonth = null;
+
+//create applicant
+var applicantMaster = require('./applicant.js');
+var applicant = applicantMaster.createApplicant();
+applicant.firstName = "Jane";
+applicant.lastName = "Doe";
+applicant.fullName = "Jane Doe";
+applicant.dobDay = null;
+applicant.dobMonth = null;
+applicant.dobYear = null;
+applicant.hasNhsno = null;
+applicant.nhsno = null;
+applicant.postCode = null;
+applicant.addresslineone = null;
+applicant.addresslinetwo = null;
+applicant.town = null;
+applicant.hasMobile = false;
+applicant.hasEmail = false;
+applicant.mobile = '07700 900574';
+applicant.contactPref = 'post';
+applicant.contactValue = '3 street, Town, NE1 246';
+applicant.email = 'janedoe@hotmail.com';
+applicant.address = '3 street, Town, NE1 246';
+applicant.age = null;
+applicant.renewing = false;
+
+//create a text helper
+var text_master = require('./textHelper.js');
+var textHelper = text_master.createTextHelper();
+textHelper.paymentMethod = "Direct debit";
+textHelper.cost = "£104";
+textHelper.cardPaymentInfo = '12 month prescription prepayment';
+textHelper.length = "12 months";
+textHelper.format = "account";
+textHelper.contactText = "You should make a note of the following:";
+textHelper.method = "a letter";
+textHelper.reminderText = "We will write to you again in August to remind you when your prepayment will end.";
 
 // Route index page
 router.get('/', function (req, res) {
-  res.render('index')
-})
+  res.render('index');
+});
 
-// add your routes here
+module.exports = router;
 
-//import the person constructor
-var person = require("./person.js");
-
-module.exports = router
-
-//create an applicant
-var applicant = person.createPerson(
-  this.age = undefined,
-  this.need = undefined,
-  this.country = "england",
-  this.gp = undefined,
-  this.highlands = undefined,
-  this.education = undefined,
-  this.namedOnTaxCredits = undefined,
-  this.claimsTaxCredits = false,
-  this.incomeSupport = false,
-  this.isPregnant = false,
-  this.hasMatexCard = false,
-  this.hasMedexCard = false,
-  this.hasHealthCondition = false
-);
-
-var thisYear = 2016;
-var parentTc = false;
-var pregnancy = false;
-var medicalEx = false;
-var warPension = false;
-
-var variText = {
-    sightText : "sight test",
-    setSightText : function() {
-      if(applicant.country === "scotland") {
-        this.sightText = "eye exam";
-      }
-    }
+//card details
+var card = {
+  cardNumber : '************7470',
+  exMonth : 11,
+  exYear : 16,
+  exDate : '11/16',
+  holderName : 'Mr Smith',
+  holderAddress : '3 Street, town',
+  holderPostCode : 'NE2 468',
+  setExdate : function () {
+    this.exDate = this.exMonth + '/' + this.exYear;
+  },
+  setCardNumber : function () {
+    var tempString = this.cardNumber.toString();
+    var lastFour = tempString.substr(tempString.length - 4);
+    this.cardNumber = "************" + lastFour;
+    console.log(this.cardNumber);
+  }
 };
 
+function capitaliseFirst(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-//partner question variable
- var setPartnerText = function (partner) {
-    if (applicant.partner === false) {
-      partnerBothText = 'you';
-      partnerCommaText = 'you';
-      partnerOrText = 'you';
-      partnerAndText = 'you';
-      partnerAndTextDo = 'Is your';
-      partnersText = 'your';
-      partnersAndText = "your";
-      partnersCapAndText = "Your";
-      parentText = "Is your parent or guardian's";
-      partnerBenefits = "Any";
-      iWe = 'I';
-      jointOrText = 'your';
-      combinedOrText = 'your';
-      partnerPlustext = 'your';
-      singleJointUC = 'Was your take-home pay for your last Universal Credit period £935 or less?';
-      singleJointUCElement = 'Was your take-home pay for your last Universal Credit period £435 or less?';
-      ucResults = 'Because you get Universal Credit and have a net income of £935 or less; you and any children under 20 included on your claim,';
-      ucResultsElement = 'Because you get Universal Credit and have a take-home pay of £435 or less; you,'
+var resetAll =  function () {
+  console.log("Reset all...");
+  applicant.renewing = false;
+  ppc.duration = null;
+  //card reset
+  card.cardNumber = '************7470';
+  card.exMonth = 11;
+  card.exYear = 16;
+  card.exDate = '11/16';
+  card.holderName = 'Mr Smith';
+  card.holderAddress = '3 Street, town';
+}
 
-    } else {
-      partnerBothText = 'you, your partner or both of you';
-      partnerCommaText = 'you, your partner';
-      partnerOrText = 'you or your partner';
-      partnerAndText = 'you and your partner';
-      partnerAndTextDo = 'Is your';
-      partnersText = "your or your partner's";
-      partnersAndText = "your and your partner's";
-      partnersCapAndText = "Your and your partner's";
-      parentText = "Is your parent or guardian's";
-      parentOrText = "your or your parents";
-      partnerBenefits = "Your partner and any";
-      iWe = 'we';
-      jointOrText = 'your joint';
-      combinedOrText = "your and your partner's combined";
-      partnerPlustext = "yours plus your partner's";
-      singleJointUC = 'Did you and your partner have a combined take-home pay of £935 or less in your last Universal Credit period?'
-      singleJointUCElement = 'Did you and your partner have a combined take-home pay of £435 or less in your last Universal Credit period?'
-      ucResults = 'Because you and your partner get Universal Credit and have a combined take-home pay of £935 or less; you, your partner and any children under 20 included on your claim,';
-      ucResultsElement = 'Because you and your partner get Universal Credit and have a combined take-home pay of £435 or less; you, your partner,'
-  
+resetAll();
+
+//bool to text
+function boolToText(boo) {
+  if (boo === true) {
+    return 'Yes';
+  } else {
+    return 'No';
   }
-  };
+}
 
 var querystring = require('querystring');
+router.get('/', function (req, res) {
+  res.render('index');
+});
 
-    //foogle search
-    router.get(/go-handler/, function (req, res) {
-      var term = req.query.search;
-      if(term === 'LIS' || term === 'low income scheme' || term === 'HC2' || term === 'hc2') {
-        res.render('checker/1/google/prescription-result', {
-          term : term
-        });
-        console.log(term);
-      } else {
-        res.render('checker/1/google/result', {
-          term : term
-        });
+router.get('/index', function (req, res) {
+  resetAll();
+  res.render('index');
+});
+
+router.get('/ppc/index', function (req, res) {
+  resetAll();
+  res.render('ppc/index');
+});
+
+//foogle search
+router.get(/go-handler/, function (req, res) {
+  var term = req.query.search.toLowerCase();
+  if ( term.includes("ppc") ) {
+    console.log('result-ppc');
+    res.render('google/result-prepaymen', {
+      term : term
+    });
+  } else if ( term.includes("prepayment") || term.includes("ppc") ) {
+    console.log('result-prepayment');
+    res.render('google/result-prepayment', {
+      term : term
+    });
+  } else {
+    console.log('other');
+    res.render('google/result-prepaymen', {
+      term : term
+    });
+  }
+});
+
+
+////// PPC ///////
+
+
+//DOB
+router.get(/dob/, function (req, res) {
+  if (req.query.renew === "true") {
+    applicant.renewing = true;
+  }
+  res.render('ppc/dob');
+});
+
+//dob-handler
+router.get(/birth-handler/, function (req, res) {
+  if (req.query.day != '') {
+    applicant.dobDay = req.query.day;
+  }
+  if (req.query.month != '') {
+    applicant.dobMonth = req.query.month;
+  }
+  if (req.query.year != '') {
+    applicant.dobYear = req.query.year;
+    applicant.age = (2016 - applicant.dobYear);
+  }
+  console.log(applicant.age);
+  if (applicant.age <= 16 || applicant.age >= 60) {
+    res.redirect('60');
+  } else {
+    res.redirect('name');
+  }
+//      if (applicant.age === 59) {
+//        res.redirect('../59');
+//      } else if (applicant.age >= 60) {
+//        res.redirect('../60');
+//      } else {
+//        res.redirect('../name');
+//      }
+});
+
+//Name
+router.get(/details-handler/, function (req, res) {
+  applicant.firstName = req.query.firstname;
+  applicant.lastName = req.query.lastname;
+  applicant.setFullName();
+  res.redirect('post-address');
+});
+
+//NHS Number
+router.get(/nhs-handler/, function (req, res) {
+  applicant.hasNhsno = req.query.hasnhsno;
+  applicant.nhsno = req.query.nhsno;
+  if (applicant.renewing === true) {
+    res.redirect('duration');
+  } else {
+    res.redirect('duration');
+  }
+});
+
+//address
+router.get(/address-c-handler/, function (req, res) {
+  applicant.postCode = req.query.postcode;
+  //applicant.createAddress(req.query.lineone, req.query.linetwo );
+  // address = LINEONE LINETWO TOWN COUNTY POSTCODE
+  var tempAddress = req.query.lineone;
+  if (req.query.linetwo != '') {
+    tempAddress = tempAddress + " " + req.query.linetwo;
+  }
+  if (req.query.town != '') {
+    tempAddress = tempAddress + " " + req.query.town;
+  }
+//  if (req.query.county != '') {
+//    tempAddress = tempAddress + " " + req.query.county;
+//  }
+  if (req.query.postcode != '') {
+    tempAddress = tempAddress + " " + req.query.postcode;
+  }
+  applicant.address = tempAddress;
+  console.log(applicant.address);
+  textHelper.setContactText(applicant.contactPref, applicant.contactValue);
+  if (applicant.check() === true) {
+    res.redirect('nhsno');
+  } else {
+    res.redirect('nhsno');
+  }
+});
+
+//Duration and payment
+router.get(/duration/, function (req, res) {
+  res.render('ppc/duration', {
+    dddate : dateHelper.firstPaymentDate
+  });
+});
+
+//Duration and payment
+router.get(/dur-handler/, function (req, res) {
+  ppc.duration = req.query.duration;
+  textHelper.setPaymentText(ppc.duration);
+  console.log(ppc.duration);
+  res.redirect('cover_date');
+});
+
+//start-date
+router.get(/start-date/, function (req, res) {
+  console.log(dateHelper.thisDay);
+  res.render('ppc/start-date', {
+    todayday : dateHelper.thisDay,
+    todaymonth : dateHelper.thisMonth + 1,
+    todayyear : dateHelper.thisYear,
+    minusmonth : dateHelper.plusMonth,
+    plusmonth : dateHelper.minusMonth
+  });
+});
+
+//start-date
+router.get(/cover_date/, function (req, res) {
+  console.log(dateHelper.thisDay);
+  res.render('ppc/cover_date', {
+    minusmonth : dateHelper.plusMonth,
+    plusmonth : dateHelper.minusMonth
+  });
+});
+
+//Start date handler
+  router.get(/start-handler/, function (req, res) {
+    if (req.query.rcg == "today") {
+      ppc.startDay = dateHelper.thisDay;
+      ppc.startMonth = dateHelper.thisMonth+1;
+      ppc.startYear = dateHelper.thisYear;
+    } else if (req.query.rcg == "future") {
+      ppc.startDay = req.query.futureday;
+      ppc.startMonth = req.query.futuremonth;
+      ppc.startYear = req.query.futureyear;
+    } else {
+      ppc.startDay = req.query.pastday;
+      ppc.startMonth = req.query.pastmonth;
+      ppc.startYear = req.query.pastyear;
+    }
+    //issue!
+    ppc.startDate = dateHelper.dateStringCreator(ppc.startDay, ppc.startMonth, ppc.startYear);
+    console.log("ppc.startDate = " + ppc.startDate);
+    ppc.endDate = dateHelper.createEnd(ppc.startDate, ppc.startMonth, ppc.startYear, ppc.duration);
+    console.log("ppc.endDate = " + ppc.endDate);
+    res.redirect('copy');
+  });
+
+
+////Start date handler
+//  router.get(/start-handler/, function (req, res) {
+//    ppc.startDay = req.query.day;
+//    ppc.startMonth = req.query.month;
+//    ppc.startYear = req.query.year;
+//    ppc.startDate = dateHelper.dateStringCreator(ppc.startDay, ppc.startMonth, ppc.startYear);
+//    ppc.endDate = dateHelper.createEnd(ppc.startDate, ppc.startMonth, ppc.startYear, ppc.duration);
+//    console.log("end date = " + ppc.endDate);
+//    res.redirect('copy');
+//  });
+
+
+//Contact handler
+router.get(/contact-handler/, function (req, res) {
+  if (req.query.text === 'true') {
+    applicant.hasMobile = true;
+    console.log("applicant.hasMobile = true");
+  } else {
+    applicant.hasMobile = false;
+    console.log("applicant.hasMobile = false");
+  }
+  if (req.query.email === 'true') {
+    applicant.hasEmail = true;
+    console.log("applicant.hasEmail = true");
+  } else {
+    applicant.hasEmail = false;
+    console.log("applicant.hasEmail = false");
+  }
+  if (applicant.hasMobile) {
+    res.redirect('mobile-number');
+  } else if (applicant.hasEmail) {
+    res.redirect('email-address');
+  } else {
+    res.redirect('check');
+  }
+});
+
+//Mobile capture
+router.get(/mobile-c-handler/, function (req, res) {
+  applicant.mobile = req.query.mobile;
+  if (applicant.hasEmail) {
+    res.redirect('email-address');
+  } else {
+    res.redirect('check');
+  }
+});
+
+//Email capture
+router.get(/email-c-handler/, function (req, res) {
+  applicant.email = req.query.email;
+  console.log(applicant.email);
+  res.redirect('check');
+});
+
+//Check your answers
+router.get(/check/, function (req, res) {
+  console.log("nhsno" + applicant.hasNhsno);
+  var myDobMonth;
+  if (applicant.dobMonth === null) {
+    myDobMonth = 'May';
+  } else {
+    myDobMonth = dateHelper.monthToText(applicant.dobMonth);
+  }
+  textHelper.setContactText(applicant.mobile, applicant.email);
+  textHelper.setReminderText(applicant.mobile, applicant.email);
+  textHelper.setMethod(applicant.email);
+  res.render('ppc/check', {
+  name : applicant.firstName + ' ' + applicant.lastName,
+  dobday : applicant.dobDay,
+  dobmonth : myDobMonth,
+  dobyear : applicant.dobYear,
+  address : applicant.address,
+  hasmobile : boolToText(applicant.hasMobile),
+  mobilenumber : applicant.mobile,
+  hasemail :  boolToText(applicant.hasEmail),
+  emailaddress : applicant.email,
+  length : textHelper.length,
+  startdate : ppc.startDate,
+  enddate : ppc.endDate,
+  cost : textHelper.cost,
+  method : textHelper.paymentMethod,
+  firstdddate : dateHelper.firstPaymentDate,
+  lastdddate : dateHelper.lastPaymentDate,
+  hasnhsno : applicant.hasNhsno,
+  nhsno : applicant.nhsno
+  });
+});
+
+//card holder address holder
+router.get(/holder-handler/, function (req, res) {
+  card.postCode = req.query.postcode;
+  if (req.query.linetwo != '') {
+    card.holderAddress = req.query.lineone + ', ' + req.query.linetwo + ', ' + card.postCode;
+  } else {
+    card.holderAddress = req.query.lineone + ', ' + card.postCode;
+  }
+  res.redirect('dd-confirm');
+});
+
+//dd-handler
+router.get(/dd-handler/, function (req, res) {
+    res.redirect('ddv2-confirm');
+});
+
+//pay-handler
+router.get(/payment-add/, function (req, res) {
+  res.render('ppc/payment-add', {
+    format : capitaliseFirst(textHelper.format)
+  });
+});
+
+//pay-handler
+router.get(/pay-handler/, function (req, res) {
+  res.redirect('dd-confirm');
+});
+
+//pay-handler
+router.get(/c-handler/, function (req, res) {
+  console.log(ppc.duration);
+  if (ppc.duration === 'dd') {
+    res.redirect('ddpay');
+  } else {
+    res.redirect('payment-details');
+  }
+});
+
+////auto-handler
+//router.get(/auto-handler/, function (req, res) {
+//  if (req.query.renew === 'yes') {
+//    ppc.autoRenew = true;
+//  } else {
+//    ppc.autoRenew = false;
+//  }
+//  res.redirect('dd-confirm');
+//});
+
+//done
+router.get(/done-v3/, function (req, res) {
+  res.render('ppc/done-v3', {
+    contacttext : textHelper.contactText,
+    duration : textHelper.length,
+    name : applicant.fullName,
+    startdate : ppc.startDate,
+    enddate : ppc.endDate,
+    reminder : dateHelper.monthToText(ppc.endMonth -1) + ppc.endYear,
+    remindertext : textHelper.reminderText,
+    dd : ppc.duration,
+    method : textHelper.method
+  });
+});
+
+
+//done
+router.get(/done-v4/, function (req, res) {
+  res.render('ppc/done-v4', {
+    contacttext : textHelper.contactText,
+    duration : textHelper.length,
+    name : applicant.fullName,
+    startdate : ppc.startDate,
+    enddate : ppc.endDate,
+    reminder : dateHelper.monthToText(ppc.endMonth -1) + ppc.endYear
+  });
+});
+
+router.get(/prepayment-copy/, function (req, res) {
+  res.render('ppc/prepayment-copy', {
+    contacttext : textHelper.contactText,
+    duration : textHelper.length,
+    name : applicant.fullName,
+    startdate : ppc.startDate,
+    enddate : ppc.endDate,
+    reminder : dateHelper.monthToText(ppc.endMonth -1) + ppc.endYear
+  });
+});
+
+router.get(/prepayment-details/, function (req, res) {
+  res.render('ppc/prepayment-details', {
+    contacttext : textHelper.contactText,
+    duration : textHelper.length,
+    name : applicant.fullName,
+    startdate : ppc.startDate,
+    enddate : ppc.endDate,
+    reminder : dateHelper.monthToText(ppc.endMonth -1) + ppc.endYear
+  });
+});
+
+//payment
+router.get(/payment-details/, function (req, res) {
+  res.render('ppc/payment-details', {
+  cardpaymentinfo : textHelper.cardPaymentInfo,
+  cost : textHelper.cost
+  });
+});
+
+//confirm direct debit details
+router.get(/dd-confirm/, function (req, res) {
+  res.render('ppc/dd-confirm', {
+    cardnumber : card.cardNumber,
+    exdate : card.exDate,
+    holdername : card.holderName,
+    holderaddress : card.holderAddress,
+    cardpaymentinfo : textHelper.cardPaymentInfo,
+    cost : textHelper.cost,
+    startdate : ppc.startDate,
+    enddate : ppc.endDate,
+    autorenew : boolToText(ppc.autoRenew)
+  });
+});
+
+router.get(/ddv2-confirm/, function (req, res) {
+  res.render('ppc/ddv2-confirm', {
+    cardnumber : card.cardNumber,
+    exdate : card.exDate,
+    holdername : card.holderName,
+    holderaddress : card.holderAddress,
+    cardpaymentinfo : textHelper.cardPaymentInfo,
+    cost : textHelper.cost,
+    startdate : ppc.startDate,
+    enddate : ppc.endDate,
+    autorenew : boolToText(ppc.autoRenew)
+  });
+});
+
+//confirm card details
+router.get(/cp-confirm/, function (req, res) {
+  res.render('ppc/cp-confirm', {
+    cardnumber : card.cardNumber,
+    exdate : card.exDate,
+    holdername : card.holderName,
+    holderaddress : card.holderAddress,
+    cardpaymentinfo : textHelper.cardPaymentInfo,
+    cost : textHelper.cost
+  });
+});
+
+//card handler
+router.get(/card-handler/, function (req, res) {
+  if (req.query.cardnumber != '') {
+    card.cardNumber = req.query.cardnumber;
+    card.setCardNumber();
+  }
+  if (req.query.exmonth != '') {
+    card.exMonth = req.query.exmonth;
+  }
+  if (req.query.exyear != '') {
+    card.exYear = req.query.exyear;
+    card.setExdate();
+  }
+  if (req.query.holdername != '') {
+    card.holderName = req.query.holdername;
+  }
+  res.redirect('cp-confirm');
+});
+
+//Card / account holders address the same
+router.get(/payment-prompt/, function (req, res) {
+  res.render('ppc/payment-prompt', {
+    format : textHelper.format
+  });
+});
+
+
+
+//** RETURN **//
+
+//dob
+router.get(/return_date/, function (req, res) {
+  res.render('return/return_date');
+});
+
+//name
+router.get(/return_name/, function (req, res) {
+  res.render('return/return_name');
+});
+
+router.get(/name-handler/, function (req, res) {
+  applicant.firstName = req.query.firstname;
+  applicant.lastName = req.query.lastname;
+  applicant.setFullName();
+  res.redirect('return_postcode');
+});
+
+//postcode
+router.get(/return_postcode/, function (req, res) {
+  res.render('return/return_postcode');
+});
+
+//return-view
+router.get(/return-handler/, function (req, res) {
+  res.render('return/return-view', {
+    startdate : ppc.startDate,
+    enddate : ppc.endDate,
+    name : applicant.firstName + ' ' + applicant.lastName
+  });
+});
+
+//return-view
+router.get(/return-view/, function (req, res) {
+  res.render('return/return-view', {
+    startdate : ppc.startDate,
+    enddate : ppc.endDate,
+    name : applicant.firstName + ' ' + applicant.lastName
+  });
+});
+
+//** RESEND **//
+
+router.get(/cont-handler/, function (req, res) {
+  if (req.query.text == 'true') {
+    applicant.hasMobile = true;
+    console.log("applicant.hasMobile = true");
+  } else {
+    applicant.hasMobile = false;
+    console.log("applicant.hasMobile = false");
+  }
+  if (req.query.email == 'true') {
+    applicant.hasEmail = true;
+    console.log("applicant.hasEmail = true");
+  } else {
+    applicant.hasEmail = false;
+    console.log("applicant.hasEmail = false");
+  }
+  if (applicant.hasMobile) {
+    res.redirect('your-mobile');
+  } else if (applicant.hasEmail) {
+    res.redirect('your-email');
+  }  else {
+        res.redirect('done-change');
       }
-    });
+});
+
+//Mobile capture
+router.get(/your-number-handler/, function (req, res) {
+  number: applicant.mobile
+  console.log(req.query);
+  if ( req.query.usemob == 'yes') {
+    if (applicant.hasEmail) {
+      res.redirect( 'your-email');
+    } else {
+      res.redirect('number-send-change');
+    }
+  } else {
+      res.redirect('number-send-change');
+  }
+});
 
 
-     // partner handler v2
-    router.get(/p2-handler/, function (req, res) {
-      sprint = req.url.charAt(5);
-      if (req.query.partner === 'yes') {
-        applicant.partner = true;
-        //aboutPartnerStatus = "Started";
-        //aboutPartnerLink = continueText;
-      } else if (req.query.partner === 'no') {
-        applicant.partner = false;
-        //aboutPartnerStatus = completedText;
-        //aboutPartnerLink = changeText;
-      }
-      setPartnerText(applicant.partner);
-        if(applicant.age >= 20) {
-          res.render('checker/1/benefits-question', {
-            'partnerortext' : partnerOrText,
-              'iwe' : iWe
-            });
-        } else {
-            res.render('checker/1/tax-credits-under20', {
-                'partnerortext' : partnerOrText,
-                'iwe' : iWe
-            });
-        }
-    });
+router.get(/number-send-change/, function (req, res) {
+  res.render('change/number-send-change', {
+    number: applicant.mobile,
+  });
+});
 
-
- 	// country-handler with scotland and wales added
-      router.get(/country-b4-handler/, function (req, res) {
-      if (req.query.countryBeta  === 'englandBeta'){
-        res.redirect('gp-country');
-      } else if (req.query.countryBeta  === 'scotlandBeta') {
-        applicant.country = "scotland";
-    	res.redirect('highlands-islands');
-      } else if (req.query.countryBeta  === 'walesBeta') {
-        res.redirect('date-of-birth');
-      } else {
-        res.redirect('results/country-kickout-ni');
-      }
-    });
-
-	// GP in Scotland or Wales
-      router.get(/gp-handler/, function (req, res) {
-      if (req.query.gpScot === 'yes') {
-      	applicant.gp = "scotWales";
-	  	res.redirect('date-of-birth');
-      } else {
-        res.redirect('date-of-birth');
-      }
-    });
-
-   	// highlands or islands
-      router.get(/highlands-handler/, function (req, res) {
-      if (req.query.highIslands === 'yes') {
-      	applicant.highlands = "highlands";
-	  	res.redirect('date-of-birth');
-      } else {
-        res.redirect('date-of-birth');
-      }
-    });
-
-    // dob-handler
-    router.get(/dateofbirth-handler/, function (req, res) {
-      applicant.age = (thisYear - req.query.dobyearBeta);
-      console.log(applicant.age);
-      if (applicant.age >= 20) {
-        setPartnerText(applicant.partner);
-        res.render('checker/1/partner', {
-            'iwe' : iWe
-        });
-      } else if (applicant.age == 19) {
-        res.redirect('partner');
-      } else if (applicant.age >= 16) {
-        res.redirect('full-time-education');
-      } else if (applicant.age <= 15) {
-        res.redirect('results/full-exemption-under-16');
-      }
-    });
-
-     
-
-    // full time higher education handler
-      router.get(/fte-higher-handler/, function (req, res) {
-
-      if (req.query.ftehigher  === 'yes'){
-      res.redirect('results/full-exemption-fte');
-      } else {
-        res.redirect('partner');
-      }
-    });
-
-	     // tax credits claim yes or no under 20
-	  router.get(/taxcredits-under20/, function (req, res) {
-	  applicant.namedOnTaxCredits = req.query.taxcredits;
-	  if (applicant.namedOnTaxCredits === 'yes' || applicant.namedOnTaxCredits === 'nk' ) {
-	    setPartnerText(applicant.partner);
-	    res.render('checker/1/tax-credits-income', {
-	    'partnerandtextdo' : partnerAndTextDo
-	  });
-	  } else {
-	    res.redirect('tax-credits-under20-parents');
-	  }
-	}); 
-
-
-          // tax credits claim under 20 parents
-      router.get(/taxcredits-parents/, function (req, res) {
-      if (req.query.taxcreditsParents  === 'yes'){
-        parentTc = true;
-        setPartnerText(applicant.partner);
-        res.render('checker/1/tax-credits-income', {
-        'parenttext' : parentText
-      });
-      } else {
-        parentTc = false;
-        res.redirect('passported-benefits-under20');
-      }
-    });
-
-          // tax credits claim yes or no
-      router.get(/taxcredits-over20/, function (req, res) {
-      applicant.namedOnTaxCredits = req.query.taxcredits;
-      if (applicant.namedOnTaxCredits === 'yes' || applicant.namedOnTaxCredits === 'nk' ) {
-        res.redirect('tax-credits-income');
-      } else {
-        res.redirect('passported-benefits');
-      }
-    });
-
-
-    // tax credits income handler
-    router.get(/taxcredit-income-handler/, function (req, res) {
-        if (applicant.age < 20 ) {
-            if (req.query.taxcreditsIncome === 'no') {
-            res.render('checker/1/passported-benefits-under20', {
-            'partnerortext' : partnerOrText,
-              'iwe' : iWe
-            });
-            } else { //yes
-                if (parentTc === true) {
-                    res.render('checker/1/results/full-exemption-tc', {
-                    'tctype' : tcType
-            });
-                } else {
-                    setPartnerText(applicant.partner);
-                    res.render('checker/1/tax-credits-claim-type', {
-                        'partnerortext' : partnerOrText
-                    });
-                }
-            }
-        } else { //over 20
-            if (req.query.taxcreditsIncome === 'no') {
-                res.render('checker/1/passported-benefits', {
-                'partnerortext' : partnerOrText,
-                'iwe' : iWe
-             	});
-            } else {
-                    res.render('checker/1/results/full-exemption-tc', {
-                    'tctype' : tcType
-            });
-            }
-          }
-    });
-
-      //new tax credits type handler
-    var tcType;
-      router.get(/taxcredit-type-handler/, function (req, res) {
-        if (req.query.taxcreditsType ==="wtcctc") {
-          tcType = 'Working Tax Credit and Child Tax Credit together';
-        } else if (req.query.taxcreditsType ==="ctcdis") {
-          tcType = 'Working Tax Credit including a disability element';
-        } else if (req.query.taxcreditsType ==="ctc") {
-          tcType = 'Child Tax Credit';
-        } else {
-          tcType = 'none';
-          setPartnerText(applicant.partner);
-        }
-        if (applicant.age >= 20) {
-          if (tcType === 'none') {
-            res.render('checker/1/pregnancy', {
-              'partnerortext' : partnerOrText,
-                'iwe' : iWe
-            });
-          } else {
-            res.render('checker/1/tax-credits-income', {
-                'partnerandtextdo' : partnerAndTextDo
-            });
-          }
-        } else {
-          if (tcType === 'none') {
-            setPartnerText(applicant.partner);
-            res.render('checker/1/passported-benefits-under20', {
-              'partnercommatext' : partnerCommaText
-            });
-          } else {
-            res.render('checker/1/results/full-exemption-tc', {
-              'tctype' : tcType
-            });
-          }
-        }
-      });
-
-    // benefits
-        router.get(/benefits-handler/, function (req, res) {
-      if (req.query.benefittc == 'yes') {
-          res.render('checker/1/benefits-type-question', {
-              'partnerortext' : partnerOrText,
-              'iwe' : iWe
-          });
-      } else {
-        res.redirect('pregnancy');
-      }
-    });
-
-
-        router.get('checker/1/results/full-exemption-benefits', function (req, res) {
-          res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType,
-            'partnercommatext' : partnerCommaText
-          });
-        });
-
-var benType;
-    // passported benefits handler
-      router.get(/ben-check/, function (req, res) {
-
-        // incomesupport
-        // tax credit === 'true' 
-          // if esa === 'true'
-          // else if uc == true
-          // else jsa == true
-          // else just tax credit
-          // else 
-        // uc
-        // esa
-        // jsa
-        // pen cred
-
-        if (req.query.incomesupport == "true") {
-          benType = 'Income Support';
-          console.log(req.query);
-            res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType,
-            'partnerbenefits' : partnerBenefits,
-            'partnercommatext' : partnerCommaText
-          });
-        } else if (req.query.taxcredits == "true") {
-          if (req.query.esa == "true") {
-            res.render('checker/1/tax-credits-over20-new',{
-            'partnerortext' : partnerOrText,
-              'iwe' : iWe
-            });
-          } else if (req.query.jsa == "true") {
-            res.render('checker/1/tax-credits-over20-new',{
-              'partnerortext' : partnerOrText,
-              'iwe' : iWe
-            });
-          } else if (req.query.uc == "true") {
-            res.render('checker/1/benefits-uc-tc',{
-            'bentype' : benType,
-            'partnerbenefits' : partnerBenefits,
-            'partnercommatext' : partnerCommaText
-          });
-          } else {
-            res.render('checker/1/tax-credits-over20-new',{
-'partnerortext' : partnerOrText,
-              'iwe' : iWe
-            });
-          }
-        } else if (req.query.uc == "true") {
-          setPartnerText(applicant.partner);
-          res.render('checker/1/uc-claim-type-v2', {
-            'jointortext' : jointOrText
-            // 'partnerortext' : partnerOrText
-          });
-        } else if (req.query.esa == "true") {
-          benType = 'income related Employment and Support Allowance (ESA)';
-          res.render('checker/1/benefits-esa', {
-            'bentype' : benType,
-            'partnercommatext' : partnerCommaText,
-            'iwe' : iWe
-          });
-        } else if (req.query.jsa == "true") {
-          benType = 'income based Job Seekers Allowance (JSA)';
-          res.render('checker/1/benefits-jsa', {
-            'bentype' : benType,
-            'partnercommatext' : partnerCommaText
-          });
-        } else if (req.query.pencredit == "true") {
-          benType = 'Pension Credit (Guarantee Credit)';
-          res.render('checker/1/benefits-pension', {
-            'bentype' : benType,
-            'partnercommatext' : partnerCommaText
-          });
-        } else if (req.query.none == 'true') {
-          if (applicant.age > 60) {
-            res.redirect('war-pension');
-          } else {
-            res.redirect('pregnancy');
-          }
-        }
-      });
-
-
-          // ESA type handler
-        router.get(/esa-handler/, function (req, res) {
-      if (req.query.benefits=== 'incomeesa') {
-        benType = 'income-related ESA';
-        res.render('checker/1/results/full-exemption-benefits', {
-        'bentype' : benType,
-        'partnerbenefits' : partnerBenefits
-          });
-      } else {
-        res.redirect('pregnancy');
-      }
-    });
-      
-
-var benType;
-// passported benefits under 20 handler
-      router.get(/passportedBen-u20/, function (req, res) {
-        if (req.query.benefits ==="incomeSupport") {
-          benType = 'Income Support';
-          res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType,
-            'partnercommatext' : partnerCommaText
-          });
-        } else if (req.query.benefits ==="uniCredit") {
-          benType = 'Universal Credit';
-          setPartnerText(applicant.partner);
-          res.render('checker/1/uc-claim-type-v2', {
-            // 'jointortext' : jointOrText,
-            // 'parenttext' : parentText
-      });
-        } else if (req.query.benefits ==="jsa") {
-          benType = 'income based Job Seekers Allowance (JSA)';
-          res.render('checker/1/results/full-exemption-benefits', {
-            // 'bentype' : benType,
-            // 'partnercommatext' : partnerCommaText
-          });
-        } else if (req.query.benefits ==="esa") {
-          benType = 'income related Employment and Support Allowance (ESA)';
-          res.render('checker/1/results/full-exemption-benefits', {
-            // 'bentype' : benType,
-            // 'partnercommatext' : partnerCommaText
-          });
-        } else if (req.query.benefits ==="penCredit") {
-          benType = 'Pension Credit (Guarantee Credit)';
-          res.render('checker/1/results/full-exemption-benefits', {
-            // 'bentype' : benType,
-            // 'partnercommatext' : partnerCommaText
-          });
-        } else if (req.query.benefits === 'continue') {
-            if (applicant.age > 60) {
-                res.redirect('war-pension');
-            } else {
-                res.redirect('pregnancy');
-            }
-      }
-    });
-      
-
-    // passported benefits handler
-      router.get(/passportedBen-handler/, function (req, res) {
-        if (req.query.benefits ==="incomeSupport") {
-          benType = 'Income Support';
-          res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType,
-            'partnercommatext' : partnerCommaText
-          });
-        } else if (req.query.benefits ==="uniCredit") {
-          benType = 'Universal Credit';
-          setPartnerText(applicant.partner);
-          res.render('checker/1/uc-claim-type-v2', {
-            'jointortext' : jointOrText
-            // 'partnerortext' : partnerOrText
-      });
-        } else if (req.query.benefits ==="jsa") {
-          benType = 'income based Job Seekers Allowance (JSA)';
-          res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType,
-            'partnercommatext' : partnerCommaText
-          });
-        } else if (req.query.benefits ==="esa") {
-          benType = 'income related Employment and Support Allowance (ESA)';
-          res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType,
-            'partnercommatext' : partnerCommaText
-          });
-        } else if (req.query.benefits ==="penCredit") {
-          benType = 'Pension Credit (Guarantee Credit)';
-          res.render('checker/1/results/full-exemption-benefits', {
-            'bentype' : benType,
-            'partnercommatext' : partnerCommaText
-          });
-        } else if (req.query.benefits === 'continue') {
-            if (applicant.age > 60) {
-                res.redirect('war-pension');
-            } else {
-                res.redirect('pregnancy');
-            }
-      }
-    });
-
-
-    // authority assessment handler
-    router.get(/information-you-will-need/, function (req, res) {
-          setPartnerText(applicant.partner);
-          res.render('checker/1/information-you-will-need', {
-            'partnerscapandtext' : partnersCapAndText,
-            'partnerortext' : partnerOrText,
-      })
-    });
-
-      router.get(/universalCredits-handler/, function (req, res) {
-          setPartnerText(applicant.partner);
-          res.render('checker/1/uc-claim-type-v2', {
-            'jointortext' : jointOrText,
-            'partnerortext' : partnerOrText,
-      })
-    });
-
-
-          // universal credits income handler
-      router.get(/uc-type-handler/, function (req, res) {
-      if (req.query.ucElement === 'yes') {
-      	res.render('checker/1/uc-income-with-element-v3', {
-        'singlejointuc' : singleJointUC
-      });
-      } else{
-        res.render('checker/1/uc-income-without-element-v2', {
-        'singlejointucelement' : singleJointUCElement
-      });
-      }
-    });
-
-      // universal credits without element handler (£435)
-      router.get(/uc-element-income-handler/, function (req, res) {
-      if (req.query.ucelementIncome === 'yes') {
-        res.render('checker/1/results/full-exemption-uc', {
-        'ucresults' : ucResults
-      });
-            } else {
-                res.redirect('pregnancy');
-      }
-    });
-
-                      // universal credits with element handler(£935)
-            router.get(/uc-without-elements-handler/, function (req, res) {
-      if (req.query.ucIncome === 'yes') {
-        res.render('checker/1/results/full-exemption-uc', {
-        'ucresultselement' : ucResultsElement
-      });
-      } else {
-        res.redirect('pregnancy');
-      }
-    });
+router.get(/email-send-change/, function (req, res) {
+  res.render('change/email-send-change', {
+  email : applicant.email,
+  });
+});
 
 
 
-                // pregnancy b4 router
-      router.get(/preg-b4handler/, function (req, res) {
-      if (req.query.pregnancy === 'yes') {
-          pregnancy = true;
-      res.redirect('war-pension');
-      } else {
-          pregnancy = false;
-        res.redirect('war-pension');
-      }
-    });
+//Email capture
+router.get(/your-email-handler/, function (req, res) {
+  // console.log(applicant.email);
+  if ( req.query.useemail == 'yes') {
+    res.redirect('send-change');
+  } else if ( req.query.usemobile == 'yes') {
+    res.redirect('send-change');
+  } else {
+    res.redirect('send-change');
+  }
+});
+
+router.get(/send-change/, function (req, res) {
+  res.render('change/your-mobile', {
+    number: applicant.mobile,
+  });
+});
 
 
-          // war pensioner handler
-      router.get(/war-b4handler/, function (req, res) {
-      if (req.query.warPension === 'yes') {
-        warPension = true;
-        res.redirect('medical-question');
-      } else {
-        warPension = false;
-        res.redirect('medical-question');
-      }
-    });
 
-// long term illness yes or no
-router.get(/medicalYes/, function (req, res) {
-  if (req.query.medcondition === 'yes') {
-    medicalEx = true;
-    res.redirect('medical-exemption');
-      } else if (req.query.medcondition === 'dk') {
-    medicalEx = true;
-    res.redirect('medical-exemption');
-      } else {
-    medicalEx = false;
-    res.render('checker/1/care-home', {
-      'partnerortext' : partnerOrText 
-    });
-      }
-    });
-//   } else {
-//     medicalEx = false;
-//     res.render('checker/1/care-home', {
-//       'partnerortext' : partnerOrText 
-//     });
+router.get(/done-change-details/, function (req, res) {
+  res.render('change/done-change', {
+    address : applicant.address,
+    email : applicant.email,
+    number: applicant.mobile
+  });
+});
+
+router.get(/your-mobile/, function (req, res) {
+  res.render('change/your-mobile', {
+    number: applicant.mobile,
+  });
+});
+
+router.get(/your-email/, function (req, res) {
+  res.render('change/your-email', {
+    email : applicant.email,
+  });
+});
+router.get(/we-need-to-change/, function (req, res) {
+  if (applicant.hasMobile) {
+    res.redirect('number-need-to-change');
+  } else (applicant.hasEmail)
+    res.redirect('email-need-to-change');
+});
+
+//new email address
+
+router.get(/your-change-email/, function (req, res) {
+  res.render('change/your-change-email');
+});
+
+router.get(/your-new-email-handler/, function (req, res) {
+  applicant.email = req.query.email;
+  console.log(applicant.email);
+  res.redirect('change/make-sure-email');
+});
+
+//make sure
+
+router.get(/make-sure-email/, function (req, res) {
+  res.render('change/make-sure-email', {
+    email : applicant.email,
+  });
+});
+
+router.get(/sure-email-handler/, function (req, res) {
+  applicant.email = req.query.email;
+  res.redirect('../../change/sent-you-changed-email');
+});
+
+//done resend with new email
+router.get(/sent-you-changed-email/, function (req, res) {
+  res.render('change/sent-you-changed-email', {
+    email : applicant.email,
+  });
+});
+
+
+//new mobile number
+
+router.get(/your-change-number/, function (req, res) {
+  res.render('change/your-change-number');
+});
+
+router.get(/your-new-number-handler/, function (req, res) {
+  applicant.mobile = req.query.mobile;
+  console.log(applicant.mobile);
+  res.redirect('change/make-sure-number');
+});
+
+//make sure number
+
+router.get(/make-sure-number/, function (req, res) {
+  res.render('change/make-sure-number', {
+    number: applicant.mobile,
+  });
+});
+
+router.get(/sure-number-handler/, function (req, res) {
+  applicant.mobile = req.query.mobile;
+  res.redirect('../change/sent-you-changed');
+});
+
+//done resend with new number
+router.get(/sent-you-changed/, function (req, res) {
+  res.render('change/sent-you-changed', {
+    number: applicant.mobile,
+  });
+});
+
+
+
+//CHANGE DETAILS
+
+router.get(/change-details/, function (req, res) {
+  res.render('change/change-details', {
+    address : applicant.address,
+    email : applicant.email,
+    number: applicant.mobile
+
+  });
+});
+
+//done resend with new number
+router.get(/done-change/, function (req, res) {
+  res.render('change/done-change', {
+    address : applicant.address,
+    email : applicant.email,
+    number: applicant.mobile
+  });
+});
+
+router.get(/change-number/, function (req, res) {
+  res.render('change/change-number');
+});
+
+router.get(/new-number-handler/, function (req, res) {
+  applicant.mobile = req.query.mobile;
+  console.log(applicant.mobile);
+  res.redirect('change/change-details');
+});
+
+
+router.get(/change-email/, function (req, res) {
+  res.render('change/change-email');
+});
+
+router.get(/new-email-handler/, function (req, res) {
+  applicant.email = req.query.email;
+  console.log(applicant.email);
+  res.redirect('change/change-details');
+});
+
+//address
+router.get(/change-address/, function (req, res) {
+  res.render('change/change-address');
+});
+
+router.get(/new-address-handler/, function (req, res) {
+  applicant.postCode = req.query.postcode;
+  //applicant.createAddress(req.query.lineone, req.query.linetwo );
+  // address = LINEONE LINETWO TOWN COUNTY POSTCODE
+  var tempAddress = req.query.lineone;
+  if (req.query.lineone != '') {
+    applicant.addresslineone = req.query.lineone;
+  }
+  if (req.query.linetwo != '') {
+    applicant.addresslinetwo = req.query.linetwo;
+    tempAddress = tempAddress + " " + req.query.linetwo;
+  }
+  if (req.query.town != '') {
+    applicant.town = req.query.town;
+    tempAddress = tempAddress + " " + req.query.town;
+  } if (req.query.postcode != '') {
+    tempAddress = tempAddress + " " + req.query.postcode;
+  }
+  applicant.address = tempAddress;
+  console.log(applicant.address);
+  textHelper.setContactText(applicant.contactPref, applicant.contactValue);
+  res.redirect('../change/change-details');
+});
+
+
+// router.get(/make-sure-address/, function (req, res) {
+//   res.render('change/make-sure-address', {
+//   postcode : applicant.postCode,
+//   lineone : applicant.addresslineone,
+//   linetwo : applicant.addresslinetwo,
+//   town : applicant.town
+//   });
+// });
+//
+// router.get(/add-make-handler/, function (req, res) {
+//   applicant.postCode = req.query.postcode;
+//   //applicant.createAddress(req.query.lineone, req.query.linetwo );
+//   // address = LINEONE LINETWO TOWN COUNTY POSTCODE
+//   var tempAddress = req.query.lineone;
+//   if (req.query.lineone != '') {
+//     applicant.addresslineone = req.query.lineone;
 //   }
+//   if (req.query.linetwo != '') {
+//     applicant.addresslinetwo = req.query.linetwo;
+//     tempAddress = tempAddress + " " + req.query.linetwo;
+//   }
+//   if (req.query.town != '') {
+//     applicant.town = req.query.town;
+//     tempAddress = tempAddress + " " + req.query.town;
+//   } if (req.query.postcode != '') {
+//     tempAddress = tempAddress + " " + req.query.postcode;
+//   }
+//   applicant.address = tempAddress;
+//   console.log(applicant.address);
+//   textHelper.setContactText(applicant.contactPref, applicant.contactValue);
+//   res.redirect('../../done-cd');
+// });
+//
+// router.get(/done-cd/, function (req, res) {
+//   res.render('change/done-cd', {
+//     address : applicant.address,
+//     email : applicant.email,
+//     number: applicant.mobile
+//   });
 // });
 
 
-// long term illness
-router.get(/illness-b4/, function (req, res) {
-  if (req.query.illness === 'yes') {
-    medicalEx = true;
-    setPartnerText(applicant.partner);
-    res.render('checker/1/care-home', {
-      'partnerortext' : partnerOrText
-    });
-  } else {
-    medicalEx = false;
-    res.render('checker/1/care-home', {
-      'partnerortext' : partnerOrText
-    });
-  }
+router.get(/howdidyoubuy-handler/, function (req, res) {
+    if (req.query.howdidyoubuy =='directd') {
+     res.redirect('/change/securityquestion/ddnumber');
+   } else if (req.query.howdidyoubuy =='cardpayment') {
+     res.redirect('/change/securityquestion/carddate');
+   } else {
+      res.redirect('/change/securityquestion/pharm-name');
+   }
+});
+
+router.get(/didbuy-handler/, function (req, res) {
+    if (req.query.howdidyoubuy =='directd') {
+     res.redirect('/change/securityquestion/1ddnumber');
+   } else if (req.query.howdidyoubuy =='cardpayment') {
+     res.redirect('/change/securityquestion/1carddate');
+   } else {
+      res.redirect('/change/securityquestion/1pharm-name');
+   }
+});
+
+router.get(/buy-handler/, function (req, res) {
+    if (req.query.howdidyoubuy =='directd') {
+     res.redirect('/change/securityquestion/2ddnumber');
+   } else if (req.query.howdidyoubuy =='cardpayment') {
+     res.redirect('/change/securityquestion/2carddate');
+   } else {
+      res.redirect('/change/securityquestion/1pharm-name');
+   }
+});
+
+router.get(/4digits-handler/, function (req, res) {
+  if (req.query.digits =='1121')  {
+   res.redirect('../change-details');
+ } else {
+   res.redirect('error');
+ }
 });
 
 
-    // carehome router
-      router.get(/care-home-handler/, function (req, res) {
-      if (req.query.carehome === 'yes') {
-           setPartnerText(applicant.partner);
-          res.render('checker/1/sc/authority-assessed', {
-            'partnerortext' : partnerOrText
-      });
-  } else {
-    res.render('checker/1/savings1', {
-      'partnerortext' : partnerOrText
-    });
-  }
+router.get(/bankaccount-handler/, function (req, res) {
+  if (req.query.bankaccount =='01234567')  {
+   res.redirect('../change-details');
+ } else {
+   res.redirect('error');
+ }
 });
-
-
-//      // saving-handler
-//      router.get(/saving-handler/, function (req, res) {
-//        //scotland
-//          if (applicant.country === 'scotland'){
-//                if (req.query.savings === 'yes') {
-//           if (pregnancy === true) {
-//                res.redirect('../answers-preg-nolis');
-//           } else if (warPension === true) {
-//              res.redirect ('../answers-warpension-nolis');
-//           } else if (medicalEx === true) {
-//              res.redirect ('../answers-medex-nolis');
-//           } else {
-//              res.redirect ('../savings-kickout');
-//           }
-//        } else if (req.query.savings === 'no') {
-//            if (pregnancy === true) {
-//                res.redirect('../answers-preg-lis-v2');
-//            } else if (warPension === true) {
-//                res.redirect ('../answers-warpension-lis-v2');
-//            } else if (medicalEx === true) {
-//                res.redirect ('../answers-medex-lis-v3');
-//            } else {
-//                res.redirect ('../answers-lis-scot');
-//            }
-//        }
-//        // wales
-//         if (applicant.country === 'wales'){
-//                if (req.query.savings === 'yes') {
-//           if (pregnancy === true) {
-//                res.redirect('../answers-preg-nolis');
-//           } else if (warPension === true) {
-//              res.redirect ('../answers-warpension-nolis');
-//           } else if (medicalEx === true) {
-//              res.redirect ('../answers-medex-nolis');
-//           } else {
-//              res.redirect ('../savings-kickout');
-//           }
-//        } else if (req.query.savings === 'no') {
-//            if (pregnancy === true) {
-//                res.redirect('../answers-preg-lis-v2');
-//            } else if (warPension === true) {
-//                res.redirect ('../answers-warpension-lis-v2');
-//            } else if (medicalEx === true) {
-//                res.redirect ('../answers-medex-lis-v3');
-//            } else {
-//                res.redirect ('../answers-lis-scot');
-//            }
-//
-//        }
-//              } if (applicant.country === 'england'){
-//        if (req.query.savings === 'yes') {
-//           if (pregnancy === true) {
-//                res.redirect('../answers-preg-nolis');
-//           } else if (warPension === true) {
-//              res.redirect ('../answers-warpension-nolis');
-//           } else if (medicalEx === true) {
-//              res.redirect ('../answers-medex-nolis');
-//           } else {
-//              res.redirect ('../savings-kickout');
-//           }
-//        } else if (req.query.savings === 'no') {
-//            if (pregnancy === true) {
-//                res.redirect('../answers-preg-lis-v2');
-//            } else if (warPension === true) {
-//                res.redirect ('../answers-warpension-lis-v2');
-//            } else if (medicalEx === true) {
-//                res.redirect ('../answers-medex-lis-v3');
-//            } else {
-//                res.redirect ('../lis-v3');
-//            }
-//        }//end scot
-//        }//else wales
-//        }
-//    });
-        
-// saving-handler
-      router.get(/saving-handler/, function (req, res) {
-        //england
-                if (req.query.savings === 'yes') {
-           if (pregnancy === true) {
-                res.redirect('/checker/1/results/answers-preg-nolis');
-           } else if (warPension === true) {
-              res.redirect ('/checker/1/results/answers-warpension-nolis');
-           } else if (medicalEx === true) {
-              res.redirect ('/checker/1/results/answers-medex-nolis');
-           } else {
-              res.redirect ('savings-kickout');
-           }
-        } else if (req.query.savings === 'no') {
-            if (pregnancy === true) {
-                res.redirect('/checker/1/results/answers-preg-lis-v2');
-            } else if (warPension === true) {
-                res.redirect ('/checker/1/results/answers-warpension-lis-v2');
-            } else if (medicalEx === true) {
-                res.redirect ('/results/answers-medex-lis-v3');
-            } else {
-                setPartnerText(applicant.partner);
-          res.render('checker/1/lis-full-width', {
-            'partnerortext' : partnerOrText,
-            });
-        }
-        }
-    });
-
-    // authority assessment handler
-    router.get(/authority-assessed-handler/, function (req, res) {
-      if (req.query.authority === 'yes') {
-        res.redirect('sc/lis-application');
-      } else {
-           setPartnerText(applicant.partner);
-          res.render('checker/1/sc/savings', {
-            'partnerortext' : partnerAndText,
-      });
-      }
-    });
-      
-    // savings kickout handler
-    router.get(/savings-ko-handler/, function (req, res) {
-      if (req.query.savings === 'yes') {
-        res.redirect('../savings-kickout');
-      } else {
-        res.redirect('../guarantee-credit');
-      }
-    });
-
-    // carehome savings kickout handler
-    router.get(/carehome-savings-handler/, function (req, res) {
-      if (req.query.savings === 'no') {
-        res.redirect('lis-full-width');
-      } else {
-        res.redirect('savings-kickout');
-      }
-    });
-
-    // save and return handler
-        router.get(/saveReturn-handler/, function (req, res) {
-      if (req.query.save === 'yes') {
-        res.redirect('save-and-return-email');
-      } else {
-        res.redirect('task-list-page');
-      }
-    });
-
-    // authority assessment handler
-    router.get(/information-you-will-need/, function (req, res) {
-          setPartnerText(applicant.partner);
-          res.render('checker/1/information-you-will-need', {
-            'partnerscapandtext' : partnersCapAndText,
-            'partnerortext' : partnerOrText,
-      })
-    });
-
-
-
-        
-          
-      
-
-

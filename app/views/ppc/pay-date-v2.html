@@ -1,0 +1,92 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+  <!-- <p class="navigation"><a class="back-to-previous">Back</a></p> -->
+
+  <div class="heading-group">
+    <p>Prepay for NHS prescriptions</p>
+    <h1 class="heading-large">
+      What date each month do you want your payments taken?
+    </h1>
+  </div>
+      
+  <p>You can start your prepayment:</p>
+  <ul class="list list-bullet">
+        <li>today, {{todayday}} {{todaymonth}} {{todayyear}}</li>
+        <li>within the next month</li>
+        <li>within the last month (if you have a refund form from the pharmacist)</li>
+      </ul>
+      
+<!--
+      <details>
+        <summary><span class="summary">Claiming a refund for prescription costs you have already paid</span></summary>
+
+          <div class="panel panel-border-narrow">
+          
+            <p>
+              You can get a refund if you have paid for a prescription since <br> {{firstday}} {{firstmonth}} {{firstyear}} and were given a refund form (FP57) by the pharmacy.
+            </p>
+            <p>
+              If you are claiming a refund use the date on your refund form (FP57) as the start date for your prescription cover.
+            </p>
+
+          </div>
+
+      </details>
+-->
+      
+      
+      <form class="form" action="start-handler" method="get">
+
+          <fieldset class="form-group">
+
+            <legend class="visuallyhidden">Start dateh</legend>
+
+            <div class="form-date">
+
+<!--              <p class="form-hint">For example {{todayday}} {{todaymonth}} {{todayyear}} </p>-->
+
+              <div class="form-group form-group-day">
+                <label for="day">Day</label>
+                <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" min="0" max="31" required>
+              </div>
+
+              <div class="form-group form-group-month">
+                <label for="month">Month</label>
+                <input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" min="0" max="12" required>
+              </div>
+
+              <div class="form-group form-group-year">
+                <label for="year">Year</label>
+                <input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" min="0" max="2017" required>
+              </div>
+
+            </div>
+
+          </fieldset>
+
+          <div class="form-group">
+            <input class="button" type="submit" value="Next">
+          </div>
+
+          <p class="navigation"><a class="cancel" href="start">Cancel</a></p>
+
+        </form>
+      
+      </div>
+    
+    </div>
+  
+</main>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <div class="done-panel">
+        <h1 class="heading-large"><span id="done-tick"></span>Sent</h1>
+        <h2 class="heading-medium">We have sent your prepayment details</h2>
+      </div>
+
+      <p>We have sent your prepayment details to {{number}} and {{email}}.</p>
+
+      <h3 class="heading-medium">Collecting prescriptions</h3>
+
+      <p>Tick box 'F' on the back of your prescription.</p>
+
+      <p>Pharmacy staff ask for prepayment details. If you do not have them with you, they tick 'Evidence not seen' on the prescription. They will not charge you.</p>
+
+      <p>We prevent fraud by matching prepayment details on our database with prescriptions.</p>
+
+    </div>
+  </div>
+
+  <p><a class="button" href="feedback">Finished</a></p>
+
+  <p id="has_dd"class="visually-hidden">{{dd}}</p>
+
+</main>
+
+{% endblock %}

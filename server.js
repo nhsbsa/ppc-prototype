@@ -28,7 +28,7 @@ var analyticsId = process.env.ANALYTICS_TRACKING_ID
 env = env.toLowerCase()
 useAuth = useAuth.toLowerCase()
 useHttps = useHttps.toLowerCase()
-useBrowserSync = useBrowserSync.toLowerCase()
+// useBrowserSync = useBrowserSync.toLowerCase()
 
 var useDocumentation = (config.useDocumentation === 'true')
 

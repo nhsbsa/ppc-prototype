@@ -1,0 +1,107 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <div class="heading-group">
+        <p>Prepay for NHS prescriptions</p>
+        <h1 class="heading-large">
+            When do you want your prescription prepayment to start?
+        </h1>
+      </div>
+      <p>
+        You can choose any day to start your prescription preypayment between 14 July 2017 and 14 August 2017.
+      </p>
+
+
+
+      <form class="form" action="start-handler" method="get">
+        <div class="form-group">
+          <fieldset>
+
+            <legend class="visually-hidden">How do you want to be contacted?</legend>
+
+            <div class="multiple-choice" data-target="contact-by-email">
+              <input id="today" type="radio" name="rcg" value="today">
+              <label class="single-line" for="today">Today</label>
+            </div>
+
+            <div class="multiple-choice" data-target="next-prescription">
+              <input id="next" type="radio" name="rcg" value="future">
+              <label class="single-line" for="next">To cover prescriptions that I'll collect soon</label>
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden" id="next-prescription">
+              <h2 class="heading-small">When will you get your prescription?</h2>
+              <div class="form-date">
+                <div class="form-group form-group-day">
+                  <label for="futureday">Day</label>
+                  <input class="form-control" id="futureday" name="futureday" type="number" pattern="[0-9]*" min="0" max="31">
+                </div>
+                <div class="form-group form-group-month">
+                  <label for="futuremonth">Month</label>
+                  <input class="form-control" id="futuremonth" name="futuremonth" type="number" pattern="[0-9]*" min="0" max="12">
+                </div>
+                <div class="form-group form-group-year">
+                  <label for="futureyear">Year</label>
+                  <input class="form-control" id="futureyear" name="futureyear" type="number" pattern="[0-9]*" min="0" max="2017">
+                </div>
+              </div>
+            </div>
+
+            <div class="multiple-choice" data-target="contact-by-phone">
+              <input id="already" type="radio" name="rcg" value="past">
+              <label class="single-line" for="already">For prescriptions I have already received</label>
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden" id="contact-by-phone">
+              <h2 class="heading-small">When did you get your prescription?</h2>
+              <p>You can only claim a refund if you were given a form  on the day you collected the prescription.</p>
+
+              <div class="form-date">
+                <div class="form-group form-group-day">
+                  <label for="pastday">Day</label>
+                  <input class="form-control" id="pastday" name="pastday" type="number" pattern="[0-9]*" min="0" max="31">
+                </div>
+                <div class="form-group form-group-month">
+                  <label for="pastmonth">Month</label>
+                  <input class="form-control" id="pastmonth" name="pastmonth" type="number" pattern="[0-9]*" min="0" max="12">
+                </div>
+                <div class="form-group form-group-year">
+                  <label for="pastyear">Year</label>
+                  <input class="form-control" id="pastyear" name="pastyear" type="number" pattern="[0-9]*" min="0" max="2017">
+                </div>
+              </div>
+
+              <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
+                <label class="form-label" for="contact-text-message">Mobile phone number</label>
+                <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+
+        <p class="navigation"><a class="cancel" href="start">Cancel</a></p>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}

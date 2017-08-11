@@ -1,5 +1,9 @@
 @import 'unbranded';
 
+//body {
+//  color: #555;
+//}
+
 // PPC
 $break-small: 640px;
 $break-medium: 768px;
@@ -18,6 +22,12 @@ $nhs-blue: #005EB8;
   background-repeat: no-repeat;
   background-position: center bottom;
   height: 170px;
+  @media screen and (max-width: $break-small) {
+    background: white;
+    height: 125px;
+    border-bottom: solid 1px silver;
+    margin-bottom: 25px;
+  }
   .header-wrapper {
     background: transparent;
   }
@@ -26,6 +36,14 @@ $nhs-blue: #005EB8;
     margin: 20px 15px 0 0;
     max-width: 100%;
     float: right;
+  @media screen and (max-width: $break-small) {
+      float: none;
+      width: 92%;
+      display: block;
+      margin: 0 auto;
+      padding-top: 20px;
+      max-width: 400px;
+    }
   }
 }
 
@@ -39,13 +57,13 @@ $nhs-blue: #005EB8;
   margin: 30px 0;
   h1 {
     padding-top: 0;
-    margin-bottom: 10px;
-  }
-  h4 {
-    padding-top: 0;
+    margin: 0;
   }
   h2 {
+    line-height: 145%;
+    font-size: 135%;
     padding-top: 0;
+    margin: 10px 0 5px 0;
   }
 }
 
@@ -57,7 +75,7 @@ $nhs-blue: #005EB8;
   background-color: $nhs-blue;
   background-image: url('/public/images/bsa/done-tick.png');
   background-repeat: no-repeat;
-
+  background-position: center;
 }
 
 .details {
@@ -73,7 +91,7 @@ $nhs-blue: #005EB8;
   }
   .valid {
     margin-top: 15px;
-  }  
+  }
   background-color: rgba($nhs-blue, 0.1);
   padding: 0 15px 15px 15px;
   margin-bottom: 30px;
@@ -101,7 +119,7 @@ $nhs-blue: #005EB8;
 }
 
 .download-icon {
-  background-image: url("/public/images/bsa/document_icon.svg");
+  background-image: url("/public/images/bsa/download-2x.svg");
   padding-left: 37px;
   margin-left: 3px;
 }
@@ -139,6 +157,11 @@ $nhs-blue: #005EB8;
 #security-number {
   width: 100px;
   float :left;
+  margin-top: 10px;
+}
+
+#holdername {
+  margin-top: 10px;
 }
 
 .card-image {
@@ -223,7 +246,7 @@ table {
       padding: 2rem 3rem 0 0;
       &:nth-child(2) {
         width: 40%;
-        font-weight: 700; 
+        font-weight: 700;
         padding-right :0;
       }
       &:nth-child(3) {
@@ -265,13 +288,20 @@ table {
     }
 }
 
+.multiple-choice.nbg {
+  background: none;
+  &:hover {
+    border: 1px solid white;
+  }
+}
 
 .multiple-choice {
   background-color: #DEE0E2;
   border :1px solid white;
   padding-left :0;
   margin-bottom: 15px;
-      line-height: 195%;
+  min-height: 37px;
+  overflow:auto;
   &:first-child {
     margin-top: 10px;
   }
@@ -299,151 +329,6 @@ table {
   }
 }
 
-.inline {
-  .multiple-choice {
-    label {
-      line-height: 195%;
-    }
-  }
-}
-
-.form-break {
-  margin-bottom: 0;
-  p {
-    margin: 0px 0px 6px 0px;
-  }
-}
-
-.button {
-  padding-bottom: 10px;
-}
-
-.form-date .form-group-year {
-    width: 70px;
-}
-
-.panel-hidden{
-    margin-bottom:2em;
-}
-
-.form-hint-list-item {
-  margin: 0 0 0.6em 0;
-  display: table;
-}
-
-.form-hint-list-item__indicator {
-  vertical-align: middle;
-  margin-right: .26316em;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-image: url("../images/bullet-icon.svg");
-}
-
-
-.form-hint-list-item--valid .form-hint-list-item__indicator {
-  background-image: url("/public/images/bsa/tick-green.svg");
-}
-
-.form-hint-list-item--false {
-  color: black;
-}
-
-.form-hint-list-item--false .form-hint-list-item__indicator {
-  background-image: url("/public/images/bsa/cross-red.svg");
-}
-
-.form-hint-list-item__primary {
-  display: table-cell;
-  padding-right: 0.25em;
-}
-// Task list pattern
-
-// Override column width for tablet and up
-.column-minimum {
-  @include media(tablet) {
-    min-width: 600px;
-  }
-}
-
-// Spacing to the left of the task list
-$task-list-indent: 30px;
-
-.task-list {
-  margin-top: $gutter;
-  @include media(tablet) {
-    margin-top: ($gutter * 2);
-  }
-}
-
-
-.task-list-section {
-  display: table;
-
-  @include bold-24;
-  padding-bottom: ($gutter / 6);
-}
-
-.task-list-section-number {
-  display: table-cell;
-  padding-right: ($gutter / 6);
-
-  @include media(tablet) {
-    min-width: $task-list-indent;
-    padding-right: 0;
-  }
-}
-
-
-.task-list-items {
-  margin-bottom: $gutter;
-  @include media(tablet) {
-    margin-bottom: ($gutter * 2);
-  }
-
-  @include media(tablet) {
-    padding-left: $task-list-indent;
-  }
-}
-
-.task-list-item {
-  border-bottom: 1px solid $border-colour;
-  padding-top: $gutter-one-third;
-  padding-bottom: $gutter-one-third;
-  @extend %contain-floats;
-}
-
-.task-list-item:first-child {
-  border-top: 1px solid $border-colour;
-}
-
-
-.task-name {
-  width: $two-thirds;
-  float: left;
-}
-
-.task-completed {
-  @include phase-tag;
-
-  float: right;
-  margin-right: 0;
-  padding:1px 5px 4px;
-  padding-top: 3px;
-}
-
-.instruction-list-item-extra-information {
-  margin-left: 1.57895em;
-  }
-
-
-  
-.multiple-radio label {
-    margin-top: 0px;
-    margin-left: 52px;
-}
 
 .multiple-radio {
   [type=checkbox] + label::before {
@@ -461,7 +346,7 @@ $task-list-indent: 30px;
     border-width: 0 0 4px 4px;
   }
   label {
-    margin-top: 0px;
+    margin-top: 5px;
     margin-left: 52px;
   }
 }
@@ -476,54 +361,18 @@ $task-list-indent: 30px;
 
 .single-line {
    line-height: 175%;
- }
-
-
-.multiple-choice {
-  background-color: #DEE0E2;
-  border :1px solid white;
-  padding-left :0;
-  margin-bottom: 15px;
-      line-height: 195%;
-  &:first-child {
-    margin-top: 10px;
-  }
-  &:hover {
-    border :1px solid black;
-  }
-  [type=radio] + label::before {
-    background-color: white;
-    position: inherit;
-    float: left;
-    margin-left: -38px;
-    margin-top :3px;
-    width: 24px;
-    height: 24px;
-  }
-  [type=radio] + label::after {
-    left: 17px;
-    top: 17px;
-    border: 7px solid;
-  }
-  label {
-    float: left;
-    margin-left: 48px;
-    padding-right: 5px;
-  }
-}
-
-.inline {
-  .multiple-choice {
-    label {
-      line-height: 195%;
+    @media screen and (max-width: $break-small) {
+      line-height: inherit;
     }
-  }
-}
+ }
 
 .form-break {
   margin-bottom: 0;
   p {
     margin: 0px 0px 6px 0px;
+  }
+  h3 {
+    margin: 25px 0px 6px 0px;
   }
 }
 
@@ -535,138 +384,9 @@ $task-list-indent: 30px;
     width: 70px;
 }
 
-.panel-hidden{
-    margin-bottom:2em;
-}
-
-.form-hint-list-item {
-  margin: 0 0 0.6em 0;
-  display: table;
-}
-
-.form-hint-list-item__indicator {
-  vertical-align: middle;
-  margin-right: .26316em;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-image: url("../images/bullet-icon.svg");
-}
-
-
-.form-hint-list-item--valid .form-hint-list-item__indicator {
-  background-image: url("/public/images/bsa/tick-green.svg");
-}
-
-.form-hint-list-item--false {
-  color: black;
-}
-
-.form-hint-list-item--false .form-hint-list-item__indicator {
-  background-image: url("/public/images/bsa/cross-red.svg");
-}
-
-.form-hint-list-item__primary {
-  display: table-cell;
-  padding-right: 0.25em;
-}
-// Task list pattern
-
-// Override column width for tablet and up
-.column-minimum {
-  @include media(tablet) {
-    min-width: 600px;
-  }
-}
-
-// Spacing to the left of the task list
-$task-list-indent: 35px;
-
-.task-list {
-  margin-top: $gutter;
-  @include media(tablet) {
-    margin-top: ($gutter * 2);
-  }
-}
-
-
-.task-list-section {
-  display: table;
-
-  @include bold-24;
-  padding-bottom: ($gutter / 6);
-}
-
-.task-list-section-number {
-  display: table-cell;
-  padding-right: ($gutter / 6);
-
-  @include media(tablet) {
-    min-width: $task-list-indent;
-    padding-right: 0;
-  }
-}
-
-
-.task-list-items {
-  margin-bottom: $gutter;
-  @include media(tablet) {
-    margin-bottom: ($gutter * 2);
-  }
-
-  @include media(tablet) {
-    padding-left: $task-list-indent;
-  }
-}
-
-.task-list-item {
-  border-bottom: 1px solid $border-colour;
-  padding-top: $gutter-one-third;
-  padding-bottom: $gutter-one-third;
-  @extend %contain-floats;
-}
-
-.task-list-item:first-child {
-  border-top: 1px solid $border-colour;
-}
-
-
-.task-name {
-  width: $two-thirds;
-  float: left;
-}
-
-.task-completed {
-  @include phase-tag;
-
-  float: right;
-  margin-right: 0;
-  padding:1px 5px 4px;
-  padding-top: 3px;
-}
-
-
-.multiple-radio {
-  [type=checkbox] + label::before {
-    background: white;
-    top: 9px;
-    left: 9px;
-    width: 28px;
-    height: 28px;
-  }
-  [type=checkbox] + label::after {
-    top: 19px;
-    left: 17px;
-    width: 13px;
-    height: 5px;
-    border-width: 0 0 4px 4px;
-  }
-  label {
-    margin-top: 0px;
-    margin-left: 52px;
-  }
+.done-info {
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 
 .heading-group {
@@ -683,3 +403,58 @@ $task-list-indent: 35px;
   margin: 40px 0 23px 0;
 }
 
+.stack-panel {
+  margin-bottom: 30px;
+}
+
+//footer
+.unbranded {
+  #footer {
+    height: auto;
+    background-color: #dee0e2;
+    .footer-wrapper {
+      padding-top: 60px;
+      background-color: #dee0e2;
+      margin: 0 auto;
+      max-width: 960px;
+    @media screen and (max-width: $break-medium) {
+        padding-top: 20px;
+        margin: 0 30px;
+      }
+    @media screen and (max-width: $break-small) {
+        margin: 0 15px;
+      }
+    }
+    .footer-meta {
+      padding-bottom: 60px;
+      clear: both;
+      font-size: 0;
+    @media screen and (max-width: $break-small) {
+        padding-bottom: 0;
+      }
+      p, li {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+      .calls {
+        margin: 15px 0;
+        p {
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.nbg label {
+  margin-top: -13px;
+}
+
+
+.done-pill {
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #005EB8;
+  color: white;
+}

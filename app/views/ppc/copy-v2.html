@@ -1,0 +1,119 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    
+    <div class="column-two-thirds">
+
+      <div class="heading-group">
+        <p>Prepay for NHS prescriptions</p>
+        <h1 class="heading-large">
+          Get a copy of prepayment details?
+        </h1>
+      </div>
+      
+
+      <p>
+        You get your prepayment number, start date and end date at the end of this service. These details are all you need.
+      </p>
+      
+      <p>
+        You can write these down, or print or download the final page. But we can also text or email them to you.
+      </p>
+      
+      <p>
+        <span class="bold">We do not send out plastic cards any more</span>. They are costly to the NHS, bad for the environment and are not required as proof.
+      </p>
+      
+      <h3 class="heading-medium">Your options</h3>
+      
+      <p>Would you like a copy of your prepayment details sent by text message or email?</p>
+
+
+<!--
+      <ul class="list list-bullet">
+        <li>Text message</li>
+        <li>Email</li>
+      </ul>
+-->
+      
+      <!--
+         <form action="dur-handler" method="get" class="form">
+          <div class="form-item-wrapper">
+            <div class="form-group">
+              <fieldset>
+
+              <legend class="visually-hidden">What is your nationality?</legend>
+                <div class="form-item-wrapper">
+                  <div class="multiple-choice multiple-radio" data-target="mobile-number">
+                    <input id="one" name="nationalities" type="checkbox" value="1">
+                    <label for="text">Text message</label>
+                  </div>
+                  <div class="panel stack-panel panel-border-narrow js-hidden" id="mobile-number">
+                    <label class="form-label" for="number">Mobile telephone number</label>
+                    <input class="form-control" type="text" id="number" name="number">
+                  </div>
+                  <div class="multiple-choice multiple-radio" data-target="email-address">
+                    <input id="two" name="address" type="checkbox" value="email">
+                    <label for="address">Email</label>
+                  </div>
+                  <div class="panel stack-panel panel-border-narrow js-hidden" id="email-address">
+                    <label class="form-label" for="nationalities-other-country">Email address</label>
+                    <input class="form-control" type="text" id="other-country" name="other-country">
+                  </div>
+                </div>
+                <div class="form-item-wrapper">
+                  <div class="form-group">
+                    <input class="button" type="submit" value="Next">
+                  </div>
+              </div>
+              </div>
+              
+            </fieldset>
+          </div>
+       
+        <div class="form-group">
+          <p class="navigation"><a class="cancel" href="start">Cancel</a></p>
+        </div>
+      
+      </form>
+-->
+      
+      <form class="form" action="contact-handler">
+        <fieldset class="form-group">
+          <legend class="visually-hidden">
+            Would you like a copy of your prepayment details sent by text message or email?
+          </legend>
+          <div class="multiple-choice multiple-radio">
+            <input id="text" name="text" type="checkbox" value="true">
+            <label for="text">Text message</label>
+          </div>
+          <div class="multiple-choice multiple-radio">
+            <input id="email" name="email" type="checkbox" value="true">
+            <label for="email">Email</label>
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <div>
+            <p>We can text and/or email you a reminder 1 month before your prepayment ends.</p>
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+      </form>
+    
+    </div>
+      
+  </div>
+  
+</main>
+
+{% endblock %}

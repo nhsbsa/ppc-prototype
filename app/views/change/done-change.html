@@ -1,0 +1,51 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <div class="done-panel">
+        <h1 class="heading-large"><span id="done-tick"></span>Done</h1>
+        <h2 class="heading-medium">You have changed your personal details for prescription prepayments</h2>
+      </div>
+      <h3 class="heading-medium">Your personal details</h3>
+      <table>
+           <tr>
+             <td>Address:</td>
+             <td><span class="strong">{{address}}</span></td>
+           </tr>
+           <tr>
+             <td>Mobile number:</td>
+             <td><span class="strong">{{number}}</span></td>
+           </tr>
+           <tr>
+             <td>Email:</td>
+             <td><span class="strong">{{email}}</span></td>
+           </tr>
+       </table>
+
+    </div>
+  </div>
+
+  <h2 class="heading-medium">Save or print</h2>
+
+  <ul class="list options-list">
+    <li><a class="icon print-icon" href="javascript:window.print();">Print this page</a></li>
+    <li><a class="icon download-icon" href="../public/images/bsa/cert.pdf" target="_blank">Download this page (PDF 55k)</a></li>
+  </ul>
+  <br>
+
+  <p><a class="button" href="../ppc/feedback">Finished</a></p>
+
+  <p id="has_dd"class="visually-hidden">{{dd}}</p>
+
+</main>
+
+{% endblock %}

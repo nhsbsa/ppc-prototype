@@ -1,0 +1,72 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <p class="smalltext"> <a href="/">< Back to all versions</a> </p>
+
+  <h2 class="heading-large">Version 5 - June/July 2017</h2>
+
+  <h3 class="heading-medium">Journeys</h3>
+
+  <ul class="list list-bullet">
+    <li><a href="/public/images/bsa/versions/s5-dd-payment.pdf">Direct Debit (PDF)</a></li>
+    <li><a href="/public/images/bsa/versions/s5-one-off-payment.pdf">Card payment (PDF)</a></li>
+    <li><a href="/public/images/bsa/versions/s5-return.pdf">Return journey (PDF)</a></li>
+    <!-- <li><a href="/ppc/start">Journey for a person prepaying for their prescriptions.</a></li>
+    <li><a href="/google/index">Journey starting with a Google search</a><br>(enter 'buy a prescription prepayment')</li>
+    <li><a href="/ppc/done-v3">Done screen</a></li>
+    <li><a href="/return/return_start">Return View</a></li> -->
+  </ul>
+    <hr>
+<h3 class="heading-small">What we are testing</h3>
+  <ul class="list list-bullet">
+
+    <li>Can the user find the service from the search engine?</li>
+    <li>Can the user find and use the return journey.</li>
+    <li>Redesign around When do you want your prepayment to start.</li>
+    <li>Content changes to sent by text and email.</li>
+
+  </ul>
+    <hr>
+
+  <h3 class="heading-small">Email content:</h3>
+  <ul class="list list-bullet">
+    <li><a href="/email/purchased_2">Email version 2</a></li>
+  </ul>
+
+  <h3 class="heading-small">Text content:</h3>
+  <p>
+    You prepaid for NHS prescriptions.
+  </p>
+  <p>
+    Prepayment for: Jon Doe<br>
+    Prepayment number: 123 456 789<br>
+    Start date: 15 March 2017<br>
+    End date: 14 June 2017
+  </p>
+  <p>
+    You can show pharmacies this text if <br>
+    they ask for evidence of your prepayment.<br>
+    We do not send out plastic cards any more.<br>
+  </p>
+  <p>
+    Tell us if your name or address changes, so<br>
+    they match the details on your prescriptions.<br>
+    Go to www.nhs.uk/prescription-prepayments <br>
+    to keep your details up to date.
+  </p>
+
+  <!--
+  <h3 class="heading-medium">Digital certificate</h3>
+
+-->
+
+</main>
+
+{% endblock %}

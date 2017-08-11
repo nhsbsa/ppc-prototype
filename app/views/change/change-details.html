@@ -1,0 +1,48 @@
+
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+  <a href="../../../return/return-view" class="link-back">Back</a>
+  <div class="heading-group">
+        <p>View an NHS prescription prepayment</p>
+    <h1 class="heading-large">Change your details</h1>
+  </div>
+   <table>
+        <tr>
+          <td>Address:</td>
+          <td>{{address}} </td>
+          <td><a href="change-address">Change</a></td>
+        </tr>
+        <tr>
+          <td>Mobile number:</td>
+          <td>{{number}}</td>
+          <td><a href="change-number">Change</a></td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{email}}</td>
+          <td><a href="change-email">Change</a></td>
+        </tr>
+    </table>
+
+    <div style="padding-top:20px">
+    <p><span class="strong">Changing your name</a></p>
+    <p>We need evidence of a change of name. <a href="#">Please email us with evidence</a>.
+    <p>Your email should include your name, date of birth, postcode and prepayment number.</p>
+    <p>Alternatively, call us on 0300 330 1341.</p>
+  </div>
+   <p><a class="button" type="submit" href="done-change">Submit</a>
+    </div>
+    </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <div class="heading-group">
+        <p>Prepay for NHS prescriptions</p>
+        <h1 class="heading-large">
+            Would you like your prepayment details sent by text and email?
+        </h1>
+      </div>
+
+      <p>
+        We can send your prepayment details by text and email straight away. We will send you a:
+      </p>
+
+      <ul class="list list-bullet">
+        <li>prepayment number</li>
+        <li>start date</li>
+        <li>end date</li>
+        <li>reminder before it ends</li>
+      </ul>
+
+      <p>
+        <span class="bold">We do not send out plastic cards any more.</span> They are not required for collecting prescriptions. They are costly to the NHS and the environment.
+      </p>
+
+<!--      <p>We will text and/or email you a reminder 1 month before your prepayment ends.</p>-->
+
+      <form class="form" action="contact-handler" id="contact-boxes">
+        <fieldset class="form-group">
+          <legend class="visually-hidden">
+            Get a copy of your prepayment details sent by text message and email
+          </legend>
+          <div class="multiple-choice multiple-radio">
+            <input id="text" name="text" type="checkbox" value="true">
+            <label for="text">Get text messages</label>
+          </div>
+          <div class="multiple-choice multiple-radio">
+            <input id="email" name="email" type="checkbox" value="true">
+            <label for="email">Get emails</label>
+          </div>
+<!--          <p class="form-block">or</p>-->
+          <div class="multiple-choice multiple-radio">
+            <input id="post" name="post" type="checkbox" value="true">
+            <label for="post">Get neither, only post a reminder</label>
+          </div>
+<!--
+          <div class="multiple-choice multiple-radio">
+            <input id="email" name="email" type="checkbox" value="true">
+            <label for="email">No, don't send either</label>
+          </div>
+-->
+        </fieldset>
+
+
+          <div>
+<!--
+      <p>
+        You can write your prepayment details down, print or download them at the end of this service.
+      </p>
+-->
+
+
+
+
+          </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+        <p class="navigation"><a class="cancel" href="start">Cancel</a></p>
+      </form>
+
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <div class="heading-group">
+        <p>View an NHS prescription prepayment</p>
+        <h1 class="heading-large">Should we send your prepayment details to this email address?</h1>
+      </div>
+      <div class="panel panel-border-wide">
+            <p><span class="visually-hidden">The email address we hold for you is:</span>{{email}}</p>
+      </div>
+
+      <form action="your-email-handler" method="get" class="form">
+        <fieldset class="inline">
+            <legend class="visually-hidden">
+                  Should we send your prepayment details to this email address?
+            </legend>
+
+          <!-- <div class="multiple-choice">
+            <input id="yesemail" type="radio" name="useemail" value="yes">
+            <label for="yesemail">Yes</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="noemail" type="radio" name="useemail" value="no">
+            <label for="noemail">No</label>
+          </div> -->
+
+      </fieldset>
+            <p>If the information we hold for you is wrong. you need to <a href="">change your details</a>.
+          <div class="form-group" style="padding-top:20px;">
+             <input class="button" type="submit" value="Submit">
+          </div>
+      </form>
+
+        <p class="navigation"><a class="cancel" href="start">Cancel</a></p>
+
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}

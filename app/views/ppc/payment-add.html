@@ -1,7 +1,7 @@
 {% extends "layout_bsa.html" %}
 
 {% block page_title %}
-  Buy a prescription prepayment
+  Prepay for NHS prescriptions
 {% endblock %}
 
 {% block content %}
@@ -14,9 +14,12 @@
 
       <!-- <p class="navigation"><a class="back-to-previous">Back</a></p> -->
 
-      <h1 class="heading-large">
-        {{format}} holder's address
-      </h1>
+      <div class="heading-group">
+        <p>Prepay for NHS prescriptions</p>
+        <h1 class="heading-large">
+          {{format}} holder's address
+        </h1>
+      </div>
 
       <form action="holder-handler" method="get" class="form">
 

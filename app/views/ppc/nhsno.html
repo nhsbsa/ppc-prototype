@@ -1,0 +1,65 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+  <div class="grid-row">
+    
+    <div class="column-two-thirds">
+    
+      <div class="heading-group">
+        <p>Prepay for NHS prescriptions</p>
+        <h1 class="heading-large">Do you know your NHS number?</h1>
+      </div>
+      
+      <p>
+        You can usually find this on your prescriptions.
+      </p>
+      
+      <form action="nhs-handler" method="post-address" class="form">
+
+        <div class="form-group">
+
+          <fieldset class="inline">
+            <legend class="visually-hidden">
+              Do you know your NHS number?
+            </legend>
+
+            <div class="multiple-choice" data-target="getnhsno">
+              <input id="yes" type="radio" name="hasnhsno" value="Yes">
+              <label for="yes">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="no" type="radio" name="hasnhsno" value="No">
+              <label for="no">No</label>
+            </div>
+   
+          <div class="panel panel-border-narrow js-hidden" id="getnhsno">
+            <label class="form-label" for="nhsno">NHS number</label>
+            <input class="form-control" name="nhsno" type="nhsno" id="nhsno">
+          </div>
+        </fieldset>  
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit"  value="Next">
+        </div>
+
+        <p class="navigation"><a class="cancel" href="start">Cancel</a></p>
+
+      </form>
+      
+    </div>
+    
+  </div>
+  
+</main>
+
+{% endblock %}

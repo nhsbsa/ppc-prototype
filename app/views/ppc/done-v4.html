@@ -1,0 +1,47 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+  <div class="grid-row">
+    <!--div class="column-two-thirds">
+
+    <div class="details">
+      <h2 class="heading-medium">Pre-paymentetails</h2>
+      <p class="valid">Valid dates</p>
+      <h2 class="heading-medium bignumbers"><span>from:</span> 20 June 2016</h2>
+      <h2 class="heading-medium bignumbers"><span>to:</span> 21 June 2017</h2> 
+    </div>
+    </div-->
+    
+    <div class="column-two-thirds">
+      
+      <div class="done-panel">
+        
+        <h1 class="heading-large"><span id="done-tick"> </span>Done</h1>
+        <h2 class="heading-medium">You have prepaid for {{duration}} of prescriptions.</h2>
+        
+      </div>
+
+      <p>
+        {{contacttext}}
+      </p>   
+      
+      <p>We will contact you again in May to remind you when your prepayment will end.</p>
+
+    </div>
+    
+  </div>
+  
+  <p>
+    <a class="button" href="feedback">Finished</a>
+  </p>
+  
+</main>
+
+{% endblock %}

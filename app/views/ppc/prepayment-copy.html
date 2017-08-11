@@ -1,0 +1,60 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+  <div class="grid-row">
+    <!--div class="column-two-thirds">
+
+    <div class="details">
+      <h2 class="heading-medium">Pre-paymentetails</h2>
+      <p class="valid">Valid dates</p>
+      <h2 class="heading-medium bignumbers"><span>from:</span> 20 June 2016</h2>
+      <h2 class="heading-medium bignumbers"><span>to:</span> 21 June 2017</h2> 
+    </div>
+    </div-->
+    
+    <div class="column-two-thirds">
+    
+      <h1 class="heading-large">Get a copy</h1>
+      
+   <p>
+     We have <span class="strong">stopped sending out plastic cards</span>. They are costly to the NHS, bad for the environment and are not required as proof.
+      </p>
+      
+      <p>You can receive these details using the following options:</p>
+
+   <form class="form" action="contact-handler">
+        <fieldset class="form-group">
+          <legend class="visually-hidden">
+            Would you like a copy of your prepayment details sent by text message or email?
+          </legend>
+          <div class="multiple-choice multiple-radio">
+            <input id="text" name="text" type="checkbox" value="true">
+            <label for="text">Text message</label>
+          </div>
+          <div class="multiple-choice multiple-radio">
+            <input id="email" name="email" type="checkbox" value="true">
+            <label for="email">Email</label>
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <input class="button" type="submit" value="Next">
+        </div>
+      </form>
+      
+         
+     
+
+    </div>
+    
+  </div>
+  
+</main>
+
+{% endblock %}

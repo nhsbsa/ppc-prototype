@@ -1,7 +1,7 @@
 {% extends "layout_bsa.html" %}
 
 {% block page_title %}
-  Buy a prescription prepayment
+  Prepay for NHS prescriptions
 {% endblock %}
 
 {% block content %}
@@ -14,11 +14,14 @@
 
       <!-- <p class="navigation"><a class="back-to-previous">Back</a></p> -->
 
-      <h1 class="heading-large">
-        Would you like your prepayment details sent to you by text?
-      </h1>
+      <div class="heading-group">
+        <p>Prepay for NHS prescriptions</p>
+        <h1 class="heading-large">Would you like to get your prepayment proof by text?</h1>
+      </div>
 
-      <p>The pharmacy staff will want to make a note of the details. You will also get a reminder before your prepayment ends.</p>
+      <p>
+        We will text your prepayment number, start date and end date. <br>We also send you a reminder 1 month before your prepayment ends.
+      </p>
       
       <form action="mobile-q-handler" method="get" class="form">
   
@@ -27,7 +30,7 @@
           <fieldset class="inline">
 
             <legend class="visually-hidden">
-              Would you like your prepayment details sent to you by text?
+              Would you like your prepayment proof sent to you by text?
             </legend>
 
             <div class="multiple-choice">

@@ -1,0 +1,54 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  
+  <p class="smalltext"> <a href="/">< Back to all versions</a> </p>
+  
+  <h2 class="heading-large">Version 1 - January 2017</h2>
+  
+  <h3 class="heading-small">Journeys</h3>
+  <ul class="list list-bullet">
+    <li><a href="/public/images/bsa/versions/s1-dd-payment.pdf">Direct Debit (PDF)</a></li>
+    <li><a href="/public/images/bsa/versions/s1-one-off-payment.pdf">Card payment (PDF)</a></li>
+  </ul>
+  
+  <hr>
+  
+  <h3 class="heading-small">What we tested</h3>
+  <ul class="list list-bullet">
+    <li>Journey for a person buying a prescription prepayment.</li>
+    <li>Payment by card or Direct Debit and ending with instant digital evidence.</li>
+    <li>Prototype is not explicit about not receiving a card. This is so we can guage users' understanding and their reaction.</li>
+  </ul>
+  
+  <h3 class="heading-small">What we found</h3>
+  <ul class="list list-bullet">
+    <li>Users need clear payment options to make an informed choice.</li>
+    <li>Users need help choosing a start date that is right for them.</li>
+    <li>Content is not direct enough for users and leaves them with questions.</li>
+    <li>Users still expect to receive a card.</li>
+  </ul>
+  
+  <h3 class="heading-small">What we changed</h3>
+  <ul class="list list-bullet">
+    <li>Asking for only a postcode is strange for users.</li>
+    <li>Clearer information about choosing a start date.</li>
+    <li>Clearer information about why we want email address and telephone number.</li>
+    <li>Using address as a back-up for users who don't have access to mobile and email.</li>
+    <li>Move from 'How do you want to pay?' to 'How long do you want to cover...'</li>
+    <li>Clearer done page.</li>
+    <li>Content changes throughout.</li>
+    <li>'...we no longer provide plastic cards.'</li>
+    <li>'NHS' moved to end of search link.</li>
+    <li>Print and download options improved.</li>
+  </ul>
+  
+</main>
+
+{% endblock %}

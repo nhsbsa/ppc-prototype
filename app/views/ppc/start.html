@@ -1,76 +1,102 @@
 {% extends "layout_bsa.html" %}
 
 {% block page_title %}
-  Buy a prescription prepayment
+  Prepay for NHS prescriptions
 {% endblock %}
 
 {% block content %}
 
 <main id="content" role="main">
-    
+
   <div class="grid-row">
-    
+
     <div class="column-full">
       <div class="heading-group">
-        <h1 class="heading-xlarge">Prescription Prepayments</h1>
+        <h1 class="heading-xlarge">Prepay for NHS prescriptions</h1>
       </div>
     </div>
 
     <div class="column-two-thirds">
 
       <div class="text">
-        
-        <!--<p>
-          You can use this service to buy a new prescription prepayment. You can also view and get a copy of your prescription prepayment if you already have one.
-        </p>-->
-        
+
         <p>
-          You can prepay the NHS for your prescriptions which may make them cheaper.
+          Save money on NHS prescriptions by prepaying for them.
         </p>
-        
+
         <p>
-          You can cover all of your prescriptions for 3 or 12 months, no matter how many you need
+          You can pay a set price for prescriptions for 3 or 12 months, no matter how many you need.
         </p>
-<!--
-        <p>
-          You can cover your prescriptions for 3 or 12 months. This includes all your prescriptions for that period, no matter how many you need.
-        </p>
--->
-                
-        <p>A prescription costs £8.40 per item, but a prescription prepayment costs:</p>
-        
+        <p>A prescription costs £8.60 per item, but prepaying for an unlimited number of prescriptions is:</p>
+
         <ul class="list list-bullet">
           <li>£29.10 for 3 months</li>
-          <li>£104 for 12 months (or 10 instalments of £10.40)</li>
+          <li>£104 for 12 months (or 10 Direct Debit instalments of £10.40)</li>
         </ul>
 
-        <p>If you are going to buy 4 prescription items or more in the next 3 months, it may be cheaper to buy a prescription prepayment.</p>
-        
+        <h3 class="heading-medium">How it works</h3>
+
+        <p>
+          At the end of this service, or by text and email, we give you:
+        </p>
+
+        <ul class="list list-bullet">
+          <li>a prepayment number</li>
+          <li>a start date</li>
+          <li>an end date</li>
+        </ul>
+
+        <p>
+          You can use these to collect prescriptions straight away, if your start date is today or earlier.
+        </p>
+
+        <h3 class="heading-medium">Collecting prescriptions</h3>
+
+        <p>
+          Tick box 'F' on the back of your prescription.
+        </p>
+
+        <p>
+          Pharmacy staff ask for prepayment details. If you do not have them with you, they tick 'Evidence not seen' on the prescription. They will not charge you.
+        </p>
+
+        <p>
+           We prevent fraud by matching prepayment details on our database with prescriptions.
+        </p>
+
+      </div>
+
+      <br>
+
         <p class="button-group">
           <a class="button button-get-started" href="dob" id="next">
-            Buy a prescription prepayment
+            Buy now
           </a>
         </p>
-                <div class="panel panel-border-wide">
-          <p>To save the NHS money we no longer provide plastic cards.</p>
-        </div>
 
-
+<!--
         <h3 class="heading-medium">Before you start</h3>
-          <p>It takes about 5 minutes to complete and you will need your bank or payment card details depending on how you want to pay.</p>        
-  
-        <p>The pharmacy staff will want to make a note of the details of your prepayment. You can choose how we send them to you and use them to start collecting prescriptions straight away.</p>
-        
-        <h3 class="heading-medium">Existing prescription prepayments</h3>
-        
-        <p>If you already have a prescription prepayment you can <a class="" href="dob?renew=true" id="next">view, print or change the details</a></p>        
-                 
+          <p>
+            It takes about 5 minutes to complete our form. You need your bank sort code and account number for Direct Debit payments. For card payments you will need your credit or debit card details.
+          </p>
+-->
+
+<!--
+      <p>
+        You will be asked if you know your NHS number. It's optional to provide this. Not having it to hand will not affect your ability to buy.
+      </p>
+-->
+
+        <h3 class="heading-medium">Existing prepayments</h3>
+
+        <p>If you already have prepaid you can <a class="" href="../return/return_start" id="next">view, print or change the details</a>.</p>
+
       </div>
-      
+
     </div>
-      
+
   </div>
-  
+
 </main>
 
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends "layout_bsa.html" %}
 
 {% block page_title %}
-  Buy a prescription prepayment
+  Prepay for NHS prescriptions
 {% endblock %}
 
 {% block content %}
@@ -13,9 +13,12 @@
 
   <div class="text">
 
-    <h1 class="heading-large">
-      Confirm your direct debit details
-    </h1>
+    <div class="heading-group">
+      <p>Prepay for NHS prescriptions</p>
+      <h1 class="heading-large">
+        Confirm your direct debit details
+      </h1>
+    </div>
     
     <h3 class="heading-small table-head">Your account details</h3>
     
@@ -31,7 +34,7 @@
         <td><a href="">Change</a></td>
       </tr>
       <tr>
-        <td>Account holder's full name</td>
+        <td>Account holder's name</td>
         <td>{{holdername}}</td>
         <td><a href="">Change</a></td>
       </tr>
@@ -40,7 +43,7 @@
         <td>{{holderaddress}}</td>
         <td><a href="">Change</a></td>
       </tr>
-      
+      <!--
       <tr>
         <td class="strong">Your payments</td>
       </tr>
@@ -65,17 +68,7 @@
         <td>10 November 2017</td>
         <td><a href="">Change</a></td>
       </tr>
-      <tr id="renew">
-        <td>Renew every year</td>
-        <td id="renew-answer">{{autorenew}}</td>
-        <td><a href="education">Change</a></td>
-      </tr>
-      <tr id="renew-start">
-        <td>Renewal payments start</td>
-        <td>01 January 2018</td>
-        <td><a href="education">Change</a></td>
-      </tr>
-
+-->
     </table>
     <br>
     <form action="dd-dec" method="get" class="form">

@@ -1,3 +1,10 @@
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
 
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -239,6 +246,11 @@ body {
   .result{
     padding: 0 18px;
     margin-bottom: 25px;
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
   }
   .highlight {
     border: 1px solid darkgrey;
@@ -249,11 +261,12 @@ body {
   a {
     font-size: 18px;
     line-height :160%;
+    text-decoration: none;
   }
   .sub_link {
       font-size : 14px;
     }
-  p{
+  p {
     color: #545454;
     padding: 0;
     margin :0;
@@ -287,4 +300,26 @@ body {
       }
     }
   }
+}
+
+.sub-result {
+  width: 45%;
+  float: left;
+  margin-left: 5%;
+  margin-top :10px;
+  p {
+    color: #545454;
+    padding: 0;
+    margin :0;
+    line-height :140%;
+  }
+  a {
+    font-size: 18px;
+    line-height :160%;
+  }
+}
+
+.last-link {
+  display: block;
+  line-height :200%;
 }

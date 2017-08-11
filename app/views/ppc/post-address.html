@@ -1,7 +1,7 @@
 {% extends "layout_bsa.html" %}
 
 {% block page_title %}
-  Buy a prescription prepayment
+  Prepay for NHS prescriptions
 {% endblock %}
 
 {% block content %}
@@ -14,9 +14,14 @@
 
       <!-- <p class="navigation"><a class="back-to-previous">Back</a></p> -->
 
-      <h1 class="heading-large">
-        What is your address?
-      </h1>
+      <div class="heading-group">
+        <p>Prepay for NHS prescriptions</p>
+        <h1 class="heading-large">What is your address?</h1>
+      </div>
+      
+      <p>
+        The address you give should match what is printed on your prescriptions.
+      </p>
 
       <form action="address-c-handler" method="get" class="form">
 
@@ -32,18 +37,20 @@
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="linethree">
+        <label class="form-label" for="town">
           Town or city
         </label>
-        <input class="form-control" id="linethree" name="linethree" type="text">
+        <input class="form-control" id="town" name="town" type="text">
       </div>
       
+<!--
       <div class="form-group">
         <label class="form-label" for="county">
           County (optional)
         </label>
-        <input class="form-control" id="county" type="text">
+        <input class="form-control" id="county" name="county" type="text">
       </div>
+-->
         
       <div class="form-group">
         <label class="form-label" for="postcode">

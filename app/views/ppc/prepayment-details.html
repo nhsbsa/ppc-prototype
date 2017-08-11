@@ -1,0 +1,52 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+  <div class="grid-row">
+    <!--div class="column-two-thirds">
+
+    <div class="details">
+      <h2 class="heading-medium">Pre-paymentetails</h2>
+      <p class="valid">Valid dates</p>
+      <h2 class="heading-medium bignumbers"><span>from:</span> 20 June 2016</h2>
+      <h2 class="heading-medium bignumbers"><span>to:</span> 21 June 2017</h2> 
+    </div>
+    </div-->
+    
+    <div class="column-two-thirds">
+    
+      <h1 class="heading-large">Your prepayment details</h1>
+      
+      <div class="info-table">
+        <p>Prepayment for: <span class="strong">{{name}}</span></p>
+        <p>Prepayment number: <span class="strong">869 467 589</span></p>
+        <p>Started on: <span class="strong">{{startdate}}</span></p>
+        <p>Ends on: <span class="strong">{{enddate}}</span></p>
+      </div>
+            
+        <p>
+          Pharmacy staff may ask you for your prepayment details. If you do not have them with you, you can still collect your prescriptions without any further cost.
+        </p>
+      
+       <ul class="options-list">
+        <li><a class="icon print-icon" href="javascript:window.print();">Print this page</a></li>
+        <li><a class="icon download-icon" href="../public/images/bsa/cert.pdf" target="_blank">Download this page (PDF 55k)</a></li>
+      </ul>
+      <br>      
+      
+<p>
+    <a class="button" href="feedback">Next - get a copy</a>
+  </p>      
+    </div>
+    
+  </div>
+  
+</main>
+
+{% endblock %}

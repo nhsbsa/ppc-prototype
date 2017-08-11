@@ -1,18 +1,13 @@
 {% extends "layout_bsa.html" %}
 
 {% block page_title %}
-  Buy a prescription prepayment
+  Prepay for NHS prescriptions
 {% endblock %}
 
 {% block content %}
 
 <main id="content" role="main">
-  
-  <div class="done-panel">
-    <h2 class="heading-large"><span id="done-tick"> </span>Done<br>
-    You have covered your prescription costs for <br>{{duration}}.</h2>
-  </div>
-  
+
   <div class="grid-row">
     <!--div class="column-two-thirds">
 
@@ -20,68 +15,92 @@
       <h2 class="heading-medium">Pre-paymentetails</h2>
       <p class="valid">Valid dates</p>
       <h2 class="heading-medium bignumbers"><span>from:</span> 20 June 2016</h2>
-      <h2 class="heading-medium bignumbers"><span>to:</span> 21 June 2017</h2> 
+      <h2 class="heading-medium bignumbers"><span>to:</span> 21 June 2017</h2>
     </div>
     </div-->
-    
-    <div class="column-two-thirds">
-      
-        <h2 class="heading-medium">Prepayment details</h2>
 
-        <div class="info-table">
-          <p>Prepayment for: <span class="strong">{{name}}</span></p>
-          <p>Prepayment number: <span class="strong">869 467 589</span></p>
-          <p>Started on: <span class="strong">{{startdate}}</span></p>
-          <p>Ends on: <span class="strong">{{enddate}}</span></p>
-        </div>
-      
-      <div class="panel panel-border-wide">
-        <p>Pharmacy staff will want to make a note of these details. {{contacttext}}</p>
+    <div class="column-two-thirds">
+
+      <div class="done-panel">
+
+        <h1 class="heading-large"><span id="done-tick"> </span>Done</h1>
+        <h2 class="heading-medium">You have prepaid for {{duration}} of prescriptions.</h2>
+
       </div>
-      
-      <ul class="options-list">
-        <li><a class="icon print-icon" href="javascript:window.print();">Print this</a></li>
-        <li><a class="icon download-icon" href="../public/images/bsa/cert.pdf" target="_blank">Download this (PDF 55k)</a></li>
-      </ul>
-      
-      <hr>
-                  
-      <h3 class="heading-small">Tell us if something changes</h3>
-      
+
+      <h3 class="heading-medium">Your prepayment details</h3>
+
       <p>
-        It is important to tell us if your name or address changes so that they match the details on your prescriptions. You can use this service to keep your details up to date.
+        {{contacttext}}
       </p>
 
-      <p>We will contact you again in May to remind you when your prepayment will end.</p>
-            
-      <!--
-      <ul>
-        <li>A copy of your certificate has been emailed to <a href="../5/exemption/hc3email">m.smith@inter.net</a></li>
-        <li><a href="exemption/hc3certificate">View my certificate</a></li>
-        <li><a href="/public/images/hc3.pdf" target="blank">Download my certificate</a></li>
-        
-        <li>      
-          <details>
-            <summary><span class="summary">I can't access my certificate</span></summary>
-            <div class="panel panel-border-narrow">
-              <p>
-                If you don't have access to a printer or this is not your own computer we can <a href=#>send a copy in the post</a>
-              </p>
-            </div>
-          </details>
-        </li>
+      <div class="info-table">
+        <p>Prepayment for: <span class="strong">{{name}}</span></p>
+        <p>Prepayment number: <span class="strong">869 467 589</span></p>
+        <p>Started on: <span class="strong">{{startdate}}</span></p>
+        <p>Ends on: <span class="strong">{{enddate}}</span></p>
+      </div>
+<!--            <p class="">You can use this service to view these details at any time.</p>-->
 
+      <p class="strong">We do not send plastic cards any more.</p>
+
+      <div id="dd_content">
+
+        <h3 class="heading-medium">Your Direct Debit</h3>
+        <p>
+          We have set up a Direct Debit payment for you. You will receive {{method}} confirming this and including your mandate. Our name on your bank statement will be NHSBSA.
+        </p>
+
+      </div>
+
+      <h3 class="heading-medium">Collecting prescriptions</h3>
+
+      <p>
+        Tick box 'F' on the back of your prescription.
+      </p>
+
+      <p>
+        Pharmacy staff ask for prepayment details. If you do not have them with you, they tick 'Evidence not seen' on the prescription. They will not charge you.
+      </p>
+
+      <p>
+        We prevent fraud by matching prepayment details on our database with prescriptions.
+      </p>
+
+     <h2 class="heading-medium">View your prepayment at any time</h2>
+     <p>You can view your prepayment details at any time <a href="../return/return_start">using our online return service</a>.</p>
+
+      <h2 class="heading-medium">Save or print</h2>
+
+      <ul class="list options-list">
+        <li><a class="icon print-icon" href="javascript:window.print();">Print this page</a></li>
+        <li><a class="icon download-icon" href="../public/images/bsa/cert.pdf" target="_blank">Save this page (PDF 55k)</a></li>
       </ul>
-      -->
-      
+
+      <h2 class="heading-medium">Reminder</h2>
+
+      <p>{{remindertext}}</p>
+<!--
+
+      <h3 class="heading-small">
+        We no longer provide plastic cards
+      </h3>
+
+      <p>
+        We have stopped sending out plastic cards. They are costly to the NHS, bad for the environment and are not required as proof.
+      </p>
+-->
+
     </div>
-    
+
   </div>
-  
-    <p>
-      <a class="button" href="feedback">Finished</a>
-    </p>
-  
+
+  <p>
+    <a class="button" href="feedback">Finished</a>
+  </p>
+
+  <p id="has_dd"class="visually-hidden">{{dd}}</p>
+
 </main>
 
 {% endblock %}

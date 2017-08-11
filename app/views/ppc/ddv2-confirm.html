@@ -1,0 +1,112 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+  <div class="text">
+
+    <div class="heading-group">
+      <p>Prepay for NHS prescriptions</p>
+      <h1 class="heading-large">
+        Check your direct debit details
+      </h1>
+    </div>
+        
+    <table id="review-table-two">
+      <tr>
+        <td class="strong">Your payments</td>
+      </tr>
+      <tr>
+        <td>Number of payments</td>
+        <td>10</td>
+        <td><a href=""> </a></td>
+      </tr>
+      <tr>
+        <td>Payment amount</td>
+        <td>£10.40</td>
+        <td><a href=""> </a></td>
+      </tr>
+      <tr id="fp">
+        <td>First payment</td>
+        <td>{{startdate}}</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      <tr id="lp">
+        <td>Last payment</td>
+        <td>10 November 2017</td>
+        <td><a href="">Change</a></td>
+      </tr>
+         
+      <tr>
+        <td class="strong">Your account details</td>
+      </tr>
+      <tr>
+        <td>Account holder's name</td>
+        <td>{{holdername}}</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      <tr>
+        <td>Account holder's address</td>
+        <td>{{holderaddress}}</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      <tr>
+        <td>Account number</td>
+        <td>987654321</td>
+        <td><a href="">Change</a></td>
+      </tr>
+      <tr>
+        <td>Sort code</td>
+        <td>01 01 01</td>
+        <td><a href="">Change</a></td>
+      </tr>
+    </table>
+    
+    <div class="payment-summary-small">
+      <p>
+        <img src="/public/images/ddlogo.png">
+      </p>
+      <p>We will send this Direct Debit instruction to: <br>
+        <span class="bold">Your Bank, Their St. Theirtown</span>
+      </p>
+      <p>
+        Please pay the NHS Business Services Authority Direct Debits from the account detailed in this instruction subject to the safeguards assured by the Direct Debit Guarantee. I understand that this instruction may remain with the Prescription prepayment Issue Office of the NHS Business Services Authority, and if so, details will be passed electronically to my Bank/Building Society.
+      </p>
+      <p>
+        Originator:<br>
+        NHS Business Services Authority, PPC, Bridge House,<br>
+        152 Pilgrim Street, Newcastle upon Tyne, NE1 6SN
+        </p>
+      <p>
+        Service User Number (SUN): 242785E
+      </p>
+      <p>Telephone: 0191 232 5371</p>
+
+    </div>
+
+    <br>
+    <form action="dd-dec" method="get" class="form">
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input class="button" type="submit" value="Confirm">
+        </div>
+    </div>
+    </form>
+    
+    <p class="navigation"><a class="cancel" href="start">Cancel payment</a></p>
+
+  </div>
+  </div>
+  </div>
+  
+</main>
+
+{% endblock %}

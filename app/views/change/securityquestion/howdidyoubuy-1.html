@@ -1,0 +1,67 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+        <div class="heading-group">
+        <p>View an NHS prescription prepayment</p>
+          <h1 class="heading-large">How did you prepay for NHS prescriptions last time?</h1>
+        </div>
+        <!-- <p>There will be a further security question once you have told us how you prepay.</p> -->
+        <form action="didbuy-handler" method="get" class="form">
+          <div class="form-group">
+            <div class="multiple-choice" >
+              <input type="radio" id="dd" value="directd" name="howdidyoubuy">
+              <label class="single-line" for="dd">
+                Direct Debit
+              </label>
+            </div>
+            <div class="multiple-choice">
+              <input type="radio" id="cp" value="cardpayment" name="howdidyoubuy">
+              <label class="single-line" for="cp">
+                 Card payment
+              </label>
+            </div>
+
+
+            </div>
+              <div class="form-item-wrapper">
+                <p>If you prepaid at a pharmacy, you can fill in <a href="https://contactcentreservices.nhsbsa.nhs.uk/nhsuk/dispatch/0/60220d31hfe4fc/0/?js=on&Referer=&lang=en_GB&Screen=NHSBSA_ContactForm">our online form</a> with your change of details.</a>
+              </div>
+
+          <div class="form-item-wrapper">
+            <div class="form-group" style="padding-top:15px;">
+              <input class="button" type="submit" value="Next">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <p class="navigation"><a class="cancel" href="return/return-view">Cancel</a></p>
+          </div>
+        </div>
+        </form>
+
+
+
+
+        </form>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}

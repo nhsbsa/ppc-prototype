@@ -1,0 +1,49 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <!-- <p class="navigation"><a class="back-to-previous">Back</a></p> -->
+
+      <div class="heading-group">
+        <p>View an NHS prescription prepayment</p>
+        <h1 class="heading-large">Make sure this mobile number is right</h1>
+      </div>
+        <p>If your mobile number is wrong, just change it below.</p>
+      <form  method="get" class="form" action="sure-number-handler">
+
+        <div class="form-item-wrapper">
+          <div class="form-group">
+            <input type="text" class="form-control"  name="mobile" value="{{number}}">
+          </div>
+        </div>
+
+        <div class="form-item-wrapper">
+          <div class="form-group">
+             <a class="button" type="submit" href="sent-you-changed">Submit</a>
+          </div>
+        </div>
+
+        <p class="navigation"><a class="cancel" href="start">Cancel</a></p>
+
+      </form>
+
+
+
+
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}
