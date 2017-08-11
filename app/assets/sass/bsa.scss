@@ -460,8 +460,18 @@ table {
 }
 
 .grey-box {
-  margin-top: 15px;
-  background-color: #DEE0E2;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background-color: #005EB8;
+  color: white;
+  font-weight: bold;
   padding: 10px;
-  border: 1px solid #BFC1C3;
+  border: 1px solid white;
+}
+
+.icon-white-important {
+    background-image: url(/public/images/icon-white-important.png);
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
 }
