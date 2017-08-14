@@ -1,0 +1,175 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h1 class="heading-large">Pharmacy prescription prepayment form</h1>
+    <p>To sell a prescription prepayment to your customer, fill in the form.</p>
+
+    <form>
+      <div class="form-group">
+        <legend class="bold-medium">Personal Details</legend>
+      </div>
+      <div class="form-group">
+         <label class="form-label" for="title">Title</label>
+         <input class="form-control" id="title" name="first-name-2" type="text">
+      </div>
+      <div class="form-group">
+         <label class="form-label" for="first-name">First name</label>
+         <input class="form-control" id="first-name" name="first-name" type="text">
+      </div>
+      <div class="form-group">
+         <label class="form-label" for="last-name">Last name</label>
+         <input class="form-control" id="last-name" name="last-name" type="text">
+      </div>
+      <fieldset class="form-group">
+       <label class="form-label" for="last-name">Date of birth</label>
+        <legend class="visuallyhidden">Date of birth</legend>
+
+        <div class="form-date">
+
+          <p class="form-hint">For example, 31 03 1980</p>
+          <div class="form-group form-group-day">
+            <label for="day">Day</label>
+            <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" min="0" max="31" required>
+          </div>
+
+          <div class="form-group form-group-month">
+            <label for="month">Month</label>
+            <input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" min="0" max="12" required>
+          </div>
+
+          <div class="form-group form-group-year">
+            <label for="year">Year</label>
+            <input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" min="0" max="2014" required>
+          </div>
+
+        </div>
+
+      </fieldset>
+
+      <div class="form-group">
+         <label class="form-label" for="email">NHS number</label>
+         <input class="form-control" id="email" name='email' type="text">
+      </div>
+      <div class="form-group">
+         <label class="form-label" for="phamracy-ocs">Telephone number</label>
+         <input class="form-control" id="phamracy-ocs" name="phamracy-ocs" type="text">
+      </div>
+      <div class="form-group">
+         <label class="form-label" for="phamracy-ocs">Building and street</label>
+         <input class="form-control" id="phamracy-ocs" name="phamracy-ocs" type="text">
+       </div>
+           <div class="form-group">
+         <input class="form-control" id="phamracy-ocs" name="phamracy-ocs" type="text">
+      </div>
+      <div class="form-group">
+         <label class="form-label" for="phamracy-ocs">Town or city</label>
+         <input class="form-control" id="phamracy-ocs" name="phamracy-ocs" type="text">
+      </div>
+      <div class="form-group">
+         <label class="form-label" for="phamracy-ocs">Postcode</label>
+         <input class="form-control" id="phamracy-ocs" name="phamracy-ocs" type="text">
+      </div>
+
+
+
+    </form>
+    <form>
+      <div class="form-group">
+        <legend class="bold-medium">New Certificate</legend>
+      </div>
+      <div class="form-group">
+    <fieldset>
+      <legend>Certificate duration</legend>
+
+      <form action="dur-handler" method="get" class="form">
+
+
+
+        <div class="form-item-wrapper">
+
+
+          <div class="multiple-choice">
+            <input type="radio" id="twelve" value="twelve" name="duration">
+            <label class="form-control-radio" for="twelve">
+               12 Months
+              <br><span class="strong">£104 </span>
+            </label>
+          </div>
+          <div class="form-group">
+            <div class="multiple-choice">
+              <input type="radio" id="three" value="three" name="duration">
+              <label class="form-control-radio" for="three">
+                3 months<br>
+                <span class="strong">£29.10</span>
+              </label>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+     <label class="form-label" for="last-name">Start date</label>
+      <legend class="visuallyhidden">Start dates</legend>
+
+      <div class="form-date">
+
+        <p class="form-hint">For example, 31 03 1980</p>
+        <div class="form-group form-group-day">
+          <label for="day">Day</label>
+          <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" min="0" max="31" required>
+        </div>
+
+        <div class="form-group form-group-month">
+          <label for="month">Month</label>
+          <input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" min="0" max="12" required>
+        </div>
+
+        <div class="form-group form-group-year">
+          <label for="year">Year</label>
+          <input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" min="0" max="2014" required>
+        </div>
+
+      </div>
+
+    </fieldset>
+    <fieldset class="form-group">
+     <label class="form-label" for="last-name">Date sold</label>
+      <legend class="visuallyhidden">Date sold</legend>
+
+      <div class="form-date">
+
+        <p class="form-hint">For example, 31 03 1980</p>
+        <div class="form-group form-group-day">
+          <label for="day">Day</label>
+          <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" min="0" max="31" required>
+        </div>
+
+        <div class="form-group form-group-month">
+          <label for="month">Month</label>
+          <input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" min="0" max="12" required>
+        </div>
+
+        <div class="form-group form-group-year">
+          <label for="year">Year</label>
+          <input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" min="0" max="2014" required>
+        </div>
+
+      </div>
+
+    </fieldset>
+  </div>
+      <a class="button" href="prepayment-complete" role="button">Next</a>
+    </form>
+  </div>
+</div>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h1 class="heading-large">Pharmacy sales - NHS prescription prepayment</h1>
+    <p>Enter your pharmacy Organistaion Data Service (ODS) code and password to start a sale.</p>
+    <form>
+      <div class="form-group">
+        <label class="form-label" for="first-name-2">Pharmacy ODS code</label>
+        <input class="form-control" id="first-name-2" name="first-name-2" type="text">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="last-name-2">Password</label>
+        <input class="form-control" id="last-name-2" name="last-name-2" type="text">
+      </div>
+        <div class="form-group">
+      <a href="sell-prepayment" class="button">Next</a>
+    </div>
+  </form>
+  <details>
+    <summary><span class="summary">Forgotten your password</span></summary>
+
+    <div class="panel panel-border-narrow">
+    </div>
+</details>
+<details>
+  <summary><span class="summary">Customer self-service</span></summary>
+
+  <div class="panel panel-border-narrow">
+  </div>
+</details>
+  </div>
+
+    <div class="column-one-third">
+      <h2 class="heading-medium">Helpful information</h2>
+      <details>
+        <summary><span class="summary">Dispensiing prescriptions</span></summary>
+        <div class="panel panel-border-narrow">
+          <p>You should ask customers for prepayment detials as part of the terms of service.</p>
+          <p>If they do not have them, tick 'Evidence not seen' on the prescription. Do not charge them.</p>
+          <p>We prevent fraud by matching prepayment details on our database with prescriptions.</p>
+        </div>
+    </details>
+    <details>
+      <summary><span class="summary">About selling prepayments</span></summary>
+      <div class="panel panel-border-narrow">
+        <p>Find out more about <a href="">selling prescription prepayments for us.</a>(PDF; 460KB)</p>
+        <p>If you have any other questions abou this service, call us on 0191 203 4945.</p>
+      </div>
+  </details>
+  <details>
+    <summary><span class="summary">Can they get free prescriptions?</span></summary>
+    <div class="panel panel-border-narrow">
+      <p>Check whether the patient can get free prescriptions before making a sale. Remember people 60 ot over get free prescriptions.</p>
+      <p>To see if they can get free prescription, <a href="">visit our webpage</a>.</p>
+    </div>
+</details>
+<details>
+  <summary><span class="summary">Prepayment charges</span></summary>
+  <div class="panel panel-border-narrow">
+    <p>The current cost for patients is:</p>
+    <p>£29.10 for a 3-month prescription prepayment</p>
+    <p>£104 for a 120-month prescript prepayment</p>
+  </div>
+</details>
+<details>
+  <summary><span class="summary">Prepayment start dates</span></summary>
+  <div class="panel panel-border-narrow">
+    <p>Prepayment starts on the date they buy at the pharmacy unless they ask for a different start date.</p>
+    <p>A start date can be up to one month in the future or the past.</p>
+  </div>
+</details>
+<details>
+  <summary><span class="summary">Refund of prescription charges</span></summary>
+  <div class="panel panel-border-narrow">
+    <p>Patients may pat a prescripition charge while waiting for their prescripton prepayment.</p>
+    <p>They cannot get a refund unless they get an NHS receipt form (an FP57) at the time.</p>
+  </div>
+</details>
+<details>
+  <summary><span class="summary">Penalties for invalid claims</span></summary>
+  <div class="panel panel-border-narrow">
+    <p>If a patient claims to have a valid prescription prepayment when they do not, they may have to pay a penalty charge.</p>
+  </div>
+</details>
+<details>
+  <summary><span class="summary">Prescription prepayment refunds</span></summary>
+  <div class="panel panel-border-narrow">
+    <p>A partial reund may be available if a patient starts to qualify if a patient starts to qualify for free prescriptions.</p>
+    <p>For more about refunds, including the time limit for laiming a refund, <a href="">read our advice</a>.</p>
+  </div>
+</details>
+
+
+  </div>
+</div>
+</main>
+
+{% endblock %}
