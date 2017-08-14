@@ -802,7 +802,7 @@ router.get(/change-number/, function (req, res) {
 router.get(/new-number-handler/, function (req, res) {
   applicant.mobile = req.query.mobile;
   console.log(applicant.mobile);
-  res.redirect('change/change-details');
+  res.redirect('change/make-sure-number');
 });
 
 
@@ -813,7 +813,7 @@ router.get(/change-email/, function (req, res) {
 router.get(/new-email-handler/, function (req, res) {
   applicant.email = req.query.email;
   console.log(applicant.email);
-  res.redirect('change/change-details');
+  res.redirect('change/make-sure-email');
 });
 
 //address
@@ -842,50 +842,27 @@ router.get(/new-address-handler/, function (req, res) {
   applicant.address = tempAddress;
   console.log(applicant.address);
   textHelper.setContactText(applicant.contactPref, applicant.contactValue);
-  res.redirect('../change/change-details');
+  res.redirect('make-sure-address');
 });
 
 
-// router.get(/make-sure-address/, function (req, res) {
-//   res.render('change/make-sure-address', {
-//   postcode : applicant.postCode,
-//   lineone : applicant.addresslineone,
-//   linetwo : applicant.addresslinetwo,
-//   town : applicant.town
-//   });
-// });
-//
-// router.get(/add-make-handler/, function (req, res) {
-//   applicant.postCode = req.query.postcode;
-//   //applicant.createAddress(req.query.lineone, req.query.linetwo );
-//   // address = LINEONE LINETWO TOWN COUNTY POSTCODE
-//   var tempAddress = req.query.lineone;
-//   if (req.query.lineone != '') {
-//     applicant.addresslineone = req.query.lineone;
-//   }
-//   if (req.query.linetwo != '') {
-//     applicant.addresslinetwo = req.query.linetwo;
-//     tempAddress = tempAddress + " " + req.query.linetwo;
-//   }
-//   if (req.query.town != '') {
-//     applicant.town = req.query.town;
-//     tempAddress = tempAddress + " " + req.query.town;
-//   } if (req.query.postcode != '') {
-//     tempAddress = tempAddress + " " + req.query.postcode;
-//   }
-//   applicant.address = tempAddress;
-//   console.log(applicant.address);
-//   textHelper.setContactText(applicant.contactPref, applicant.contactValue);
-//   res.redirect('../../done-cd');
-// });
-//
-// router.get(/done-cd/, function (req, res) {
-//   res.render('change/done-cd', {
-//     address : applicant.address,
-//     email : applicant.email,
-//     number: applicant.mobile
-//   });
-// });
+router.get(/make-sure-address/, function (req, res) {
+  res.render('change/make-sure-address', {
+  postcode : applicant.postCode,
+  lineone : applicant.addresslineone,
+  linetwo : applicant.addresslinetwo,
+  town : applicant.town
+  });
+});
+
+
+router.get(/done-cd/, function (req, res) {
+  res.render('change/done-cd', {
+    address : applicant.address,
+    email : applicant.email,
+    number: applicant.mobile
+  });
+});
 
 
 router.get(/howdidyoubuy-handler/, function (req, res) {
