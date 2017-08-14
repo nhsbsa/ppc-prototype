@@ -19,7 +19,7 @@ ppc.duration = "test";
 ppc.startDay = null;
 ppc.startMonth = null;
 ppc.startYear = null;
-ppc.startDate = '05 May 2017';
+ppc.startDate = '21 May 2017';
 ppc.endDay = null;
 ppc.endYear = null;
 ppc.endDate = '04 September 2017';
@@ -636,14 +636,25 @@ router.get(/cont-handler/, function (req, res) {
 router.get(/your-number-handler/, function (req, res) {
   number: applicant.mobile
   console.log(req.query);
-  if ( req.query.usemob == 'yes') {
-    if (applicant.hasEmail) {
+  if ( req.query.usemob == 'true') {
+    if (applicant.hasEmail =='true') {
       res.redirect( 'your-email');
     } else {
       res.redirect('number-send-change');
     }
   } else {
       res.redirect('number-send-change');
+  }
+});
+
+router.get(/your-email-handler/, function (req, res) {
+  // console.log(applicant.email);
+  if ( req.query.useemail == 'true') {
+    res.redirect('send-change');
+  } else if ( req.query.usemobile == 'true') {
+    res.redirect('your-mobile');
+  } else {
+    res.redirect('send-change');
   }
 });
 
@@ -658,21 +669,7 @@ router.get(/email-send-change/, function (req, res) {
   res.render('change/email-send-change', {
   email : applicant.email,
   });
-});
-
-
-
-//Email capture
-router.get(/your-email-handler/, function (req, res) {
-  // console.log(applicant.email);
-  if ( req.query.useemail == 'yes') {
-    res.redirect('send-change');
-  } else if ( req.query.usemobile == 'yes') {
-    res.redirect('send-change');
-  } else {
-    res.redirect('send-change');
-  }
-});
+})
 
 router.get(/send-change/, function (req, res) {
   res.render('change/your-mobile', {
