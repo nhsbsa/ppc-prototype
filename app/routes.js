@@ -799,7 +799,7 @@ router.get(/change-number/, function (req, res) {
 router.get(/new-number-handler/, function (req, res) {
   applicant.mobile = req.query.mobile;
   console.log(applicant.mobile);
-  res.redirect('change/make-sure-number');
+  res.redirect('change/change-details');
 });
 
 
@@ -810,7 +810,7 @@ router.get(/change-email/, function (req, res) {
 router.get(/new-email-handler/, function (req, res) {
   applicant.email = req.query.email;
   console.log(applicant.email);
-  res.redirect('change/make-sure-email');
+  res.redirect('change/change-details');
 });
 
 //address
@@ -839,7 +839,7 @@ router.get(/new-address-handler/, function (req, res) {
   applicant.address = tempAddress;
   console.log(applicant.address);
   textHelper.setContactText(applicant.contactPref, applicant.contactValue);
-  res.redirect('make-sure-address');
+  res.redirect('change-details');
 });
 
 
