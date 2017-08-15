@@ -634,27 +634,22 @@ router.get(/cont-handler/, function (req, res) {
 
 //Mobile capture
 router.get(/your-number-handler/, function (req, res) {
-  number: applicant.mobile
-  console.log(req.query);
-  if ( req.query.usemob == 'true') {
-    if (applicant.hasEmail =='true') {
-      res.redirect( 'your-email');
-    } else {
-      res.redirect('number-send-change');
-    }
+  if ( req.query.useMobile == 'true') {
+    res.redirect('send-change');
+  } else if ( req.query.useEmail == 'true') {
+    res.redirect('your-email');
   } else {
-      res.redirect('number-send-change');
+    res.redirect('mobile-send-change');
   }
 });
 
 router.get(/your-email-handler/, function (req, res) {
-  // console.log(applicant.email);
-  if ( req.query.useemail == 'true') {
+  if ( req.query.useEmail == 'true') {
     res.redirect('send-change');
-  } else if ( req.query.usemobile == 'true') {
+  } else if ( req.query.useMobile == 'true') {
     res.redirect('your-mobile');
   } else {
-    res.redirect('send-change');
+    res.redirect('email-send-change');
   }
 });
 
