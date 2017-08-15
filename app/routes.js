@@ -19,10 +19,10 @@ ppc.duration = "test";
 ppc.startDay = null;
 ppc.startMonth = null;
 ppc.startYear = null;
-ppc.startDate = '21 May 2017';
+ppc.startDate = '15 August 2017';
 ppc.endDay = null;
 ppc.endYear = null;
-ppc.endDate = '04 September 2017';
+ppc.endDate = '14 November 2017';
 ppc.autoRenew = null;
 ppc.plusMonth = null;
 ppc.minusMonth = null;
@@ -911,7 +911,7 @@ router.get(/bankaccount-handler/, function (req, res) {
 
 
 router.get(/return-view/, function (req, res) {
-  if (req.query.endDate == '') {
+  if (req.query.endDate == 'thisMonth') {
     show.runout_content
   } else {
     res.render('return-view')
