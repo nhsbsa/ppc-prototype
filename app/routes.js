@@ -794,7 +794,7 @@ router.get(/change-number/, function (req, res) {
 router.get(/new-number-handler/, function (req, res) {
   applicant.mobile = req.query.mobile;
   console.log(applicant.mobile);
-  res.redirect('change/change-details');
+  res.redirect('make-sure-number');
 });
 
 
@@ -805,7 +805,7 @@ router.get(/change-email/, function (req, res) {
 router.get(/new-email-handler/, function (req, res) {
   applicant.email = req.query.email;
   console.log(applicant.email);
-  res.redirect('change/change-details');
+  res.redirect('make-sure-email');
 });
 
 //address
@@ -834,7 +834,7 @@ router.get(/new-address-handler/, function (req, res) {
   applicant.address = tempAddress;
   console.log(applicant.address);
   textHelper.setContactText(applicant.contactPref, applicant.contactValue);
-  res.redirect('change-details');
+  res.redirect('make-sure-address');
 });
 
 
