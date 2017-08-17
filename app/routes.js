@@ -147,7 +147,12 @@ router.get(/go-handler/, function (req, res) {
     res.render('google/result-prepayment', {
       term : term
     });
-  } else {
+  } else if ( term.includes("pharmacy") || term.includes("phamacy") ) {
+    console.log('result-pharmacy');
+    res.render('google/result-pharmacy-web', {
+      term : term
+    });
+  }else {
     console.log('other');
     res.render('google/result-prepaymen', {
       term : term
