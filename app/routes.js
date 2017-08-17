@@ -917,3 +917,42 @@ router.get(/return-view/, function (req, res) {
     res.render('return-view')
   }
 });
+
+
+router.get(/sell-pharm/, function (req, res) {
+    res.render('pharmacy-web/check-answers')
+});
+
+//Check your answers
+router.get(/check-answers/, function (req, res) {
+  console.log("nhsno" + applicant.hasNhsno);
+  var myDobMonth;
+  if (applicant.dobMonth === null) {
+    myDobMonth = 'May';
+  } else {
+    myDobMonth = dateHelper.monthToText(applicant.dobMonth);
+  }
+  textHelper.setContactText(applicant.mobile, applicant.email);
+  textHelper.setReminderText(applicant.mobile, applicant.email);
+  textHelper.setMethod(applicant.email);
+  res.render('ppc/check', {
+  name : applicant.firstName + ' ' + applicant.lastName,
+  dobday : applicant.dobDay,
+  dobmonth : myDobMonth,
+  dobyear : applicant.dobYear,
+  address : applicant.address,
+  hasmobile : boolToText(applicant.hasMobile),
+  mobilenumber : applicant.mobile,
+  hasemail :  boolToText(applicant.hasEmail),
+  emailaddress : applicant.email,
+  length : textHelper.length,
+  startdate : ppc.startDate,
+  enddate : ppc.endDate,
+  cost : textHelper.cost,
+  method : textHelper.paymentMethod,
+  firstdddate : dateHelper.firstPaymentDate,
+  lastdddate : dateHelper.lastPaymentDate,
+  hasnhsno : applicant.hasNhsno,
+  nhsno : applicant.nhsno
+  });
+});
