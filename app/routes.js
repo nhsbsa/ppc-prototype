@@ -432,15 +432,7 @@ router.get(/c-handler/, function (req, res) {
   }
 });
 
-////auto-handler
-//router.get(/auto-handler/, function (req, res) {
-//  if (req.query.renew === 'yes') {
-//    ppc.autoRenew = true;
-//  } else {
-//    ppc.autoRenew = false;
-//  }
-//  res.redirect('dd-confirm');
-//});
+
 
 //done
 router.get(/done-v3/, function (req, res) {
