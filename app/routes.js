@@ -639,9 +639,9 @@ router.get(/cont-handler/, function (req, res) {
 
 //Mobile capture
 router.get(/your-number-handler/, function (req, res) {
-  if ( req.query.useMobile == 'true') {
+  if ( applicant.hasMobile) {
     res.redirect('send-change');
-  } else if ( req.query.useEmail == 'true') {
+  } else if ( applicant.hasEmail) {
     res.redirect('your-email');
   } else {
     res.redirect('mobile-send-change');
@@ -649,9 +649,9 @@ router.get(/your-number-handler/, function (req, res) {
 });
 
 router.get(/your-email-handler/, function (req, res) {
-  if ( req.query.useEmail == 'true') {
+  if ( applicant.hasEmail) {
     res.redirect('send-change');
-  } else if ( req.query.useMobile == 'true') {
+  } else if (applicant.hasMobile) {
     res.redirect('your-mobile');
   } else {
     res.redirect('email-send-change');
@@ -672,8 +672,9 @@ router.get(/email-send-change/, function (req, res) {
 })
 
 router.get(/send-change/, function (req, res) {
-  res.render('change/your-mobile', {
+  res.render('change/send-change', {
     number: applicant.mobile,
+    email : applicant.email,
   });
 });
 
