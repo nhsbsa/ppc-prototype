@@ -50,10 +50,15 @@
             <label for="email">Get emails</label>
           </div>
 <!--          <p class="form-block">or</p>-->
-          <div class="multiple-choice multiple-radio">
+          <div class="multiple-choice multiple-radio" data-target="neither">
             <input id="post" name="post" type="checkbox" value="true">
-            <label for="post">Get neither, only post a reminder</label>
+            <label for="post">Get neither</label>
           </div>
+          <div class="panel panel-border-narrow js-hidden" id="neither">
+            <p>You may not receive a reminder to renew your prescription prepayment.</p>
+            <p>  Make a note of your prepayment expiry date at the end of this service.</p>
+         </div>
+
 <!--
           <div class="multiple-choice multiple-radio">
             <input id="email" name="email" type="checkbox" value="true">

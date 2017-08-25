@@ -40,35 +40,49 @@
         <p>Started on: <span class="strong">{{startdate}}</span></p>
         <p>Ends on: <span class="strong">{{enddate}}</span></p>
       </div>
-<!--            <p class="">You can use this service to view these details at any time.</p>-->
+
 
       <p class="strong">We do not send plastic cards any more.</p>
 
-      <div id="dd_content">
 
+      <div id="dd_content">
         <h3 class="heading-medium">Your Direct Debit</h3>
         <p>
           We have set up a Direct Debit payment for you. You will receive {{method}} confirming this and including your mandate. Our name on your bank statement will be NHSBSA.
         </p>
-
       </div>
+      
+      <h2 class="heading-medium">Reminder</h2>
 
-      <h3 class="heading-medium">Collecting prescriptions</h3>
+      <p>{{remindertext}}</p>
 
-      <p>
-        Tick box 'F' on the back of your prescription.
-      </p>
 
-      <p>
-        Pharmacy staff ask for prepayment details. If you do not have them with you, they tick 'Evidence not seen' on the prescription. They will not charge you.
-      </p>
-
-      <p>
-        We prevent fraud by matching prepayment details on our database with prescriptions.
-      </p>
 
      <h2 class="heading-medium">View your prepayment at any time</h2>
      <p>You can view your prepayment details at any time <a href="../return/return_start">using our online return service</a>.</p>
+
+     <h3 class="heading-medium">Collecting prescriptions</h3>
+
+     <p>
+       Tick box 'F' on the back of your prescription.
+     </p>
+
+     <p>
+       Pharmacy staff ask for prepayment details. If you do not have them with you, they tick 'Evidence not seen' on the prescription. They will not charge you.
+     </p>
+
+     <p>
+       We prevent fraud by matching prepayment details on our database with prescriptions.
+     </p>
+     <p>
+       <a class="button" href="feedback">Finished</a>
+     </p>
+
+     <p id="has_dd"class="visually-hidden">{{dd}}</p>
+
+    </div>
+
+    <div class="column-one-third">
 
       <h2 class="heading-medium">Save or print</h2>
 
@@ -76,30 +90,11 @@
         <li><a class="icon print-icon" href="javascript:window.print();">Print this page</a></li>
         <li><a class="icon download-icon" href="../public/images/bsa/cert.pdf" target="_blank">Save this page (PDF 55k)</a></li>
       </ul>
-
-      <h2 class="heading-medium">Reminder</h2>
-
-      <p>{{remindertext}}</p>
-<!--
-
-      <h3 class="heading-small">
-        We no longer provide plastic cards
-      </h3>
-
-      <p>
-        We have stopped sending out plastic cards. They are costly to the NHS, bad for the environment and are not required as proof.
-      </p>
--->
-
     </div>
+    <div class="olumn-two-thirds">
 
-  </div>
 
-  <p>
-    <a class="button" href="feedback">Finished</a>
-  </p>
-
-  <p id="has_dd"class="visually-hidden">{{dd}}</p>
+</div>
 
 </main>
 
