@@ -599,20 +599,21 @@ router.get(/return_postcode/, function (req, res) {
 
 //return-view
 router.get(/return-handler/, function (req, res) {
+  if (applicant.hasMobile == true && applicant.hasEmail == true) {
+    textHelper.reminderText  = 'We will write to you again in August to remind you when your prepayment will end.'
+  } else {
+      textHelper.reminderText  = ''
+  }
   res.render('return/return-view', {
     startdate : ppc.startDate,
     enddate : ppc.endDate,
+    remindertext : textHelper.reminderText,
     name : applicant.firstName + ' ' + applicant.lastName
   });
 });
 
 //return-view
 router.get(/return-view/, function (req, res) {
-  if (applicant.hasMobile == true && applicant.hasEmail == true) {
-    textHelper.reminderText  = 'We will write to you again in August to remind you when your prepayment will end.'
-  } else {
-      textHelper.reminderText  = ''
-  }
   res.render('return/return-view', {
     startdate : ppc.startDate,
     enddate : ppc.endDate,
