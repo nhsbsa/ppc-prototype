@@ -439,7 +439,7 @@ router.get(/done-v3/, function (req, res) {
   console.log(applicant.hasMobile);
   console.log(applicant.hasEmail);
   if (applicant.hasMobile == false && applicant.hasEmail == false) {
-     textHelper.reminderText  = 'You may not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date or visit our online return service to view it at any time.'
+     textHelper.reminderText  = 'You may not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
   } else {
       textHelper.reminderText  = 'We will write to you again in August to remind you when your prepayment will end.'
   }
@@ -604,6 +604,7 @@ router.get(/return-handler/, function (req, res) {
   } else {
       textHelper.reminderText  = ''
   }
+
   res.render('return/return-view', {
     startdate : ppc.startDate,
     enddate : ppc.endDate,
