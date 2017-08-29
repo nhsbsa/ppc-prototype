@@ -44,10 +44,10 @@ applicant.addresslinetwo = null;
 applicant.town = null;
 applicant.hasMobile = false;
 applicant.hasEmail = false;
-applicant.mobile = '07700 900574';
+applicant.mobile = null;
 applicant.contactPref = 'post';
 applicant.contactValue = '3 street, Town, NE1 246';
-applicant.email = 'janedoe@hotmail.com';
+applicant.email = null;
 applicant.address = '3 street, Town, NE1 246';
 applicant.age = null;
 applicant.renewing = false;
@@ -62,7 +62,7 @@ textHelper.length = "12 months";
 textHelper.format = "account";
 textHelper.contactText = "You should make a note of the following:";
 textHelper.method = "a letter";
-textHelper.reminderText = "We will write to you again in August to remind you when your prepayment will end.";
+// textHelper.reminderText = "We will write to you again in August to remind you when your prepayment will end.";
 
 // Route index page
 router.get('/', function (req, res) {
@@ -436,6 +436,14 @@ router.get(/c-handler/, function (req, res) {
 
 //done
 router.get(/done-v3/, function (req, res) {
+  console.log(applicant.hasMobile);
+  console.log(applicant.hasEmail);
+  if (applicant.hasMobile == false && applicant.hasEmail == false) {
+     textHelper.reminderText  = 'You may not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date or visit our online return service to view it at any time.'
+  } else {
+      textHelper.reminderText  = 'We will write to you again in August to remind you when your prepayment will end.'
+  }
+
   res.render('ppc/done-v3', {
     contacttext : textHelper.contactText,
     duration : textHelper.length,
@@ -445,9 +453,13 @@ router.get(/done-v3/, function (req, res) {
     reminder : dateHelper.monthToText(ppc.endMonth -1) + ppc.endYear,
     remindertext : textHelper.reminderText,
     dd : ppc.duration,
-    method : textHelper.method
+    method : textHelper.method,
   });
+
+
+
 });
+
 
 
 //done
@@ -596,9 +608,15 @@ router.get(/return-handler/, function (req, res) {
 
 //return-view
 router.get(/return-view/, function (req, res) {
+  if (applicant.hasMobile == true && applicant.hasEmail == true) {
+    textHelper.reminderText  = 'We will write to you again in August to remind you when your prepayment will end.'
+  } else {
+      textHelper.reminderText  = ''
+  }
   res.render('return/return-view', {
     startdate : ppc.startDate,
     enddate : ppc.endDate,
+    remindertext : textHelper.reminderText,
     name : applicant.firstName + ' ' + applicant.lastName
   });
 });
