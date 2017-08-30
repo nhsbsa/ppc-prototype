@@ -651,22 +651,20 @@ router.get(/cont-handler/, function (req, res) {
 
 //Mobile capture
 router.get(/your-number-handler/, function (req, res) {
-  if ( applicant.hasMobile) {
-    res.redirect('send-change');
-  } else if ( applicant.hasEmail) {
+  if ( applicant.hasMobile == true && applicant.hasEmail == false) {
+    res.redirect('number-send-change');
+  } else ( applicant.hasEmail == true )
     res.redirect('your-email');
-  } else {
-    res.redirect('mobile-send-change');
-  }
+
 });
 
 router.get(/your-email-handler/, function (req, res) {
-  if ( applicant.hasEmail) {
-    res.redirect('send-change');
-  } else if (applicant.hasMobile) {
+  if ( applicant.hasEmail == true) {
+    res.redirect('email-send-change');
+  } else if (applicant.hasMobile == true ) {
     res.redirect('your-mobile');
   } else {
-    res.redirect('email-send-change');
+    res.redirect('send-change');
   }
 });
 
