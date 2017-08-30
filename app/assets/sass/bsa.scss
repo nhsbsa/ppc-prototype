@@ -473,3 +473,14 @@ table {
     width: 35px;
     height: 35px;
 }
+
+
+.nextoblue {
+  padding-top: 190px;
+}
+
+@media screen and (max-width: 480px) {
+  .nextoblue {
+    padding-top: 0px;
+  }
+}
