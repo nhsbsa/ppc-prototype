@@ -62,7 +62,6 @@ textHelper.length = "12 months";
 textHelper.format = "account";
 textHelper.contactText = "You should make a note of the following:";
 textHelper.method = "a letter";
-// textHelper.reminderText = "We will write to you again in August to remind you when your prepayment will end.";
 
 // Route index page
 router.get('/', function (req, res) {
@@ -661,7 +660,7 @@ router.get(/your-number-handler/, function (req, res) {
 router.get(/your-email-handler/, function (req, res) {
   if ( applicant.hasEmail == true && applicant.hasMobile == false) {
     res.redirect('email-send-change');
-  } else if (applicant.hasEmail == true && applicant.hasMobile == true ) 
+  } else if (applicant.hasEmail == true && applicant.hasMobile == true )
     res.redirect('send-change');
 
 });
