@@ -659,13 +659,11 @@ router.get(/your-number-handler/, function (req, res) {
 });
 
 router.get(/your-email-handler/, function (req, res) {
-  if ( applicant.hasEmail == true) {
+  if ( applicant.hasEmail == true && applicant.hasMobile == false) {
     res.redirect('email-send-change');
-  } else if (applicant.hasMobile == true ) {
-    res.redirect('your-mobile');
-  } else {
+  } else if (applicant.hasEmail == true && applicant.hasMobile == true ) 
     res.redirect('send-change');
-  }
+
 });
 
 
