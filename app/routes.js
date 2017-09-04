@@ -60,6 +60,7 @@ textHelper.cost = "£104";
 textHelper.cardPaymentInfo = '12 month prescription prepayment';
 textHelper.length = "12 months";
 textHelper.format = "account";
+textHelper.reminderText  = " ";
 textHelper.contactText = "You should make a note of the following:";
 textHelper.method = "a letter";
 
@@ -786,7 +787,7 @@ router.get(/change-details/, function (req, res) {
   res.render('change/change-details', {
     address : applicant.address,
     email : applicant.email,
-    number: applicant.mobile
+    number: applicant.mobile,
 
   });
 });

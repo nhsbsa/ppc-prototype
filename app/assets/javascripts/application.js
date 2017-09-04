@@ -29,6 +29,9 @@ if (
     var amountRow = document.getElementById("amount");
     var firstPayRow = document.getElementById("fp");
     var lastPayRow = document.getElementById("lp");
+
+    var changemobile = document.getElementById("changemobile").innerHTML;
+    var addorchange = document.getElementById("addorchange");
     //hide contact where none given
     if (hasMobile === 'No') {
       mobileValue.className += " hidden";
@@ -39,6 +42,10 @@ if (
     if (hasEmail === 'No') {
       emailValue.className += " hidden";
     }
+    if (changemobile === '') {
+      addorchange += "Add";
+    }
+
     //if card payment hide dd details
     if(method === 'Card payment') {
       paymentRow.className += " hidden";
@@ -66,8 +73,8 @@ $(document).ready(function () {
   // to toggle hidden content
   var showHideContent = new GOVUK.ShowHideContent()
   showHideContent.init()
-  
-  
+
+
   //checkbox contact
   if (document.getElementById("contact-boxes")) {
     var textBox = document.getElementById("text");
@@ -84,5 +91,5 @@ $(document).ready(function () {
        postBox.checked = false;
     }
   }
-    
+
 })
