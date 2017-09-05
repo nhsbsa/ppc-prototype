@@ -889,7 +889,7 @@ router.get(/howdidyoubuy-handler/, function (req, res) {
    } else if (req.query.howdidyoubuy =='cardpayment') {
      res.redirect('/change/securityquestion/carddate');
    } else {
-      res.redirect('/change/securityquestion/pharm-name');
+       res.redirect('/change/securityquestion/howdidyoubuy');
    }
 });
 
