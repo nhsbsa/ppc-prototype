@@ -586,13 +586,6 @@ router.get(/return_name/, function (req, res) {
 });
 
 router.get(/name-handler/, function (req, res) {
-  var runout_content = document.getElementById("runout_content");
-  console.log(ppc.endDate);
-  if (ppc.endDate === '14 September 2017') {
-
-  } else { runout_content.className += " hidden";
-  }
-
   applicant.firstName = req.query.firstname;
   applicant.lastName = req.query.lastname;
   applicant.setFullName();
@@ -619,10 +612,12 @@ router.get(/return-handler/, function (req, res) {
     name : applicant.firstName + ' ' + applicant.lastName
   });
 });
-
 //return-view
 router.get(/return-view/, function (req, res) {
-  res.render('return/return-view', {
+    if (ppc.endDate === '14 September 2017') {
+    } else { runout_content.className += " hidden";
+    }
+    res.render('return/return-view', {
     startdate : ppc.startDate,
     enddate : ppc.endDate,
     remindertext : textHelper.reminderText,
