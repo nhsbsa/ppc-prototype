@@ -782,8 +782,13 @@ router.get(/sent-you-changed/, function (req, res) {
 });
 
 
-
-//CHANGE DETAILS
+router.get(/sendto/), function (req, res) {
+    if (applicant.mobile === null && applicant.email === null) {
+    res.render('change/can-you-give-us');
+  } else {
+      res.render('change/sendto')
+  }
+}
 
 router.get(/change-details/, function (req, res) {
   res.render('change/change-details', {
