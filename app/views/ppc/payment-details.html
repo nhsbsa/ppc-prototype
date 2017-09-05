@@ -7,112 +7,112 @@
 {% block content %}
 
 <main id="content" role="main">
-  
+
   <div class="grid-row">
-    
+
     <div class="column-third right-floater">
 
       <div class="payment-summary-small">
-        
+
         <h2>Payment summary</h2>
-        
+
         <p class="payment-info">{{cardpaymentinfo}}</p>
-        
+
         <h3>Amount to pay:</h3>
-        
+
         <p class="payment-amount">{{cost}}</p>
-        
+
       </div>
 
     </div>
-    
+
       <div class="column-two-thirds left-floater">
-      
+
       <h1 class="heading-large">Enter card details</h1>
-      
+
       <form class="form" method="get" action="card-handler">
-        
+
         <div class="form-group">
-          
+
           <label class="form-label-bold" for="cardnumber">
             Card number
           </label>
-          
+
           <input class="form-control medium-width" id="cardnumber" name="cardnumber" type="number">
           <div class="card-images">
             <img class="original-accepted" id="original-accepted" src="/public/images/bsa/accepted-cards-x2.png">
           </div>
-          
+
           <p class="form-hint">Accepted credit and debit card types</p>
-          
+
         </div>
 
         <div class="form-group">
-          
+
           <fieldset>
-            
+
             <div class="form-date">
-              
+
               <legend class="form-label-bold">
-                Expiry date	
+                Expiry date
                 <span class="form-hint">For example, 07/17</span>
               </legend>
-              
+
                 <div class="form-group form-group-month">
-                  
+
                   <label for="exmonth">Month</label>
                   <input class="form-control" id="exmonth" name="exmonth" type="number">
-                  
+
                 </div>
-              
+
                 <div class="form-group form-group-month">
-                  
+
                   <label for="exyear">Year</label>
                   <input class="form-control" id="exyear" name="exyear" type="number">
-                  
+
               </div>
           </div>
           </fieldset>
-          
+
         </div>
 
         <div class="form-group">
-          
+
           <label class="form-label-bold" for="holdername">
             Name on card
           </label>
-          
+
           <input class="form-control max-width" id="holdername" name="holdername" type="text">
-          
+
         </div>
 
         <div class="form-group">
-          
+
           <label class="form-label-bold" for="card-security-number">
             Card security code
-            <span class="form-hint">This is the 3 digit code at the back of your card</span>
+            <span class="form-hint">This is the 3 digit code at the back of your card.</span>
           </label>
-          
+
           <input class="form-control" id="security-number" type="number"><img class="card-image" src="/public/images/bsa/card-security-code-2.png">
-          
+
         </div>
-        
+
       <div class="form-group">
         <input class="button" type="submit"  value="Next">
       </div>
-        
+
         <div class="back">
-          
+
           <a href="#">Cancel payment</a>
-          
+
         </div>
-      
+
       </form>
-    
+
     </div>
-    
+
   </div>
-	
+
 </main>
 
 {% endblock %}
