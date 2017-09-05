@@ -139,7 +139,7 @@ router.get(/go-handler/, function (req, res) {
   var term = req.query.search.toLowerCase();
   if ( term.includes("ppc") ) {
     console.log('result-ppc');
-    res.render('google/result-prepaymen', {
+    res.render('google/result-prepayment', {
       term : term
     });
   } else if ( term.includes("prepayment") || term.includes("ppc") ) {
@@ -154,7 +154,7 @@ router.get(/go-handler/, function (req, res) {
     });
   }else {
     console.log('other');
-    res.render('google/result-prepaymen', {
+    res.render('google/result-prepayment', {
       term : term
     });
   }
