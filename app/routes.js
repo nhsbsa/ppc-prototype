@@ -19,10 +19,10 @@ ppc.duration = "test";
 ppc.startDay = null;
 ppc.startMonth = null;
 ppc.startYear = null;
-ppc.startDate = '15 August 2017';
+ppc.startDate = '15 June 2017';
 ppc.endDay = null;
 ppc.endYear = null;
-ppc.endDate = '14 November 2017';
+ppc.endDate = '14 September 2017';
 ppc.autoRenew = null;
 ppc.plusMonth = null;
 ppc.minusMonth = null;
@@ -586,6 +586,13 @@ router.get(/return_name/, function (req, res) {
 });
 
 router.get(/name-handler/, function (req, res) {
+  var runout_content = document.getElementById("runout_content");
+  console.log(ppc.endDate);
+  if (ppc.endDate === '14 September 2017') {
+
+  } else { runout_content.className += " hidden";
+  }
+
   applicant.firstName = req.query.firstname;
   applicant.lastName = req.query.lastname;
   applicant.setFullName();
@@ -824,7 +831,12 @@ router.get(/new-email-handler/, function (req, res) {
 
 //address
 router.get(/change-address/, function (req, res) {
-  res.render('change/change-address');
+  res.render('change/change-address'),{
+  postcode : applicant.postCode,
+  lineone : applicant.addresslineone,
+  linetwo : applicant.addresslinetwo,
+  town : applicant.town
+}
 });
 
 router.get(/new-address-handler/, function (req, res) {
