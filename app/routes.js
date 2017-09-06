@@ -61,6 +61,7 @@ textHelper.cardPaymentInfo = '12 month prescription prepayment';
 textHelper.length = "12 months";
 textHelper.format = "account";
 textHelper.reminderText  = " ";
+textHelper.neitherText = "You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.";
 textHelper.contactText = "You should make a note of the following:";
 textHelper.method = "a letter";
 
@@ -187,8 +188,10 @@ router.get(/birth-handler/, function (req, res) {
   console.log(applicant.age);
   if (applicant.age <= 16 || applicant.age >= 60) {
     res.redirect('60');
+  } else if (applicant.age == 59) {
+    res.redirect('59');
   } else {
-    res.redirect('name');
+   res.redirect('name');
   }
 //      if (applicant.age === 59) {
 //        res.redirect('../59');
@@ -341,6 +344,14 @@ router.get(/contact-handler/, function (req, res) {
   } else {
     res.redirect('check');
   }
+
+  if (ppc.duration == 'dd') {
+     console.log(ppc.duration);
+     textHelper.neitherText  = 'fuuuuuuuuuuuuu'
+  } else {
+      textHelper.neitherText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
+  }
+
 });
 
 //Mobile capture
@@ -439,7 +450,7 @@ router.get(/done-v3/, function (req, res) {
   console.log(applicant.hasMobile);
   console.log(applicant.hasEmail);
   if (applicant.hasMobile == false && applicant.hasEmail == false) {
-     textHelper.reminderText  = 'You may not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
+     textHelper.reminderText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
   } else {
       textHelper.reminderText  = 'We will write to you again in August to remind you when your prepayment will end.'
   }
