@@ -347,7 +347,7 @@ router.get(/contact-handler/, function (req, res) {
 
   if (ppc.duration == 'dd') {
      console.log(ppc.duration);
-     textHelper.neitherText  = 'fuuuuuuuuuuuuu'
+     textHelper.neitherText  = 'You will get a postal reminder about the auto-renewal of your prescription prepayment. You will get this a month before your prepayment ends.'
   } else {
       textHelper.neitherText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
   }
@@ -625,9 +625,6 @@ router.get(/return-handler/, function (req, res) {
 });
 //return-view
 router.get(/return-view/, function (req, res) {
-    if (ppc.endDate === '14 September 2017') {
-    } else { runout_content.className += " hidden";
-    }
     res.render('return/return-view', {
     startdate : ppc.startDate,
     enddate : ppc.endDate,
@@ -660,6 +657,11 @@ router.get(/cont-handler/, function (req, res) {
   }  else {
         res.redirect('done-change');
       }
+  if (applicant.mobile == null) {
+    res.redirect('can-you-give-email');
+  } else if (applicant.email == null){
+    res.redirect('can-you-give-mobile');
+  }
 });
 
 //Mobile capture
@@ -793,13 +795,13 @@ router.get(/sent-you-changed/, function (req, res) {
 });
 
 
-router.get(/sendto/), function (req, res) {
-    if (applicant.mobile === null && applicant.email === null) {
-    res.render('change/can-you-give-us');
+router.get(/to-handler/, function (req, res) {
+    if (applicant.mobile == null && applicant.email == null) {
+    res.redirect('/change/can-you-give-us');
   } else {
-      res.render('change/sendto')
+      res.redirect('/change/sendto')
   }
-}
+});
 
 router.get(/change-details/, function (req, res) {
   res.render('change/change-details', {
