@@ -7,9 +7,10 @@
 {% block content %}
 
 <main id="content" role="main">
-    
+  {% include "includes/phase_banner_beta.html" %}
+  
   <div class="grid-row">
-    
+
     <div class="column-two-thirds">
 
       <!-- <p class="navigation"><a class="back-to-previous">Back</a></p> -->
@@ -22,7 +23,7 @@
       </div>
 
       <p>We will send an email to remind you. You can change this option later.</p>
-      
+
       <form action="auto-handler" method="get" class="form">
 
         <div class="form-group">
@@ -42,7 +43,7 @@
               <label for="no">No</label>
             </div>
 
-          </fieldset>  
+          </fieldset>
 
         </div>
 
@@ -55,9 +56,9 @@
       </form>
 
     </div>
-    
+
     </div>
-  
+
 </main>
 
 {% endblock %}

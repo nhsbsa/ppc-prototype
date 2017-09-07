@@ -7,9 +7,10 @@
 {% block content %}
 
 <main id="content" role="main">
+  {% include "includes/phase_banner_beta.html" %}
 
   <div class="grid-row">
-    
+
     <div class="column-two-thirds">
 
       <div class="heading-group">
@@ -22,9 +23,9 @@
         You can choose any date between 15 May and 15 July.
       </p>
 
-      <!--      
+      <!--
 <p>We will text and/or email you a reminder 1 month before your prepayment ends.</p>
-      
+
       <form class="form" action="contact-handler" id="contact-boxes">
         <fieldset class="form-group">
           <legend class="visually-hidden">
@@ -44,7 +45,7 @@
     <li>any date before 29 May (ready for your next pharmacy visit)</li>
     <li>any date after 27 April (if you have a refund form from the pharmacist)</li>
   </ul>
-      
+
       <form class="form" action="start-handler" method="get">
 
           <fieldset class="form-group">
@@ -89,7 +90,7 @@
           <input class="button" type="submit" value="Next">
         </div>
       </form>-->
-      
+
       <form class="form" action="start-handler" method="get">
         <div class="form-group">
           <fieldset>
@@ -100,12 +101,12 @@
               <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
               <label class="single-line" for="example-contact-by-email">Today</label>
             </div>
-            
+
             <div class="multiple-choice" data-target="contact-by-phone">
               <input id="example-contact-by-phone" type="radio" name="radio-contact-group" value="No">
               <label class="single-line" for="example-contact-by-phone">Another date</label>
             </div>
-            
+
             <div class="panel panel-border-narrow js-hidden" id="contact-by-phone">
               <div class="form-date">
                 <div class="form-group form-group-day">
@@ -127,21 +128,21 @@
                 <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
               </div>
             </div>
-            
+
           </fieldset>
         </div>
         <div class="form-group">
           <input class="button" type="submit" value="Next">
         </div>
-        
+
         <p class="navigation"><a class="cancel" href="start">Cancel</a></p>
-        
+
       </form>
-          
+
     </div>
-      
+
   </div>
-  
+
 </main>
 
 {% endblock %}

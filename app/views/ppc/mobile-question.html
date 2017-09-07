@@ -7,9 +7,10 @@
 {% block content %}
 
 <main id="content" role="main">
-    
-  <div class="grid-row">
+  {% include "includes/phase_banner_beta.html" %}
   
+  <div class="grid-row">
+
     <div class="column-two-thirds">
 
       <!-- <p class="navigation"><a class="back-to-previous">Back</a></p> -->
@@ -22,11 +23,11 @@
       <p>
         We will text your prepayment number, start date and end date. <br>We also send you a reminder 1 month before your prepayment ends.
       </p>
-      
+
       <form action="mobile-q-handler" method="get" class="form">
-  
+
         <div class="form-group">
-          
+
           <fieldset class="inline">
 
             <legend class="visually-hidden">
@@ -37,14 +38,14 @@
               <input id="yes" type="radio" name="mobile" value="yes">
               <label for="yes">Yes</label>
             </div>
-            
+
             <div class="multiple-choice">
               <input id="no" type="radio" name="mobile" value="no">
               <label for="no">No</label>
             </div>
 
           </fieldset>
-        
+
         </div>
 
         <div class="form-item-wrapper">
@@ -52,15 +53,15 @@
             <input class="button" type="submit" value="Next">
           </div>
         </div>
-    
+
         <p class="navigation"><a class="cancel" href="../lis-home">Cancel</a></p>
-      
+
       </form>
 
     </div>
-    
+
   </div>
-  
+
 </main>
 
 {% endblock %}

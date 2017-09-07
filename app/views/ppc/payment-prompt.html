@@ -7,7 +7,8 @@
 {% block content %}
 
 <main id="content" role="main">
-    
+  {% include "includes/phase_banner_beta.html" %}
+
   <div class="grid-row">
     <div class="column-two-thirds">
 
@@ -21,9 +22,9 @@
       </div>
 
       <form action="prompt-handler" method="get" class="form">
-        
+
         <div class="form-group">
-          
+
           <fieldset class="inline">
             <legend class="visually-hidden">
               Is the {{format}} holder's address the same as yours?
@@ -38,11 +39,11 @@
               <input id="no" type="radio" name="prompt" value="no">
               <label for="no">No</label>
             </div>
-            
-          </fieldset>  
-          
+
+          </fieldset>
+
         </div>
-        
+
           <div class="form-group">
             <input class="button" type="submit"  value="Next">
           </div>
@@ -52,9 +53,9 @@
       </form>
 
     </div>
-    
+
   </div>
-  
+
 </main>
 
 {% endblock %}

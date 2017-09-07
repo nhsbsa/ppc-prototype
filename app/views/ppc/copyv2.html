@@ -7,9 +7,10 @@
 {% block content %}
 
 <main id="content" role="main">
+  {% include "includes/phase_banner_beta.html" %}
 
   <div class="grid-row">
-    
+
     <div class="column-two-thirds">
 
       <div class="heading-group">
@@ -20,9 +21,9 @@
       </div>
 
       <p>We will also send a reminder before your prepayment ends.</p>
-      
+
 <!--      <p>We will text and/or email you a reminder 1 month before your prepayment ends.</p>-->
-      
+
       <form class="form" action="contact-handler">
         <fieldset class="form-group">
           <legend class="visually-hidden">
@@ -44,12 +45,12 @@
 -->
         </fieldset>
 
-              
+
           <div>
       <p>
         You can write your prepayment details down, print or download them at the end of this service.
       </p>
-            
+
       <p>
         <span class="bold">This service does not issue plastic cards any more.</span> They are not required for collecting prescriptions. They are costly to the NHS and the environment.
       </p>
@@ -60,11 +61,11 @@
           <input class="button" type="submit" value="Next">
         </div>
       </form>
-          
+
     </div>
-      
+
   </div>
-  
+
 </main>
 
 {% endblock %}

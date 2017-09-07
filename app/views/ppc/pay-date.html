@@ -7,6 +7,7 @@
 {% block content %}
 
 <main id="content" role="main">
+  {% include "includes/phase_banner_beta.html" %}
     
   <div class="grid-row">
     <div class="column-two-thirds">
@@ -19,9 +20,9 @@
           When do you want your payments to be taken?
         </h1>
       </div>
-      
+
       <p>You can change this date later.</p>
-      
+
       <form action="pay-handler" method="get" class="form">
 
           <div class="form-group">
@@ -55,7 +56,7 @@
                 </label>
               </div>
 
-            </fieldset>  
+            </fieldset>
 
           </div>
 
@@ -68,9 +69,9 @@
         </form>
 
       </div>
-    
+
     </div>
-  
+
 </main>
 
 {% endblock %}

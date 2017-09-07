@@ -7,7 +7,8 @@
 {% block content %}
 
 <main id="content" role="main">
-    
+  {% include "includes/phase_banner_beta.html" %}
+
   <div class="grid-row">
     <div class="column-two-thirds">
 
@@ -19,7 +20,7 @@
         Check your direct debit details
       </h1>
     </div>
-        
+
     <table id="review-table-two">
       <tr>
         <td class="strong">Your payments</td>
@@ -44,7 +45,7 @@
         <td>10 November 2017</td>
         <td><a href="">Change</a></td>
       </tr>
-         
+
       <tr>
         <td class="strong">Your account details</td>
       </tr>
@@ -69,7 +70,7 @@
         <td><a href="">Change</a></td>
       </tr>
     </table>
-    
+
     <div class="payment-summary-small">
       <p>
         <img src="/public/images/ddlogo.png">
@@ -100,13 +101,13 @@
         </div>
     </div>
     </form>
-    
+
     <p class="navigation"><a class="cancel" href="start">Cancel payment</a></p>
 
   </div>
   </div>
   </div>
-  
+
 </main>
 
 {% endblock %}

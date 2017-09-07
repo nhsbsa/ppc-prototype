@@ -7,6 +7,7 @@
 {% block content %}
 
 <main id="content" role="main">
+  {% include "includes/phase_banner_beta.html" %}
 
   <div class="grid-row">
     <div class="column-two-thirds">
@@ -14,7 +15,7 @@
   <h1 class="heading-large">
      3 month prepayment<br>£29.00
   </h1>
-      
+
     <form action="duration-handler" method="get" class="form">
       <div class="form-item-wrapper">
         <div class="form-group">
@@ -24,24 +25,24 @@
             <br>Lasts 3 months
           </label>
         </div>
-      </div>      
-     
+      </div>
+
       <div class="form-item-wrapper">
 
       <div class="form-group">
         <input class="button" type="submit"  value="Next">
       </div>
-        
+
       </div>
 
     </form>
-      
+
     <p class="navigation"><a class="cancel" href="start">Cancel</a></p>
 
     </div>
-    
+
   </div>
-  
+
 </main>
 
 {% endblock %}

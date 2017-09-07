@@ -7,9 +7,10 @@
 {% block content %}
 
 <main id="content" role="main">
+  {% include "includes/phase_banner_beta.html" %}
 
   <div class="grid-row">
-    
+
     <div class="column-two-thirds">
 
       <div class="heading-group">
@@ -22,20 +23,20 @@
       <p>
         We can send your prepayment details by text and email straight away, including:
       </p>
-      
+
       <ul class="list list-bullet">
         <li>prepayment number</li>
         <li>start date</li>
         <li>end date</li>
         <li>a reminder before it ends</li>
       </ul>
-      
+
       <p>
         <span class="bold">We do not send out plastic cards any more.</span> They are not required for collecting prescriptions. They are costly to the NHS and the environment.
       </p>
-            
+
 <!--      <p>We will text and/or email you a reminder 1 month before your prepayment ends.</p>-->
-      
+
       <form class="form" action="contact-handler" id="contact-boxes">
         <fieldset class="form-group">
           <legend class="visually-hidden">
@@ -62,16 +63,16 @@
 -->
         </fieldset>
 
-              
+
           <div>
 <!--
       <p>
         You can write your prepayment details down, print or download them at the end of this service.
       </p>
 -->
-            
-            
-      
+
+
+
 
           </div>
 
@@ -79,11 +80,11 @@
           <input class="button" type="submit" value="Next">
         </div>
       </form>
-          
+
     </div>
-      
+
   </div>
-  
+
 </main>
 
 {% endblock %}

@@ -7,9 +7,10 @@
 {% block content %}
 
 <main id="content" role="main">
-    
+  {% include "includes/phase_banner_beta.html" %}
+
   <div class="grid-row">
-    
+
     <div class="column-two-thirds">
 
       <!-- <p class="navigation"><a class="back-to-previous">Back</a></p> -->
@@ -20,24 +21,24 @@
           Confirm and submit
         </h1>
       </div>
-      
+
       <p>
        By submitting, you are agreeing to pay 10 instalments of £10.40.
       </p>
-       	 
+
       <p>
        If instalments are not kept up, you are not entitled to use the prepayment. You could choose an alternative method of payment to avoid defaulting.
       </p>
-      
+
       <p>
         If you use the prepayment after failing to pay an instalment, you may have to pay a penalty charge.
       </p>
-      
+
       <p>
         If you repeatedly fail to pay your prepayment instalments, you may not be able to pay by Direct Debit in the future.
       </p>
- 	 
-      
+
+
       <form class="form" method="get" action="done-v3">
         <div class="form-item-wrapper">
           <div class="form-group">
@@ -48,11 +49,11 @@
           <a href="#">Cancel</a>
         </div>
       </form>
-      
+
     </div>
-    
+
   </div>
-  
+
 </main>
 
 {% endblock %}
