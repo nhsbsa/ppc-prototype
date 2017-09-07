@@ -10,11 +10,12 @@ if (
   window.sessionStorage.setItem('prototypeWarning', true)
 }
 
-
 //ppc
 
 //review table one
   if(document.getElementById("review-table-one")) {
+    var Edate = document.getElementById("Edate").innerHTML;
+    var runout = document.getElementById("runout");
     var hasNhsno = document.getElementById("has-nhsno").innerHTML;
     var nhsno = document.getElementById("nhsno");
     var codeRow = document.getElementById("postcode-row");
@@ -91,5 +92,11 @@ $(document).ready(function () {
        postBox.checked = false;
     }
   }
+  if (Edate = "29 September 2017") {
+     console.log('Hello?')
+     document.getElementById('runout').classList.remove("hidden");
+   } else {
+    console.log('do nothing')
+  };
 
 })

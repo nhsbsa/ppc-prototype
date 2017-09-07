@@ -19,22 +19,22 @@
           <h1 class="heading-xlarge">Prepayment details</h1>
         </div>
 
-          <div class="grey-box" id="runout_content">
-           <div class="notice">
-             <i class="icon icon-important ">
-             <span class="visually-hidden">Warning</span>
-             </i>
-            <strong class="bold-small">
-              Your NHS prescription prepayment is about to run out. <a href="../ppc/duration">Buy it again</a>.
-            </strong>
+          <div id="runout" class="grey-box hidden">
+             <div class="notice">
+               <i class="icon icon-important">
+               <span class="visually-hidden">Warning</span>
+               </i>
+              <strong class="bold-small">
+                Your NHS prescription prepayment is about to run out. <a href="../ppc/duration">Buy it again</a>.
+              </strong>
+            </div>
         </div>
-      </div>
 
         <div class="info-table">
           <p>Prepayment for: <span class="strong">{{name}}</span></p>
           <p>Prepayment number: <span class="strong">869 467 589</span></p>
           <p>Started on: <span class="strong"> {{startdate}}</span></p>
-          <p>Ends on: <span class="strong"> {{enddate}}</span></p>
+          <p>Ends on: <span class="strong" id="Edate"> {{enddate}}</span></p>
         </div>
 
         <p>{{remindertext}}</p>
