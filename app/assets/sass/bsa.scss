@@ -504,3 +504,11 @@ table {
   padding: 15px;
   padding-left: 0px;
 }
+
+.check-your-answers {
+  border-bottom: 1px solid $border-colour;
+
+  .change-answer {
+    font-weight: bold;
+  }
+}
