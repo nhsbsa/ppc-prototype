@@ -493,3 +493,14 @@ table {
       cursor:pointer;
       font-size: 19px;
 }
+
+
+.check-table tr {
+  border-bottom: 1px solid #bfc1c3;
+  border-spacing: 2px;
+}
+
+.check-table td {
+  padding: 15px;
+  padding-left: 0px;
+}

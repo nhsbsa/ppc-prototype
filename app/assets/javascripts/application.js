@@ -92,11 +92,10 @@ $(document).ready(function () {
        postBox.checked = false;
     }
   }
-  if (Edate = "29 September 2017") {
-     console.log('Hello?')
+  if (Edate === '29 September 2017') {
      document.getElementById('runout').classList.remove("hidden");
    } else {
-    console.log('do nothing')
+
   };
 
 })
