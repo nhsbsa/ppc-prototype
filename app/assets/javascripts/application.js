@@ -14,7 +14,6 @@ if (
 
 //review table one
   if(document.getElementById("review-table-one")) {
-    var Edate = document.getElementById("Edate").innerHTML;
     var runout = document.getElementById("runout");
     var hasNhsno = document.getElementById("has-nhsno").innerHTML;
     var nhsno = document.getElementById("nhsno");
@@ -92,10 +91,18 @@ $(document).ready(function () {
        postBox.checked = false;
     }
   }
-  if (Edate === '29 September 2017') {
-     document.getElementById('runout').classList.remove("hidden");
-   } else {
 
-  };
+  if(document.getElementById("runout")) {
+    var edate = document.getElementById("Edate").innerHTML.trim();
+
+    if (edate == "29 September 2017") {
+
+      document.getElementById('runout').classList.remove("hidden");
+    } else {
+      console.log("no");
+
+    };
+  }
+
 
 })
