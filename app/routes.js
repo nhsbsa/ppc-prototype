@@ -61,7 +61,7 @@ textHelper.cardPaymentInfo = '12 month prescription prepayment';
 textHelper.length = "12 months";
 textHelper.format = "account";
 textHelper.reminderText  = " ";
-textHelper.neitherText = "You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.";
+textHelper.neitherText = " ";
 textHelper.contactText = "You should make a note of the following:";
 textHelper.method = "a letter";
 
@@ -323,6 +323,7 @@ router.get(/cover_date/, function (req, res) {
 
 //Contact handler
 router.get(/contact-handler/, function (req, res) {
+
   if (req.query.text === 'true') {
     applicant.hasMobile = true;
     console.log("applicant.hasMobile = true");
@@ -345,14 +346,21 @@ router.get(/contact-handler/, function (req, res) {
     res.redirect('check');
   }
 
-  if (ppc.duration == 'dd') {
-     console.log(ppc.duration);
-     textHelper.neitherText  = 'You will get a postal reminder about the auto-renewal of your prescription prepayment. You will get this a month before your prepayment ends.'
-  } else {
-      textHelper.neitherText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
-  }
-
 });
+
+router.get(/copy/ , function (req, res) {
+       console.log(ppc.duration);
+    if (ppc.duration == 'dd') {
+       textHelper.neitherText  = 'You will get a postal reminder about the auto-renewal of your prescription prepayment. You will get this a month before your prepayment ends.'
+    } else {
+        textHelper.neitherText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
+    }
+
+    res.render('ppc/copy', {
+      neithertext : textHelper.neitherText
+    });
+  });
+
 
 //Mobile capture
 router.get(/mobile-c-handler/, function (req, res) {
@@ -650,18 +658,19 @@ router.get(/cont-handler/, function (req, res) {
     applicant.hasEmail = false;
     console.log("applicant.hasEmail = false");
   }
-  if (applicant.hasMobile) {
-    res.redirect('your-mobile');
-  } else if (applicant.hasEmail) {
-    res.redirect('your-email');
-  }  else {
-        res.redirect('done-change');
-      }
-  if (applicant.mobile == null) {
-    res.redirect('can-you-give-email');
-  } else if (applicant.email == null){
+  if (applicant.hasMobile && applicant.mobile == null) {
     res.redirect('can-you-give-mobile');
-  }
+  } else if (applicant.hasMobile) {
+    res.redirect('your-mobile');
+  } else if (applicant.hasEmail && applicant.email == null) {
+       res.redirect('can-you-give-email');
+  } else if (applicant.hasEmail) {
+       res.redirect('your-mobile');
+  } else {
+        res.redirect('done-change');
+
+}
+
 });
 
 //Mobile capture
