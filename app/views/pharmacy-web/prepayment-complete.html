@@ -12,17 +12,16 @@
   <div class="column-two-thirds">
     <h1 class="heading-large">Prepayment complete</h1>
     <p>We have received the prescription prepayment information.</p>
-    <!-- <p>Their prepayment number is <strong class="bold-small">938836636</strong>.</p> -->
     <div class="info-table">
-      <p>Prepayment for: <span class="strong">Joe Bloggs</span></p>
+      <p>Prepayment for: <span class="strong">{{name}}</span></p>
       <p>Prepayment number: <span class="strong">869 467 589</span></p>
-      <p>Started on: <span class="strong">29 June 2017</span></p>
-      <p>Ends on: <span class="strong" id="Edate">29 September 2017</span></p>
+      <p>Started on: <span class="strong">{{startdate}}</span></p>
+      <p>Ends on: <span class="strong" id="Edate">{{enddate}}</span></p>
     </div>
 
-    <p> Please give them these details and keep a record of them.</p>
+    <p> Please give the customer these details and keep a record of them.</p>
     <h2 class="heading-medium">Payment</h2>
-    <p>If the customer has not already paid, the charge is £29.10.</p>
+    <p>If the customer has not already paid, the charge is {{cost}}.</p>
     <h2 class="heading-medium">Dispensing prescriptions</h2>
     <p>You should ask customers for prepayment details.</p>
     <p>If they do not have them, tick 'Evidence not seen' on the prescription. Do not charge them.</p>

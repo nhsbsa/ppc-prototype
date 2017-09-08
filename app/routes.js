@@ -962,27 +962,27 @@ router.get(/return-view/, function (req, res) {
   }
 });
 
+//PHARMACY WEB//
+router.get(/sell-ppc/, function (req, res) {
+    res.render('pharmacy-web/sell-ppc')
 
-router.get(/sell-pharm/, function (req, res) {
-    res.render('pharmacy-web/check-answers')
+
+});
+
+router.get(/handler-pharmacy/, function (req, res) {
+     res.redirect('pharmacy-answers');
+     applicant.firstName = req.query.firstname;
+     applicant.lastName = req.query.lastname;
+     console.log(applicant.firstName)
 });
 
 //Check your answers
-router.get(/check-answers/, function (req, res) {
-  console.log("nhsno" + applicant.hasNhsno);
-  var myDobMonth;
-  if (applicant.dobMonth === null) {
-    myDobMonth = 'May';
-  } else {
-    myDobMonth = dateHelper.monthToText(applicant.dobMonth);
-  }
-  textHelper.setContactText(applicant.mobile, applicant.email);
-  textHelper.setReminderText(applicant.mobile, applicant.email);
-  textHelper.setMethod(applicant.email);
-  res.render('ppc/check', {
-  name : applicant.firstName + ' ' + applicant.lastName,
+router.get(/pharmacy-answers/, function (req, res) {
+  res.render('pharmacy-web/pharmacy-answers', {
+  firstname : applicant.firstName,
+  lastname : applicant.lastName,
   dobday : applicant.dobDay,
-  dobmonth : myDobMonth,
+  dobmonth : applicant.myDobMonth,
   dobyear : applicant.dobYear,
   address : applicant.address,
   hasmobile : boolToText(applicant.hasMobile),
@@ -998,5 +998,20 @@ router.get(/check-answers/, function (req, res) {
   lastdddate : dateHelper.lastPaymentDate,
   hasnhsno : applicant.hasNhsno,
   nhsno : applicant.nhsno
+  });
+});
+
+//done resend with new number
+router.get(/prepayment-complete/, function (req, res) {
+  res.render('pharmacy-web/prepayment-complete', {
+    contacttext : textHelper.contactText,
+    duration : textHelper.length,
+    name : applicant.fullName,
+    startdate : ppc.startDate,
+    enddate : ppc.endDate,
+    reminder : dateHelper.monthToText(ppc.endMonth -1) + ppc.endYear,
+    remindertext : textHelper.reminderText,
+    dd : ppc.duration,
+    method : textHelper.method,
   });
 });
