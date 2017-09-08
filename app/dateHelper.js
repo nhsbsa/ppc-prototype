@@ -10,7 +10,7 @@ function DateHelper(
   endMonth,
   endYear,
   endDate
-  ) {
+  ) { 
   this.today = today;
   this.thisDay = thisDay;
   this.thisMonth = thisMonth;
