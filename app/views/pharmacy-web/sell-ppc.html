@@ -23,7 +23,6 @@
           <div class="form-group">
             <fieldset class="inline">
             <label class="form-label" for="title">Title</label>
-              <legend class="visually-hidden">Do you already have a personal user account?</legend>
               <label class="block-label selection-button-radio" for="radio-inline-mr">
                 <input id="radio-inline-mr" type="radio" name="title" value="Mr">
                 Mr
@@ -45,11 +44,11 @@
 
               <div class="form-group">
                  <label class="form-label" for="firstname">First name</label>
-                 <input class="form-control" id="firstname" name="firstname" type="text">
+                 <input class="form-control" id="firstname" name="firstname" type="text" value="{{firstname}}">
               </div>
               <div class="form-group">
                  <label class="form-label" for="lastname">Last name</label>
-                 <input class="form-control" id="lastname" name="lastname" type="text">
+                 <input class="form-control" id="lastname" name="lastname" type="text" value="{{lastname}}">
               </div>
               <fieldset class="form-group">
                <label class="form-label" for="last-name">Date of birth</label>
@@ -60,17 +59,17 @@
                   <p class="form-hint">For example, 31 03 1980</p>
                   <div class="form-group form-group-day">
                     <label for="day">Day</label>
-                    <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" min="0" max="31" required>
+                    <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" min="0" max="31" value="{{dobday}}" required>
                   </div>
 
                   <div class="form-group form-group-month">
                     <label for="month">Month</label>
-                    <input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" min="0" max="12" required>
+                    <input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" min="0" max="12" value="{{dobmonth}}" required>
                   </div>
 
                   <div class="form-group form-group-year">
                     <label for="year">Year</label>
-                    <input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" min="0" max="2014" required>
+                    <input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" min="0" max="2014" value="{{dobyear}}" required>
                   </div>
 
                 </div>
@@ -78,26 +77,26 @@
               </fieldset>
               <div class="form-group">
                  <label class="form-label" for="hasnhsno">NHS number (Optional)</label>
-                 <input class="form-control" id="hasnhsno" name='nhsno' type="text">
+                 <input class="form-control" id="hasnhsno" name='nhsno' type="text" value="{{nhsno}}">
               </div>
               <div class="form-group">
                  <label class="form-label" for="mobile">Telephone number</label>
-                 <input class="form-control" id="mobile" name="mobile" type="text">
+                 <input class="form-control" id="mobile" name="mobile" value="{{mobilenumber}}" type="text">
               </div>
               <div class="form-group">
                  <label class="form-label" for="lineone">Building and street</label>
-                 <input class="form-control" id="lineone" name="lineone" type="text">
+                 <input class="form-control" id="lineone" name="lineone" type="text" value="{{lineone}}">
                </div>
                    <div class="form-group">
-                   <input class="form-control" id="linetwo" name="linetwo" type="text">
+                   <input class="form-control" id="linetwo" name="linetwo" value="{{linetwo}}" type="text">
               </div>
               <div class="form-group">
                  <label class="form-label" for="town">Town or city</label>
-                 <input class="form-control" id="town" name="town" type="text">
+                 <input class="form-control" id="town" name="town" value="{{town}}" type="text">
               </div>
               <div class="form-group">
                  <label class="form-label" for="postcode">Postcode</label>
-                 <input class="form-control" id="postcode" name="postcode" type="text">
+                 <input class="form-control" id="postcode" name="postcode" value="{{postcode}}"type="text">
               </div>
 
 
@@ -135,17 +134,17 @@
                 <p class="form-hint">For example, 31 03 1980</p>
                 <div class="form-group form-group-day">
                   <label for="startday">Day</label>
-                  <input class="form-control" id="startday" name="startday" type="number" pattern="[0-9]*" min="0" max="31" required>
+                  <input class="form-control" id="startday" name="startday" type="number" pattern="[0-9]*" value="startday" min="0" max="31" required>
                 </div>
 
                 <div class="form-group form-group-month">
                   <label for="startmonth">Month</label>
-                  <input class="form-control" id="startmonth" name="startmonth" type="number" pattern="[0-9]*" min="0" max="12" required>
+                  <input class="form-control" id="startmonth" name="startmonth" type="number" pattern="[0-9]*" value="startmonth" min="0" max="12" required>
                 </div>
 
                 <div class="form-group form-group-year">
                   <label for="startyear">Year</label>
-                  <input class="form-control" id="startyear" name="startyear" type="number" pattern="[0-9]*" min="0"  required>
+                  <input class="form-control" id="startyear" name="startyear" type="number" pattern="[0-9]*" value="startyear" min="0"  required>
                 </div>
               </div>
             </fieldset>
@@ -158,19 +157,16 @@
                 <p class="form-hint">For example, 31 03 1980</p>
                 <div class="form-group form-group-day">
                   <label for="soldday">Day</label>
-                  <input class="form-control" id="soldday" name="soldday" type="number" pattern="[0-9]*" min="0" max="31" required>
+                  <input class="form-control" id="soldday" name="soldday" type="number"  value="daysold" pattern="[0-9]*" min="0" max="31" required>
                 </div>
-
                 <div class="form-group form-group-month">
                   <label for="soldmonth">Month</label>
-                  <input class="form-control" id="soldmonth" name="soldmonth" type="number" pattern="[0-9]*" min="0" max="12" required>
+                  <input class="form-control" id="soldmonth" name="soldmonth" type="number" value="monthsold" pattern="[0-9]*" min="0" max="12" required>
                 </div>
-
                 <div class="form-group form-group-year">
                   <label for="soldyear">Year</label>
-                  <input class="form-control" id="soldyear" name="soldyear" type="number" pattern="[0-9]*" min="0" required>
+                  <input class="form-control" id="soldyear" name="soldyear" type="number"  value="yearsold" pattern="[0-9]*" min="0" required>
                 </div>
-
               </div>
 
             </fieldset>

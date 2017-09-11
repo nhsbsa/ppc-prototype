@@ -35,9 +35,9 @@ ppc.minusMonth = null;
 var applicantMaster = require('./applicant.js');
 var applicant = applicantMaster.createApplicant();
 applicant.title = null;
-applicant.firstName = "Jane";
-applicant.lastName = "Doe";
-applicant.fullName = "Jane Doe";
+applicant.firstName = null ;
+applicant.lastName = null ;
+applicant.fullName = null ;
 applicant.dobDay = null;
 applicant.dobMonth = null;
 applicant.dobYear = null;
@@ -968,9 +968,37 @@ router.get(/return-view/, function (req, res) {
 
 //PHARMACY WEB//
 router.get(/sell-ppc/, function (req, res) {
-    res.render('pharmacy-web/sell-ppc')
-
-
+    res.render('pharmacy-web/sell-ppc' , {
+      title : applicant.title,
+      firstname : applicant.firstName,
+      lastname : applicant.lastName,
+      dobday : applicant.dobDay,
+      dobmonth : applicant.dobMonth,
+      dobyear : applicant.dobYear,
+      postcode : applicant.postCode,
+      lineone : applicant.addresslineone,
+      linetwo : applicant.addresslinetwo,
+      town : applicant.town,
+      startday : ppc.startDay,
+      startmonth : ppc.startMonth,
+      startyear : ppc.startYear,
+      daysold : ppc.daysold,
+      monthsold : ppc.monthsold,
+      yearsold : ppc.yearsold,
+      hasmobile : boolToText(applicant.hasMobile),
+      mobilenumber : applicant.mobile,
+      hasemail :  boolToText(applicant.hasEmail),
+      emailaddress : applicant.email,
+      length : textHelper.length,
+      startdate : ppc.startDate,
+      enddate : ppc.endDate,
+      cost : textHelper.cost,
+      method : textHelper.paymentMethod,
+      firstdddate : dateHelper.firstPaymentDate,
+      lastdddate : dateHelper.lastPaymentDate,
+      hasnhsno : applicant.hasNhsno,
+      nhsno : applicant.nhsno
+  });
 });
 
 router.get(/handler-pharmacy/, function (req, res) {
@@ -1008,6 +1036,9 @@ router.get(/handler-pharmacy/, function (req, res) {
        ppc.startDate = dateHelper.dateStringCreator(ppc.startDay, ppc.startMonth, ppc.startYear);
        console.log("ppc.startDate = " + ppc.startDate);
        applicant.postCode = req.query.postcode;
+       applicant.addresslineone = req.query.lineone;
+       applicant.addresslinetwo = req.query.linetwo;
+       applicant.town = req.query.town;
         var tempAddress = req.query.lineone;
         if (req.query.linetwo != '') {
           tempAddress = tempAddress + " " + req.query.linetwo;
@@ -1027,6 +1058,7 @@ router.get(/handler-pharmacy/, function (req, res) {
         console.log(ppc.startDay)
         console.log(ppc.startMonth)
         console.log(ppc.startYear)
+
         if (applicant.age == 59) {
           res.redirect('Error-2');
         } else {
