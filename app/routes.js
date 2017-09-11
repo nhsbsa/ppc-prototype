@@ -16,6 +16,9 @@ dateHelper.showDateHelper();
 var ppc_master = require('./ppc.js');
 var ppc = ppc_master.createPPC();
 ppc.duration = "test";
+ppc.daysold = null;
+ppc.monthsold = null;
+ppc.yearsold = null;
 ppc.startDay = null;
 ppc.startMonth = null;
 ppc.startYear = null;
@@ -31,6 +34,7 @@ ppc.minusMonth = null;
 //create applicant
 var applicantMaster = require('./applicant.js');
 var applicant = applicantMaster.createApplicant();
+applicant.title = null;
 applicant.firstName = "Jane";
 applicant.lastName = "Doe";
 applicant.fullName = "Jane Doe";
@@ -970,11 +974,17 @@ router.get(/sell-ppc/, function (req, res) {
 });
 
 router.get(/handler-pharmacy/, function (req, res) {
+
      applicant.firstName = req.query.firstname;
      applicant.lastName = req.query.lastname;
+     applicant.title = req.query.title;
      applicant.setFullName();
      applicant.mobile = req.query.mobile;
-    //  ppc.duration = req.query.duration;
+     ppc.duration = req.query.duration;
+     ppc.startDay = req.query.startday;
+     ppc.startMonth = req.query.startmonth;
+     ppc.startYear = req.query.startyear;
+     textHelper.setPaymentText(ppc.duration);
      applicant.nhsno = req.query.nhsno;
      if (req.query.day != '') {
         applicant.dobDay = req.query.day;
@@ -986,8 +996,18 @@ router.get(/handler-pharmacy/, function (req, res) {
         applicant.dobYear = req.query.year;
         applicant.age = (2016 - applicant.dobYear);
       }
-
-      applicant.postCode = req.query.postcode;
+      if (req.query.soldday != '') {
+         ppc.daysold = req.query.soldday;
+       }
+       if (req.query.soldmonth != '') {
+         ppc.monthsold = req.query.soldmonth;
+       }
+       if (req.query.soldyear != '') {
+         ppc.yearsold = req.query.soldyear;
+       }
+       ppc.startDate = dateHelper.dateStringCreator(ppc.startDay, ppc.startMonth, ppc.startYear);
+       console.log("ppc.startDate = " + ppc.startDate);
+       applicant.postCode = req.query.postcode;
         var tempAddress = req.query.lineone;
         if (req.query.linetwo != '') {
           tempAddress = tempAddress + " " + req.query.linetwo;
@@ -1001,8 +1021,12 @@ router.get(/handler-pharmacy/, function (req, res) {
         applicant.address = tempAddress;
         console.log(applicant.address);
         console.log(applicant.age);
-        console.log(applicant.firstName)
-        console.log(applicant.address);
+        console.log(applicant.fullName)
+        console.log(applicant.dodMonth)
+        console.log(ppc.duration)
+        console.log(ppc.startDay)
+        console.log(ppc.startMonth)
+        console.log(ppc.startYear)
         if (applicant.age == 59) {
           res.redirect('Error-2');
         } else {
@@ -1015,12 +1039,16 @@ router.get(/handler-pharmacy/, function (req, res) {
 //Check your answers
 router.get(/pharmacy-answers/, function (req, res) {
   res.render('pharmacy-web/pharmacy-answers', {
+  title : applicant.title,
   firstname : applicant.firstName,
   lastname : applicant.lastName,
   dobday : applicant.dobDay,
-  dobmonth : applicant.myDobMonth,
+  dobmonth : applicant.dobMonth,
   dobyear : applicant.dobYear,
   address : applicant.address,
+  daysold : ppc.daysold,
+  monthsold : ppc.monthsold,
+  yearsold : ppc.yearsold,
   hasmobile : boolToText(applicant.hasMobile),
   mobilenumber : applicant.mobile,
   hasemail :  boolToText(applicant.hasEmail),
