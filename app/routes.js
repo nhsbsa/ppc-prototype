@@ -970,10 +970,46 @@ router.get(/sell-ppc/, function (req, res) {
 });
 
 router.get(/handler-pharmacy/, function (req, res) {
-     res.redirect('pharmacy-answers');
      applicant.firstName = req.query.firstname;
      applicant.lastName = req.query.lastname;
-     console.log(applicant.firstName)
+     applicant.setFullName();
+     applicant.mobile = req.query.mobile;
+    //  ppc.duration = req.query.duration;
+     applicant.nhsno = req.query.nhsno;
+     if (req.query.day != '') {
+        applicant.dobDay = req.query.day;
+      }
+      if (req.query.month != '') {
+        applicant.dobMonth = req.query.month;
+      }
+      if (req.query.year != '') {
+        applicant.dobYear = req.query.year;
+        applicant.age = (2016 - applicant.dobYear);
+      }
+
+      applicant.postCode = req.query.postcode;
+        var tempAddress = req.query.lineone;
+        if (req.query.linetwo != '') {
+          tempAddress = tempAddress + " " + req.query.linetwo;
+        }
+        if (req.query.town != '') {
+          tempAddress = tempAddress + " " + req.query.town;
+        }
+        if (req.query.postcode != '') {
+          tempAddress = tempAddress + " " + req.query.postcode;
+        }
+        applicant.address = tempAddress;
+        console.log(applicant.address);
+        console.log(applicant.age);
+        console.log(applicant.firstName)
+        console.log(applicant.address);
+        if (applicant.age == 59) {
+          res.redirect('Error-2');
+        } else {
+         res.redirect('pharmacy-answers');
+        }
+
+
 });
 
 //Check your answers
