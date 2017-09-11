@@ -134,17 +134,17 @@
                 <p class="form-hint">For example, 31 03 1980</p>
                 <div class="form-group form-group-day">
                   <label for="startday">Day</label>
-                  <input class="form-control" id="startday" name="startday" type="number" pattern="[0-9]*" value="startday" min="0" max="31" required>
+                  <input class="form-control" id="startday" name="startday" type="number" pattern="[0-9]*" value="{{startday}}" min="0" max="31" required>
                 </div>
 
                 <div class="form-group form-group-month">
                   <label for="startmonth">Month</label>
-                  <input class="form-control" id="startmonth" name="startmonth" type="number" pattern="[0-9]*" value="startmonth" min="0" max="12" required>
+                  <input class="form-control" id="startmonth" name="startmonth" type="number" pattern="[0-9]*" value="{{startmonth}}" min="0" max="12" required>
                 </div>
 
                 <div class="form-group form-group-year">
                   <label for="startyear">Year</label>
-                  <input class="form-control" id="startyear" name="startyear" type="number" pattern="[0-9]*" value="startyear" min="0"  required>
+                  <input class="form-control" id="startyear" name="startyear" type="number" pattern="[0-9]*" value="{{startyear}}" min="0"  required>
                 </div>
               </div>
             </fieldset>
@@ -157,15 +157,15 @@
                 <p class="form-hint">For example, 31 03 1980</p>
                 <div class="form-group form-group-day">
                   <label for="soldday">Day</label>
-                  <input class="form-control" id="soldday" name="soldday" type="number"  value="daysold" pattern="[0-9]*" min="0" max="31" required>
+                  <input class="form-control" id="soldday" name="soldday" type="number"  value="{{daysold}}" pattern="[0-9]*" min="0" max="31" required>
                 </div>
                 <div class="form-group form-group-month">
                   <label for="soldmonth">Month</label>
-                  <input class="form-control" id="soldmonth" name="soldmonth" type="number" value="monthsold" pattern="[0-9]*" min="0" max="12" required>
+                  <input class="form-control" id="soldmonth" name="soldmonth" type="number" value="{{monthsold}}" pattern="[0-9]*" min="0" max="12" required>
                 </div>
                 <div class="form-group form-group-year">
                   <label for="soldyear">Year</label>
-                  <input class="form-control" id="soldyear" name="soldyear" type="number"  value="yearsold" pattern="[0-9]*" min="0" required>
+                  <input class="form-control" id="soldyear" name="soldyear" type="number"  value="{{yearsold}}" pattern="[0-9]*" min="0" required>
                 </div>
               </div>
 

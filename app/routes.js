@@ -1103,6 +1103,7 @@ router.get(/prepayment-complete/, function (req, res) {
     contacttext : textHelper.contactText,
     duration : textHelper.length,
     name : applicant.fullName,
+    cost : textHelper.cost,
     startdate : ppc.startDate,
     enddate : ppc.endDate,
     reminder : dateHelper.monthToText(ppc.endMonth -1) + ppc.endYear,
