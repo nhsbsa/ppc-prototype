@@ -1034,6 +1034,7 @@ router.get(/handler-pharmacy/, function (req, res) {
          ppc.yearsold = req.query.soldyear;
        }
        ppc.startDate = dateHelper.dateStringCreator(ppc.startDay, ppc.startMonth, ppc.startYear);
+       ppc.endDate = dateHelper.createEnd(ppc.startDate, ppc.startMonth, ppc.startYear, ppc.duration);
        console.log("ppc.startDate = " + ppc.startDate);
        applicant.postCode = req.query.postcode;
        applicant.addresslineone = req.query.lineone;
@@ -1110,5 +1111,7 @@ router.get(/prepayment-complete/, function (req, res) {
     remindertext : textHelper.reminderText,
     dd : ppc.duration,
     method : textHelper.method,
+
   });
+
 });
