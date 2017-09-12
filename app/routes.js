@@ -68,6 +68,7 @@ textHelper.length = "12 months";
 textHelper.format = "account";
 textHelper.reminderText  = " ";
 textHelper.neitherText = " ";
+textHelper.error60 = " ";
 textHelper.contactText = "You should make a note of the following:";
 textHelper.method = "a letter";
 
