@@ -23,6 +23,7 @@ ppc.startDay = null;
 ppc.startMonth = null;
 ppc.startYear = null;
 ppc.startDate = '29 June 2017';
+ppc.dateSold = null;
 ppc.endDay = null;
 ppc.endYear = null;
 ppc.endMonth = dateHelper.today.getMonth();
@@ -1034,6 +1035,7 @@ router.get(/handler-pharmacy/, function (req, res) {
          ppc.yearsold = req.query.soldyear;
        }
        ppc.startDate = dateHelper.dateStringCreator(ppc.startDay, ppc.startMonth, ppc.startYear);
+       ppc.dateSold = dateHelper.dateStringCreator(ppc.daysold, ppc.monthsold, ppc.yearsold);
        ppc.endDate = dateHelper.createEnd(ppc.startDate, ppc.startMonth, ppc.startYear, ppc.duration);
        console.log("ppc.startDate = " + ppc.startDate);
        applicant.postCode = req.query.postcode;
@@ -1051,14 +1053,6 @@ router.get(/handler-pharmacy/, function (req, res) {
           tempAddress = tempAddress + " " + req.query.postcode;
         }
         applicant.address = tempAddress;
-        console.log(applicant.address);
-        console.log(applicant.age);
-        console.log(applicant.fullName)
-        console.log(applicant.dodMonth)
-        console.log(ppc.duration)
-        console.log(ppc.startDay)
-        console.log(ppc.startMonth)
-        console.log(ppc.startYear)
 
         if (applicant.age == 59) {
           res.redirect('Error-2');
@@ -1094,7 +1088,8 @@ router.get(/pharmacy-answers/, function (req, res) {
   firstdddate : dateHelper.firstPaymentDate,
   lastdddate : dateHelper.lastPaymentDate,
   hasnhsno : applicant.hasNhsno,
-  nhsno : applicant.nhsno
+  nhsno : applicant.nhsno,
+  datesold : ppc.dateSold
   });
 });
 
