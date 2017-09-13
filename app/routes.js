@@ -1107,7 +1107,5 @@ router.get(/prepayment-complete/, function (req, res) {
     remindertext : textHelper.reminderText,
     dd : ppc.duration,
     method : textHelper.method,
-
   });
-
 });
