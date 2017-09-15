@@ -509,7 +509,7 @@ router.get(/done-v3/, function (req, res) {
   if (applicant.hasMobile == false && applicant.hasEmail == false) {
      textHelper.reminderText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
   } else {
-      textHelper.reminderText  = 'We will write to you again in August to remind you when your prepayment will end.'
+      textHelper.reminderText  = 'We will send you a reminder in September when your prepayment is due to end.'
   }
 
   res.render('ppc/done-v3', {
