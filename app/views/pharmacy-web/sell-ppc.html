@@ -11,7 +11,7 @@
 
 <div class="grid-row">
   <div class="column-two-thirds">
-    <h1 class="heading-large">Provide us with your customer's prepayment information</h1>
+    <h1 class="heading-large">Customer's prepayment information</h1>
     <p>To sell a prescription prepayment to your customer, fill in the form.</p>
 
     <form action="handler-pharmacy">
@@ -50,31 +50,13 @@
                  <label class="form-label" for="lastname">Last name</label>
                  <input class="form-control" id="lastname" name="lastname" type="text" value="{{lastname}}">
               </div>
-              <fieldset class="form-group">
-               <label class="form-label" for="last-name">Date of birth</label>
-                <legend class="visuallyhidden">Date of birth</legend>
-
-                <div class="form-date">
-
-                  <p class="form-hint">For example, 31 03 1980</p>
-                  <div class="form-group form-group-day">
-                    <label for="day">Day</label>
-                    <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" min="0" max="31" value="{{dobday}}" required>
-                  </div>
-
-                  <div class="form-group form-group-month">
-                    <label for="month">Month</label>
-                    <input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" min="0" max="12" value="{{dobmonth}}" required>
-                  </div>
-
-                  <div class="form-group form-group-year">
-                    <label for="year">Year</label>
-                    <input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" min="0" max="2014" value="{{dobyear}}" required>
-                  </div>
-
-                </div>
-
-              </fieldset>
+              <div class="form-group">
+              <label class="form-label" for="dob">
+                  Date of birth
+                </label>
+                <span class="form-hint">For example 01/01/1980</span>
+                <input class="form-control short" name="dob" id="dob" type="text">
+            </div>
               <div class="form-group">
                  <label class="form-label" for="hasnhsno">NHS number (Optional)</label>
                  <input class="form-control" id="hasnhsno" name='nhsno' type="text" value="{{nhsno}}">
@@ -126,51 +108,22 @@
                 </div>
             </fieldset>
             <fieldset class="form-group">
-             <label class="form-label" for="last-name">Start date</label>
-              <legend class="visuallyhidden">Start dates</legend>
-
-              <div class="form-date">
-
-                <p class="form-hint">For example, 13 09 2017</p>
-                <div class="form-group form-group-day">
-                  <label for="startday">Day</label>
-                  <input class="form-control" id="startday" name="startday" type="number" pattern="[0-9]*" value="{{startday}}" min="0" max="31" required>
-                </div>
-
-                <div class="form-group form-group-month">
-                  <label for="startmonth">Month</label>
-                  <input class="form-control" id="startmonth" name="startmonth" type="number" pattern="[0-9]*" value="{{startmonth}}" min="0" max="12" required>
-                </div>
-
-                <div class="form-group form-group-year">
-                  <label for="startyear">Year</label>
-                  <input class="form-control" id="startyear" name="startyear" type="number" pattern="[0-9]*" value="{{startyear}}" min="0"  required>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset class="form-group">
-             <label class="form-label">Date sold</label>
-              <legend class="visuallyhidden">Date sold</legend>
-
-              <div class="form-date">
-
-                <p class="form-hint">For example, 13 09 2017</p>
-                <div class="form-group form-group-day">
-                  <label for="soldday">Day</label>
-                  <input class="form-control" id="soldday" name="soldday" type="number"  value="{{daysold}}" pattern="[0-9]*" min="0" max="31" required>
-                </div>
-                <div class="form-group form-group-month">
-                  <label for="soldmonth">Month</label>
-                  <input class="form-control" id="soldmonth" name="soldmonth" type="number" value="{{monthsold}}" pattern="[0-9]*" min="0" max="12" required>
-                </div>
-                <div class="form-group form-group-year">
-                  <label for="soldyear">Year</label>
-                  <input class="form-control" id="soldyear" name="soldyear" type="number"  value="{{yearsold}}" pattern="[0-9]*" min="0" required>
-                </div>
-              </div>
-
-            </fieldset>
+              <div class="form-group">
+              <label class="form-label" for="startdate">
+                  Start date
+                </label>
+                <span class="form-hint">For example 01/01/2017</span>
+                <input class="form-control short" name="startdate" id="startdate" type="text">
+            </div>
+            <div class="form-group">
+            <label class="form-label" for="startdate">
+                Date sold
+              </label>
+              <span class="form-hint">For example 01/01/2017</span>
+              <input class="form-control short" name="datesold" id="startdate" type="text">
           </div>
+
+
               <input class="button" type="submit" value="Next">
     </form>
   </div>

@@ -171,6 +171,48 @@ router.get(/go-handler/, function (req, res) {
 
 ////// PPC ///////
 
+function dateToString(monthInt) {
+  var monthString;
+  switch (monthInt) {
+    case 1:
+        monthString = "January";
+        break;
+    case 2:
+        monthString = "February";
+        break;
+    case 3:
+        monthString = "March";
+        break;
+    case 4:
+        monthString = "April";
+        break;
+    case 5:
+        monthString = "May";
+        break;
+    case 6:
+        monthString = "June";
+        break;
+    case 7:
+        monthString = "July";
+        break;
+    case 8:
+        monthString = "August";
+        break;
+    case 9:
+        monthString = "September";
+        break;
+    case 10:
+        monthString = "October";
+        break;
+    case 11:
+        monthString = "November";
+        break;
+    case 12:
+        monthString = "December";
+  }
+  return monthString;
+};
+
 
 //DOB
 router.get(/dob/, function (req, res) {
@@ -1011,29 +1053,27 @@ router.get(/handler-pharmacy/, function (req, res) {
      applicant.setFullName();
      applicant.mobile = req.query.mobile;
      ppc.duration = req.query.duration;
-     ppc.startDay = req.query.startday;
-     ppc.startMonth = req.query.startmonth;
-     ppc.startYear = req.query.startyear;
+     console.log (req.query.startdate);
+     ppc.startDay = req.query.startdate.split("/")[0];
+     ppc.startMonth = parseInt(req.query.startdate.split("/")[1]);
+     ppc.startYear = req.query.startdate.split("/")[2];
      textHelper.setPaymentText(ppc.duration);
      applicant.nhsno = req.query.nhsno;
-     if (req.query.day != '') {
-        applicant.dobDay = req.query.day;
-      }
-      if (req.query.month != '') {
-        applicant.dobMonth = req.query.month;
-      }
-      if (req.query.year != '') {
-        applicant.dobYear = req.query.year;
+        applicant.dobDay = req.query.dob;
+        applicant.dobDay = req.query.dob.split("/")[0];
+        applicant.dobMonth = req.query.dob.split("/")[1];
+        applicant.dobYear = req.query.dob.split("/")[2];
         applicant.age = (2016 - applicant.dobYear);
-      }
+        console.log (applicant.age);
+
       if (req.query.soldday != '') {
-         ppc.daysold = req.query.soldday;
+         ppc.daysold = req.query.datesold.split("/")[0];
        }
        if (req.query.soldmonth != '') {
-         ppc.monthsold = req.query.soldmonth;
+         ppc.monthsold = parseInt(req.query.datesold.split("/")[1]);
        }
        if (req.query.soldyear != '') {
-         ppc.yearsold = req.query.soldyear;
+         ppc.yearsold = req.query.datesold.split("/")[2];
        }
        ppc.startDate = dateHelper.dateStringCreator(ppc.startDay, ppc.startMonth, ppc.startYear);
        ppc.dateSold = dateHelper.dateStringCreator(ppc.daysold, ppc.monthsold, ppc.yearsold);
@@ -1077,10 +1117,7 @@ router.get(/pharmacy-answers/, function (req, res) {
   daysold : ppc.daysold,
   monthsold : ppc.monthsold,
   yearsold : ppc.yearsold,
-  hasmobile : boolToText(applicant.hasMobile),
   mobilenumber : applicant.mobile,
-  hasemail :  boolToText(applicant.hasEmail),
-  emailaddress : applicant.email,
   length : textHelper.length,
   startdate : ppc.startDate,
   enddate : ppc.endDate,
