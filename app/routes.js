@@ -42,6 +42,7 @@ applicant.fullName = null ;
 applicant.dobDay = null;
 applicant.dobMonth = null;
 applicant.dobYear = null;
+applicant.dob = null;
 applicant.hasNhsno = null;
 applicant.nhsno = null;
 applicant.postCode = null;
@@ -1016,6 +1017,7 @@ router.get(/sell-ppc/, function (req, res) {
       title : applicant.title,
       firstname : applicant.firstName,
       lastname : applicant.lastName,
+      dob : applicant.dob,
       dobday : applicant.dobDay,
       dobmonth : applicant.dobMonth,
       dobyear : applicant.dobYear,
@@ -1041,7 +1043,27 @@ router.get(/sell-ppc/, function (req, res) {
       firstdddate : dateHelper.firstPaymentDate,
       lastdddate : dateHelper.lastPaymentDate,
       hasnhsno : applicant.hasNhsno,
-      nhsno : applicant.nhsno
+      nhsno : applicant.nhsno,
+      firstname : applicant.firstName,
+      lastname : applicant.lastName,
+      dobday : applicant.dobDay,
+      dobmonth : applicant.dobMonth,
+      dobyear : applicant.dobYear,
+      address : applicant.address,
+      daysold : ppc.daysold,
+      monthsold : ppc.monthsold,
+      yearsold : ppc.yearsold,
+      mobilenumber : applicant.mobile,
+      length : textHelper.length,
+      startdate : ppc.startDate,
+      enddate : ppc.endDate,
+      cost : textHelper.cost,
+      method : textHelper.paymentMethod,
+      firstdddate : dateHelper.firstPaymentDate,
+      lastdddate : dateHelper.lastPaymentDate,
+      hasnhsno : applicant.hasNhsno,
+      nhsno : applicant.nhsno,
+      datesold : ppc.dateSold
   });
 });
 
@@ -1059,7 +1081,7 @@ router.get(/handler-pharmacy/, function (req, res) {
      ppc.startYear = req.query.startdate.split("/")[2];
      textHelper.setPaymentText(ppc.duration);
      applicant.nhsno = req.query.nhsno;
-        applicant.dobDay = req.query.dob;
+        applicant.dob = req.query.dob;
         applicant.dobDay = req.query.dob.split("/")[0];
         applicant.dobMonth = req.query.dob.split("/")[1];
         applicant.dobYear = req.query.dob.split("/")[2];
