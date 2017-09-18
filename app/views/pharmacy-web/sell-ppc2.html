@@ -1,0 +1,134 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h1 class="heading-large">Customer's prepayment information</h1>
+    <p>To sell a prescription prepayment to your customer, fill in the form.</p>
+
+    <form action="2pharmacy">
+              <div class="form-group">
+                <legend class="bold-medium">Personal details</legend>
+              </div>
+
+
+          <div class="form-group">
+            <fieldset class="inline">
+            <label class="form-label" for="title">Title</label>
+              <label class="block-label selection-button-radio" for="radio-inline-mr">
+                <input id="radio-inline-mr" type="radio" name="title" value="Mr">
+                Mr
+              </label>
+              <label class="block-label selection-button-radio" for="radio-inline-mrs">
+                <input id="radio-inline-mrs" type="radio" name="title" value="Mrs">
+                Mrs
+              </label>
+              <label class="block-label selection-button-radio" for="radio-inline-miss">
+                <input id="radio-inline-miss" type="radio" name="title" value="Miss">
+                 Miss
+              </label>
+              <label class="block-label selection-button-radio" for="radio-inline-ms">
+                <input id="radio-inline-ms" type="radio" name="title" value="Ms">
+                 Ms
+              </label>
+            </fieldset>
+          </div>
+
+              <div class="form-group">
+                 <label class="form-label" for="firstname">First name</label>
+                 <input class="form-control" id="firstname" name="firstname" type="text" >
+              </div>
+              <div class="form-group">
+                 <label class="form-label" for="lastname">Last name</label>
+                 <input class="form-control" id="lastname" name="lastname" type="text">
+              </div>
+              <div class="form-group">
+              <label class="form-label" for="dob">
+                  Date of birth
+                </label>
+                <span class="form-hint">For example 01/01/1980</span>
+                <input class="form-control short" name="dob" id="dob" type="text" >
+            </div>
+              <div class="form-group">
+                 <label class="form-label" for="hasnhsno">NHS number (Optional)</label>
+                 <input class="form-control" id="hasnhsno" name='nhsno' type="text" >
+              </div>
+              <div class="form-group">
+                 <label class="form-label" for="mobile">Telephone number (Optional)</label>
+                 <input class="form-control" id="mobile" name="mobile"  type="text">
+              </div>
+              <div class="form-group">
+                 <label class="form-label" for="lineone">Building and street</label>
+                 <input class="form-control" id="lineone" name="lineone" type="text" >
+               </div>
+                   <div class="form-group">
+                   <input class="form-control" id="linetwo" name="linetwo"  type="text">
+              </div>
+              <div class="form-group">
+                 <label class="form-label" for="town">Town or city</label>
+                 <input class="form-control" id="town" name="town"  type="text">
+              </div>
+              <div class="form-group">
+                 <label class="form-label" for="postcode">Postcode</label>
+                 <input class="form-control" id="postcode" name="postcode" type="text">
+              </div>
+
+
+              <div class="form-group">
+                <legend class="bold-medium">Prepayment details</legend>
+              </div>
+              <div class="form-group">
+            <fieldset>
+              <legend>Prepayment duration</legend>
+                <div class="form-item-wrapper">
+                  <div class="multiple-choice">
+                    <input type="radio" id="twelve" value="twelve" name="duration">
+                    <label class="form-control-radio" for="twelve">
+                       12 months
+                      <span class="strong">£104</span>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <div class="multiple-choice">
+                      <input type="radio" id="three" value="three" name="duration">
+                      <label class="form-control-radio" for="three">
+                        3 months
+                        <span class="strong">£29.10</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+              <div class="form-group">
+              <label class="form-label" for="startdate">
+                  Start date
+                </label>
+                <span class="form-hint">For example 01/01/2017</span>
+                <input class="form-control short" name="startdate" id="startdate" type="text" >
+            </div>
+            <div class="form-group">
+            <label class="form-label" for="startdate">
+                Date sold
+              </label>
+              <span class="form-hint">For example 01/01/2017</span>
+              <input class="form-control short" name="datesold" id="startdate" type="text" >
+          </div>
+
+
+          <input class="button" type="submit" value="Next">
+    </form>
+  </div>
+</div>
+
+</main>
+
+{% endblock %}

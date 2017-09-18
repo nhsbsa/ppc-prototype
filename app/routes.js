@@ -115,6 +115,49 @@ var resetAll =  function () {
   card.exDate = '11/16';
   card.holderName = 'Mr Smith';
   card.holderAddress = '3 Street, town';
+  applicant.firstName = '';
+  applicant.lastName = '';
+  applicant.dobDay  = '';
+  applicant.dobMonth  = '';
+  applicant.dobYear  = '';
+  applicant.address  = '';
+  ppc.daysold  = '';
+  ppc.monthsold  = '';
+  ppc.yearsold  = '';
+  applicant.mobile  = '';
+  textHelper.length  = '';
+  ppc.startDate  = '';
+  ppc.endDate  = '';
+  textHelper.cost  = '';
+  textHelper.paymentMethod  = '';
+  dateHelper.firstPaymentDate  = '';
+  datesold : ppc.dateSold  = '';
+  applicant.title  = '';
+  applicant.firstName  = '';
+  applicant.lastName  = '';
+  applicant.dob  = '';
+  applicant.dobDay  = '';
+  applicant.dobMonth  = '';
+  applicant.dobYear  = '';
+  applicant.postCode  = '';
+  applicant.addresslineone  = '';
+  applicant.addresslinetwo  = '';
+  applicant.town  = '';
+  ppc.startDay = '';
+  ppc.startMonth  = '';
+  ppc.startYear  = '';
+  ppc.daysold  = '';
+  ppc.monthsold = '';
+  ppc.yearsold  = '';
+  applicant.mobile  = '';
+  ppc.startDate  = '';
+  ppc.endDate  = '';
+  textHelper.cost  = '';
+  textHelper.paymentMethod  = '';
+  dateHelper.firstPaymentDate  = '';
+  dateHelper.lastPaymentDate  = '';
+  applicant.hasNhsno  = '';
+  applicant.nhsno  = '';
 }
 
 resetAll();
@@ -1067,6 +1110,12 @@ router.get(/sell-ppc/, function (req, res) {
   });
 });
 
+router.get(/sell-ppc2/, function (req, res) {
+    res.render('pharmacy-web/sell-ppc2' , {
+
+  });
+});
+
 router.get(/handler-pharmacy/, function (req, res) {
 
      applicant.firstName = req.query.firstname;
@@ -1126,6 +1175,64 @@ router.get(/handler-pharmacy/, function (req, res) {
 
 });
 
+router.get(/2pharmacy/, function (req, res) {
+
+     applicant.firstName = req.query.firstname;
+     applicant.lastName = req.query.lastname;
+     applicant.title = req.query.title;
+     applicant.setFullName();
+     applicant.mobile = req.query.mobile;
+     ppc.duration = req.query.duration;
+     console.log (req.query.startdate);
+     ppc.startDay = req.query.startdate.split("/")[0];
+     ppc.startMonth = parseInt(req.query.startdate.split("/")[1]);
+     ppc.startYear = req.query.startdate.split("/")[2];
+     textHelper.setPaymentText(ppc.duration);
+     applicant.nhsno = req.query.nhsno;
+        applicant.dob = req.query.dob;
+        applicant.dobDay = req.query.dob.split("/")[0];
+        applicant.dobMonth = req.query.dob.split("/")[1];
+        applicant.dobYear = req.query.dob.split("/")[2];
+        applicant.age = (2016 - applicant.dobYear);
+        console.log (applicant.age);
+
+      if (req.query.soldday != '') {
+         ppc.daysold = req.query.datesold.split("/")[0];
+       }
+       if (req.query.soldmonth != '') {
+         ppc.monthsold = parseInt(req.query.datesold.split("/")[1]);
+       }
+       if (req.query.soldyear != '') {
+         ppc.yearsold = req.query.datesold.split("/")[2];
+       }
+       ppc.startDate = dateHelper.dateStringCreator(ppc.startDay, ppc.startMonth, ppc.startYear);
+       ppc.dateSold = dateHelper.dateStringCreator(ppc.daysold, ppc.monthsold, ppc.yearsold);
+       ppc.endDate = dateHelper.createEnd(ppc.startDate, ppc.startMonth, ppc.startYear, ppc.duration);
+       console.log("ppc.startDate = " + ppc.startDate);
+       applicant.postCode = req.query.postcode;
+       applicant.addresslineone = req.query.lineone;
+       applicant.addresslinetwo = req.query.linetwo;
+       applicant.town = req.query.town;
+        var tempAddress = req.query.lineone;
+        if (req.query.linetwo != '') {
+          tempAddress = tempAddress + " " + req.query.linetwo;
+        }
+        if (req.query.town != '') {
+          tempAddress = tempAddress + " " + req.query.town;
+        }
+        if (req.query.postcode != '') {
+          tempAddress = tempAddress + " " + req.query.postcode;
+        }
+        applicant.address = tempAddress;
+
+        if (applicant.age == 59) {
+          res.redirect('Error-2');
+        } else {
+         res.redirect('pharmacy-answers');
+        }
+
+
+});
 //Check your answers
 router.get(/pharmacy-answers/, function (req, res) {
   res.render('pharmacy-web/pharmacy-answers', {
@@ -1168,3 +1275,9 @@ router.get(/prepayment-complete/, function (req, res) {
     method : textHelper.method,
   });
 });
+
+router.get(/clear/, function (req, res) {
+  resetAll();
+  res.redirect('sell-ppc')
+
+  });
