@@ -188,6 +188,10 @@ router.get('/ppc/index', function (req, res) {
   res.render('ppc/index');
 });
 
+router.get('/privacy', function (req, res) {
+  res.render('/privacy');
+});
+
 //foogle search
 router.get(/go-handler/, function (req, res) {
   var term = req.query.search.toLowerCase();
@@ -565,6 +569,10 @@ router.get(/pay-handler/, function (req, res) {
 
 //pay-handler
 router.get(/c-handler/, function (req, res) {
+    res.redirect('ppcprivacy');
+});
+
+router.get(/privacy-handler/,  function (req, res) {
   console.log(ppc.duration);
   if (ppc.duration === 'dd') {
     res.redirect('ddpay');
@@ -574,12 +582,11 @@ router.get(/c-handler/, function (req, res) {
 });
 
 
-
 //done
 router.get(/done-v3/, function (req, res) {
   console.log(applicant.hasMobile);
   console.log(applicant.hasEmail);
-  if (applicant.hasMobile == false && applicant.hasEmail == false) {
+  if (applicant.hasMobile || applicant.reminderMobile == false && applicant.hasEmail || applicant.reminderEmail == false) {
      textHelper.reminderText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
   } else {
       textHelper.reminderText  = 'We will send you a reminder in September when your prepayment is due to end.'
