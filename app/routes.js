@@ -51,6 +51,8 @@ applicant.addresslinetwo = null;
 applicant.town = null;
 applicant.hasMobile = false;
 applicant.hasEmail = false;
+applicant.reminderEmail = false;
+applicant.reminderEmail = false;
 applicant.mobile = null;
 applicant.contactPref = 'post';
 applicant.contactValue = '3 street, Town, NE1 246';
@@ -432,16 +434,41 @@ router.get(/contact-handler/, function (req, res) {
     console.log("applicant.hasEmail = false");
   }
   if (applicant.hasMobile) {
-    res.redirect('mobile-number');
+    res.redirect('reminder');
   } else if (applicant.hasEmail) {
-    res.redirect('email-address');
+    res.redirect('reminder');
   } else {
-    res.redirect('check');
+    res.redirect('reminder');
   }
 
 });
 
-router.get(/copy/ , function (req, res) {
+router.get(/reminder-handler/, function (req, res) {
+
+  if (req.query.remindertext === 'true') {
+    applicant.reminderMobile = true;
+    console.log("applicant.reminderMobile = true");
+  } else {
+    applicant.reminderMobile = false;
+    console.log("applicant.reminderMobile = false");
+  }
+  if (req.query.reminderemail === 'true') {
+    applicant.reminderEmail = true;
+    console.log("applicant.reminderEmail = true");
+  } else {
+    applicant.reminderEmail = false;
+    console.log("applicant.reminderEmail = false");
+  }
+  if (applicant.reminderMobile || applicant.hasMobile ) {
+    res.redirect('mobile-number');
+  } else if (applicant.reminderEmail || applicant.hasEmail) {
+    res.redirect('email-address');
+   } else {
+    res.redirect('check');
+    }
+});
+
+router.get(/reminder/ , function (req, res) {
        console.log(ppc.duration);
     if (ppc.duration == 'dd') {
        textHelper.neitherText  = 'You will get a postal reminder about the auto-renewal of your prescription prepayment. You will get this a month before your prepayment ends.'
@@ -449,7 +476,7 @@ router.get(/copy/ , function (req, res) {
         textHelper.neitherText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
     }
 
-    res.render('ppc/copy', {
+    res.render('ppc/reminder', {
       neithertext : textHelper.neitherText
     });
   });
@@ -458,7 +485,7 @@ router.get(/copy/ , function (req, res) {
 //Mobile capture
 router.get(/mobile-c-handler/, function (req, res) {
   applicant.mobile = req.query.mobile;
-  if (applicant.hasEmail) {
+  if (applicant.hasEmail || applicant.reminderEmail) {
     res.redirect('email-address');
   } else {
     res.redirect('check');
@@ -493,6 +520,8 @@ router.get(/check/, function (req, res) {
   hasmobile : boolToText(applicant.hasMobile),
   mobilenumber : applicant.mobile,
   hasemail :  boolToText(applicant.hasEmail),
+  reminderEmail :  boolToText(applicant.reminderEmail),
+  reminderMobile :  boolToText(applicant.reminderMobile),
   emailaddress : applicant.email,
   length : textHelper.length,
   startdate : ppc.startDate,
