@@ -586,10 +586,10 @@ router.get(/privacy-handler/,  function (req, res) {
 router.get(/done-v3/, function (req, res) {
   console.log(applicant.hasMobile);
   console.log(applicant.hasEmail);
-  if (applicant.hasMobile || applicant.reminderMobile == false && applicant.hasEmail || applicant.reminderEmail == false) {
+  if (applicant.hasMobile == false || applicant.reminderMobile == false && applicant.hasEmail == false || applicant.reminderEmail == false) {
      textHelper.reminderText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
   } else {
-      textHelper.reminderText  = 'We will send you a reminder in September when your prepayment is due to end.'
+      textHelper.reminderText  = 'We will send you a reminder when your prepayment is due to end.'
   }
 
   res.render('ppc/done-v3', {
