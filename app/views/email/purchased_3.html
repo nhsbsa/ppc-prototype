@@ -1,0 +1,49 @@
+{% extends "layout_bsa.html" %}
+
+{% block page_title %}
+  Prepay for NHS prescriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" class="email" role="main">
+
+  <div class="grid-row">
+
+    <div class="column-full">
+
+      <div class="heading-group">
+
+        <h1 class="heading-large">You prepaid for NHS prescriptions</h1>
+
+      </div>
+
+    </div>
+
+    <div class="column-two-thirds">
+
+      <div class="text">
+
+        <p>Hello Jane Doe,<br>
+        <p>Thank you for using the NHS online service. You have prepaid for prescriptions for 3/12 months by credit/debit card or Direct Debit
+        <div class="info-table">
+          <h2 class="heading-medium">Prepayment details</h2>
+          <p>Starts: <span class="strong">15 March 2017</span></p>
+          <p>Ends: <span class="strong">14 June 2017</span></p>
+          <p>Prepayment number: <span class="strong">869 467 589</span></p>
+        </div>
+        <p>You can show pharmacies this text if they ask for evidence of your prepayment. We do not send out plastic cards any more.  </p>
+        <h2 class="heading-medium">Tell us if something changes</h2>
+        <p>Tell us if your name or address changes, so they match the details on your prescriptions. Go to <a href="https://ppc-prototype.herokuapp.com/return/return_start">https://ppc-prototype.herokuapp.com/return/return_start</a> to keep your details up to date.</p>
+        <h2 class="heading-medium">Opt out of receiving emails</h2>
+        <p>Visit <a href="http://bit.ly/2jPn3B1">http://bit.ly/2jPn3B1</a> to opt out of receiving emails.</p>
+        <p>NHS Business Services Authority</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}
