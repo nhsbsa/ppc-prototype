@@ -569,18 +569,25 @@ router.get(/pay-handler/, function (req, res) {
 
 //pay-handler
 router.get(/c-handler/, function (req, res) {
+  if (ppc.duration === 'dd') {
+    res.redirect('ddpay');
+  } else {
     res.redirect('ppcprivacy');
+  }
 });
 
 router.get(/privacy-handler/,  function (req, res) {
   console.log(ppc.duration);
   if (ppc.duration === 'dd') {
-    res.redirect('ddpay');
+    res.redirect('dddec');
   } else {
     res.redirect('payment-details');
   }
 });
 
+router.get(/dddec/,  function (req, res) {
+  res.render('ppc/dddec')
+});
 
 //done
 router.get(/done-v3/, function (req, res) {
@@ -678,9 +685,13 @@ router.get(/ddv2-confirm/, function (req, res) {
     startdate : ppc.startDate,
     enddate : ppc.endDate,
     autorenew : boolToText(ppc.autoRenew)
+
   });
 });
 
+router.get(/dd-dec/, function (req, res) {
+  res.redirect('ppcprivacy')
+});
 //confirm card details
 router.get(/cp-confirm/, function (req, res) {
   res.render('ppc/cp-confirm', {
