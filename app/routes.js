@@ -1247,7 +1247,7 @@ router.get(/prepayment-complete/, function (req, res) {
 
 router.get(/clear/, function (req, res) {
   resetAll();
-  res.redirect('sell-ppc')
+  res.redirect('sell-prepayment')
 
   });
 
