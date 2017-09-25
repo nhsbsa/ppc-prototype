@@ -566,7 +566,7 @@ router.get(/privacy-handler/,  function (req, res) {
 });
 
 router.get(/dddec/,  function (req, res) {
-  res.render('ppc/ dddec')
+  res.render('ppc/dddec')
 });
 
 //done
