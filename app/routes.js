@@ -188,9 +188,7 @@ router.get('/ppc/index', function (req, res) {
   res.render('ppc/index');
 });
 
-router.get('/ppc/privacy', function (req, res) {
-  res.render('ppc/privacy');
-});
+
 
 router.get(/data-clear/, function (req, res) {
       resetAll();
