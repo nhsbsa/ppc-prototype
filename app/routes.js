@@ -188,9 +188,13 @@ router.get('/ppc/index', function (req, res) {
   res.render('ppc/index');
 });
 
-router.get('/privacy', function (req, res) {
-  res.render('/privacy');
+router.get('/ppc/privacy', function (req, res) {
+  res.render('ppc/privacy');
 });
+
+router.get(/data-clear/, function (req, res) {
+      resetAll();
+    });
 
 //foogle search
 router.get(/go-handler/, function (req, res) {
