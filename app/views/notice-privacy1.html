@@ -6,14 +6,13 @@
 
 {% block content %}
 
- <main id="content" role="main">
+<main id="content" role="main">
 
- {% include "includes/phase_banner_beta.html" %}
+   {% include "includes/phase_banner_beta.html" %}
 
   <h1 class="heading-large">Privacy notice</h1>
-   <p>The NHS Business Services Authority will process the information supplied by you.</p>
+  <p>The NHS Business Services Authority will process the information supplied by you.</p>
   <p>This is for the purposes of managing your payment for prescription prepayment.</p>
-
 
   <h2 class="heading-medium">Your personal information</h2>
   <p>We have gained information from you. We will not share this information with other organisations or individuals.</p>
@@ -24,17 +23,35 @@
     <li>your prepayment purchase</li>
     <li>our quality of service to you</li>
   </ul>
-
   <h2 class="heading-medium">Retaining your personal information</h2>
   <p>We will delete your personal data from our systems and files no later than 7 years after you buy prepayment.</p>
   <p>You are required to provide information to us for statutory/contractual reasons.</p>
   <h2 class="heading-medium">Consent</h2>
   <p>You consent to the disclosure of relevant information to the NHSBSA.</p>
+  <h2 class="heading-medium">Matching your information with prescriptions</h2>
+  <p>We match information you give us against your prescriptions. This is so we can check you have a valid prepayment.</p>
+  <p>We follow a step-by-step process for matching.<p>
+  <p>1. We select from all prescriptions that claim exemption under:</p>
+  <ul class="list-bullet">
+    <li>Help with Health Costs</li>
+    <li>DWP Passported Benefits</li>
+  </ul>
+  <p>2. Each exemption category is randomly sampled until we reach the required sample size.</p>
+  <p>3. We weight the sample based on the risk of fraud and error.</p>
+  <p>4. We filter prescriptions out for certain products. Patients with prescriptions for these are exempt from charges on health grounds.</p>
+  <p>5. We filter out addresses where resident exemptions apply, such as prisons and hospitals.</p>
+  <p>6. We filter out specific patients may, for example if they are a member of a vulnerable group.</p>
+  <p>7.  We match the resulting sample to confirm exemptions against the following databases:</p>
+  <ul class="list-bullet">
+    <li>NHS Business Services Authority Help with Help Costs</li>
+    <li>Department of Work and Pensions benefits</li>
+  </ul>
+  <p>8. If we do not find an exemption match, we automatically issue a penalty charge notice.</p>
   <h2 class="heading-medium">Cookies</h2>
   <p>When we provide services to you, we want to make them easy, useful and reliable.</p>
   <p>Where we deliver online services, it involves placing small files on your device. These are cookies</p>
   <p>Most web browsers allow some control of most cookies through the browser settings.</p>
-  <p>To find out more about cookies, visit <a href="">www.allaboutcookies.org</a> </p>
+  <p>To find out more about cookies, visit <a href="#">www.allaboutcookies.org</a> </p>
   <p>It gives you information on how to:</p>
   <ul class="list-bullet">
     <li>see what cookies have been set</li>
@@ -43,8 +60,7 @@
   <p>For the prescription prepayment service, we use the cookie:  JSESSIONID.</p>
   <p>This is essential for the service to work and stays on your device until you close your web browser.</p>
   <p>Further details of the other cookies and analytics used on our websites, visit:</p>
-  <a href="">https://www.nhsbsa.nhs.uk/our-policies/privacy</a>
-
+  <p><a>https://www.nhsbsa.nhs.uk/our-policies/privacy</a></p>
   <h2 class="heading-medium">Google Analytics</h2>
   <p>To opt out of Google Analytics tracking across all websites, visit:</p>
   <a href="">http://tools.google.com/dlpage/gaoptout</a>
@@ -58,31 +74,34 @@
     <li>request deletion of your information if you believe we have it for longer than necessary</li>
   </ul>
   <p>Details of NHSBSA processing appear on our website at:</p>
-<p><a href="">https://www.nhsbsa.nhs.uk/our-policies/data-protection</a></p>
+<p><a href="#">https://www.nhsbsa.nhs.uk/our-policies/data-protection</a></p>
 <p>To make use of these rights, contact the NHSBSA Data Protection Officer:</p>
+<div class="lesspadding">
+<p>Head of Internal Governance </p>
+<p>NHS Business Services Authority </p>
+<p>Stella House </p>
+<p>Goldcrest Way </p>
+<p>Newburn Riverside </p>
+<p>Newcastle upon Tyne </p>
+<p>NE15 8NY </p>
+<p><a >nhsbsa.dataprotection@nhs.net</a></p>
+</div>
+<br>
+<p>If you have concerns about the processing of your information, you have the right to contact the Data Protection Regulator:</p>
+<div class="lesspadding">
+<p>Information Commissioner’s Office</p>
+<p>Wycliffe House </p>
+<p>Water Lane </p>
+<p>Winlmslow </p>
+<p>Cheshire</p>
+<p>SK9 5AF</p>
+<p><a >https://ico.org.uk/global/contact-us/email/</a></p>
+<p><a >https://ico.org.uk/</a></p>
+
+</div>
 
 
-  <div class="lesspadding">
-  <p>Head of Internal Governance </p>
-  <p>NHS Business Services Authority </p>
-  <p>Stella House </p>
-  <p>Goldcrest Way </p>
-  <p>Newburn Riverside </p>
-  <p>Newcastle upon Tyne </p>
-  <p>NE15 8NY </p>
-  <p><a href="">nhsbsa.dataprotection@nhs.net</a></p>
-  </div>
-     <p>If you have concerns about the processing of your information, you have the right to contact the Data Protection Regulator:</p>
-     <div class="lesspadding">
-     <p>Information Commissioner’s Office</p>
-     <p>Wycliffe House </p>
-     <p>Water Lane </p>
-     <p>WILMSLOW </p>
-     <p>CHESHIRE </p>
-     <p>SK9 5AF </p>
-     </div>
-     <p><a href="">https://ico.org.uk/global/contact-us/email/</a></p>
-     <p><a href="">https://ico.org.uk/</a> </p>
+
 
 </main>
 
