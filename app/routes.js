@@ -430,6 +430,30 @@ router.get(/contact-handler/, function (req, res) {
 });
 
 router.get(/reminder-handler/, function (req, res) {
+   if  (req.query.wantreminder === 'Yes') {
+     if  (applicant.hasMobile ) {
+        res.redirect('mobile-number');
+      } else if (applicant.hasEmail) {
+       res.redirect('email-address');
+     } else {
+       res.redirect('check');
+     }
+   } else {
+       res.redirect('choosereminder');
+   }
+});
+router.get(/choosereminder/,  function (req, res) {
+    res.render('ppc/choosereminder')
+    console.log(ppc.duration);
+    if (ppc.duration == 'dd') {
+      textHelper.neitherText  = 'You will get a postal reminder about the auto-renewal of your prescription prepayment. You will get this a month before your prepayment ends.'
+    } else {
+       textHelper.neitherText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
+    }
+      neithertext : textHelper.neitherText
+  });
+
+router.get(/wantreminder/, function (req, res) {
 
   if (req.query.remindertext === 'true') {
     applicant.reminderMobile = true;
@@ -453,6 +477,8 @@ router.get(/reminder-handler/, function (req, res) {
     res.redirect('check');
     }
 });
+
+
 
 router.get(/reminder/ , function (req, res) {
        console.log(ppc.duration);

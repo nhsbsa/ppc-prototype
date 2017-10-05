@@ -16,35 +16,24 @@
       <div class="heading-group">
         <p>Prepay for NHS prescriptions</p>
         <h1 class="heading-large">
-          Do you want a reminder sent by text and email?
+          Would you like a reminder sent to you the same way?
         </h1>
       </div>
 
-      <p>We can send you a reminder by text and email just before your prepayment ends.
+      <p>We can send you a reminder by text and email just before your prepayment ends.</p>
 
 
       <form class="form" action="reminder-handler" id="contact-boxes">
-        <fieldset class="form-group">
-          <legend class="visually-hidden">
-            Get a copy of your prepayment details sent by text message and email
-          </legend>
-          <div class="multiple-choice multiple-radio">
-            <input id="text" name="remindertext" type="checkbox" value="true">
-            <label for="text">Get text message</label>
+        <div class="form-group inline">
+           <div class="multiple-choice" style="margin-top:0px;">
+             <input id="radio-inline-1" type="radio" name="wantreminder" value="Yes">
+             <label for="radio-inline-1">Yes</label>
+           </div>
+           <div class="multiple-choice">
+             <input id="radio-inline-2" type="radio" name="wantreminder" value="No">
+             <label for="radio-inline-2">No</label>
+           </div>
           </div>
-          <div class="multiple-choice multiple-radio">
-            <input id="email" name="reminderemail" type="checkbox" value="true">
-            <label for="email">Get email</label>
-          </div>
-          <div class="multiple-choice multiple-radio" data-target="neither">
-            <input id="post" name="post" type="checkbox" value="true">
-            <label for="post">Get neither</label>
-          </div>
-          <div class="panel panel-border-narrow js-hidden" id="neither">
-            <!-- <p>You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.</p> -->
-            <p>{{neithertext}}</p>
-          </div>
-        </fieldset>
 
 
 
