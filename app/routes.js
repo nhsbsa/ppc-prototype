@@ -84,10 +84,10 @@ module.exports = router;
 
 //card details
 var card = {
-  cardNumber : '************7470',
+  cardNumber : '************1121',
   exMonth : 11,
   exYear : 16,
-  exDate : '11/16',
+  exDate : '01/2020',
   holderName : 'Mr Smith',
   holderAddress : '3 Street, town',
   holderPostCode : 'NE2 468',
@@ -111,10 +111,10 @@ var resetAll =  function () {
   applicant.renewing = false;
   ppc.duration = null;
   //card reset
-  card.cardNumber = '************7470';
+  card.cardNumber = '************1121';
   card.exMonth = 11;
   card.exYear = 16;
-  card.exDate = '11/16';
+  card.exDate = '01/2020';
   card.holderName = 'Mr Smith';
   card.holderAddress = '3 Street, town';
   applicant.firstName = '';
