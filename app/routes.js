@@ -424,7 +424,7 @@ router.get(/contact-handler/, function (req, res) {
   } else if (applicant.hasEmail) {
     res.redirect('reminder');
   } else {
-    res.redirect('reminder');
+    res.redirect('choosereminder');
   }
 
 });
