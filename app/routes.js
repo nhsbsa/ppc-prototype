@@ -431,17 +431,24 @@ router.get(/contact-handler/, function (req, res) {
 
 router.get(/reminder-handler/, function (req, res) {
    if  (req.query.wantreminder === 'Yes') {
-     if  (applicant.hasMobile ) {
-        res.redirect('mobile-number');
-      } else if (applicant.hasEmail) {
-       res.redirect('email-address');
-     } else {
-       res.redirect('check');
-     }
+      if (applicant.hasMobile == true) {
+         applicant.reminderMobile = true;
+      } else if (applicant.hasEmail == true)
+       applicant.reminderEmail = true;
+
+         if  (applicant.hasMobile || applicant.reminderMobile ) {
+                res.redirect('mobile-number');
+              } else if (applicant.hasEmail || applicant.reminderemail) {
+               res.redirect('email-address');
+             } else {
+               res.redirect('check');
+             }
    } else {
        res.redirect('choosereminder');
    }
 });
+
+
 router.get(/choosereminder/,  function (req, res) {
     res.render('ppc/choosereminder')
     console.log(ppc.duration);
