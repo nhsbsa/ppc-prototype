@@ -810,10 +810,9 @@ router.get(/cont-handler/, function (req, res) {
   } else if (applicant.hasEmail && applicant.email == null) {
        res.redirect('can-you-give-email');
   } else if (applicant.hasEmail) {
-       res.redirect('your-mobile');
+       res.redirect('your-email');
   } else {
         res.redirect('done-change');
-
 }
 
 });
