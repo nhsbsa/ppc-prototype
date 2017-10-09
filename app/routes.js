@@ -451,13 +451,13 @@ router.get(/reminder-handler/, function (req, res) {
 
 router.get(/choosereminder/,  function (req, res) {
     res.render('ppc/choosereminder')
+    neithertext : textHelper.neitherText
     console.log(ppc.duration);
     if (ppc.duration == 'dd') {
       textHelper.neitherText  = 'You will get a postal reminder about the auto-renewal of your prescription prepayment. You will get this a month before your prepayment ends.'
     } else {
        textHelper.neitherText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
     }
-      neithertext : textHelper.neitherText
   });
 
 router.get(/wantreminder/, function (req, res) {
@@ -487,18 +487,6 @@ router.get(/wantreminder/, function (req, res) {
 
 
 
-router.get(/reminder/ , function (req, res) {
-       console.log(ppc.duration);
-    if (ppc.duration == 'dd') {
-       textHelper.neitherText  = 'You will get a postal reminder about the auto-renewal of your prescription prepayment. You will get this a month before your prepayment ends.'
-    } else {
-        textHelper.neitherText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
-    }
-
-    res.render('ppc/reminder', {
-      neithertext : textHelper.neitherText
-    });
-  });
 
 
 //Mobile capture
