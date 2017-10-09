@@ -460,7 +460,7 @@ router.get(/choosereminder/,  function (req, res) {
     }
   });
 
-  
+
 
 router.get(/wantreminder/, function (req, res) {
 
