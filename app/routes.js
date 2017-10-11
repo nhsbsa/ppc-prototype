@@ -336,7 +336,10 @@ router.get(/address-c-handler/, function (req, res) {
   applicant.address = tempAddress;
   console.log(applicant.address);
   textHelper.setContactText(applicant.contactPref, applicant.contactValue);
-  if (applicant.check() === true) {
+  if (req.query.postcode === 'TS18 5LA') {
+    res.redirect('already-ppc');
+  }
+  else if (applicant.check() === true) {
     res.redirect('nhsno');
   } else {
     res.redirect('nhsno');
