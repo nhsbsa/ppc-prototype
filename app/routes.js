@@ -762,10 +762,18 @@ router.get(/name-handler/, function (req, res) {
 //postcode
 router.get(/return_postcode/, function (req, res) {
   res.render('return/return_postcode');
+  // // if (req.query.postcode === 'TS18 5LA') {
+  // //   res.redirect('ppcexpired')
+  // // } else {
+  // // res.redirect('return-view')
+  //   }
+
+
 });
 
 //return-view
 router.get(/return-handler/, function (req, res) {
+
   if (applicant.hasMobile == true && applicant.hasEmail == true) {
     textHelper.reminderText  = 'We will write to you again in August to remind you when your prepayment will end.'
   } else {
