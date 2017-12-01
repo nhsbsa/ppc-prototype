@@ -664,10 +664,14 @@ router.get(/name-handler/, function (req, res) {
 //postcode
 router.get(/return_postcode/, function (req, res) {
   res.render('return/return_postcode');
+
+
+
 });
 
 //return-view
 router.get(/return-handler/, function (req, res) {
+
   if (applicant.hasMobile == true && applicant.hasEmail == true) {
     textHelper.reminderText  = 'We will write to you again in August to remind you when your prepayment will end.'
   } else {
@@ -781,6 +785,7 @@ router.get(/your-email/, function (req, res) {
     email : applicant.email,
   });
 });
+
 router.get(/we-need-to-change/, function (req, res) {
   if (applicant.hasMobile) {
     res.redirect('number-need-to-change');
