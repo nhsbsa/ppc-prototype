@@ -108,9 +108,8 @@ $nhs-blue: #005EB8;
 .options-list {
   li {
     width :100%;
-    &:first-child {
-      margin-bottom: 20px;
-    }
+    margin-bottom: 20px;
+
   }
 }
 
@@ -121,6 +120,13 @@ $nhs-blue: #005EB8;
 
 .download-icon {
   background-image: url("/public/images/bsa/download-2x.svg");
+  padding-left: 37px;
+  margin-left: 3px;
+}
+
+
+.mobile-icon {
+  background-image: url("/public/images/bsa/mobile-2x.svg");
   padding-left: 37px;
   margin-left: 3px;
 }
@@ -460,13 +466,7 @@ table {
   color: white;
 }
 
-.blue-box {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  border: 8px solid #005EB8;
-  font-weight: bold;
-  padding: 20px;
-}
+
 
 .icon-white-important {
     background-image: url(/public/images/icon-white-important.png);
@@ -476,15 +476,6 @@ table {
 }
 
 
-.nextoblue {
-  padding-top: 190px;
-}
-
-@media screen and (max-width: 480px) {
-  .nextoblue {
-    padding-top: 0px;
-  }
-}
 
 .link {
       background:none!important;
@@ -517,4 +508,41 @@ table {
 
 .lesspadding p {
   margin-bottom: 3px;
+}
+
+.example {
+  position: relative;
+  overflow: hidden;
+background-color: #F8F8F8;
+margin-right: 2%;
+border: 10px solid #dee0e2;
+  margin-bottom: 0.78947em;
+  margin-top: 15px;
+  padding-top: 30px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px; }
+  .info-table {
+  span {
+    float: right;
+    width: 60%;
+  }
+}
+
+
+.blue-box {
+  position: relative;
+  overflow: hidden;
+  margin-right: 2%;
+  border: 8px solid #005EB8;
+  margin-bottom: 0.78947em;
+  margin-top: 15px;
+  padding-top: 30px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  padding: 20px 7px 20px 7px;
 }

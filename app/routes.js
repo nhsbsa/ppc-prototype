@@ -51,8 +51,6 @@ applicant.addresslinetwo = null;
 applicant.town = null;
 applicant.hasMobile = false;
 applicant.hasEmail = false;
-applicant.reminderEmail = false;
-applicant.reminderEmail = false;
 applicant.mobile = null;
 applicant.contactPref = 'post';
 applicant.contactValue = '3 street, Town, NE1 246';
@@ -84,10 +82,10 @@ module.exports = router;
 
 //card details
 var card = {
-  cardNumber : '************1121',
+  cardNumber : '************7470',
   exMonth : 11,
   exYear : 16,
-  exDate : '01/2020',
+  exDate : '11/16',
   holderName : 'Mr Smith',
   holderAddress : '3 Street, town',
   holderPostCode : 'NE2 468',
@@ -111,55 +109,12 @@ var resetAll =  function () {
   applicant.renewing = false;
   ppc.duration = null;
   //card reset
-  card.cardNumber = '************1121';
+  card.cardNumber = '************7470';
   card.exMonth = 11;
   card.exYear = 16;
-  card.exDate = '01/2020';
+  card.exDate = '11/16';
   card.holderName = 'Mr Smith';
   card.holderAddress = '3 Street, town';
-  applicant.firstName = '';
-  applicant.lastName = '';
-  applicant.dobDay  = '';
-  applicant.dobMonth  = '';
-  applicant.dobYear  = '';
-  applicant.address  = '';
-  ppc.daysold  = '';
-  ppc.monthsold  = '';
-  ppc.yearsold  = '';
-  applicant.mobile  = '';
-  textHelper.length  = '';
-  ppc.startDate  = '';
-  ppc.endDate  = '';
-  textHelper.cost  = '';
-  textHelper.paymentMethod  = '';
-  dateHelper.firstPaymentDate  = '';
-  datesold : ppc.dateSold  = '';
-  applicant.title  = '';
-  applicant.firstName  = '';
-  applicant.lastName  = '';
-  applicant.dob  = '';
-  applicant.dobDay  = '';
-  applicant.dobMonth  = '';
-  applicant.dobYear  = '';
-  applicant.postCode  = '';
-  applicant.addresslineone  = '';
-  applicant.addresslinetwo  = '';
-  applicant.town  = '';
-  ppc.startDay = '';
-  ppc.startMonth  = '';
-  ppc.startYear  = '';
-  ppc.daysold  = '';
-  ppc.monthsold = '';
-  ppc.yearsold  = '';
-  applicant.mobile  = '';
-  ppc.startDate  = '';
-  ppc.endDate  = '';
-  textHelper.cost  = '';
-  textHelper.paymentMethod  = '';
-  dateHelper.firstPaymentDate  = '';
-  dateHelper.lastPaymentDate  = '';
-  applicant.hasNhsno  = '';
-  applicant.nhsno  = '';
 }
 
 resetAll();
@@ -187,12 +142,6 @@ router.get('/ppc/index', function (req, res) {
   resetAll();
   res.render('ppc/index');
 });
-
-
-
-router.get(/data-clear/, function (req, res) {
-      resetAll();
-    });
 
 //foogle search
 router.get(/go-handler/, function (req, res) {
@@ -294,6 +243,13 @@ router.get(/birth-handler/, function (req, res) {
   } else {
    res.redirect('name');
   }
+//      if (applicant.age === 59) {
+//        res.redirect('../59');
+//      } else if (applicant.age >= 60) {
+//        res.redirect('../60');
+//      } else {
+//        res.redirect('../name');
+//      }
 });
 
 //Name
@@ -336,10 +292,7 @@ router.get(/address-c-handler/, function (req, res) {
   applicant.address = tempAddress;
   console.log(applicant.address);
   textHelper.setContactText(applicant.contactPref, applicant.contactValue);
-  if (req.query.postcode === 'TS18 5LA') {
-    res.redirect('already-ppc');
-  }
-  else if (applicant.check() === true) {
+  if (applicant.check() === true) {
     res.redirect('nhsno');
   } else {
     res.redirect('nhsno');
@@ -405,6 +358,19 @@ router.get(/cover_date/, function (req, res) {
     res.redirect('copy');
   });
 
+
+////Start date handler
+//  router.get(/start-handler/, function (req, res) {
+//    ppc.startDay = req.query.day;
+//    ppc.startMonth = req.query.month;
+//    ppc.startYear = req.query.year;
+//    ppc.startDate = dateHelper.dateStringCreator(ppc.startDay, ppc.startMonth, ppc.startYear);
+//    ppc.endDate = dateHelper.createEnd(ppc.startDate, ppc.startMonth, ppc.startYear, ppc.duration);
+//    console.log("end date = " + ppc.endDate);
+//    res.redirect('copy');
+//  });
+
+
 //Contact handler
 router.get(/contact-handler/, function (req, res) {
 
@@ -423,81 +389,33 @@ router.get(/contact-handler/, function (req, res) {
     console.log("applicant.hasEmail = false");
   }
   if (applicant.hasMobile) {
-    res.redirect('reminder');
-  } else if (applicant.hasEmail) {
-    res.redirect('reminder');
-  } else {
-    res.redirect('choosereminder');
-  }
-
-});
-
-router.get(/reminder-handler/, function (req, res) {
-   if  (req.query.wantreminder === 'Yes') {
-      if (applicant.hasMobile == true) {
-         applicant.reminderMobile = true;
-      } else if (applicant.hasEmail == true)
-       applicant.reminderEmail = true;
-
-         if  (applicant.hasMobile || applicant.reminderMobile ) {
-                res.redirect('mobile-number');
-              } else if (applicant.hasEmail || applicant.reminderemail) {
-               res.redirect('email-address');
-             } else {
-               res.redirect('check');
-             }
-   } else {
-       res.redirect('choosereminder');
-   }
-});
-
-
-router.get(/choosereminder/,  function (req, res) {
-    res.render('ppc/choosereminder')
-    neithertext : textHelper.neitherText
-    console.log(ppc.duration);
-    if (ppc.duration == 'dd') {
-      textHelper.neitherText  = 'You will get a postal reminder about the auto-renewal of your prescription prepayment. You will get this a month before your prepayment ends.'
-    } else {
-       textHelper.neitherText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
-    }
-  });
-
-
-
-router.get(/wantreminder/, function (req, res) {
-
-  if (req.query.remindertext === 'true') {
-    applicant.reminderMobile = true;
-    console.log("applicant.reminderMobile = true");
-  } else {
-    applicant.reminderMobile = false;
-    console.log("applicant.reminderMobile = false");
-  }
-  if (req.query.reminderemail === 'true') {
-    applicant.reminderEmail = true;
-    console.log("applicant.reminderEmail = true");
-  } else {
-    applicant.reminderEmail = false;
-    console.log("applicant.reminderEmail = false");
-  }
-  if (applicant.reminderMobile || applicant.hasMobile ) {
     res.redirect('mobile-number');
-  } else if (applicant.reminderEmail || applicant.hasEmail) {
+  } else if (applicant.hasEmail) {
     res.redirect('email-address');
-   } else {
+  } else {
     res.redirect('check');
-    }
+  }
+
 });
 
+router.get(/copy/ , function (req, res) {
+       console.log(ppc.duration);
+    if (ppc.duration == 'dd') {
+       textHelper.neitherText  = 'You will get a postal reminder about the auto-renewal of your prescription prepayment. You will get this a month before your prepayment ends.'
+    } else {
+        textHelper.neitherText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
+    }
 
-
+    res.render('ppc/copy', {
+      neithertext : textHelper.neitherText
+    });
+  });
 
 
 //Mobile capture
 router.get(/mobile-c-handler/, function (req, res) {
   applicant.mobile = req.query.mobile;
-  if (applicant.hasEmail || applicant.reminderEmail) {
+  if (applicant.hasEmail) {
     res.redirect('email-address');
   } else {
     res.redirect('check');
@@ -532,8 +450,6 @@ router.get(/check/, function (req, res) {
   hasmobile : boolToText(applicant.hasMobile),
   mobilenumber : applicant.mobile,
   hasemail :  boolToText(applicant.hasEmail),
-  reminderEmail :  boolToText(applicant.reminderEmail),
-  reminderMobile :  boolToText(applicant.reminderMobile),
   emailaddress : applicant.email,
   length : textHelper.length,
   startdate : ppc.startDate,
@@ -577,34 +493,24 @@ router.get(/pay-handler/, function (req, res) {
 
 //pay-handler
 router.get(/c-handler/, function (req, res) {
-  if (ppc.duration === 'dd') {
-    res.redirect('ddpay');
-  } else {
-    res.redirect('ppcprivacy');
-  }
-});
-
-router.get(/privacy-handler/,  function (req, res) {
   console.log(ppc.duration);
   if (ppc.duration === 'dd') {
-    res.redirect('dddec');
+    res.redirect('ddpay');
   } else {
     res.redirect('payment-details');
   }
 });
 
-router.get(/dddec/,  function (req, res) {
-  res.render('ppc/dddec')
-});
+
 
 //done
 router.get(/done-v3/, function (req, res) {
   console.log(applicant.hasMobile);
   console.log(applicant.hasEmail);
-  if (applicant.hasMobile == false || applicant.reminderMobile == false && applicant.hasEmail == false || applicant.reminderEmail == false) {
+  if (applicant.hasMobile == false && applicant.hasEmail == false) {
      textHelper.reminderText  = 'You will not receive a reminder to renew your prescription prepayment. Make a note of your prepayment expiry date.'
   } else {
-      textHelper.reminderText  = 'We will send you a reminder when your prepayment is due to end.'
+      textHelper.reminderText  = 'We will send you a reminder in September when your prepayment is due to end.'
   }
 
   res.render('ppc/done-v3', {
@@ -693,13 +599,9 @@ router.get(/ddv2-confirm/, function (req, res) {
     startdate : ppc.startDate,
     enddate : ppc.endDate,
     autorenew : boolToText(ppc.autoRenew)
-
   });
 });
 
-router.get(/dd-dec/, function (req, res) {
-  res.redirect('ppcprivacy')
-});
 //confirm card details
 router.get(/cp-confirm/, function (req, res) {
   res.render('ppc/cp-confirm', {
@@ -813,9 +715,10 @@ router.get(/cont-handler/, function (req, res) {
   } else if (applicant.hasEmail && applicant.email == null) {
        res.redirect('can-you-give-email');
   } else if (applicant.hasEmail) {
-       res.redirect('your-email');
+       res.redirect('your-mobile');
   } else {
         res.redirect('done-change');
+
 }
 
 });
@@ -1010,6 +913,8 @@ router.get(/change-address/, function (req, res) {
 
 router.get(/new-address-handler/, function (req, res) {
   applicant.postCode = req.query.postcode;
+  //applicant.createAddress(req.query.lineone, req.query.linetwo );
+  // address = LINEONE LINETWO TOWN COUNTY POSTCODE
   var tempAddress = req.query.lineone;
   if (req.query.lineone != '') {
     applicant.addresslineone = req.query.lineone;
@@ -1106,11 +1011,7 @@ router.get(/return-view/, function (req, res) {
   }
 });
 
-//END OF RETURN//
-
 //PHARMACY WEB//
-
-
 router.get(/sell-ppc/, function (req, res) {
     res.render('pharmacy-web/sell-ppc' , {
       title : applicant.title,
@@ -1166,13 +1067,8 @@ router.get(/sell-ppc/, function (req, res) {
   });
 });
 
-router.get(/sell-ppc2/, function (req, res) {
-    res.render('pharmacy-web/sell-ppc2' , {
-
-  });
-});
-
 router.get(/handler-pharmacy/, function (req, res) {
+
      applicant.firstName = req.query.firstname;
      applicant.lastName = req.query.lastname;
      applicant.title = req.query.title;
@@ -1226,8 +1122,9 @@ router.get(/handler-pharmacy/, function (req, res) {
         } else {
          res.redirect('pharmacy-answers');
         }
-});
 
+
+});
 
 //Check your answers
 router.get(/pharmacy-answers/, function (req, res) {
@@ -1256,7 +1153,7 @@ router.get(/pharmacy-answers/, function (req, res) {
   });
 });
 
-
+//done resend with new number
 router.get(/prepayment-complete/, function (req, res) {
   res.render('pharmacy-web/prepayment-complete', {
     contacttext : textHelper.contactText,
@@ -1271,11 +1168,3 @@ router.get(/prepayment-complete/, function (req, res) {
     method : textHelper.method,
   });
 });
-
-router.get(/clear/, function (req, res) {
-  resetAll();
-  res.redirect('sell-prepayment')
-
-  });
-
-  // END PHARMACY WEB//

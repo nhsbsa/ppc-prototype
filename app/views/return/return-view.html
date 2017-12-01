@@ -1,7 +1,7 @@
 {% extends "layout_bsa.html" %}
 
 {% block page_title %}
-  Prepay for NHS prescriptions
+  You have prepaid for NHS prescription
 {% endblock %}
 
 {% block content %}
@@ -14,61 +14,62 @@
   <div class="grid-row">
     <div class="column-two-thirds">
       <div class="text">
-        <div class="heading-group">
-          <p>View an NHS prescription prepayment</p>
-          <h1 class="heading-xlarge">Prepayment details</h1>
-        </div>
 
-          <div id="runout" class="blue-box hidden">
+          <div id="runout" class="blue-box hidden ">
               <span class="visually-hidden">Warning</span>
               <strong class="bold-small">
                 Your NHS prescription prepayment is about to run out. <a href="../ppc/duration">Buy it again</a>.
               </strong>
          </div>
-
+         <div class="example">
+          <h2 class="bold-large">Your NHS Prescription Prepayment Certificate</h2>
+          <br>
         <div class="info-table">
-          <p>Prepayment for: <span class="strong">{{name}}</span></p>
-          <p>Prepayment number: <span class="strong">869 467 589</span></p>
-          <p>Started on: <span class="strong"> {{startdate}}</span></p>
-          <p>Ends on: <span class="strong" id="Edate"> {{enddate}}</span></p>
+              <p>Exempt from paying: <span class="strong">Prescriptions</span></p>
+              <p>Prepayment for: <span class="strong">Jane Doe</span></p>
+              <p>Prepayment number: <span class="strong">869 467 589</span></p>
+              <p>Started on: <span class="strong">{{startdate}}</span></p>
+              <p>Ends on:  <span class="strong">{{enddate}}</span></p>
         </div>
+    </div>
+    <h2 class="heading-large">Collecting prescriptions</h2>
+  <p>Tick box 'F' on the back of your prescription.</p>
 
-        <p>{{remindertext}}</p>
+<p>Pharmacy staff ask for prepayment details. If you do not have them with you, they tick 'Evidence not seen' on the prescription. They will not charge you.</p>
+
+<p>We prevent fraud by matching prepayment details on our database with prescriptions.</p>
+
+</p>
+    <h2 class="heading-medium">Get a copy</h2>
+    <ul class="options-list">
+          <li><a class="icon print-icon" href="javascript:window.print();">Print this</a></li>
+          <li><a class="icon download-icon" href="../public/images/bsa/cert.pdf" target="_blank">Save this (PDF 55k)</a></li>
+          <li><a class="icon mobile-icon" href="to-handler">Send my certificate</a></li>
+        </ul>
+
+
+
 
 
         <hr>
 
-                <h2 class="heading-medium">Change your address or contact details</h2>
+                <h2 class="heading-large">Change your address or contact details</h2>
                 <p>
                 You need to tell us if your personal details change, so you do not get a fine. You can also change or add new contact details.
                 </p>
                 <p>You need to answer two security questions about how you prepay before you can edit your details.</p>
                 <p><a href="../change/securityquestion/howdidyoubuy">Change or add to your details</a></p>
-                 <hr>
+                <!-- <h2 class="heading-large">Opting out or deleting contact preferences</h2>
+                <p>You can request to  <a href="http://bit.ly/2jPn3B1">opt out of receiving texts or emails</a>.</p>
+                <p>You can also request to have your mobile number and email address <a href="http://bit.ly/2jPn3B1">removed from our records</a>.​</p> -->
 
-              </div>
-          </div>
-
-          <div class="column-one-third">
-            <h2 class="heading-medium">Save or print</h2>
-
-            <ul class="options-list">
-              <li><a class="icon print-icon" href="javascript:window.print();">Print this</a></li>
-              <li><a class="icon download-icon" href="../public/images/bsa/cert.pdf" target="_blank">Save this page (PDF 55k)</a></li>
-            </ul>
-            <hr>
-            <h2 class="heading-medium">Send text and email</h2>
-
-            <a href="to-handler">Send my prepayment details by text or email</a>
-
-
-          </div>
-
-    <div class="column-two-thirds">
-          <h2 class="heading-medium">Opting out or deleting contact preferences</h2>
-          <p>You can request to  <a href="http://bit.ly/2jPn3B1">opt out of receiving texts or emails</a>.</p>
-          <p>You can also request to have your mobile number and email address <a href="http://bit.ly/2jPn3B1">removed from our records</a>.​</p>
+              <hr>
+          <h2 class="heading-large">Help to pay other NHS costs</h2>
+          <p>Answer a few more questions to check if you could get <a href="">help to pay other NHS costs</a>.
+        </p>
+        <a href="return_date" class="link-back">Check again</a>
   </div>
+</div>
 
 
 </main>
